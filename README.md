@@ -5,12 +5,12 @@ The project is proposed to develop a compact continuum robotic platform suitable
 <details open>
 <summary>Aim</summary>
 
-The aim of the project is to compact continuum robotic platform for precise manipulation of an *ultrasonic transducer* (`cylindrical`, `dimensions of 65x30 mm`, `weight < 0.8 kg`)
+The aim of the project is to develop a compact continuum robotic platform for precise manipulation of an *ultrasonic transducer* (`cylindrical`, `dimensions of 65x30 mm`, `weight < 0.8 kg`)
 
 </details>
 
 
-<details closed>
+<details open>
 <summary>Features</summary>
 
 The features of the compact continuum manipulator platform are as follow:   
@@ -18,15 +18,15 @@ The features of the compact continuum manipulator platform are as follow:
 
 </details>
 
-<details open>
+<details closed>
 <summary>Objectives</summary>
 
-|No.|Description|Achievement|
-|:--|:--|:--|
-|1|Identify the most suitable design of tendon manipulators for this application|- [ ]|
-|2|Design and simulate the kinetics and kinematics of the platform numerically|- [x]|
-|3|Optimise the design by minimising the dimensions of the platform|- [ ]|
-|4|Propose suitable instrumentation and develop the required controller|- [ ]|
-|5|Open-source project repository, including the codes, simulations and CAD files|- [ ]|
+|Description|Achievement<br>(<input type="checkbox" class="task-list-item-checkbox" checked="true" disabled="disabled"> or <input type="checkbox" class="task-list-item-checkbox" disabled="disabled">)|
+|:--|:--|
+|Identify the most suitable design of tendon manipulators for this application|<input type="checkbox" class="task-list-item-checkbox" disabled="disabled">|
+|Design and simulate the kinetics and kinematics of the platform numerically|<input type="checkbox" class="task-list-item-checkbox" disabled="disabled">|
+|Optimise the design by minimising the dimensions of the platform|<input type="checkbox" class="task-list-item-checkbox" disabled="disabled">|
+|Propose suitable instrumentation and develop the required controller|<input type="checkbox" class="task-list-item-checkbox" disabled="disabled">|
+|Open-source project repository, including the codes, simulations and CAD files|<input type="checkbox" class="task-list-item-checkbox" disabled="disabled">|
 
 </details>
