@@ -21,7 +21,7 @@ The features of the compact continuum manipulator platform are as follow:
 <details open>
 <summary>Objectives</summary>
 
-- [ ]Identify the most suitable design of tendon manipulators for this application,
+- [ ] Identify the most suitable design of tendon manipulators for this application,
 - [ ] Design and simulate the kinetics and kinematics of the platform numerically,
 - [ ] Optimise the design by minimising the dimensions of the platform,
 - [ ] Propose suitable instrumentation and develop the required controller,
