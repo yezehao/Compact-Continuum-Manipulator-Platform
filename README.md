@@ -11,11 +11,11 @@ The aim of the project is to develop a compact continuum robotic platform for pr
 
 
 <details open>
-<summary>Features</summary>
+<summary>Main Features</summary>
 
 The features of the compact continuum manipulator platform are as follow:   
 `compact`, `versatile`, `cost-effective`, `programmable`, `open-source`, `6-DOF`
-
+The product is ideally consist of a *continuous robot*, a *driving system* and a *control system* developed using Arduino.
 </details>
 
 <details open>
