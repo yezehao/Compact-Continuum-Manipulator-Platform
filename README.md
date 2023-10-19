@@ -12,6 +12,7 @@
 |Individual Contirbution|Summative|Individual|Week 28|
 |Presentation 2|Summative|Week 29|
 
+```mermaid
 gantt
     dateFormat  YYYY-MM-DD
     title Deadlines of the MECH0064 Group Project
@@ -27,6 +28,7 @@ gantt
     Peer Assessment 1 [Week 16]: 2023-12-11, 5d
     Peer Assessment 2 [Week 28]: 2024-03-04, 5d
     Individual Contirbution [Week 28]: 2024-03-04, 5d
+```
 
 </details>
 
