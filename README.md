@@ -1,4 +1,35 @@
 # Compact-Continuum-Manipulator-Platform
+## Milestone & Deliverable
+<details open>
+<summary>Deadlines of project</summary>
+
+|Assessment elements|Assessment Type|Contribution|Due Date|
+|:--|:--|:--|:--|
+|Presentation 1|Formative|Team|Week 16|
+|Peer Assessment 1|Formative|Individual|Week 16|
+|Final Report|Summative|Team|Week 28|
+|Peer Assessment 2|Summative|Individual|Week 28|
+|Individual Contirbution|Summative|Individual|Week 28|
+|Presentation 2|Summative|Week 29|
+
+gantt
+    dateFormat  YYYY-MM-DD
+    title Deadlines of the MECH0064 Group Project
+
+    Mataining this Gantt Chart [Zehao Ye] : 2023-10-02, 2024-03-22
+
+    section Team Tasks
+    Presentation 1 [Week 16]: crit, 2023-12-11, 5d    
+    Final Report [Week 28]: crit, 2024-03-04, 5d
+    Second Presentation [Week 29]: crit, 2024-03-11, 5d 
+
+    section Individual Tasks
+    Peer Assessment 1 [Week 16]: 2023-12-11, 5d
+    Peer Assessment 2 [Week 28]: 2024-03-04, 5d
+    Individual Contirbution [Week 28]: 2024-03-04, 5d
+
+</details>
+
 ## Description
 The project is proposed to develop a compact continuum robotic platform suitable for precisely manipulating ultrasonic transducers for laboratory experimental FUS studies. 
 
