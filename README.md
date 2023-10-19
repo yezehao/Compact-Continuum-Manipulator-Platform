@@ -17,7 +17,7 @@ gantt
     dateFormat  YYYY-MM-DD
     title Deadlines of the MECH0064 Group Project
 
-    Mataining this Gantt Chart [Zehao Ye] : 2023-10-02, 2024-03-22
+    Mataining this Gantt Chart [Zehao Ye] : 2023-10-16, 2024-03-22
 
     section Team Tasks
     Presentation 1 [Week 16]: crit, 2023-12-11, 5d    
