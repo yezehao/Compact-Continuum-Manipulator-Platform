@@ -10,7 +10,7 @@
 |Final Report|Summative|Team|Week 28|
 |Peer Assessment 2|Summative|Individual|Week 28|
 |Individual Contirbution|Summative|Individual|Week 28|
-|Presentation 2|Summative|Week 29|
+|Presentation 2|Summative|Team|Week 29|
 
 ```mermaid
 gantt
