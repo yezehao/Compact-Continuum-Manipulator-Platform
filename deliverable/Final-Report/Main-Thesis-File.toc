@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}Question 1. Diode bridge circuit (4\%)}{1}{}%
+\nobreakspace {}\hfill \textbf {Page}\par 
+\contentsline {chapter}{List of Figures}{3}{}%
+\contentsline {chapter}{List of Tables}{4}{}%
+\contentsline {section}{\numberline {2}Question 1. Diode bridge circuit (4\%)}{5}{}%
+\contentsline {subsection}{\numberline {2.1}The circuit diagram from PSCAD}{5}{}%
+\contentsline {subsection}{\numberline {2.2}The instantaneous voltage measurement (5mF)}{5}{}%
+\contentsline {subsection}{\numberline {2.3}The instantaneous voltage measurement (25mF)}{6}{}%
+\contentsline {section}{\numberline {3}Question 2. Equivalent transformer (4\%)}{8}{}%
+\contentsline {subsection}{\numberline {3.1}The circuit diagram from PSCAD}{8}{}%
+\contentsline {subsection}{\numberline {3.2}The measurement across the resistive load}{9}{}%
+\contentsline {subsection}{\numberline {3.3}The measurement across the inductive load}{10}{}%
+\contentsline {subsection}{\numberline {3.4}The measurement across the capacitive load}{11}{}%
+\contentsline {section}{\numberline {4}Question 3. Faulted 3-$\Phi $ network PART 1 (4\%)}{12}{}%
+\contentsline {section}{\numberline {5}Question 4. Faulted 3-$\Phi $ network PART 2 (5\%)}{13}{}%
+\contentsline {section}{\numberline {6}Question 5. Faulted 3-$\Phi $ network PART 3 (8\%)}{14}{}%
+\contentsline {section}{\numberline {7}Question 6. . Faulted Network Analysis (10\%)}{15}{}%
