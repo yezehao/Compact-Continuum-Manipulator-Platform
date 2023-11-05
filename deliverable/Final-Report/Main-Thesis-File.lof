@@ -1,8 +1,0 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces The screen capture of your circuit diagram from PSCAD}}{5}{}%
-\contentsline {figure}{\numberline {2}{\ignorespaces The measured instantaneous voltages with 5mF capacitor}}{5}{}%
-\contentsline {figure}{\numberline {3}{\ignorespaces The measured instantaneous voltages with 25mF capacitor}}{6}{}%
-\contentsline {figure}{\numberline {4}{\ignorespaces The processed instantaneous voltage measurements in MATLAB}}{7}{}%
-\contentsline {figure}{\numberline {5}{\ignorespaces The circuit diagrams of the different loads}}{8}{}%
-\contentsline {figure}{\numberline {6}{\ignorespaces The RMS voltage and power factor about the resistive load }}{9}{}%
-\contentsline {figure}{\numberline {7}{\ignorespaces The RMS voltage and power factor about the inductive load }}{10}{}%
-\contentsline {figure}{\numberline {8}{\ignorespaces The RMS voltage and power factor about the capacitive load }}{11}{}%

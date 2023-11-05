@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.3)  4 NOV 2023 18:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.3)  5 NOV 2023 12:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -571,23 +571,23 @@ Package: ulem 2019/11/18
 )
 \@quotelevel=\count420
 \@quotereset=\count421
- (Main-Thesis-File.aux (Section/Abstract.aux))
+ (Main-Thesis-File.aux)
 \openout1 = `Main-Thesis-File.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -636,8 +636,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Main-Thesis-File.bbl' found.
  (Main-Thesis-File.bbl)
-Package biblatex Info: Reference section=0 on input line 48.
-Package biblatex Info: Reference segment=0 on input line 48.
+Package biblatex Info: Reference section=0 on input line 47.
+Package biblatex Info: Reference segment=0 on input line 47.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -667,153 +667,64 @@ Package grfext Info: Graphics extension search list:
 (grfext)             \AppendGraphicsExtensions on input line 504.
  (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-))
+)) (Section/Cover-Page.tex
 <Image/ucl_logo.png, id=1, 295.1025pt x 84.315pt>
 File: Image/ucl_logo.png Graphic file (type png)
 <use Image/ucl_logo.png>
-Package pdftex.def Info: Image/ucl_logo.png  used on input line 52.
+Package pdftex.def Info: Image/ucl_logo.png  used on input line 5.
 (pdftex.def)             Requested size: 292.77629pt x 83.65219pt.
  [1
 
-{C:/Users/30348/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Image/ucl_logo.png>]
-\openout2 = `Section/Abstract.aux'.
-
- (Section/Abstract.tex) [1
-
-] (Main-Thesis-File.toc)
+{C:/Users/30348/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Image/ucl_logo.png>]) (Section/Abstract.tex [1]) (Section/Contents-List.tex (Main-Thesis-File.toc [2])
 \tf@toc=\write4
 \openout4 = `Main-Thesis-File.toc'.
 
- [2
-
-
-] (Main-Thesis-File.lof)
+ [1] (Main-Thesis-File.lof)
 \tf@lof=\write5
 \openout5 = `Main-Thesis-File.lof'.
 
- [3] (Main-Thesis-File.lot)
+ [2] (Main-Thesis-File.lot)
 \tf@lot=\write6
 \openout6 = `Main-Thesis-File.lot'.
 
- [4]
-<Image/Q1/Q1_circuit.PNG, id=23, 837.1275pt x 280.04625pt>
-File: Image/Q1/Q1_circuit.PNG Graphic file (type png)
-<use Image/Q1/Q1_circuit.PNG>
-Package pdftex.def Info: Image/Q1/Q1_circuit.PNG  used on input line 112.
-(pdftex.def)             Requested size: 376.42575pt x 125.92563pt.
-<Image/Q1/Q1_a2_Vsource.PNG, id=24, 873.2625pt x 435.87843pt>
-File: Image/Q1/Q1_a2_Vsource.PNG Graphic file (type png)
-<use Image/Q1/Q1_a2_Vsource.PNG>
-Package pdftex.def Info: Image/Q1/Q1_a2_Vsource.PNG  used on input line 124.
-(pdftex.def)             Requested size: 292.77629pt x 146.1349pt.
-<Image/Q1/Q1_a2_Vload.PNG, id=25, 874.01532pt x 440.39531pt>
-File: Image/Q1/Q1_a2_Vload.PNG Graphic file (type png)
-<use Image/Q1/Q1_a2_Vload.PNG>
-Package pdftex.def Info: Image/Q1/Q1_a2_Vload.PNG  used on input line 132.
-(pdftex.def)             Requested size: 292.77629pt x 147.52158pt.
-<Image/Q1/Q1_a3_circuit.PNG, id=26, 837.1275pt x 265.74281pt>
-File: Image/Q1/Q1_a3_circuit.PNG Graphic file (type png)
-<use Image/Q1/Q1_a3_circuit.PNG>
-Package pdftex.def Info: Image/Q1/Q1_a3_circuit.PNG  used on input line 147.
-(pdftex.def)             Requested size: 376.42575pt x 119.49394pt.
-<Image/Q1/Q1_a3_Vload.PNG, id=27, 871.00406pt x 435.87843pt>
-File: Image/Q1/Q1_a3_Vload.PNG Graphic file (type png)
-<use Image/Q1/Q1_a3_Vload.PNG>
-Package pdftex.def Info: Image/Q1/Q1_a3_Vload.PNG  used on input line 155.
-(pdftex.def)             Requested size: 292.77629pt x 146.514pt.
- [5 <./Image/Q1/Q1_circuit.PNG> <./Image/Q1/Q1_a2_Vsource.PNG> <./Image/Q1/Q1_a2_Vload.PNG>]
-<Image/Q1/Q1A2Vsource.png, id=37, 421.575pt x 316.0608pt>
-File: Image/Q1/Q1A2Vsource.png Graphic file (type png)
-<use Image/Q1/Q1A2Vsource.png>
-Package pdftex.def Info: Image/Q1/Q1A2Vsource.png  used on input line 175.
-(pdftex.def)             Requested size: 271.86234pt x 203.82147pt.
-<Image/Q1/Q1A2Vload.png, id=38, 421.575pt x 316.0608pt>
-File: Image/Q1/Q1A2Vload.png Graphic file (type png)
-<use Image/Q1/Q1A2Vload.png>
-Package pdftex.def Info: Image/Q1/Q1A2Vload.png  used on input line 183.
-(pdftex.def)             Requested size: 271.86234pt x 203.82147pt.
-<Image/Q1/Q1A3Vload.png, id=39, 421.575pt x 316.0608pt>
-File: Image/Q1/Q1A3Vload.png Graphic file (type png)
-<use Image/Q1/Q1A3Vload.png>
-Package pdftex.def Info: Image/Q1/Q1A3Vload.png  used on input line 191.
-(pdftex.def)             Requested size: 271.86234pt x 203.82147pt.
- [6 <./Image/Q1/Q1_a3_circuit.PNG> <./Image/Q1/Q1_a3_Vload.PNG>]
-Overfull \vbox (8.4813pt too high) has occurred while \output is active []
+ [3]) (Section/Introduction.tex [1]) (Section/Literature-Review.tex [2]) (Section/Design.tex [3]) (Section/Result.tex [4] [5]) (Section/Conclusion.tex [6]) (Appendix/Appendix1.tex [7])
 
- [7 <./Image/Q1/Q1A2Vsource.png (PNG copy)> <./Image/Q1/Q1A2Vload.png (PNG copy)> <./Image/Q1/Q1A3Vload.png (PNG copy)>]
-<Image/Q2/Q2_resistor_circuit.PNG, id=49, 875.52094pt x 228.855pt>
-File: Image/Q2/Q2_resistor_circuit.PNG Graphic file (type png)
-<use Image/Q2/Q2_resistor_circuit.PNG>
-Package pdftex.def Info: Image/Q2/Q2_resistor_circuit.PNG  used on input line 214.
-(pdftex.def)             Requested size: 376.42575pt x 98.39525pt.
-<Image/Q2/Q2_inductor_circuit.PNG, id=50, 883.04906pt x 214.55156pt>
-File: Image/Q2/Q2_inductor_circuit.PNG Graphic file (type png)
-<use Image/Q2/Q2_inductor_circuit.PNG>
-Package pdftex.def Info: Image/Q2/Q2_inductor_circuit.PNG  used on input line 222.
-(pdftex.def)             Requested size: 376.42575pt x 91.45982pt.
-<Image/Q2/Q2_capacitor_circuit.PNG, id=51, 897.3525pt x 222.07968pt>
-File: Image/Q2/Q2_capacitor_circuit.PNG Graphic file (type png)
-<use Image/Q2/Q2_capacitor_circuit.PNG>
-Package pdftex.def Info: Image/Q2/Q2_capacitor_circuit.PNG  used on input line 230.
-(pdftex.def)             Requested size: 376.42575pt x 93.15761pt.
- [8 <./Image/Q2/Q2_resistor_circuit.PNG> <./Image/Q2/Q2_inductor_circuit.PNG> <./Image/Q2/Q2_capacitor_circuit.PNG>]
-<Image/Q2/Q2_resistor_RMS.PNG, id=58, 595.47469pt x 307.90031pt>
-File: Image/Q2/Q2_resistor_RMS.PNG Graphic file (type png)
-<use Image/Q2/Q2_resistor_RMS.PNG>
-Package pdftex.def Info: Image/Q2/Q2_resistor_RMS.PNG  used on input line 247.
-(pdftex.def)             Requested size: 376.42575pt x 194.63596pt.
-<Image/Q2/Q2_resistor_PF.PNG, id=59, 599.99156pt x 307.90031pt>
-File: Image/Q2/Q2_resistor_PF.PNG Graphic file (type png)
-<use Image/Q2/Q2_resistor_PF.PNG>
-Package pdftex.def Info: Image/Q2/Q2_resistor_PF.PNG  used on input line 255.
-(pdftex.def)             Requested size: 376.42575pt x 193.17482pt.
- [9 <./Image/Q2/Q2_resistor_RMS.PNG> <./Image/Q2/Q2_resistor_PF.PNG>]
-<Image/Q2/Q2_inductor_RMS.PNG, id=66, 886.81313pt x 447.17062pt>
-File: Image/Q2/Q2_inductor_RMS.PNG Graphic file (type png)
-<use Image/Q2/Q2_inductor_RMS.PNG>
-Package pdftex.def Info: Image/Q2/Q2_inductor_RMS.PNG  used on input line 272.
-(pdftex.def)             Requested size: 376.42575pt x 189.81642pt.
-<Image/Q2/Q2_inductor_PF.PNG, id=67, 880.79062pt x 442.65375pt>
-File: Image/Q2/Q2_inductor_PF.PNG Graphic file (type png)
-<use Image/Q2/Q2_inductor_PF.PNG>
-Package pdftex.def Info: Image/Q2/Q2_inductor_PF.PNG  used on input line 280.
-(pdftex.def)             Requested size: 376.42575pt x 189.17564pt.
- [10 <./Image/Q2/Q2_inductor_RMS.PNG> <./Image/Q2/Q2_inductor_PF.PNG>]
-<Image/Q2/Q2_capacitor_RMS.PNG, id=73, 880.03781pt x 445.665pt>
-File: Image/Q2/Q2_capacitor_RMS.PNG Graphic file (type png)
-<use Image/Q2/Q2_capacitor_RMS.PNG>
-Package pdftex.def Info: Image/Q2/Q2_capacitor_RMS.PNG  used on input line 297.
-(pdftex.def)             Requested size: 376.42575pt x 190.62576pt.
-<Image/Q2/Q2_capacitor_PF.PNG, id=74, 882.29625pt x 451.6875pt>
-File: Image/Q2/Q2_capacitor_PF.PNG Graphic file (type png)
-<use Image/Q2/Q2_capacitor_PF.PNG>
-Package pdftex.def Info: Image/Q2/Q2_capacitor_PF.PNG  used on input line 305.
-(pdftex.def)             Requested size: 376.42575pt x 192.70555pt.
- [11 <./Image/Q2/Q2_capacitor_RMS.PNG> <./Image/Q2/Q2_capacitor_PF.PNG>] [12] [13] [14] [15]
+LaTeX Warning: Empty bibliography on input line 60.
 
-LaTeX Warning: Empty bibliography on input line 344.
 
-(Main-Thesis-File.aux (Section/Abstract.aux))
+Package caption Warning: Unused \captionsetup[figure] on input line 34.
+See the caption package documentation for explanation.
+
+(Main-Thesis-File.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-10-23>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                Main-Thesis-File
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'Main-Thesis-File.run.xml'.
 \openout1 = `Main-Thesis-File.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14515 strings out of 474718
- 272256 string characters out of 5748457
- 1931036 words of memory out of 5000000
- 36367 multiletter control sequences out of 15000+600000
- 567308 words of font info for 68 fonts, out of 8000000 for 9000
+ 14377 strings out of 474718
+ 268789 string characters out of 5748457
+ 1932036 words of memory out of 5000000
+ 36209 multiletter control sequences out of 15000+600000
+ 564674 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 86i,12n,93p,776b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Main-Thesis-File.pdf (16 pages, 441197 bytes).
+ 86i,11n,93p,804b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on Main-Thesis-File.pdf (13 pages, 64005 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
+ 63 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
