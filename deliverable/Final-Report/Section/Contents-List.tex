@@ -1,10 +1,8 @@
 % contents
 \tableofcontents
 \addtocontents{toc}{~\hfill\textbf{Page}\par}
-\begin{flushleft}
-\phantomsection\addcontentsline{toc}{section}{Abstract}
-\end{flushleft}
-
+\addcontentsline{toc}{chapter}{Abstract}
+\pagenumbering{Roman}
 \setcounter{page}{1}
 \newpage 
 % list of figure
@@ -15,3 +13,7 @@
 \listoftables 
 \addcontentsline{toc}{chapter}{List of Tables} 
 \newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\addcontentsline{toc}{chapter}{References}
