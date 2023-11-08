@@ -16,5 +16,39 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{Benner}{article}{}
+      \name{author}{1}{}{%
+        {{hash=985ccf6d3179f051733f86d4debf6c8c}{%
+           family={Benner},
+           familyi={B\bibinitperiod},
+           given={Steven\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{985ccf6d3179f051733f86d4debf6c8c}
+      \strng{fullhash}{985ccf6d3179f051733f86d4debf6c8c}
+      \strng{bibnamehash}{985ccf6d3179f051733f86d4debf6c8c}
+      \strng{authorbibnamehash}{985ccf6d3179f051733f86d4debf6c8c}
+      \strng{authornamehash}{985ccf6d3179f051733f86d4debf6c8c}
+      \strng{authorfullhash}{985ccf6d3179f051733f86d4debf6c8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{6919}
+      \field{title}{Synthetic biology: Act natural}
+      \field{volume}{421}
+      \field{year}{2003}
+      \field{pages}{118\bibrangedash 118}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/421118a
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

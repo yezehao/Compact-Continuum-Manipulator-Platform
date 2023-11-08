@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.3)  5 NOV 2023 12:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.3)  8 NOV 2023 12:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -687,10 +687,17 @@ Package pdftex.def Info: Image/ucl_logo.png  used on input line 5.
 \tf@lot=\write6
 \openout6 = `Main-Thesis-File.lot'.
 
- [3]) (Section/Introduction.tex [1]) (Section/Literature-Review.tex [2]) (Section/Design.tex [3]) (Section/Result.tex [4] [5]) (Section/Conclusion.tex [6]) (Appendix/Appendix1.tex [7])
+ [3]) (Section/Introduction.tex [1]) (Section/Literature-Review.tex [2]) (Section/Design.tex [3]) (Section/Result.tex [4] [5]) (Section/Conclusion.tex [6]) [1
 
-LaTeX Warning: Empty bibliography on input line 60.
+] (Appendix/Appendix1.tex
+Appendix A.
+[2
 
+]) (Appendix/Appendix2.tex
+Appendix B.
+[3
+
+])
 
 Package caption Warning: Unused \captionsetup[figure] on input line 34.
 See the caption package documentation for explanation.
@@ -700,31 +707,22 @@ See the caption package documentation for explanation.
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-10-23>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                Main-Thesis-File
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'Main-Thesis-File.run.xml'.
 \openout1 = `Main-Thesis-File.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14377 strings out of 474718
- 268789 string characters out of 5748457
- 1932036 words of memory out of 5000000
- 36209 multiletter control sequences out of 15000+600000
- 564674 words of font info for 59 fonts, out of 8000000 for 9000
+ 14598 strings out of 474718
+ 273408 string characters out of 5748457
+ 1933036 words of memory out of 5000000
+ 36426 multiletter control sequences out of 15000+600000
+ 565021 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 86i,11n,93p,804b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on Main-Thesis-File.pdf (13 pages, 64005 bytes).
+ 86i,11n,93p,804b,1187s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Main-Thesis-File.pdf (15 pages, 75121 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
+ 74 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
