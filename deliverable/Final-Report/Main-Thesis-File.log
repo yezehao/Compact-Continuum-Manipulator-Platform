@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.3)  13 NOV 2023 22:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.3)  16 NOV 2023 22:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/30348/Desktop/Compact-Continuum-Manipulator-Platform/deliverable/Final-Report/Main-Thesis-File.tex
-(c:/Users/30348/Desktop/Compact-Continuum-Manipulator-Platform/deliverable/Final-Report/Main-Thesis-File.tex
+**c:/Users/30348/Desktop/UCL/Compact-Continuum-Manipulator-Platform/deliverable/Final-Report/Main-Thesis-File.tex
+(c:/Users/30348/Desktop/UCL/Compact-Continuum-Manipulator-Platform/deliverable/Final-Report/Main-Thesis-File.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-10-23>
 (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
@@ -24,7 +24,7 @@ File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-) (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+) (config/general.tex (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
@@ -568,26 +568,65 @@ LaTeX Info: Redefining \] on input line 2954.
 \ULC@box=\box62
 Package: ulem 2019/11/18
 \ULdepth=\dimen199
+)) (config/code-block.tex (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count420
+\lst@gtempboxa=\box63
+\lst@token=\toks32
+\lst@length=\count421
+\lst@currlwidth=\dimen256
+\lst@column=\count422
+\lst@pos=\count423
+\lst@lostspace=\dimen257
+\lst@width=\dimen258
+\lst@newlines=\count424
+\lst@lineno=\count425
+\lst@maxwidth=\dimen259
+ (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count426
+\lst@skipnumbers=\count427
+\lst@framebox=\box64
+) (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+ (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+ (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-\@quotelevel=\count420
-\@quotereset=\count421
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+LaTeX Info: Redefining \color on input line 711.
+ (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+))
+\@quotelevel=\count428
+\@quotereset=\count429
  (Main-Thesis-File.aux)
 \openout1 = `Main-Thesis-File.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -636,38 +675,33 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Main-Thesis-File.bbl' found.
  (Main-Thesis-File.bbl)
-Package biblatex Info: Reference section=0 on input line 47.
-Package biblatex Info: Reference segment=0 on input line 47.
+Package biblatex Info: Reference section=0 on input line 5.
+Package biblatex Info: Reference segment=0 on input line 5.
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count422
-\scratchdimen=\dimen256
-\scratchbox=\box63
-\nofMPsegments=\count423
-\nofMParguments=\count424
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count425
-\MPscratchDim=\dimen257
-\MPnumerator=\count426
-\makeMPintoPDFobject=\count427
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count430
+\scratchdimen=\dimen260
+\scratchbox=\box65
+\nofMPsegments=\count431
+\nofMParguments=\count432
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count433
+\MPscratchDim=\dimen261
+\MPnumerator=\count434
+\makeMPintoPDFobject=\count435
+\everyMPtoPDFconversion=\toks34
 ) (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
- (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
- (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-))
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
  (C:\Users\30348\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-)) (Section/Cover-Page.tex
+))
+\c@lstlisting=\count436
+ (Section/Cover-Page.tex
 <Image/ucl_logo.png, id=1, 295.1025pt x 84.315pt>
 File: Image/ucl_logo.png Graphic file (type png)
 <use Image/ucl_logo.png>
@@ -699,7 +733,7 @@ Appendix B.
 
 ])
 
-Package caption Warning: Unused \captionsetup[figure] on input line 34.
+Package caption Warning: Unused \captionsetup[figure] on input line 33.
 See the caption package documentation for explanation.
 
 (Main-Thesis-File.aux)
@@ -712,15 +746,15 @@ Package logreq Info: Writing requests to 'Main-Thesis-File.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14598 strings out of 474718
- 273408 string characters out of 5748457
+ 16342 strings out of 474718
+ 297409 string characters out of 5748457
  1933036 words of memory out of 5000000
- 36426 multiletter control sequences out of 15000+600000
+ 38153 multiletter control sequences out of 15000+600000
  565021 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 86i,11n,93p,804b,1187s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 91i,11n,96p,808b,1187s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/30348/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Main-Thesis-File.pdf (15 pages, 75169 bytes).
+Output written on Main-Thesis-File.pdf (15 pages, 75170 bytes).
 PDF statistics:
  74 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
