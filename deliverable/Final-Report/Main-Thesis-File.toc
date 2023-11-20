@@ -1,4 +1,4 @@
-\nobreakspace {}\hfill \textbf {Page}\par 
+~\hfill \textbf {Page}\par 
 \contentsline {chapter}{Abstract}{I}{}%
 \contentsline {chapter}{List of Figures}{II}{}%
 \contentsline {chapter}{List of Tables}{III}{}%
