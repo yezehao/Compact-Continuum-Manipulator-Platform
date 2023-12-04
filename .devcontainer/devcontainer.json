@@ -1,0 +1,11 @@
+//----------------------------------devcontainer.json------------------------------
+{
+    "name": "ROS Container",
+    "dockerFile": "Dockerfile",
+    "runArgs": ["--net=host"],
+    "remoteEnv": {
+        "DISPLAY": ":0",
+        "ROS_MASTER_URI": "http://192.168.65.6:11311",
+        "ROS_HOSTNAME": "192.168.65.6"
+    }
+}
