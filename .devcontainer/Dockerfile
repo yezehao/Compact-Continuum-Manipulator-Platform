@@ -8,5 +8,11 @@ RUN apt-get -y update && apt-get -y upgrade \
     python3-pip \
     python3-numpy
 
-RUN apt-get -y update && apt-get -y install ros-noetic-rviz
+RUN apt-get -y update && apt-get -y install \
+    ros-noetic-rviz
+
+RUN apt-get -y update && apt-get -y install \
+    ros-noetic-gazebo-ros-pkgs \
+    ros-noetic-gazebo-ros-control
+
 RUN echo "source /opt/ros/noetic/setup.bash" >> /root/.bashrc
