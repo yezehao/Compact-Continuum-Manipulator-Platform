@@ -4,6 +4,7 @@ RUN apt-get -y update && apt-get -y upgrade \
     build-essential \
     cmake \
     git \
+    vim \
     python3-dev \
     python3-pip \
     python3-numpy
@@ -17,3 +18,4 @@ RUN apt-get -y update && apt-get -y install \
     ros-noetic-turtlebot3-msgs
 
 RUN echo "source /opt/ros/noetic/setup.bash" >> /root/.bashrc
+RUN echo "source /workspaces/Compact-Continuum-Manipulator-Platform/catkin_ws/devel/setup.bash" >> /root/.bashrc
