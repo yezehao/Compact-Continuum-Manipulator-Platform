@@ -26,17 +26,17 @@ for n=0:1:15 % Assume the number of the connectors is n
             )-n*d/(n+1));
         % calculate absolute error
         E(i).Ea(n+1,1) = S1-l1; 
-        %E(i).Ea(n+1,2) = n+1;
+        E(i).Ea(n+1,2) = n;
         % calculate relative error 
         E(i).Er(n+1,1) = (E(i).Ea(n+1,1)/l1)*100;  
-        %E(i).Er(n+1,2) = n+1;
+        E(i).Er(n+1,2) = n;
     end
 end
 %% Figure Plot
 figure;
 subplot(1,2,1);
 for i = 1:1:6
-    plot(E(i).Ea);
+    plot(E(i).Ea(:,2),E(i).Ea(:,1),'-');
     hold on;
 end
 xlabel('Number of connectors');
@@ -44,7 +44,7 @@ ylabel('Absolute error(mm)');
 grid on;
 subplot(1,2,2);
 for i = 1:1:6
-    plot(E(i).Er);
+    plot(E(i).Er(:,2),E(i).Er(:,1),'-');
     hold on;
 end
 xlabel('Number of connectors');
