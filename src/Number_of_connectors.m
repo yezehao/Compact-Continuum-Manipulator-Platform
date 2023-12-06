@@ -48,6 +48,6 @@ for i = 1:1:6
     hold on;
 end
 xlabel('Number of connectors');
-ylabel('Absolute error(mm)');
+ylabel('Relative error(mm)');
 grid on;
     
