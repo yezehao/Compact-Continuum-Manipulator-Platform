@@ -28,7 +28,7 @@ for n=1:1:12 % Assume the number of the connectors is n
         E(i).Ea(n,1) = S1-l1; 
         %E(i).Ea(n,2) = n;
         % calculate relative error 
-        E(i).Er(n,1) = (E(i).Ea(n,1)/l1);  
+        E(i).Er(n,1) = (E(i).Ea(n,1)/l1)*100;  
         %E(i).Er(n,2) = n;
     end
 end
