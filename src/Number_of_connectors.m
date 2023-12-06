@@ -16,7 +16,7 @@ Sr=0.5*length_mm;
 r=0.14*length_mm; 
 d=0.015*length_mm; 
 %% Assumption Calculation
-for n=1:1:12 % Assume the number of the connectors is n
+for n=0:1:15 % Assume the number of the connectors is n
     for i = 1:1:6
         alpha1=i*10*pi/180;
         R1=Sr/alpha1; 
@@ -25,11 +25,11 @@ for n=1:1:12 % Assume the number of the connectors is n
             alpha1/(2*(n+1)))-(n+1)*((n*d/(n+1))/sin((pi-alpha1/(n+1))/2 ...
             )-n*d/(n+1));
         % calculate absolute error
-        E(i).Ea(n,1) = S1-l1; 
-        %E(i).Ea(n,2) = n;
+        E(i).Ea(n+1,1) = S1-l1; 
+        %E(i).Ea(n+1,2) = n+1;
         % calculate relative error 
-        E(i).Er(n,1) = (E(i).Ea(n,1)/l1)*100;  
-        %E(i).Er(n,2) = n;
+        E(i).Er(n+1,1) = (E(i).Ea(n+1,1)/l1)*100;  
+        %E(i).Er(n+1,2) = n+1;
     end
 end
 %% Figure Plot
