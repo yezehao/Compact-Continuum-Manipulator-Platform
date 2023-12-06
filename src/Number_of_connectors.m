@@ -9,7 +9,9 @@ clear;clc;
 % l1: the ideal length of the driving cable 1 between the bottom plane    %
 %     of the upper connector and the top plane of the lower connector     %
 % Ea: the absolute error                                                  %
-% Er: the relative error                                                  %
+% Er: the relative error 
+% S1: the ideal length of the driving cable 1
+% alpha1: the central angle of the bending curve
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 length_mm=100;
 Sr=0.5*length_mm; 
