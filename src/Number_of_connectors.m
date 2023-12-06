@@ -17,7 +17,7 @@ r=0.14*length_mm;
 d=0.015*length_mm; 
 %% Assumption Calculation
 for n=0:1:15 % Assume the number of the connectors is n
-    for i = 1:1:6
+    for i = 1:1:6 % Assume the bending angle is from 10 degrees to 60 degrees
         alpha1=i*10*pi/180;
         R1=Sr/alpha1; 
         S1=(R1-r)*alpha1; 
