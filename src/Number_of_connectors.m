@@ -1,52 +1,53 @@
 clear;clc;
-%Define the name of parameters used to build the bending model of the
-%bioinspired fishbone unit
+%% Parameter Define
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sr: the arc length of the bending curve                                 %
+% r:  the distance between the central axis of the cable guiding hole on  %
+%     the connector and the central axis of the connector                 %
+% d:  the thickness of the cross-shaped sheet                             %
+% R1: the radius of the bending curve                                     %
+% l1: the ideal length of the driving cable 1 between the bottom plane    %
+%     of the upper connector and the top plane of the lower connector     %
+% Ea: the absolute error                                                  %
+% Er: the relative error                                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 length_mm=100;
-Sr=0.5*length_mm;%The arc length of the bending curve
-r=0.14*length_mm;%The distance between the central axis of the cable guiding hole on the connector and the central axis of the connector
-d=0.015*length_mm;%the thickness of the cross-shaped sheet
+Sr=0.5*length_mm; 
+r=0.14*length_mm; 
+d=0.015*length_mm; 
+%% Assumption Calculation
+for n=1:1:12 % Assume the number of the connectors is n
+    for i = 1:1:6
+        alpha1=i*10*pi/180;
+        R1=Sr/alpha1; 
+        S1=(R1-r)*alpha1; 
+        l1=2*(n+1)*(R1-r)*sin( ...
+            alpha1/(2*(n+1)))-(n+1)*((n*d/(n+1))/sin((pi-alpha1/(n+1))/2 ...
+            )-n*d/(n+1));
+        % calculate absolute error
+        E(i).Ea(n,1) = S1-l1; 
+        %E(i).Ea(n,2) = n;
+        % calculate relative error 
+        E(i).Er(n,1) = (E(i).Ea(n,1)/l1);  
+        %E(i).Er(n,2) = n;
+    end
+end
+%% Figure Plot
 figure;
-for n=0:0.01:12 %Assume the number of the connectors is n
-    percentage_100=1;
-    alpha=60;%The central angle of the bending curve
-    alpha1=pi/180*alpha;
-    R1=Sr/alpha1;%R1 is the radius of the bending curve
-    S1=(R1-r)*alpha1;%The ideal length of the driving cable 1 between the bottom plane of the upper connector and the top plane of the lower connector
-    l1=2*(n+1)*(R1-r)*sin(alpha1/(2*(n+1)))-(n+1)*((n*d/(n+1))/sin((pi-alpha1/(n+1))/2)-n*d/(n+1));
-    Ea=S1-l1;%define the absolute error
-    Er=(Ea/l1)*percentage_100;%define the relative error  
-    plot(n,Ea,'bo');
-    xlabel('Number of connectors');
-    ylabel('Absolute error(mm)');
-    grid on;
-    figure;
-    plot(n,Er,'po');%plot the relative error
-    xlabel('Number of connectors');
-    ylabel('Relative error(%)');
-    grid on;
+subplot(1,2,1);
+for i = 1:1:6
+    plot(E(i).Ea);
     hold on;
 end
-
-for n=0:0.01:12 %Assume the number of the connectors is n
-    percentage_100=1;
-    alpha=10;%The central angle of the bending curve
-    alpha1=pi/180*alpha;
-    R1=Sr/alpha1;%R1 is the radius of the bending curve
-    S1=(R1-r)*alpha1;%The ideal length of the driving cable 1 between the bottom plane of the upper connector and the top plane of the lower connector
-    l1=2*(n+1)*(R1-r)*sin(alpha1/(2*(n+1)))-(n+1)*((n*d/(n+1))/sin((pi-alpha1/(n+1))/2)-n*d/(n+1));
-    Ea=S1-l1;%define the absolute error
-    Er=(Ea/l1)*percentage_100;%define the relative error  
-    plot(n,Ea,'ro');%plot absolute error against n
-    xlabel('Number of connectors');
-    ylabel('Absolute error(mm)');
-    grid on;
-    figure;
-    plot(n,Er,'po');
-    xlabel('Number of connectors');
-    ylabel('Relative error(%)');
-    grid on;
+xlabel('Number of connectors');
+ylabel('Absolute error(mm)');
+grid on;
+subplot(1,2,2);
+for i = 1:1:6
+    plot(E(i).Er);
     hold on;
 end
-
-
+xlabel('Number of connectors');
+ylabel('Absolute error(mm)');
+grid on;
     
