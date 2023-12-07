@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /workspaces/Compact-Continuum-Manipulator-Platform/catkin_ws/install/setup.sh
