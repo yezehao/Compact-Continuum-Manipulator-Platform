@@ -13,7 +13,7 @@ clear;clc;
 % S1: the ideal length of the driving cable 1                             %
 % alpha1: the central angle of the bending curve                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-length_mm=100;
+length_mm=300;
 %% Error Calculatoin
 [E,parameter] = error_calculation(length_mm);
 % Plot Figures
@@ -39,7 +39,13 @@ parameter.n = 15; % Number of connectors
 parameter.r1 = 0.21*length_mm;
 parameter.d1 = 0.03*length_mm;
 parameter.d2 = 0.03*length_mm;
-for i = 1:100
+for i = 1:5000
     C = forward_kinematic(parameter);
     coordinate(i,:) = C;
+end
+figure;
+for i=1:5000
+    plot3(coordinate(i,1),coordinate(i,2),coordinate(i,3),'bo');
+    grid on;
+    hold on;
 end
