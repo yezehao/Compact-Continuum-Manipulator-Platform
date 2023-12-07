@@ -16,5 +16,30 @@ clear;clc;
 length_mm=100;
 %% Error Calculatoin
 [E,parameter] = error_calculation(length_mm);
+% Plot Figures
+figure;
+subplot(1,2,1);
+for i = 1:1:9
+    plot(E(i).Ea(:,2),E(i).Ea(:,1),'-');
+    hold on;
+end
+xlabel('Number of connectors');
+ylabel('Absolute error(mm)');
+grid on;
+subplot(1,2,2);
+for i = 1:1:9
+    plot(E(i).Er(:,2),E(i).Er(:,1),'-');
+    hold on;
+end
+xlabel('Number of connectors');
+ylabel('Relative error(%)');
+grid on;
 %% Workspace Simulation
-n = 15; % Number of connectors
+parameter.n = 15; % Number of connectors
+parameter.r1 = 0.21*length_mm;
+parameter.d1 = 0.03*length_mm;
+parameter.d2 = 0.03*length_mm;
+for i = 1:100
+    C = forward_kinematic(parameter);
+    coordinate(i,:) = C;
+end
