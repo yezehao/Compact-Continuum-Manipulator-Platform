@@ -14,30 +14,30 @@ clear;clc;
 % alpha1: the central angle of the bending curve                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 Sr = 50; % The length of section
-
+Ns= 4; % The number of sections 
 %% Workspace Simulation
 N = [10;10;10;10]; % Number of connectors
-r = 0.3*Sr*ones(4,1);
-d = 0.03*Sr*ones(4,1);
+r = 0.3*Sr*ones(Ns,1);
+d = 0.03*Sr*ones(Ns,1);
 angle = [10;10;10;10]; % The bending angle
-for i = 1:4
+for i = 1:Ns
     parameter(i).n = N(i,1);
     parameter(i).d = d(i,1);
     parameter(i).r = r(i,1);
-    parameter(i).rad = angle(i,1)*pi/180;
+    parameter(i).rad = deg2rad(angle(i,1));
     S = parameter(i).n*parameter(i).d;
     parameter(i).R = Sr*parameter(i).r/(Sr-S);
     parameter(i).bend_rad_max = Sr/parameter(i).R; % maximum rad of manipulator
-    parameter(i).bend_work = pi*60/180; % work angle of manipulator
+    parameter(i).bend_work = pi*90/180; % work angle of manipulator
 end
 clearvars S i d r
 
-for i = 1:5000
-    for j = 1:4
+for i = 1:10000
+    for j = 1:Ns
         parameter(j).rad = parameter(j).bend_rad_max*(-1+2*rand);
     end
     Edge_max(i,:) = FK_matrix(parameter,Sr);
-    for j = 1:4
+    for j = 1:Ns
         parameter(j).rad = parameter(j).bend_work*(-1+2*rand);
     end
     Edge_work(i,:) = FK_matrix(parameter,Sr);
@@ -86,30 +86,45 @@ end
 % hold on;
 
 figure;
-s = 5;grid on;
+subplot(2,2,1);
+s = 5;grid on,
 scatter3(Edge_work(:,1),Edge_work(:,2),Edge_work(:,3),s,"filled", ...
     'MarkerEdgeColor',[.85 .33 .10], ...
     'MarkerFaceColor',[1 .48 .25]);
-hold on;
-% 使用 meshgrid 创建网格
-[X, Y] = meshgrid(linspace(min(Edge_work(:,1)), max(Edge_work(:,1)), 100), ...
-                   linspace(min(Edge_work(:,2)), max(Edge_work(:,2)), 100));
+title('The workspace with work angle of ± 90 degree');
+xlabel('X');
+ylabel('Y');
+zlabel('Z');
 
-% 使用 griddata 插值
-Z = griddata(Edge_work(:,1), Edge_work(:,2), Edge_work(:,3), X, Y);
-
-% 绘制网格
-figure;
+subplot(2,2,2);
 grid on,
-mesh(X, Y, Z);
-
-% 设置图形标题和标签
+[X, Y] = meshgrid(linspace(min(Edge_work(:,1)), max(Edge_work(:,1)), 50), ...
+                   linspace(min(Edge_work(:,2)), max(Edge_work(:,2)), 50));
+Z = griddata(Edge_work(:,1), Edge_work(:,2), Edge_work(:,3), X, Y);
+surf(X, Y, Z, 'FaceAlpha',1);
+shading interp;
 title('Scatter Plot with Mesh');
 xlabel('X');
 ylabel('Y');
 zlabel('Z');
 
-% scatter3(Edge_max(:,1),Edge_max(:,2),Edge_max(:,3),s,"filled", ...
-%     'MarkerEdgeColor',[.93 .69 .13], ...
-%     'MarkerFaceColor',[1 .84 .28]);
-% hold on;
+subplot(2,2,3);
+scatter3(Edge_max(:,1),Edge_max(:,2),Edge_max(:,3),s,"filled", ...
+    'MarkerEdgeColor',[.93 .69 .13], ...
+    'MarkerFaceColor',[1 .84 .28]);
+[X, Y] = meshgrid(linspace(min(Edge_max(:,1)), max(Edge_max(:,1)), 50), ...
+                   linspace(min(Edge_max(:,2)), max(Edge_max(:,2)), 50));
+Z = griddata(Edge_max(:,1), Edge_max(:,2), Edge_max(:,3), X, Y);
+title('The workspace within the maximum angles');
+xlabel('X');
+ylabel('Y');
+zlabel('Z');
+
+subplot(2,2,4);
+grid on,
+surf(X, Y, Z,'FaceAlpha', 1);
+shading interp;
+title('Scatter Plot with Mesh');
+xlabel('X');
+ylabel('Y');
+zlabel('Z');

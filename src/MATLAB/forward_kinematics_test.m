@@ -3,22 +3,23 @@ clc;
 length_mm = 300;
 Sr=0.5*length_mm; 
 d=0.015*length_mm; 
-angle = [10;10;-10;-10];
-rad = pi*angle/180;
+angle = 90*[1;1;-1;-1];
+rad = deg2rad(angle);
 for i = 1:4
     alpha = rad(i,1);
     symbol = sign(alpha);
     if symbol == 0
         Dhorz(i,1) = 0;
-        Dvert(i,1) = Sr;
+        Dvert(i,1) = Sr+d;
     else
-        R = Sr/alpha;
+        R = Sr/abs(alpha);
         if symbol == 1
             Dhorz(i,1) = R*(1-cos(alpha)) + d*cos(alpha);
+            Dvert(i,1) = R*sin(alpha) + d*sin(alpha);
         elseif symbol == -1
-            Dhorz(i,1) = R*(1-cos(alpha)) - d*cos(alpha);
+            Dhorz(i,1) = -R*(1-cos(alpha)) - d*cos(alpha);
+            Dvert(i,1) = -R*sin(alpha) - d*sin(alpha);
         end
-        Dvert(i,1) = R*sin(alpha) + d*sin(alpha);
     end
 end
 M(1).Section = [1 0 0 0; 
