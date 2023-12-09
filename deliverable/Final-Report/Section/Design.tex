@@ -1,8 +1,98 @@
 %%%%% Design %%%%%
 \section{Design} 
 This is the Design of the final report.
-\subsection{part ??}
-unknown
+\subsection{Methodology}
+\subsubsection{Forward Kinematics}
+The manipulator consists of four sections, and the backbones of each section are perpendicular to each other. To derive the 
+workspace of the manipulator for further analysis, the forward kinematics formula need to be conducted. According to the 
+fishbone continuum robot\cite{fishboneCR}, the forward kinematics formula of two perpendicular sections are shown in 
+Equations \ref{eq:x_coordinate}, \ref{eq:y_coordinate}, and \ref{eq:z_coordinate}.
+\begin{align}
+    \begin{aligned}
+    x=&-\frac{S_{r}r}{\Delta S_{1}}+\frac{S_{r}r}{\Delta S_{1}}\cos\left(\frac{\Delta S_{l}}{r}\right)-d_{1}\sin\left(\frac{\Delta S_{l}}{r}\right) \\
+    &-\frac{S_{r}r}{\Delta S_{3}}\sin\left(\frac{\Delta S_{1}}{r}\right)\sin\left(\frac{\Delta S_{3}}{r}\right) \\
+    &-d_{2}\sin\left(\frac{\Delta S_{1}}{r}\right)\cos\left(\frac{\Delta S_{3}}{r}\right) 
+    \end{aligned}
+    \label{eq:x_coordinate}
+\end{align}
+\begin{align}
+    \begin{aligned}
+        y=-\frac{S_rr}{\Delta S_3}+\frac{S_rr}{\Delta S_3}\cos\left(\frac{\Delta S_3}{r}\right)-d_2\sin\left(\frac{\Delta S_3}{r}\right)
+    \end{aligned}
+    \label{eq:y_coordinate}
+\end{align}
+\begin{align}
+    \begin{aligned}
+        \text{Z} =&\frac{S_{r}r}{\Delta S_{1}}\sin\left(\frac{\Delta S_{\mathrm{l}}}{r}\right)+d_{1}\cos\left(\frac{\Delta S_{\mathrm{l}}}{r}\right) \\
+        +&\frac{S_{r}r}{\Delta S_{3}}\sin\left(\frac{\Delta S_{3}}{r}\right)\cos\left(\frac{\Delta S_{1}}{r}\right) \\
+        +&d_{2}\cos\left(\frac{\Delta S_{1}}{r}\right)\cos\left(\frac{\Delta S_{3}}{r}\right). 
+    \end{aligned}
+    \label{eq:z_coordinate}
+\end{align}
+However, calculating the centroid directly using the above formula becomes somewhat complex while there are four sections. 
+Additionally, the inverse kinematics part also requires the derivation of corresponding matrices for subsequent calculations 
+using the composite coordinate transformation formula. Therefore, The relevant matrices for subsequent calculations need to 
+be derived. 
+The position of the end effector at the section whose backbone is parallel to the x-axis, which is $\textbf{P}_{end}$ can be 
+derived based on the bending angle matrix $\textbf{B}$, mechanism parameters, the position of the end effector in the base 
+coordinate system $\textbf{P}_{base}^{end}$ and the position of the base at the section $\textbf{P}_{base}$. The composite 
+coordinate transformation is a combination of rotation and translation. The equations are shown in Equations \ref{eq:composite} 
+and \ref{eq:composite_matrices}. $P_{horizontal}$ and $P_{vertical}$ are the horizontal and vertical position of end effector 
+at the section in the base coordinate system, respectively. 
+\begin{align}
+    \textbf{P}_{end} = \textbf{B} \times \textbf{P}_{base} &+ \textbf{P}_{base}^{end} \label{eq:composite} \\
+    \begin{bmatrix}
+        x' \\
+        y' \\
+        z' \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & \cos(\alpha) & \sin(\alpha) \\
+        0 & -\sin(\alpha) & \cos(\alpha) \\
+    \end{bmatrix}
+    &\times
+    \begin{bmatrix}
+        x \\
+        y \\
+        z \\
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        0 \\
+        P_{\text{horizontal}} \\
+        P_{\text{vertical}} \\
+    \end{bmatrix}\label{eq:composite_matrices} \\
+    P_{horizontal} = R\cdot(1-cos&(\alpha) + d\cdot cos(\alpha)) \nonumber \\ 
+    P_{vertical} = R\cdot sin(\alpha) + &d\cdot sin(\alpha) \nonumber
+\end{align}
+
+% \begin{align}
+%     \begin{bmatrix}
+%         x' \\
+%         y' \\
+%         z' \\
+%         1  \\
+%     \end{bmatrix}
+%     &=
+%     \begin{bmatrix}
+%         1 & 0 & 0 & 0 \\
+%         0 & cos(\alpha) & sin(\alpha) & P_{horizontal} \\
+%         0 & -sin(\alpha) & cos(\alpha) & P_{vertical} \\
+%         0 & 0 & 0 & 1 \\
+%     \end{bmatrix}
+%     \times
+%     \begin{bmatrix}
+%         x \\
+%         y \\
+%         z \\
+%         1 \\
+%     \end{bmatrix}\\
+%     P_{horizontal} = R\cdot(1-cos(\alpha) &+ d\cdot cos(\alpha)) \\
+%     P_{vertical} = R\cdot sin(\alpha) &+ d\cdot sin(\alpha)
+% \end{align}
+
 \subsection{part ??}
 unknown
 \subsection{part ??}
