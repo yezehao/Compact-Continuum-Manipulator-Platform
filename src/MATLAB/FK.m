@@ -1,9 +1,9 @@
-function [C1,C2] = forward_kinematic(parameter)
+function [C1,C2] = FK(parameter)
     Sr= parameter.Sr; 
     r = parameter.r; 
     d = parameter.d; 
-    d1= parameter.d1;
-    d2= parameter.d2;
+    d1= parameter(1).d;
+    d2= parameter(2).d;
     n = parameter.n;
     r1= parameter.r1;
     S = n*d;
