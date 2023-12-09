@@ -38,7 +38,8 @@ derived based on the bending angle matrix $\textbf{B}$, mechanism parameters, th
 coordinate system $\textbf{P}_{base}^{end}$ and the position of the base at the section $\textbf{P}_{base}$. The composite 
 coordinate transformation is a combination of rotation and translation. The equations are shown in Equations \ref{eq:composite} 
 and \ref{eq:composite_matrices}. $P_{horizontal}$ and $P_{vertical}$ are the horizontal and vertical position of end effector 
-at the section in the base coordinate system, respectively. 
+at the section in the base coordinate system, respectively. The sign of $P_{horizontal}$ in matrix $\textbf{P}_{base}^{end}$ 
+consistent with the the sign of $\alpha$.
 \begin{align}
     \textbf{P}_{end} = \textbf{B} \times \textbf{P}_{base} &+ \textbf{P}_{base}^{end} \label{eq:composite} \\
     \begin{bmatrix}
@@ -61,37 +62,36 @@ at the section in the base coordinate system, respectively.
     +
     \begin{bmatrix}
         0 \\
-        P_{\text{horizontal}} \\
+        \pm P_{\text{horizontal}} \\
         P_{\text{vertical}} \\
     \end{bmatrix}\label{eq:composite_matrices} \\
     P_{horizontal} = R\cdot(1-cos&(\alpha) + d\cdot cos(\alpha)) \nonumber \\ 
     P_{vertical} = R\cdot sin(\alpha) + &d\cdot sin(\alpha) \nonumber
 \end{align}
-
-% \begin{align}
-%     \begin{bmatrix}
-%         x' \\
-%         y' \\
-%         z' \\
-%         1  \\
-%     \end{bmatrix}
-%     &=
-%     \begin{bmatrix}
-%         1 & 0 & 0 & 0 \\
-%         0 & cos(\alpha) & sin(\alpha) & P_{horizontal} \\
-%         0 & -sin(\alpha) & cos(\alpha) & P_{vertical} \\
-%         0 & 0 & 0 & 1 \\
-%     \end{bmatrix}
-%     \times
-%     \begin{bmatrix}
-%         x \\
-%         y \\
-%         z \\
-%         1 \\
-%     \end{bmatrix}\\
-%     P_{horizontal} = R\cdot(1-cos(\alpha) &+ d\cdot cos(\alpha)) \\
-%     P_{vertical} = R\cdot sin(\alpha) &+ d\cdot sin(\alpha)
-% \end{align}
+The composite transfermation matrix of the first section is derived in Equation \ref{eq:composite_transf_matrix}
+\begin{align}
+    \begin{bmatrix}
+        x' \\
+        y' \\
+        z' \\
+        1  \\
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & cos(\alpha) & sin(\alpha) & P_{horizontal} \\
+        0 & -sin(\alpha) & cos(\alpha) & P_{vertical} \\
+        0 & 0 & 0 & 1 \\
+    \end{bmatrix}
+    \times
+    \begin{bmatrix}
+        x \\
+        y \\
+        z \\
+        1 \\
+    \end{bmatrix}
+    \label{eq:composite_transf_matrix}
+\end{align}
 
 \subsection{part ??}
 unknown
