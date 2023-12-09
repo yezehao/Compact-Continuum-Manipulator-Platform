@@ -2,10 +2,15 @@
 \headheight= 15pt
 \usepackage[utf8]{inputenc} %font used is Times new roman which is the standard font for articles
 
-%Bibliography package
+\usepackage{longtable}
+\usepackage{gensymb}
+\usepackage{textcomp}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+
 \usepackage[backend=biber,style=nature]{biblatex}
 % .bib is the name of the file which contains the list of references for citation
 \addbibresource{references.bib}
+
 \usepackage{fancyhdr} %for header and footer
 \pagestyle{fancy}
 \fancyhf{}
