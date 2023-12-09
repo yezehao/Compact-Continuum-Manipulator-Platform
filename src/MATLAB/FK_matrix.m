@@ -6,13 +6,14 @@ function coordinate = FK_matrix(parameter,Sr)
             Dhorz(i,1) = 0;
             Dvert(i,1) = Sr;
         else
-            R = Sr/alpha;
+            R = Sr/abs(alpha);
             if symbol == 1
                 Dhorz(i,1) = R*(1-cos(alpha)) + parameter(i).d*cos(alpha);
+                Dvert(i,1) = R*sin(alpha) + parameter(i).d*sin(alpha);
             elseif symbol == -1
-                Dhorz(i,1) = R*(1-cos(alpha)) - parameter(i).d*cos(alpha);
+                Dhorz(i,1) = -R*(1-cos(alpha)) - parameter(i).d*cos(alpha);
+                Dvert(i,1) = -R*sin(alpha) - parameter(i).d*sin(alpha);
             end
-            Dvert(i,1) = R*sin(alpha) + parameter(i).d*sin(alpha);
         end
     end
     rad = [parameter(1).rad; parameter(2).rad; parameter(3).rad; parameter(4).rad];
