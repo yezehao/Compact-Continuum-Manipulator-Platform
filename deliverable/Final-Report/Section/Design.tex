@@ -68,29 +68,102 @@ consistent with the the sign of $\alpha$.
     P_{horizontal} = R\cdot(1-cos&(\alpha) + d\cdot cos(\alpha)) \nonumber \\ 
     P_{vertical} = R\cdot sin(\alpha) + &d\cdot sin(\alpha) \nonumber
 \end{align}
-The composite transfermation matrix of the first section is derived in Equation \ref{eq:composite_transf_matrix}
+The composite transfermation matrix of the first section whose backbone is parallel to x-axis is derived in Equations 
+\ref{eq:CTMS1} and \ref{eq:composite_transf_matrix_section1}.
 \begin{align}
+    &\qquad\qquad
+    \begin{aligned}
+    \textbf{P}_{end,1}
+    =
+    \begin{bmatrix}
+        \textbf{B}_1 & \textbf{P}_{base,1}^{end} \\
+        \textbf{0} & 1 \\
+    \end{bmatrix}
+    \textbf{P}_{base,1}
+    \end{aligned}\label{eq:CTMS1}\\
+    &\begin{aligned}
     \begin{bmatrix}
         x' \\
         y' \\
         z' \\
         1  \\
     \end{bmatrix}
-    &=
+    =
     \begin{bmatrix}
         1 & 0 & 0 & 0 \\
-        0 & cos(\alpha) & sin(\alpha) & P_{horizontal} \\
-        0 & -sin(\alpha) & cos(\alpha) & P_{vertical} \\
+        0 & cos(\alpha1) & sin(\alpha1) & \pm P_{horizontal,1} \\
+        0 & -sin(\alpha1) & cos(\alpha1) & P_{vertical,1} \\
         0 & 0 & 0 & 1 \\
     \end{bmatrix}
-    \times
     \begin{bmatrix}
         x \\
         y \\
         z \\
         1 \\
     \end{bmatrix}
-    \label{eq:composite_transf_matrix}
+    \end{aligned}
+    \label{eq:composite_transf_matrix_section1}
+\end{align}
+The composite transfermation matrix of the second section whose backbone is parallel to y-axis is derived in Equations 
+\ref{eq:CTMS2} and \ref{eq:composite_transf_matrix_section2}. ($\textbf{P}_{base,2}$ is equivalent to $\textbf{P}_{end,1}$)
+\begin{align}
+    &\qquad\qquad
+    \begin{aligned}
+    \textbf{P}_{end,2}
+    =
+    \begin{bmatrix}
+        \textbf{B}_2 & \textbf{P}_{base,2}^{end} \\
+        \textbf{0} & 1 \\
+    \end{bmatrix}
+    \textbf{P}_{base,2}
+    \text{ ($\textbf{P}_{end,1}$)}
+    \end{aligned}\label{eq:CTMS2}\\
+    &\begin{aligned}
+    \begin{bmatrix}
+        x' \\
+        y' \\
+        z' \\
+        1  \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        cos(\alpha2) & 0 & sin(\alpha2) & \pm P_{horizontal,2} \\
+        0 & 1 & 0 & 0 \\
+        -sin(\alpha2) & 0 & cos(\alpha2) & P_{vertical,2} \\
+        0 & 0 & 0 & 1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        x \\
+        y \\
+        z \\
+        1 \\
+    \end{bmatrix}
+    \end{aligned}
+    \label{eq:composite_transf_matrix_section2}
+\end{align}
+The manipulator consists of four sections. Therefore, the coordinates of the base and end effector of the manipulator can 
+be expressed through the following forward kinematics matrices in Equation \ref{eq:FMplus4}.
+\begin{align}
+    \textbf{P}_{end,4}
+    =
+    \begin{bmatrix}
+        \textbf{B}_4 & \textbf{P}_{base,4}^{end} \\
+        \textbf{0} & 1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        \textbf{B}_3 & \textbf{P}_{base,3}^{end} \\
+        \textbf{0} & 1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        \textbf{B}_2 & \textbf{P}_{base,2}^{end} \\
+        \textbf{0} & 1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        \textbf{B}_1 & \textbf{P}_{base,1}^{end} \\
+        \textbf{0} & 1 \\
+    \end{bmatrix}
+    \textbf{P}_{base,1}
+    \label{eq:FMplus4}
 \end{align}
 
 \subsection{part ??}
