@@ -8,52 +8,52 @@ gantt
     Mataining this Gantt Chart [Zehao Ye] : 2023-10-16, 2024-03-22
 
     section Preparation
-    Literature Review: crit, active, LR, 2023-10-23, 2023-11-23
-    Work Package Distrubution: done, 2023-11-13, 5d
-    Literature Review: milestone, after LR, 0d 
+    Literature Review: crit, done, LR, 2023-10-23, 2023-11-30
+    Work Package Distrubution: done, WKD, 2023-11-13, 5d
+    Literature Review: milestone, done, after LR, 0d 
 
     section Environment Config [Zehao Ye]
-    GitHub Config: done, 2023-11-6, 2023-11-16
-    LaTex Config: active, 2023-11-13, 2023-11-30
-    Linux Config: 2023-11-23, 30d
-    Simulation Env Config: SEC, 2023-11-30, 60d
+    GitHub Config: done, GC, 2023-11-6, 10d
+    LaTex Config: done, LC, 2023-11-13, 10d
+    Docker Container Config: done, DCC, after GC, 20d
+    Simulation Env Config: active, SEC, after LC, 60d
 
-    section Robot Modelling [Jiachen Wu] 
-    CAD Modelling (2D): crit, CAD, after LR, 7d
-    UG/Solidwork Modelling (3D): crit, 3D_MODEL, 2023-11-27, 7d
+    section Manipulator Modelling [Dawei Xu & Jiachen Wu] 
+    Preliminary CAD Modelling (2D): done, crit, pre2D, after LR, 5d
+    Preliminary UG/Solidwork Modelling (3D): crit, done, pre3D, 2023-11-30, 10d
+    Simple Model Strengthen Analysis Replication: crit, active, after pre3D, 14d
+    Manipulator Strengthen Analysis: crit, SA, 2023-12-15, 20d
+    Model Validation: milestone, after SA, 0d 
 
-    section Model Strength Test (Dawei Xu) 
-    Ansys: crit, ansys, after 3D_MODEL, 10d
-    Model Validation: milestone, after ansys, 0d 
+    section Electronic Components Control [Yuantong Li & Yuehan Zhang]
+    Proteus & Arduino IDE Env Config: done, proteus, after WKD, 12d
+    Auctutor Control Simulation: done, motor, after proteus, 10d
+    Sensor Communication Simulation: active, sensor, after motor, 10d
+    Arduino Programming: crit, Arduino, after sensor, 35d
+   Control Algorithm Programming: milestone, after Arduino, 0d 
 
-    section Electronic Components Simulation [Yuehan Zhang]
-    Sensor Incorporation: model_sensor, after CAD, 14d
-    Arduino Programming (electronic): ELEC_Arduino, after 3D_MODEL, 35d
+    section Locomotion Model [Yuhao Zhu & Zehao Ye]
+    Manipulator Parameter Design: done, MPD, after WKD, 14d
+    Forward Kinematics: done, FK, after MPD, 8d
+    Inverse Kinematics: active, IK, after FK, 10d
+    Control Algorithm Derivation: CA, after IK, 20d
+    Locomotion Algorithm: milestone, after CA, 0d 
 
-
-    section Auctutor Control [Yuantong Li] 
-    Auctutor Model Incorporation: model_motor, after CAD, 14d
-    Arduino Programming (auctutors): crit, Auctutor_Arduino, after ansys, 35d
-    Electronic Component Completion: milestone, after Auctutor_Arduino, 0d 
-
-    section Dynamic Locomotion [Yuhao Zhu]
-    Kinematics formula: Kinematics, after ansys, 25d
-    Dynamic Locomotion: milestone, after Kinematics, 0d 
-
-    section Simulation Test [Zehao Ye]
-    Integration: crit, Integration, after Auctutor_Arduino, 7d
-    Simulation Test: crit, after Integration, 2024-02-26
+    section Integration Simulation [Zehao Ye]
+    URDF Model Import: MI, after SA, 7d
+    Integration: after CA, 2024-01-26
+    Simulation Test: crit, after Arduino, 2024-02-26
     Bench Inspection: milestone, 2024-02-26, 0d 
 
     section Deliverable
-    Presentation 1 Preparation: 2023-12-09, 5d
-    Presentation 1 [Week 16]: milestone, 2023-12-11, 5d 
-    Peer Assessment 1 [Week 16]: milestone, 2023-12-11, 5d 
+    Presentation 1 Preparation: done, 2023-12-06, 5d
+    Presentation 1 [Week 16]: milestone, active, 2023-12-11, 0d 
+    Peer Assessment 1 [Week 16]: milestone, active, 2023-12-11, 0d 
     Report Writting Preparation: crit, 2024-02-26, 10d 
     Individual Contirbution [Week 28]: milestone, 2024-03-04, 5d 
     Final Report [Week 28]: milestone, 2024-03-04, 5d 
     Peer Assessment 2 [Week 28]: milestone, 2024-03-04, 5d
-    Presentation 2 preparation: 2024-03-07, 7d 
+    Presentation 2 preparation: crit, 2024-03-07, 7d 
     Second Presentation [Week 29]: milestone, 2024-03-11, 5d 
 ```
 
