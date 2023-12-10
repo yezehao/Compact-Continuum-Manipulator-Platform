@@ -13,7 +13,7 @@ clear;clc;
 % S1: the ideal length of the driving cable 1                             %
 % alpha1: the central angle of the bending curve                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-Sr = 50; % The length of section
+Sr = 150; % The length of section
 Ns= 4; % The number of sections 
 %% Workspace Simulation
 N = [10;10;10;10]; % Number of connectors
