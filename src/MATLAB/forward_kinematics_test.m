@@ -1,45 +1,76 @@
 clear;
 clc;
-length_mm = 300;
+length_mm = 200;
 Sr=0.5*length_mm; 
 d=0.015*length_mm; 
-angle = -10*[1; 1; 1; 1];
+angle = 90*[1; 1; -1; -1];
 rad = deg2rad(angle);
 for i = 1:4
+    % Define the bending angle alpha
     alpha = rad(i,1);
-    symbol = sign(alpha);
-    if symbol == 0
-        Dhorz(i,1) = 0;
-        Dvert(i,1) = Sr+d;
+    % Relative Displacement Calculation
+    if sign(alpha) == 0
+        Dhorz = 0;
+        Dvert = Sr+d;
     else
-        R = Sr/abs(alpha);
-        if symbol == 1
-            Dhorz(i,1) = R*(1-cos(alpha)) + d*cos(alpha);
-            Dvert(i,1) = R*sin(alpha) + d*sin(alpha);
-        elseif symbol == -1
-            Dhorz(i,1) = -R*(1-cos(alpha)) - d*cos(alpha);
-            Dvert(i,1) = -R*sin(alpha) - d*sin(alpha);
-        end
+        Alpha = abs(alpha);
+        R = Sr/abs(Alpha);
+        Dhorz = sign(alpha)*(R*(1-cos(Alpha)) + d*sin(Alpha));
+        Dvert = (R*sin(Alpha) + d*cos(Alpha));
+    end
+
+    % Matric structure initialization
+    M(1).bend = eye(3); % the orientation of origin
+    M(1).position = [0;0;0]; % the position of origin
+    if mod(i, 2) == 1
+        % Relative Bending Matrices Calculation 
+        Mt = [1 0 0;
+             0 cos(alpha) sin(alpha);
+             0 -sin(alpha) cos(alpha)];
+        M(i+1).bend = Mt;
+        % Relative Position Matrices Calculation
+        M(i+1).position = [0;Dhorz;Dvert];
+    else
+        % Relative Bending Matrices Calculation 
+        Mt = [cos(alpha) 0 sin(alpha);
+        0 1 0 
+        -sin(alpha) 0 cos(alpha);];
+        M(i+1).bend = Mt;
+        % Relative Position Matrices Calculation
+        M(i+1).position = [Dhorz;0;Dvert];
     end
 end
-M(1).Section = [1 0 0 0; 
-                0 cos(rad(1,1)) sin(rad(1,1)) Dhorz(1,1);
-                0 -sin(rad(1,1)) cos(rad(1,1)) Dvert(1,1);
-                0 0 0 1];
-M(2).Section = [cos(rad(2,1)) 0 sin(rad(2,1)) Dhorz(2,1);
-                0 1 0 0
-                -sin(rad(2,1)) 0 cos(rad(2,1)) Dvert(2,1);
-                0 0 0 1];
-M(3).Section = [1 0 0 0; 
-                0 cos(rad(3,1)) sin(rad(3,1)) Dhorz(3,1);
-                0 -sin(rad(3,1)) cos(rad(3,1)) Dvert(3,1);
-                0 0 0 1];
-M(4).Section  = [cos(rad(4,1)) 0 sin(rad(4,1)) Dhorz(4,1);
-                0 1 0 0
-                -sin(rad(4,1)) 0 cos(rad(4,1)) Dvert(4,1);
-                0 0 0 1];
 
-coord_origin = [0;0;0;1];
-result = M(1).Section*M(2).Section*M(3).Section*M(4).Section*coord_origin;
+% There are four units in the manipulator, the base coordinate and end 
+% effector coordinate are stored in the matrix "coordinate"
+% coordinate(:,i) (i = 1,2,3,4,5).
+M(1).B = M(1).bend;
+M(2).B = M(1).bend*M(2).bend;
+M(3).B = M(1).bend*M(2).bend*M(3).bend;
+M(4).B = M(1).bend*M(2).bend*M(3).bend*M(4).bend;
+position(:,1) = M(1).position; % The origin
+position(:,2) = M(1).B*M(2).position + position(:,1);
+position(:,3) = M(2).B*M(3).position + position(:,2);
+position(:,4) = M(3).B*M(4).position + position(:,3);
+position(:,5) = M(4).B*M(5).position + position(:,4);
 
-disp(result);
+clearvars alpha coord_origin i rad symbol
+
+figure;
+s = 50; grid on,
+% Plot the coordinate
+quiver3(0, 0, 0, 300, 0, 0, 'r', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(0, 0, 0, 0, 300, 0, 'g', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(0, 0, 0, 0, 0, 300, 'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+
+% Plot the node of manipulator
+scatter3(position(1,:),position(2,:),position(3,:),s,"filled", ...
+    'MarkerEdgeColor',[40/256 120/256 181/256], ...
+    'MarkerFaceColor',[154/256 201/256 219/256]); hold on,
+% Plot the line of manipulator
+for i = 1:4
+    plot3(position(1,i:i+1), position(2,i:i+1), position(3,i:i+1), 'Color', [40/256 120/256 181/256]);
+    hold on;
+end
+
+
