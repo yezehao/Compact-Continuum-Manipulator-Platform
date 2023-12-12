@@ -28,67 +28,29 @@ for i = 1:Ns
     S = parameter(i).n*parameter(i).d;
     parameter(i).R = Sr*parameter(i).r/(Sr-S);
     parameter(i).bend_rad_max = Sr/parameter(i).R; % maximum rad of manipulator
-    parameter(i).bend_work = pi*90/180; % work angle of manipulator
+    parameter(i).bend_work = deg2rad(90); % work angle of manipulator
 end
 clearvars S i d r
 
-for i = 1:10000
+for i = 1:100000
     for j = 1:Ns
         parameter(j).rad = parameter(j).bend_rad_max*(-1+2*rand);
     end
-    Edge_max(i,:) = FK_matrix(parameter,Sr);
+    end_max(:,i) = FK_matrix(parameter,Sr);
     for j = 1:Ns
         parameter(j).rad = parameter(j).bend_work*(-1+2*rand);
     end
-    Edge_work(i,:) = FK_matrix(parameter,Sr);
+    end_work(:,i) = FK_matrix(parameter,Sr);
 end
 
-% for i = 1:2000
-%     [C1,C2] = FK(parameter);
-%     coord1(i,:) = C1;
-%     coord2(i,:) = C2;
-% end
-
 %% Result Display
-% figure; %%% The subplots of figure %%%
-% s = 0.002*length(coord1(:,1));
-% subplot(1,2,1); % subplot1
-% scatter3(coord1(:,1),coord1(:,2),coord1(:,3),s,"filled",'MarkerEdgeColor',[.93 .69 .13], 'MarkerFaceColor',[1 .84 .28]);
-% grid on;
-% subplot(1,2,2); % subplot3
-% scatter3(coord2(:,1),coord2(:,2),coord2(:,3),s,"filled",'MarkerEdgeColor',[.85 .33 .10], 'MarkerFaceColor',[1 .48 .25]);
-% grid on;
-% hold on;
-
-% figure;
-% s = 0.002*length(coord1(:,1));grid on;
-% scatter3(coord2(:,1),coord2(:,2),coord2(:,3),s,"filled", ...
-%     'MarkerEdgeColor',[.85 .33 .10], ...
-%     'MarkerFaceColor',[1 .48 .25]);
-% hold on;
-% scatter3(coord1(:,1),coord1(:,2),coord1(:,3),s,"filled", ...
-%     'MarkerEdgeColor',[.93 .69 .13], ...
-%     'MarkerFaceColor',[1 .84 .28]);
-% hold on;
-
-% figure;
-% s = 0.002*length(coord1(:,1));grid on;
-% subplot(1,2,1)
-% scatter(coord2(:,1),coord2(:,2),s,"filled", ...
-%     'MarkerEdgeColor',[.85 .33 .10], ...
-%     'MarkerFaceColor',[1 .48 .25]);
-% grid on;
-% subplot(1,2,2)
-% scatter(coord2(:,1),coord2(:,3),s,"filled", ...
-%     'MarkerEdgeColor',[.85 .33 .10], ...
-%     'MarkerFaceColor',[1 .48 .25]);
-% grid on;
-% hold on;
-
 figure;
-subplot(2,2,1);
 s = 5;grid on,
-scatter3(Edge_work(:,1),Edge_work(:,2),Edge_work(:,3),s,"filled", ...
+% Plot the coordinate
+quiver3(0, 0, 0, 500, 0, 0, 'r', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(0, 0, 0, 0, 500, 0, 'g', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(0, 0, 0, 0, 0, 500, 'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+scatter3(end_work(1,:),end_work(2,:),end_work(3,:),s,"filled", ...
     'MarkerEdgeColor',[.85 .33 .10], ...
     'MarkerFaceColor',[1 .48 .25]);
 title('The workspace with work angle of ± 90 degree');
@@ -96,35 +58,33 @@ xlabel('X');
 ylabel('Y');
 zlabel('Z');
 
-subplot(2,2,2);
-grid on,
-[X, Y] = meshgrid(linspace(min(Edge_work(:,1)), max(Edge_work(:,1)), 50), ...
-                   linspace(min(Edge_work(:,2)), max(Edge_work(:,2)), 50));
-Z = griddata(Edge_work(:,1), Edge_work(:,2), Edge_work(:,3), X, Y);
-surf(X, Y, Z, 'FaceAlpha',1);
-shading interp;
-title('Scatter Plot with Mesh');
+figure,
+s = 5;grid on,
+% Plot the coordinate
+quiver3(0, 0, 0, 500, 0, 0, 'r', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(0, 0, 0, 0, 500, 0, 'g', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(0, 0, 0, 0, 0, 500, 'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+scatter3(end_max(1,:),end_max(2,:),end_max(3,:),s,"filled", ...
+    'MarkerEdgeColor',[.85 .33 .10], ...
+    'MarkerFaceColor',[1 .48 .25]);
+title('The workspace with maximum work angle');
 xlabel('X');
 ylabel('Y');
 zlabel('Z');
 
-subplot(2,2,3);
-scatter3(Edge_max(:,1),Edge_max(:,2),Edge_max(:,3),s,"filled", ...
-    'MarkerEdgeColor',[.93 .69 .13], ...
-    'MarkerFaceColor',[1 .84 .28]);
-[X, Y] = meshgrid(linspace(min(Edge_max(:,1)), max(Edge_max(:,1)), 50), ...
-                   linspace(min(Edge_max(:,2)), max(Edge_max(:,2)), 50));
-Z = griddata(Edge_max(:,1), Edge_max(:,2), Edge_max(:,3), X, Y);
-title('The workspace within the maximum angles');
-xlabel('X');
-ylabel('Y');
-zlabel('Z');
 
-subplot(2,2,4);
+figure,
 grid on,
-surf(X, Y, Z,'FaceAlpha', 1);
-shading interp;
-title('Scatter Plot with Mesh');
-xlabel('X');
-ylabel('Y');
-zlabel('Z');
+% Plot the coordinate
+quiver3(0, 0, 0, 500, 0, 0, 'r', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(0, 0, 0, 0, 500, 0, 'g', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(0, 0, 0, 0, 0, 500, 'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+fitType = 'poly22'; % 选择一个二次多项式曲面
+fitModel = fit([end_max(1,:)', end_max(2,:)'], end_max(3,:)', fitType);
+
+% 获取曲面上的拟合值
+[xFit, yFit] = meshgrid(min(end_max(1,:)):0.1:max(end_max(1,:)), min(end_max(2,:)):0.1:max(end_max(2,:)));
+zFit = feval(fitModel, xFit, yFit);
+
+% 在图中显示拟合曲面
+mesh(xFit, yFit, zFit, 'FaceAlpha', 0.5);
