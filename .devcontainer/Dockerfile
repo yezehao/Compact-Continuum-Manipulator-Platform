@@ -17,5 +17,10 @@ RUN apt-get -y update && apt-get -y install \
     python3-catkin-tools \
     ros-noetic-turtlebot3-msgs
 
+RUN apt-get -y install \
+    ros-noetic-rosserial-arduino \
+    ros-noetic-rosserial \
+    arduino
+
 RUN echo "source /opt/ros/noetic/setup.bash" >> /root/.bashrc
-RUN echo "source /workspaces/Compact-Continuum-Manipulator-Platform/catkin_ws/devel/setup.bash" >> /root/.bashrc
+# RUN echo "source ~/workspaces/Compact-Continuum-Manipulator-Platform/catkin_ws/devel/setup.bash" >> /root/.bashrc
