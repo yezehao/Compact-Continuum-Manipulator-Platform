@@ -3,7 +3,7 @@ clc;
 length_mm = 200;
 Sr=0.5*length_mm; 
 d=0.015*length_mm; 
-angle = 90*[1; 1; -1; -1];
+angle = 10*[1; 1; 1; 1];
 rad = deg2rad(angle);
 for i = 1:4
     % Define the bending angle alpha
@@ -14,7 +14,7 @@ for i = 1:4
         Dvert = Sr+d;
     else
         Alpha = abs(alpha);
-        R = Sr/abs(Alpha);
+        R = Sr/Alpha;
         Dhorz = sign(alpha)*(R*(1-cos(Alpha)) + d*sin(Alpha));
         Dvert = (R*sin(Alpha) + d*cos(Alpha));
     end
@@ -48,12 +48,15 @@ M(1).B = M(1).bend;
 M(2).B = M(1).bend*M(2).bend;
 M(3).B = M(1).bend*M(2).bend*M(3).bend;
 M(4).B = M(1).bend*M(2).bend*M(3).bend*M(4).bend;
+M(5).B = M(1).bend*M(2).bend*M(3).bend*M(4).bend*M(5).bend;
 position(:,1) = M(1).position; % The origin
-position(:,2) = M(1).B*M(2).position + position(:,1);
-position(:,3) = M(2).B*M(3).position + position(:,2);
-position(:,4) = M(3).B*M(4).position + position(:,3);
-position(:,5) = M(4).B*M(5).position + position(:,4);
-
+node(1).position = position(:,1);
+node(1).coordinate = M(1).bend;
+for i = 2:5
+    position(:,i) = M(i-1).B*M(i).position + position(:,i-1);
+    node(i).position = position(:,i);
+    node(i).coordinate = 50*M(i).bend;
+end
 clearvars alpha coord_origin i rad symbol
 
 figure;
@@ -71,6 +74,19 @@ scatter3(position(1,:),position(2,:),position(3,:),s,"filled", ...
 for i = 1:4
     plot3(position(1,i:i+1), position(2,i:i+1), position(3,i:i+1), 'Color', [40/256 120/256 181/256]);
     hold on;
+end
+
+% Plot the coordinate
+for i = 2:5
+quiver3(position(1,i),position(2,i),position(3,i), ...
+        node(i).coordinate(1,1),node(i).coordinate(1,2),node(i).coordinate(1,3), ...
+        'r', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(position(1,i),position(2,i),position(3,i), ...
+        node(i).coordinate(2,1),node(i).coordinate(2,2),node(i).coordinate(2,3), ...
+        'g', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(position(1,i),position(2,i),position(3,i), ...
+        node(i).coordinate(3,1),node(i).coordinate(3,2),node(i).coordinate(3,3), ...
+        'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 end
 
 
