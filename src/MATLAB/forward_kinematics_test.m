@@ -1,10 +1,9 @@
 clear;
 clc;
-length_mm = 200;
+length_mm = 300;
 Sr=0.5*length_mm; 
 d=0.015*length_mm; 
-d=0;
-angle = 90*[1; 1; 0; 0];
+angle = 90*[0; 0; 0; 1];
 rad = deg2rad(angle);
 for i = 1:4
     % Define the bending angle alpha
@@ -23,13 +22,18 @@ for i = 1:4
 
     % Matric structure initialization
     M(1).bend = eye(3); % the orientation of origin
+    M(1).bend_inv = eye(3);
     M(1).displacement = [0;0;0]; % the position of origin
     if mod(i, 2) == 1
         % Relative Bending Matrices Calculation 
         Mt = [1 0 0;
               0 cos(alpha) sin(alpha);
               0 -sin(alpha) cos(alpha)];
-        M(i+1).bend = round(Mt*10^5)/10^5; % round five decimal places 
+        Mt_inv = [1 0 0;
+              0 cos(alpha) -sin(alpha);
+              0 sin(alpha) cos(alpha)];
+        M(i+1).bend = round(Mt*10^5)/10^5; % round five decimal places
+        M(i+1).bend_inv = round(Mt_inv*M(i).bend_inv*10^5)/10^5; % round five decimal places
         % Relative Position Matrices Calculation
         M(i+1).displacement = [0;Dhorz;Dvert];
     else
@@ -37,7 +41,11 @@ for i = 1:4
         Mt = [cos(alpha) 0 sin(alpha);
               0 1 0 
               -sin(alpha) 0 cos(alpha)];
+        Mt_inv = [cos(alpha) 0 -sin(alpha);
+              0 1 0 
+              sin(alpha) 0 cos(alpha)];
         M(i+1).bend = round(Mt*10^5)/10^5; % round five decimal places 
+        M(i+1).bend_inv = round(Mt_inv*M(i).bend_inv*10^5)/10^5; % round five decimal places
         % Relative Position Matrices Calculation
         M(i+1).displacement = [Dhorz;0;Dvert];
     end
@@ -59,7 +67,6 @@ node(1).coordinate = M(1).bend;
 for i = 2:5
     position(:,i) = M(i-1).B*M(i).displacement + position(:,i-1);
     node(i).position = position(:,i);
-    node(i).coordinate = 50*M(i).B;
 end
 clearvars alpha coord_origin i rad symbol
 
@@ -83,14 +90,17 @@ end
 % Plot the sub-coordinate
 for i = 2:5
 quiver3(position(1,i),position(2,i),position(3,i), ...
-        node(i).coordinate(1,1),node(i).coordinate(1,2),node(i).coordinate(1,3), ...
+        50*M(i).bend_inv(1,1),50*M(i).bend_inv(1,2),50*M(i).bend_inv(1,3), ...
         'r', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 quiver3(position(1,i),position(2,i),position(3,i), ...
-        node(i).coordinate(2,1),node(i).coordinate(2,2),node(i).coordinate(2,3), ...
+        50*M(i).bend_inv(2,1),50*M(i).bend_inv(2,2),50*M(i).bend_inv(2,3), ...
         'g', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 quiver3(position(1,i),position(2,i),position(3,i), ...
-        node(i).coordinate(3,1),node(i).coordinate(3,2),node(i).coordinate(3,3), ...
+        50*M(i).bend_inv(3,1),50*M(i).bend_inv(3,2),50*M(i).bend_inv(3,3), ...
         'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 end
 
-
+%% Save file
+filename = ['result/manipulator_' num2str(angle(1,1)) '_' num2str(angle(2,1)) '_' ,...
+            num2str(angle(3,1)) '_' num2str(angle(4,1)) '.png'];
+saveas(gcf, filename);
