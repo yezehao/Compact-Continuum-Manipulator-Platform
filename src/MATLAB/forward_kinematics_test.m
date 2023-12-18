@@ -3,7 +3,7 @@ clc;
 length_mm = 300;
 Sr=0.5*length_mm; 
 d=0.015*length_mm; 
-angle = 90*[0; 0; 0; 1];
+angle = 90*[1; 1; -1; -1];
 rad = deg2rad(angle);
 for i = 1:4
     % Define the bending angle alpha
