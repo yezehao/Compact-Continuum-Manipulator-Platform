@@ -3,9 +3,9 @@
 This is the Design of the final report.
 \subsection{Methodology}
 \subsubsection{Forward Kinematics}
-The manipulator consists of four sections, and the backbones of each section are perpendicular to each other. To derive the 
+The manipulator consists of four units, and the backbones of each section are perpendicular to each other. To derive the 
 workspace of the manipulator for further analysis, the forward kinematics formula need to be conducted. According to the 
-fishbone continuum robot\cite{fishboneCR}, the forward kinematics formula of two perpendicular sections are shown in 
+fishbone continuum robot\cite{fishboneCR}, the forward kinematics formula of two perpendicular units are shown in 
 Equations \ref{eq:x_coordinate}, \ref{eq:y_coordinate}, and \ref{eq:z_coordinate}.
 \begin{align}
     \begin{aligned}
@@ -42,49 +42,49 @@ The centroids of the five disc upper surfaces are designated as $node_1$, $node_
 \begin{figure}[H] %[H] "corresponds to start the figure Here" 
     \centering %alignment can be flushleft or flushright
     \captionsetup{labelsep=colon}
-    \includegraphics[width=1.0\textwidth]{Image/manipulator_0_0_0_0.png} 
+    \includegraphics[width=1.0\textwidth]{Image/MATLAB/manipulator_0_0_0_0.png} 
     \caption[The kinematics model of manipulator in the initial position]
     {\centering \textit{\textbf{The kinematics model of manipulator in initial position.}}}
     \label{fig:kinematics model 0_0_0_0}
 \end{figure}
-\noindent The unit 1 is restricted to bending in the y-z plane of the coordinate system where $node_1$ serves as the origin, while the unit 2 
-is restricted to bending in the x-z plane of the coordinate system where $node_2$ serves as the origin. Similarly, the unit 3 and 
-unit 4 are subject to the same constraints. The bending angles for these units are defined as $\alpha_1$, $\alpha_2$, $\alpha_3$, 
-and $\alpha_4$, respectively. The positions of the manipulator model in the base coordinate system after bending each unit by 
-$90 \degree$ are illustrated in Figure \ref{fig:kinematics_model_resp}.
+\noindent The unit 1 is restricted to bending in the y-z plane of the coordinate system where $node_1$ serves as the origin, 
+while the unit 2 is restricted to bending in the x-z plane of the coordinate system where $node_2$ serves as the origin. 
+Similarly, the unit 3 and unit 4 are subject to the same constraints. The bending angles for these units are defined as 
+$\alpha_1$, $\alpha_2$, $\alpha_3$, and $\alpha_4$, respectively. The positions of the manipulator model in the base coordinate 
+system after bending each unit by $90 \degree$ are illustrated in Figure \ref{fig:kinematics_model_resp}.
 \begin{figure}[H] %[H] "corresponds to start the figure Here" 
     \centering %alignment can be flushleft or flushright
     \captionsetup{labelsep=colon}
     \begin{subfigure}{0.48\textwidth} % subfigure 1
         \centering
-        \includegraphics[width=\linewidth]{Image/manipulator_90_0_0_0.png}
+        \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_90_0_0_0.png}
         \caption{$\alpha_1=90 \degree,\alpha_2=0,\alpha_3=0,\alpha_4=0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth} % subfigure 2
         \centering
-        \includegraphics[width=\linewidth]{Image/manipulator_0_90_0_0.png}
+        \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_0_90_0_0.png}
         \caption{$\alpha_1=0,\alpha_2=90 \degree,\alpha_3=0,\alpha_4=0$}
     \end{subfigure}
     \begin{subfigure}{0.48\textwidth} % subfigure 3
         \centering
-        \includegraphics[width=\linewidth]{Image/manipulator_0_0_90_0.png}
+        \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_0_0_90_0.png}
         \caption{$\alpha_1=0,\alpha_2=0,\alpha_3=90 \degree,\alpha_4=0$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{Image/manipulator_0_0_0_90.png}
+        \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_0_0_0_90.png}
         \caption{$\alpha_1=0,\alpha_2=0,\alpha_3=0,\alpha_4=90 \degree$}
     \end{subfigure}
     \caption[The kinematics model of manipulator with respective bending units]
     {\centering \textit{\textbf{The kinematics model of manipulator with respective bending units.}}}
     \label{fig:kinematics_model_resp}
 \end{figure}
-\noindent Owing to the distinct properties of the four units, different calculation methods are required for analysis. Therefore, 
-the units are divided into odd and even groups for separate analysis. The unit $i$ have a base node $node_i$ and an end effector 
-node $node_{i+1}$. To further calculate the position of $node_{i+1}$ in the base coordinate system, these matrices can be employed 
-in the Equation \ref{eq:node i+1 calculation}.
+\noindent While the units bend to the positive direction of x-axis or y-axis, the bending angles $\alpha$ are positive. 
+Owing to the distinct properties of the four units, different calculation methods are required for analysis. The unit $i$ 
+have a base node $node_i$ and an end effector node $node_{i+1}$. To further calculate the position of $node_{i+1}$ in the 
+base coordinate system, these matrices can be employed in the Equation \ref{eq:node i+1 calculation}.
 \begin{align}
     &\textbf{P}_{i+1}^{base} = \textbf{B}_{i} \times \textbf{P}_{i+1}^{i} + \textbf{P}_{i}^{base}
     \label{eq:node i+1 calculation}
@@ -97,149 +97,205 @@ in the Equation \ref{eq:node i+1 calculation}.
     &\ \textbf{P}_{i}^{base}\text{: The position of $node_{i}$ in the base coordinate system.}
 \end{align*}
 \begin{itemize}
-    \item Unit 1
-    \item Unit 2
-    \item Unit 3
-    \item Unit 4
+    \item Unit 1 \\
+    For Unit 1, the relationship between the relative position matrix of $node_1$ and $node_2$ $\textbf{P}_{2}^{1}$ and 
+    $\alpha_1$ is shown in Equation \ref{eq:node2_postion_relative}.
+    \begin{align}
+        \textbf{P}_{2}^{1} = 
+        \begin{bmatrix}
+            0 \\
+            sgn(\alpha_1)\cdot(R_1\cdot(1-\cos(\left|\alpha_1\right|)) + d_2\cdot \sin(\left|\alpha_1\right|)) \\
+            (R_1\cdot \sin(\left|\alpha_1\right|) + d_2\cdot \cos(\left|\alpha_1\right|)) \\
+        \end{bmatrix}&
+        \label{eq:node2_postion_relative} \\
+        \nonumber (hint: \ R_1 = {Sr}_1/ &\alpha_1)
+    \end{align}
+    $R_1$ is the radius of the Unit 1 bending curve, ${Sr}_1$ is the length of the Unit 1 backbone, and $d_2$ is the thickness 
+    of the disc whose centroid is $node_2$. Meanwhile, the rotational matrix $\textbf{B}_{1}$ and the position matrix of 
+    $node_1$ $\textbf{P}_{1}^{base}$ are shown in Equations \ref*{eq:unit1_rotation_matrix} and \ref{eq:node1_position_absolute}.
+    \begin{align}
+        &\begin{aligned}
+            \textbf{B}_{1} = 
+            \begin{bmatrix}
+                1 & 0 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 1 \\
+            \end{bmatrix}
+        \end{aligned}
+        \label{eq:unit1_rotation_matrix} \\
+        &\begin{aligned}
+            \textbf{P}_{1}^{base} = 
+            \begin{bmatrix}
+                0 & 0 & 0\\
+            \end{bmatrix}^{\textbf{T}}
+        \end{aligned}
+        \label{eq:node1_position_absolute}
+    \end{align}
+    According to the Equations \ref{eq:node2_postion_relative}, \ref*{eq:unit1_rotation_matrix}, and \ref{eq:node1_position_absolute}, 
+    the position matrix of $node_{2}$ in the base coordinate system $\textbf{P}_{2}^{base}$ can be calculated in Equation \ref{eq:node2_position_absolute}.
+    \begin{align}
+        &\textbf{P}_{2}^{base} = \textbf{B}_{1} \times \textbf{P}_{2}^{1} + \textbf{P}_{1}^{base} \nonumber \\
+        &=
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1 \\
+        \end{bmatrix}
+        \times
+        \begin{bmatrix}
+            0 \\
+            sgn(\alpha_1)\cdot(R_1\cdot(1-\cos(\left|\alpha_1\right|)) + d_2\cdot \sin(\left|\alpha_1\right|)) \\
+            (R_1\cdot \sin(\left|\alpha_1\right|) + d_2\cdot \cos(\left|\alpha_1\right|)) \\
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+            0 \\
+            0 \\
+            0 \\
+        \end{bmatrix} \nonumber \\
+        &=
+        \begin{bmatrix}
+            0 \\
+            sgn(\alpha_1)\cdot(R_1\cdot(1-\cos(\left|\alpha\right|)) + d\cdot \sin(\left|\alpha\right|)) \\
+            (R_1\cdot \sin(\left|\alpha\right|) + d\cdot \cos(\left|\alpha\right|)) \\
+        \end{bmatrix}
+        \label{eq:node2_position_absolute}
+    \end{align}
+    \item Unit 2 \\
+    For Unit 2, the relationship between the relative position matrix of $node_2$ and $node_3$ $\textbf{P}_{3}^{2}$ and 
+    $\alpha_2$ is shown in Equation \ref{eq:node3_postion_relative}.
+    \begin{align}
+        \textbf{P}_{3}^{2} = 
+        \begin{bmatrix}
+            sgn(\alpha_2)\cdot(R_2\cdot(1-\cos(\left|\alpha_2\right|)) + d_3\cdot \sin(\left|\alpha_2\right|)) \\
+            0 \\
+            (R_2\cdot \sin(\left|\alpha_2\right|) + d_3\cdot \cos(\left|\alpha_2\right|)) \\
+        \end{bmatrix}&
+        \label{eq:node3_postion_relative} \\
+        \nonumber (hint: \ R_2 = {Sr}_2/ &\alpha_2)
+    \end{align}
+    $R_2$ is the radius of the Unit 2 bending curve, ${Sr}_2$ is the length of the Unit 2 backbone, and $d_3$ is the thickness 
+    of the disc whose centroid is $node_3$. Meanwhile, the rotational matrix $\textbf{B}_{2}$ and the position matrix of 
+    $node_2$ $\textbf{P}_{2}^{base}$ are shown in Equations \ref*{eq:unit2_rotation_matrix} and \ref{eq:node2_position_absolute}.
+    \begin{align}
+        &\begin{aligned}
+            \textbf{B}_{2} = 
+            \begin{bmatrix}
+                1 & 0 & 0 \\
+                0 & \cos(\alpha_1) & \sin(\alpha_1) \\
+                0 & -\sin(\alpha_1) & \cos(\alpha_1) \\
+            \end{bmatrix}
+        \end{aligned}
+        \label{eq:unit2_rotation_matrix}
+    \end{align}
+    According to the Equations \ref{eq:node2_position_absolute}, \ref{eq:node3_postion_relative}, and \ref*{eq:unit2_rotation_matrix}, 
+    the position matrix of $node_{3}$ in the base coordinate system $\textbf{P}_{3}^{base}$ can be calculated in Equation \ref{eq:node3_position_absolute}.
+    \begin{align}
+        &\textbf{P}_{3}^{base} = \textbf{B}_{1} \times \textbf{B}_{2} \times \textbf{P}_{3}^{2} + \textbf{P}_{2}^{base} \nonumber \\
+        &= 
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1 \\
+        \end{bmatrix}
+        \times
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & \cos(\alpha_1) & \sin(\alpha_1) \\
+            0 & -\sin(\alpha_1) & \cos(\alpha_1) \\
+        \end{bmatrix} \nonumber \\
+        &\times
+        \begin{bmatrix}
+            0 \\
+            sgn(\alpha_2)\cdot(R_2\cdot(1-\cos(\left|\alpha_2\right|)) + d_3\cdot \sin(\left|\alpha_2\right|)) \\
+            (R_2\cdot \sin(\left|\alpha_2\right|) + d_3\cdot \cos(\left|\alpha_2\right|)) \\
+        \end{bmatrix} \nonumber \\
+        &+
+        \begin{bmatrix}
+            0 \\
+            sgn(\alpha_1)\cdot(R_1\cdot(1-\cos(\left|\alpha_1\right|)) + d_2\cdot \sin(\left|\alpha_1\right|)) \\
+            (R_1\cdot \sin(\left|\alpha_1\right|) + d_2\cdot \cos(\left|\alpha_1\right|)) \\
+        \end{bmatrix}
+        \label{eq:node3_position_absolute}
+    \end{align}
+    \item Unit 3 \\
+    For Unit 3, the relationship between the relative position matrix of $node_3$ and $node_4$ $\textbf{P}_{4}^{3}$ and 
+    $\alpha_3$ is shown in Equation \ref{eq:node4_postion_relative}.
+    \begin{align}
+        \textbf{P}_{4}^{3} = 
+        \begin{bmatrix}
+            0 \\
+            sgn(\alpha_3)\cdot(R_3\cdot(1-\cos(\left|\alpha_3\right|)) + d_4\cdot \sin(\left|\alpha_3\right|)) \\
+            (R_3\cdot \sin(\left|\alpha_3\right|) + d_4\cdot \cos(\left|\alpha_3\right|)) \\
+        \end{bmatrix}&
+        \label{eq:node4_postion_relative} \\
+        \nonumber (hint: \ R_2 = {Sr}_2/ &\alpha_2)
+    \end{align}
+    $R_3$ is the radius of the Unit 3 bending curve, ${Sr}_3$ is the length of the Unit 3 backbone, and $d_4$ is the thickness 
+    of the disc whose centroid is $node_4$. Meanwhile, the rotational matrix $\textbf{B}_{3}$ and the position matrix of 
+    $node_3$ $\textbf{P}_{3}^{base}$ are shown in Equations \ref*{eq:unit3_rotation_matrix} and \ref{eq:node3_position_absolute}.
+    \begin{align}
+        &\begin{aligned}
+            \textbf{B}_{3} = 
+            \begin{bmatrix}
+                \cos(\alpha_2) & 0 & \sin(\alpha_2) \\
+                0 & 1 & 0 \\
+                -\sin(\alpha_2) & 0 & \cos(\alpha_2) \\
+            \end{bmatrix}
+        \end{aligned}
+        \label{eq:unit3_rotation_matrix}
+    \end{align}
+    According to the Equations \ref{eq:node3_position_absolute}, \ref{eq:node4_postion_relative}, and \ref*{eq:unit3_rotation_matrix}, 
+    the position matrix of $node_{4}$ in the base coordinate system $\textbf{P}_{4}^{base}$ can be calculated in Equation \ref{eq:node4_position_absolute}.
+    \begin{align}
+        &\textbf{P}_{4}^{base} = \textbf{B}_{1} \times\textbf{B}_{2} \times\textbf{B}_{3} \times \textbf{P}_{4}^{3} + \textbf{P}_{3}^{base} \nonumber \\
+        &= \textbf{B}_{1}\times\textbf{B}_{2}\times
+        \begin{bmatrix}
+            \cos(\alpha_2) & 0 & \sin(\alpha_2) \\
+            0 & 1 & 0 \\
+            -\sin(\alpha_2) & 0 & \cos(\alpha_2) \\
+        \end{bmatrix} \nonumber \\
+        &\times
+        \begin{bmatrix}
+            0 \\
+            sgn(\alpha_3)\cdot(R_3\cdot(1-\cos(\left|\alpha_3\right|)) + d_4\cdot \sin(\left|\alpha_3\right|)) \\
+            (R_3\cdot \sin(\left|\alpha_3\right|) + d_4\cdot \cos(\left|\alpha_3\right|)) \\
+        \end{bmatrix} + \textbf{P}_{3}^{base}
+        \label{eq:node4_position_absolute}
+    \end{align}
+    \item Unit 4 \\
+    In summary, the position matrix of $node_5$ in the base coordinate system $P_5^{base}$can be represented by Equation \ref{eq:node5_position_absolute}.
+    \begin{align}
+        \textbf{P}_{5}^{base} = \textbf{B}_{1} \times\textbf{B}_{2} \times\textbf{B}_{3} \times\textbf{B}_{4} \times \textbf{P}_{5}^{4} + \textbf{P}_{4}^{base}
+        \label{eq:node5_position_absolute}
+    \end{align}
 \end{itemize}
 
-The position of the end effector at the section whose backbone is parallel to the x-axis, which is $\textbf{P}_{end}$ can be 
-derived based on the bending angle matrix $\textbf{B}$, mechanism parameters, the position of the end effector in the base 
-coordinate system $\textbf{P}_{base}^{end}$ and the position of the base at the section $\textbf{P}_{base}$. The composite 
-coordinate transformation is a combination of rotation and translation. The equations are shown in Equations \ref{eq:composite} 
-and \ref{eq:composite_matrices}. $P_{horizontal}$ and $P_{vertical}$ are the horizontal and vertical position of end effector 
-at the section in the base coordinate system, respectively. The sign of $P_{horizontal}$ in matrix $\textbf{P}_{base}^{end}$ 
-consistent with the the sign of $\alpha$.
+Applying the corresponding transformations to the Equation \ref{eq:node i+1 calculation} reveals the patterns shown in Equation \ref{eq:nodei+1_position_absolute}.
 \begin{align}
-    \textbf{P}_{end} = \textbf{B} \times \textbf{P}_{base} &+ \textbf{P}_{base}^{end} \label{eq:composite} \\
-    \begin{bmatrix}
-        x' \\
-        y' \\
-        z' \\
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        1 & 0 & 0 \\
-        0 & \cos(\alpha) & \sin(\alpha) \\
-        0 & -\sin(\alpha) & \cos(\alpha) \\
-    \end{bmatrix}
-    &\times
-    \begin{bmatrix}
-        x \\
-        y \\
-        z \\
-    \end{bmatrix}
-    +
-    \begin{bmatrix}
-        0 \\
-        \pm P_{\text{horizontal}} \\
-        P_{\text{vertical}} \\
-    \end{bmatrix}\label{eq:composite_matrices} \\
-    P_{horizontal} = R\cdot(1-cos&(\alpha) + d\cdot cos(\alpha)) \nonumber \\ 
-    P_{vertical} = R\cdot sin(\alpha) + &d\cdot sin(\alpha) \nonumber
-\end{align}
-The composite transfermation matrix of the first section whose backbone is parallel to x-axis is derived in Equations 
-\ref{eq:CTMS1} and \ref{eq:composite_transf_matrix_section1}.
-\begin{align}
-    &\qquad\qquad
-    \begin{aligned}
-    \textbf{P}_{end,1}
-    =
-    \begin{bmatrix}
-        \textbf{B}_1 & \textbf{P}_{base,1}^{end} \\
-        \textbf{0} & 1 \\
-    \end{bmatrix}
-    \textbf{P}_{base,1}
-    \end{aligned}\label{eq:CTMS1}\\
-    &\begin{aligned}
-    \begin{bmatrix}
-        x' \\
-        y' \\
-        z' \\
-        1  \\
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        1 & 0 & 0 & 0 \\
-        0 & cos(\alpha1) & sin(\alpha1) & \pm P_{horizontal,1} \\
-        0 & -sin(\alpha1) & cos(\alpha1) & P_{vertical,1} \\
-        0 & 0 & 0 & 1 \\
-    \end{bmatrix}
-    \begin{bmatrix}
-        x \\
-        y \\
-        z \\
-        1 \\
-    \end{bmatrix}
-    \end{aligned}
-    \label{eq:composite_transf_matrix_section1}
-\end{align}
-The composite transfermation matrix of the second section whose backbone is parallel to y-axis is derived in Equations 
-\ref{eq:CTMS2} and \ref{eq:composite_transf_matrix_section2}. ($\textbf{P}_{base,2}$ is equivalent to $\textbf{P}_{end,1}$)
-\begin{align}
-    &\qquad\qquad
-    \begin{aligned}
-    \textbf{P}_{end,2}
-    =
-    \begin{bmatrix}
-        \textbf{B}_2 & \textbf{P}_{base,2}^{end} \\
-        \textbf{0} & 1 \\
-    \end{bmatrix}
-    \textbf{P}_{base,2}
-    \text{ ($\textbf{P}_{end,1}$)}
-    \end{aligned}\label{eq:CTMS2}\\
-    &\begin{aligned}
-    \begin{bmatrix}
-        x' \\
-        y' \\
-        z' \\
-        1  \\
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        cos(\alpha2) & 0 & sin(\alpha2) & \pm P_{horizontal,2} \\
-        0 & 1 & 0 & 0 \\
-        -sin(\alpha2) & 0 & cos(\alpha2) & P_{vertical,2} \\
-        0 & 0 & 0 & 1 \\
-    \end{bmatrix}
-    \begin{bmatrix}
-        x \\
-        y \\
-        z \\
-        1 \\
-    \end{bmatrix}
-    \end{aligned}
-    \label{eq:composite_transf_matrix_section2}
-\end{align}
-The manipulator consists of four sections. Therefore, the coordinates of the base and end effector of the manipulator can 
-be expressed through the following forward kinematics matrices in Equation \ref{eq:FMplus4}.
-\begin{align}
-    \textbf{P}_{end,4}
-    =
-    \begin{bmatrix}
-        \textbf{B}_4 & \textbf{P}_{base,4}^{end} \\
-        \textbf{0} & 1 \\
-    \end{bmatrix}
-    \begin{bmatrix}
-        \textbf{B}_3 & \textbf{P}_{base,3}^{end} \\
-        \textbf{0} & 1 \\
-    \end{bmatrix}
-    \begin{bmatrix}
-        \textbf{B}_2 & \textbf{P}_{base,2}^{end} \\
-        \textbf{0} & 1 \\
-    \end{bmatrix}
-    \begin{bmatrix}
-        \textbf{B}_1 & \textbf{P}_{base,1}^{end} \\
-        \textbf{0} & 1 \\
-    \end{bmatrix}
-    \textbf{P}_{base,1}
-    \label{eq:FMplus4}
+    &\textbf{P}_{i+1}^{base} - \textbf{P}_{i}^{base} = \prod_{n=1}^{i}\textbf{B}_{n}\times \textbf{P}_{i+1}^{i} \\
+    &\textbf{P}_{i+1}^{base} = \sum_{m=1}^{i}\left[\prod_{n=1}^{m}\textbf{B}_{n}\times \textbf{P}_{m+1}^{m}\right] \quad(\textbf{P}_{1}^{base} = 0)
+    \label{eq:nodei+1_position_absolute}
 \end{align}
 
-\subsection{part ??}
-unknown
-\subsection{part ??}
-unknown
+\begin{figure}[H] %[H] "corresponds to start the figure Here" 
+    \centering %alignment can be flushleft or flushright
+    \captionsetup{labelsep=colon}
+    \begin{subfigure}{0.9\textwidth} % subfigure 1
+        \centering
+        \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_90_90_-90_-90.png}
+        \caption{$\alpha_1=90\degree,\alpha_2=90\degree,\alpha_3=-90\degree,\alpha_4=-90\degree$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.9\textwidth} % subfigure 2
+        \centering
+        \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_60_60_-60_-60.png}
+        \caption{$\alpha_1=60\degree,\alpha_2=60 \degree,\alpha_3=-60\degree,\alpha_4=-60\degree$}
+    \end{subfigure}
+    \caption[The kinematics model of manipulator with respective bending units]
+    {\centering \textit{\textbf{The kinematics model of manipulator with respective bending units.}}}
+    \label{fig:different}
+\end{figure}
 
 % change to new page
 \newpage
