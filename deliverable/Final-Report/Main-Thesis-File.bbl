@@ -1,0 +1,108 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{Benner}{article}{}
+      \name{author}{1}{}{%
+        {{hash=985ccf6d3179f051733f86d4debf6c8c}{%
+           family={Benner},
+           familyi={B\bibinitperiod},
+           given={Steven\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{985ccf6d3179f051733f86d4debf6c8c}
+      \strng{fullhash}{985ccf6d3179f051733f86d4debf6c8c}
+      \strng{bibnamehash}{985ccf6d3179f051733f86d4debf6c8c}
+      \strng{authorbibnamehash}{985ccf6d3179f051733f86d4debf6c8c}
+      \strng{authornamehash}{985ccf6d3179f051733f86d4debf6c8c}
+      \strng{authorfullhash}{985ccf6d3179f051733f86d4debf6c8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{6919}
+      \field{title}{Synthetic biology: Act natural}
+      \field{volume}{421}
+      \field{year}{2003}
+      \field{pages}{118\bibrangedash 118}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/421118a
+      \endverb
+    \endentry
+    \entry{fishboneCR}{article}{}
+      \name{author}{6}{}{%
+        {{hash=40506594b8236a27837c19c503917ea4}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Pan},
+           giveni={P\bibinitperiod}}}%
+        {{hash=13394becaa53e696f6b1732c676d6361}{%
+           family={Yao},
+           familyi={Y\bibinitperiod},
+           given={Jiantao},
+           giveni={J\bibinitperiod}}}%
+        {{hash=53eda2415f95a1d1f76572f661905aab}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Shuai},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d856bd361c3c217872bc006ade5f33b2}{%
+           family={Wei},
+           familyi={W\bibinitperiod},
+           given={Chunjie},
+           giveni={C\bibinitperiod}}}%
+        {{hash=d7086ec21f72e8e904e3dfb11f97caa6}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Hongyu},
+           giveni={H\bibinitperiod}}}%
+        {{hash=590a55789d084fb2479f5d7d98f295a7}{%
+           family={Qi},
+           familyi={Q\bibinitperiod},
+           given={Shupeng},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IOP Publishing}%
+      }
+      \strng{namehash}{baf0c9f6b18fef3f6d695d19c29db5c3}
+      \strng{fullhash}{5770fbfd9e40d25d026a675d21715b64}
+      \strng{bibnamehash}{baf0c9f6b18fef3f6d695d19c29db5c3}
+      \strng{authorbibnamehash}{baf0c9f6b18fef3f6d695d19c29db5c3}
+      \strng{authornamehash}{baf0c9f6b18fef3f6d695d19c29db5c3}
+      \strng{authorfullhash}{5770fbfd9e40d25d026a675d21715b64}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bioinspiration \& Biomimetics}
+      \field{number}{6}
+      \field{title}{A bioinspired fishbone continuum robot with rigid-flexible-soft coupling structure}
+      \field{volume}{17}
+      \field{year}{2022}
+      \field{pages}{066012}
+      \range{pages}{1}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
