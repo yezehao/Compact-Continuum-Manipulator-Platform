@@ -1,39 +1,49 @@
-function end_effector = FK_matrix(parameter,Sr)
+function node = FK_matrix(parameter,Sr)
     rad = [parameter(1).rad; parameter(2).rad; parameter(3).rad; parameter(4).rad];   
-    d = parameter.d;
     for i = 1:4
         % Define the bending angle alpha
-        alpha = rad(i,1);
+        alpha = parameter(i).rad;
+        d = parameter(i).d;
         % Relative Displacement Calculation
         if sign(alpha) == 0
             Dhorz = 0;
             Dvert = Sr+d;
         else
             Alpha = abs(alpha);
-            R = Sr/abs(Alpha);
+            R = Sr/Alpha;
             Dhorz = sign(alpha)*(R*(1-cos(Alpha)) + d*sin(Alpha));
             Dvert = (R*sin(Alpha) + d*cos(Alpha));
+            % disp(Dhorz);disp(Dvert);
         end
     
         % Matric structure initialization
         M(1).bend = eye(3); % the orientation of origin
-        M(1).position = [0;0;0]; % the position of origin
+        M(1).bend_inv = eye(3);
+        M(1).displacement = [0;0;0]; % the position of origin
         if mod(i, 2) == 1
             % Relative Bending Matrices Calculation 
             Mt = [1 0 0;
-                 0 cos(alpha) sin(alpha);
-                 0 -sin(alpha) cos(alpha)];
-            M(i+1).bend = Mt;
+                  0 cos(alpha) sin(alpha);
+                  0 -sin(alpha) cos(alpha)];
+            Mt_inv = [1 0 0;
+                  0 cos(alpha) -sin(alpha);
+                  0 sin(alpha) cos(alpha)];
+            M(i+1).bend = round(Mt*10^5)/10^5; % round five decimal places
+            M(i+1).bend_inv = round(Mt_inv*M(i).bend_inv*10^5)/10^5; % round five decimal places
             % Relative Position Matrices Calculation
-            M(i+1).position = [0;Dhorz;Dvert];
+            M(i+1).displacement = [0;Dhorz;Dvert];
         else
             % Relative Bending Matrices Calculation 
             Mt = [cos(alpha) 0 sin(alpha);
-            0 1 0 
-            -sin(alpha) 0 cos(alpha);];
-            M(i+1).bend = Mt;
+                  0 1 0 
+                  -sin(alpha) 0 cos(alpha)];
+            Mt_inv = [cos(alpha) 0 -sin(alpha);
+                  0 1 0 
+                  sin(alpha) 0 cos(alpha)];
+            M(i+1).bend = round(Mt*10^5)/10^5; % round five decimal places 
+            M(i+1).bend_inv = round(Mt_inv*M(i).bend_inv*10^5)/10^5; % round five decimal places
             % Relative Position Matrices Calculation
-            M(i+1).position = [Dhorz;0;Dvert];
+            M(i+1).displacement = [Dhorz;0;Dvert];
         end
     end
 
@@ -44,30 +54,13 @@ function end_effector = FK_matrix(parameter,Sr)
     M(2).B = M(1).bend*M(2).bend;
     M(3).B = M(1).bend*M(2).bend*M(3).bend;
     M(4).B = M(1).bend*M(2).bend*M(3).bend*M(4).bend;
-    position(:,1) = M(1).position; % The origin
-    position(:,2) = M(1).B*M(2).position + position(:,1);
-    position(:,3) = M(2).B*M(3).position + position(:,2);
-    position(:,4) = M(3).B*M(4).position + position(:,3);
-    position(:,5) = M(4).B*M(5).position + position(:,4);
-    
-    clearvars alpha coord_origin i rad symbol
-    
-    % figure;
-    % s = 50; grid on,
-    % % Plot the coordinate
-    % quiver3(0, 0, 0, 300, 0, 0, 'r', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
-    % quiver3(0, 0, 0, 0, 300, 0, 'g', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
-    % quiver3(0, 0, 0, 0, 0, 300, 'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
-    % 
-    % % Plot the node of manipulator
-    % scatter3(position(1,:),position(2,:),position(3,:),s,"filled", ...
-    %     'MarkerEdgeColor',[40/256 120/256 181/256], ...
-    %     'MarkerFaceColor',[154/256 201/256 219/256]); hold on,
-    % % Plot the line of manipulator
-    % for i = 1:4
-    %     plot3(position(1,i:i+1), position(2,i:i+1), position(3,i:i+1), 'Color', [40/256 120/256 181/256]);
-    %     hold on;
-    % end
-
-    end_effector = position(:,5);
+    M(5).B = M(1).bend*M(2).bend*M(3).bend*M(4).bend*M(5).bend;
+    position(:,1) = M(1).displacement; % The origin
+    node(1).position = position(:,1);
+    node(1).coordinate = M(1).bend_inv;
+    for i = 2:5
+        position(:,i) = M(i-1).B*M(i).displacement + position(:,i-1);
+        node(i).position = position(:,i);
+        node(i).coordinate = M(i).bend_inv;
+    end
 end

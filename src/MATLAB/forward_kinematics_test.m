@@ -63,7 +63,6 @@ M(4).B = M(1).bend*M(2).bend*M(3).bend*M(4).bend;
 M(5).B = M(1).bend*M(2).bend*M(3).bend*M(4).bend*M(5).bend;
 position(:,1) = M(1).displacement; % The origin
 node(1).position = position(:,1);
-node(1).coordinate = M(1).bend;
 for i = 2:5
     position(:,i) = M(i-1).B*M(i).displacement + position(:,i-1);
     node(i).position = position(:,i);
