@@ -44,8 +44,11 @@ for i = 1:50000
     % end
     % node = FK_matrix(parameter,Sr);
     % position(:,i) = node(Nu+1).position;
-    % coordinate(:,i)= node(Nu+1).coordinate;
+    % coordinate(:,3*i-2:3*i)= node(Nu+1).coordinate;
 end
+
+% %% Result Save
+% writematrix(position, 'result/maximum_bending_workspace.csv');
 
 %% Result Display
 figure;
