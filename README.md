@@ -48,7 +48,7 @@ gantt
     section Deliverable
     Presentation 1 Preparation: done, 2023-12-06, 5d
     Presentation 1 [Week 16]: milestone, active, 2023-12-11, 0d 
-    Peer Assessment 1 [Week 16]: milestone, active, 2023-12-11, 0d 
+    Peer Assessment 1 [Week 16]: milestone, active, 2023-12-18, 0d 
     Report Writting Preparation: crit, 2024-02-26, 10d 
     Individual Contirbution [Week 28]: milestone, 2024-03-04, 5d 
     Final Report [Week 28]: milestone, 2024-03-04, 5d 
