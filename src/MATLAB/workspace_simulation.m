@@ -13,10 +13,10 @@ clear;clc;
 % S1: the ideal length of the driving cable 1                             %
 % alpha1: the central angle of the bending curve                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-Sr = 150; % The length of section
+Sr = 150; % The length of each bending unit
 Nu= 4; % The number of units 
 %% Workspace Simulation
-N = [10;10;10;10]; % Number of connectors
+N = [10;10;10;10]; % Number of cross-shaped sheets
 r = 0.3*Sr*ones(Nu,1);
 d = 0.03*Sr*ones(Nu,1);
 angle = [10;10;10;10]; % The bending angle
