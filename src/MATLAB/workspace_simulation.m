@@ -17,7 +17,7 @@ Sr = 150; % The length of section
 Nu= 4; % The number of units 
 %% Workspace Simulation
 N = [10;10;10;10]; % Number of connectors
-r = 0.3*Sr*ones(Nu,1);
+r = [50;50;40;40];
 d = 0.03*Sr*ones(Nu,1);
 angle = [10;10;10;10]; % The bending angle
 for i = 1:Nu
