@@ -16,11 +16,15 @@ This paper will discuss different types of existing continuum robots and their w
 then propose a proper continuum robot design that can be mainly applied to medical FUS applications.
 \subsection{Working Principles}
 Continuum robot can be broadly divided into two parts: a continuous bending structure and a fixed base containing actuating and 
-controlling devices. In continuum robots, the key element is their backbone which runs through the whole structure and defines 
-the basic shape of, making bending and rotating movement possible \cite{CR_overview}. \\
-The user manipulates the robot by controlling the actuator in the base part. Flexible elements such as tendons and springs 
-distributed around the backbone are connected to the actuator and can transmit bending and rotation movements along the robot 
-body, even expansion. \\
+controlling devices.\\
+The continuous bending structure can be seen as the working arm of the robot. A flexible backbone shapes the arm, and it can be rotated 
+and bent by dragging/releasing the different cables (tendons) around it. 
+When the joystick in the fixed base is manipulated manually, the programmed stepper motor will step forward/backward by the 
+corresponding number of steps. These motors are connected to different cables located in the bending structure (arm), the motors 
+dragging the cables, thereby making cable contract. Finally, the contraction of different cables will rotate and bend the backbone, 
+which is the core component of the arm, thereby changing the posture of the arm.\\
+This process can be likened to the movement of the human arms. cables can be understood as tendons/muscle bundles and backbone as 
+the main skeleton.
 \begin{figure}[H] %[H] "corresponds to start the figure Here" 
     \centering %alignment can be flushleft or flushright
     \captionsetup{labelsep=colon}
