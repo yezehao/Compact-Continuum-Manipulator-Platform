@@ -19,6 +19,13 @@ Nu= 4; % The number of units
 N = [10;10;10;10]; % Number of connectors
 r = [50;50;40;40];
 d = 0.03*Sr*ones(Nu,1);
+% Pre-allocate Memory
+parameter(Nu).n = [];
+parameter(Nu).d = [];
+parameter(Nu).r = [];
+parameter(Nu).R = [];
+parameter(Nu).bend_rad_max = [];
+parameter(Nu).bend_work = [];
 for i = 1:Nu
     parameter(i).n = N(i,1);
     parameter(i).d = d(i,1);
@@ -28,9 +35,12 @@ for i = 1:Nu
     parameter(i).bend_rad_max = Sr/parameter(i).R; % maximum rad of manipulator
     parameter(i).bend_work = deg2rad(90); % work angle of manipulator
 end
-clearvars S i d r
+clearvars S i d r N
 
-index = 100000;
+index = 10000;
+% Pre-allocate Memory
+position = zeros(3, index);
+coordinate = zeros(3, index);
 for i = 1:index
     for j = 1:Nu
         parameter(j).rad = parameter(j).bend_rad_max*(-1+2*rand);
@@ -60,9 +70,9 @@ quiver3(0, 0, 0, 500, 0, 0, 'r', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 quiver3(0, 0, 0, 0, 500, 0, 'g', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 quiver3(0, 0, 0, 0, 0, 500, 'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 scatter3(position(1,:),position(2,:),position(3,:),s,"filled", ...
-    'MarkerEdgeColor',[.85 .33 .10], ...
-    'MarkerFaceColor',[1 .48 .25]);
-title('The workspace with work angle of ± 90 degree');
+    'MarkerEdgeColor',[198,61,47]/255, ...
+    'MarkerFaceColor',[255,155,80]/255);
+title('The Entire workspace');
 xlabel('X');
 ylabel('Y');
 zlabel('Z');
@@ -81,9 +91,9 @@ quiver3(0, 0, 0, 500, 0, 0, 'r', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 quiver3(0, 0, 0, 0, 500, 0, 'g', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 quiver3(0, 0, 0, 0, 0, 500, 'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 scatter3(position_u(1,:),position_u(2,:),position_u(3,:),s,"filled", ...
-    'MarkerEdgeColor',[.85 .33 .10], ...
-    'MarkerFaceColor',[1 .48 .25]);
-title('The workspace with work angle of ± 90 degree');
+    'MarkerEdgeColor',[198,61,47]/255, ...
+    'MarkerFaceColor',[255,155,80]/255);
+title('The Useful Workspace 300x300x300 mm');
 xlabel('X');
 ylabel('Y');
 zlabel('Z');
@@ -92,6 +102,9 @@ KP_vertical = [range(3,1),range(3,1)+100,range(3,1)+200,range(3,1)+300];
 element = 150*[-1,0,1];
 KP_horizontal = [repelem(element,1,3);repmat(element,1,3)];
 KP = [repmat(KP_horizontal,1,4);repelem(KP_vertical,1,9)];
+scatter3(KP(1,:),KP(2,:),KP(3,:),20,"filled", ...
+    'MarkerEdgeColor',[34,40,49]/255, ...
+    'MarkerFaceColor',[255,211,105]/255);
 distance = pdist2(position_u', KP');
 [distance_min, ~] = min(distance);
 disp('Distance to the nearest point:');
