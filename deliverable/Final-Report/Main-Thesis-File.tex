@@ -2,12 +2,6 @@
 \input{config/general.tex} % general config
 \input{config/code-block.tex} % code block config
 
-% The configuration of reference
-\usepackage[backend=biber,style=numeric]{biblatex}
-\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
-% .bib is the name of the file which contains the list of references for citation
-\addbibresource{references.bib}
-
 \begin{document} % beginning of the document
 \input{Section/Cover-Page} % Cover Page
 \input{Section/Abstract} % Abstract
@@ -19,10 +13,13 @@
 \input{Section/Conclusion} % Conclusion
 
 \setcounter{page}{1}
+\renewcommand{\bibname}{References}
 \addcontentsline{toc}{chapter}{References}
 \pagenumbering{roman}
 \pagestyle{plain}
-\printbibliography[title = {References}] % References
+% \printbibliography[title = {References}] % References
+\bibliographystyle{unsrt}
+\bibliography{references}{}
 \newpage
 \appendix
 \input{Appendix/Appendix1} % Appendix 1
