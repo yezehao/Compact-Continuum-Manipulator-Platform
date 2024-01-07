@@ -12,14 +12,17 @@
 \input{Section/Result} % Result and Discussion
 \input{Section/Conclusion} % Conclusion
 
-\printbibliography[title = {References}] % References
+\setcounter{page}{1}
+\renewcommand{\bibname}{References}
 \addcontentsline{toc}{chapter}{References}
 \pagenumbering{roman}
-\setcounter{page}{1}
+\pagestyle{plain}
+% \printbibliography[title = {References}] % References
+\bibliographystyle{unsrt}
+\bibliography{references}{}
 \newpage
 \appendix
 \input{Appendix/Appendix1} % Appendix 1
 \input{Appendix/Appendix2} % Appendix 2
-
 
 \end{document}
