@@ -17,8 +17,6 @@ Sr = 150; % The length of each bending unit
 Nu= 4; % The number of units 
 %% Workspace Simulation
 N = [10;10;10;10]; % Number of cross-shaped sheets
-r = 0.3*Sr*ones(Nu,1);
-N = [10;10;10;10]; % Number of connectors
 r = [50;50;40;40];
 d = 0.03*Sr*ones(Nu,1);
 % Pre-allocate Memory

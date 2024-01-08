@@ -1,5 +1,4 @@
 function node = FK_matrix(parameter,Sr)
-    rad = [parameter(1).rad; parameter(2).rad; parameter(3).rad; parameter(4).rad];   
     for i = 1:4
         % Define the bending angle alpha
         alpha = parameter(i).rad;
@@ -9,10 +8,9 @@ function node = FK_matrix(parameter,Sr)
             Dhorz = 0;
             Dvert = Sr+d;
         else
-            Alpha = abs(alpha);
-            R = Sr/Alpha;
-            Dhorz = sign(alpha)*(R*(1-cos(Alpha)) + d*sin(Alpha));
-            Dvert = (R*sin(Alpha) + d*cos(Alpha));
+            R = Sr/alpha;
+            Dhorz = R*(1-cos(alpha)) + d*sin(alpha);
+            Dvert = R*sin(alpha) + d*cos(alpha);
             % disp(Dhorz);disp(Dvert);
         end
     
