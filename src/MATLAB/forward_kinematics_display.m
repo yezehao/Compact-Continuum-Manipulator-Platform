@@ -14,9 +14,9 @@ for i = 1:4
         Dvert = Sr+d;
     else
         Alpha = abs(alpha);
-        R = Sr/Alpha;
-        Dhorz = sign(alpha)*(R*(1-cos(Alpha)) + d*sin(Alpha));
-        Dvert = (R*sin(Alpha) + d*cos(Alpha));
+        R = Sr/alpha;
+        Dhorz = R*(1-cos(alpha)) + d*sin(alpha);
+        Dvert = R*sin(alpha) + d*cos(alpha);
         % disp(Dhorz);disp(Dvert);
     end
 
