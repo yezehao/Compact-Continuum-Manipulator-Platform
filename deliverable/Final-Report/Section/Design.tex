@@ -104,8 +104,8 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
         \textbf{P}_{2}^{1} = 
         \begin{bmatrix}
             0 \\
-            sgn(\alpha_1)\cdot(R_1\cdot(1-\cos(\left|\alpha_1\right|)) + d_2\cdot \sin(\left|\alpha_1\right|)) \\
-            (R_1\cdot \sin(\left|\alpha_1\right|) + d_2\cdot \cos(\left|\alpha_1\right|)) \\
+            (R_1\cdot(1-\cos(\alpha_1)) + d_2\cdot \sin(\alpha_1)) \\
+            (R_1\cdot \sin(\alpha_1) + d_2\cdot \cos(\alpha_1)) \\
         \end{bmatrix}&
         \label{eq:node2_postion_relative} \\
         \nonumber (hint: \ R_1 = {Sr}_1/ &\alpha_1)
@@ -144,8 +144,8 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
         \times
         \begin{bmatrix}
             0 \\
-            sgn(\alpha_1)\cdot(R_1\cdot(1-\cos(\left|\alpha_1\right|)) + d_2\cdot \sin(\left|\alpha_1\right|)) \\
-            (R_1\cdot \sin(\left|\alpha_1\right|) + d_2\cdot \cos(\left|\alpha_1\right|)) \\
+            (R_1\cdot(1-\cos(\alpha_1)) + d_2\cdot \sin(\alpha_1)) \\
+            (R_1\cdot \sin(\alpha_1) + d_2\cdot \cos(\alpha_1)) \\
         \end{bmatrix}
         +
         \begin{bmatrix}
@@ -156,8 +156,8 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
         &=
         \begin{bmatrix}
             0 \\
-            sgn(\alpha_1)\cdot(R_1\cdot(1-\cos(\left|\alpha\right|)) + d\cdot \sin(\left|\alpha\right|)) \\
-            (R_1\cdot \sin(\left|\alpha\right|) + d\cdot \cos(\left|\alpha\right|)) \\
+            (R_1\cdot(1-\cos(\alpha_1)) + d_2\cdot \sin(\alpha_1)) \\
+            (R_1\cdot \sin(\alpha_1) + d_2\cdot \cos(\alpha_1)) \\
         \end{bmatrix}
         \label{eq:node2_position_absolute}
     \end{align}
@@ -167,9 +167,9 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
     \begin{align}
         \textbf{P}_{3}^{2} = 
         \begin{bmatrix}
-            sgn(\alpha_2)\cdot(R_2\cdot(1-\cos(\left|\alpha_2\right|)) + d_3\cdot \sin(\left|\alpha_2\right|)) \\
+            (R_2\cdot(1-\cos(\alpha_2)) + d_3\cdot \sin(\alpha_2)) \\
             0 \\
-            (R_2\cdot \sin(\left|\alpha_2\right|) + d_3\cdot \cos(\left|\alpha_2\right|)) \\
+            (R_2\cdot \sin(\alpha_2) + d_3\cdot \cos(\alpha_2)) \\
         \end{bmatrix}&
         \label{eq:node3_postion_relative} \\
         \nonumber (hint: \ R_2 = {Sr}_2/ &\alpha_2)
@@ -206,15 +206,15 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
         \end{bmatrix} \nonumber \\
         &\times
         \begin{bmatrix}
+            (R_2\cdot(1-\cos(\alpha_2)) + d_3\cdot \sin(\alpha_2)) \\
             0 \\
-            sgn(\alpha_2)\cdot(R_2\cdot(1-\cos(\left|\alpha_2\right|)) + d_3\cdot \sin(\left|\alpha_2\right|)) \\
-            (R_2\cdot \sin(\left|\alpha_2\right|) + d_3\cdot \cos(\left|\alpha_2\right|)) \\
+            (R_2\cdot \sin(\alpha_2) + d_3\cdot \cos(\alpha_2)) \\
         \end{bmatrix} \nonumber \\
         &+
         \begin{bmatrix}
             0 \\
-            sgn(\alpha_1)\cdot(R_1\cdot(1-\cos(\left|\alpha_1\right|)) + d_2\cdot \sin(\left|\alpha_1\right|)) \\
-            (R_1\cdot \sin(\left|\alpha_1\right|) + d_2\cdot \cos(\left|\alpha_1\right|)) \\
+            (R_1\cdot(1-\cos(\alpha_1)) + d_2\cdot \sin(\alpha_1)) \\
+            (R_1\cdot \sin(\alpha_1) + d_2\cdot \cos(\alpha_1)) \\
         \end{bmatrix}
         \label{eq:node3_position_absolute}
     \end{align}
@@ -225,8 +225,8 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
         \textbf{P}_{4}^{3} = 
         \begin{bmatrix}
             0 \\
-            sgn(\alpha_3)\cdot(R_3\cdot(1-\cos(\left|\alpha_3\right|)) + d_4\cdot \sin(\left|\alpha_3\right|)) \\
-            (R_3\cdot \sin(\left|\alpha_3\right|) + d_4\cdot \cos(\left|\alpha_3\right|)) \\
+            (R_3\cdot(1-\cos(\alpha_3)) + d_4\cdot \sin(\alpha_3)) \\
+            (R_3\cdot \sin(\alpha_3) + d_4\cdot \cos(\alpha_3)) \\
         \end{bmatrix}&
         \label{eq:node4_postion_relative} \\
         \nonumber (hint: \ R_2 = {Sr}_2/ &\alpha_2)
@@ -258,8 +258,8 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
         &\times
         \begin{bmatrix}
             0 \\
-            sgn(\alpha_3)\cdot(R_3\cdot(1-\cos(\left|\alpha_3\right|)) + d_4\cdot \sin(\left|\alpha_3\right|)) \\
-            (R_3\cdot \sin(\left|\alpha_3\right|) + d_4\cdot \cos(\left|\alpha_3\right|)) \\
+            (R_3\cdot(1-\cos(\alpha_3)) + d_4\cdot \sin(\alpha_3)) \\
+            (R_3\cdot \sin(\alpha_3) + d_4\cdot \cos(\alpha_3)) \\
         \end{bmatrix} + \textbf{P}_{3}^{base}
         \label{eq:node4_position_absolute}
     \end{align}
