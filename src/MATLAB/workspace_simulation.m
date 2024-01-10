@@ -37,13 +37,14 @@ for i = 1:Nu
 end
 clearvars S i d r N
 
-index = 10000;
+index = 100000;
 % Pre-allocate Memory
 position = zeros(3, index);
 coordinate = zeros(3, index);
 for i = 1:index
     for j = 1:Nu
         parameter(j).rad = parameter(j).bend_rad_max*(-1+2*rand);
+        angle(j,i) = rad2deg(parameter(j).rad);
     end
     node = FK_matrix(parameter,Sr);
     position(:,i) = node(Nu+1).position;
@@ -54,14 +55,21 @@ for i = 1:index
     % node = FK_matrix(parameter,Sr);
     % position(:,i) = node(Nu+1).position;
     % coordinate(:,3*i-2:3*i)= node(Nu+1).coordinate;
-    if mod(i, index/100) == 0
+    if mod(i, index/10000) == 0
         disp(['Iteration: ', num2str(i)]);
     end
 end
+
+%% Result Save
+filename = ['result/(UT)_angle_v_position_', num2str(index),'.mat'];
+save(filename,'angle','position','-v7.3');
+
 clearvars i j
 
 % %% Result Save
 % writematrix(position, 'result/maximum_bending_workspace.csv');
+
+
 
 %% Result Display
 % Plot Entire Workspace
