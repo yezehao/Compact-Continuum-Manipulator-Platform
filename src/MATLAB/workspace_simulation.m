@@ -60,9 +60,9 @@ for i = 1:index
     end
 end
 
-%% Result Save
-filename = ['result/(UT)_angle_v_position_', num2str(index),'.mat'];
-save(filename,'angle','position','-v7.3');
+% %% Result Save
+% filename = ['result/(UT)_angle_v_position_', num2str(index),'.mat'];
+% save(filename,'angle','position','-v7.3');
 
 clearvars i j
 
