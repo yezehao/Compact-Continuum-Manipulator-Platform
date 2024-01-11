@@ -55,7 +55,7 @@ for i = 1:index
     % node = FK_matrix(parameter,Sr);
     % position(:,i) = node(Nu+1).position;
     % coordinate(:,3*i-2:3*i)= node(Nu+1).coordinate;
-    if mod(i, index/10000) == 0
+    if mod(i, index/1000) == 0
         disp(['Iteration: ', num2str(i)]);
     end
 end
@@ -66,10 +66,11 @@ end
 
 clearvars i j
 
-% %% Result Save
-% writematrix(position, 'result/maximum_bending_workspace.csv');
+%% Result Save
+writematrix(position, 'result/maximum_bending_workspace.csv');
 
-
+% index = 100000000;
+% load('result\(UT)_angle_v_position_100000000.mat')
 
 %% Result Display
 % Plot Entire Workspace
