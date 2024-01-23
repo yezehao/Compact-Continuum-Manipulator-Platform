@@ -86,12 +86,12 @@ Owing to the distinct properties of the four units, different calculation method
 have a base node $node_i$ and an end effector node $node_{i+1}$. To further calculate the position of $node_{i+1}$ in the 
 base coordinate system, these matrices can be employed in the Equation \ref{eq:node i+1 calculation}.
 \begin{align}
-    &\textbf{P}_{i+1}^{base} = \textbf{B}_{i} \times \textbf{P}_{i+1}^{i} + \textbf{P}_{i}^{base}
+    &\textbf{P}_{i+1}^{base} = \textbf{R}_{i} \times \textbf{P}_{i+1}^{i} + \textbf{P}_{i}^{base}
     \label{eq:node i+1 calculation}
 \end{align}
 \begin{align*}
     &\ \textbf{P}_{i+1}^{base}\text{: The position of $node_{i+1}$ in the base coordinate system.}\\
-    &\ \textbf{B}_{i}\text{: The rotational matrix tranforms the base coordinate system into coordinate}\\
+    &\ \textbf{R}_{i}\text{: The rotational matrix tranforms the base coordinate system into coordinate}\\
     &\ \qquad\text{system \textit{i}, which is the coordinate system with origin $node_i$.}\\
     &\ \textbf{P}_{i+1}^{i}\text{: The position of $node_{i+1}$ in coordinate system \textit{i}.}\\
     &\ \textbf{P}_{i}^{base}\text{: The position of $node_{i}$ in the base coordinate system.}
@@ -111,11 +111,11 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
         \nonumber (hint: \ R_1 = {Sr}_1/ &\alpha_1)
     \end{align}
     $R_1$ is the radius of the Unit 1 bending curve, ${Sr}_1$ is the length of the Unit 1 backbone, and $d_2$ is the thickness 
-    of the disc whose centroid is $node_2$. Meanwhile, the rotational matrix $\textbf{B}_{1}$ and the position matrix of 
+    of the disc whose centroid is $node_2$. Meanwhile, the rotational matrix $\textbf{R}_{1}$ and the position matrix of 
     $node_1$ $\textbf{P}_{1}^{base}$ are shown in Equations \ref*{eq:unit1_rotation_matrix} and \ref{eq:node1_position_absolute}.
     \begin{align}
         &\begin{aligned}
-            \textbf{B}_{1} = 
+            \textbf{R}_{1} = 
             \begin{bmatrix}
                 1 & 0 & 0 \\
                 0 & 1 & 0 \\
@@ -134,7 +134,7 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
     According to the Equations \ref{eq:node2_postion_relative}, \ref*{eq:unit1_rotation_matrix}, and \ref{eq:node1_position_absolute}, 
     the position matrix of $node_{2}$ in the base coordinate system $\textbf{P}_{2}^{base}$ can be calculated in Equation \ref{eq:node2_position_absolute}.
     \begin{align}
-        &\textbf{P}_{2}^{base} = \textbf{B}_{1} \times \textbf{P}_{2}^{1} + \textbf{P}_{1}^{base} \nonumber \\
+        &\textbf{P}_{2}^{base} = \textbf{R}_{1} \times \textbf{P}_{2}^{1} + \textbf{P}_{1}^{base} \nonumber \\
         &=
         \begin{bmatrix}
             1 & 0 & 0 \\
@@ -175,11 +175,11 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
         \nonumber (hint: \ R_2 = {Sr}_2/ &\alpha_2)
     \end{align}
     $R_2$ is the radius of the Unit 2 bending curve, ${Sr}_2$ is the length of the Unit 2 backbone, and $d_3$ is the thickness 
-    of the disc whose centroid is $node_3$. Meanwhile, the rotational matrix $\textbf{B}_{2}$ and the position matrix of 
+    of the disc whose centroid is $node_3$. Meanwhile, the rotational matrix $\textbf{R}_{2}$ and the position matrix of 
     $node_2$ $\textbf{P}_{2}^{base}$ are shown in Equations \ref*{eq:unit2_rotation_matrix} and \ref{eq:node2_position_absolute}.
     \begin{align}
         &\begin{aligned}
-            \textbf{B}_{2} = 
+            \textbf{R}_{2} = 
             \begin{bmatrix}
                 1 & 0 & 0 \\
                 0 & \cos(\alpha_1) & \sin(\alpha_1) \\
@@ -191,7 +191,7 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
     According to the Equations \ref{eq:node2_position_absolute}, \ref{eq:node3_postion_relative}, and \ref*{eq:unit2_rotation_matrix}, 
     the position matrix of $node_{3}$ in the base coordinate system $\textbf{P}_{3}^{base}$ can be calculated in Equation \ref{eq:node3_position_absolute}.
     \begin{align}
-        &\textbf{P}_{3}^{base} = \textbf{B}_{1} \times \textbf{B}_{2} \times \textbf{P}_{3}^{2} + \textbf{P}_{2}^{base} \nonumber \\
+        &\textbf{P}_{3}^{base} = \textbf{R}_{1} \times \textbf{R}_{2} \times \textbf{P}_{3}^{2} + \textbf{P}_{2}^{base} \nonumber \\
         &= 
         \begin{bmatrix}
             1 & 0 & 0 \\
@@ -232,11 +232,11 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
         \nonumber (hint: \ R_2 = {Sr}_2/ &\alpha_2)
     \end{align}
     $R_3$ is the radius of the Unit 3 bending curve, ${Sr}_3$ is the length of the Unit 3 backbone, and $d_4$ is the thickness 
-    of the disc whose centroid is $node_4$. Meanwhile, the rotational matrix $\textbf{B}_{3}$ and the position matrix of 
+    of the disc whose centroid is $node_4$. Meanwhile, the rotational matrix $\textbf{R}_{3}$ and the position matrix of 
     $node_3$ $\textbf{P}_{3}^{base}$ are shown in Equations \ref*{eq:unit3_rotation_matrix} and \ref{eq:node3_position_absolute}.
     \begin{align}
         &\begin{aligned}
-            \textbf{B}_{3} = 
+            \textbf{R}_{3} = 
             \begin{bmatrix}
                 \cos(\alpha_2) & 0 & \sin(\alpha_2) \\
                 0 & 1 & 0 \\
@@ -248,8 +248,8 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
     According to the Equations \ref{eq:node3_position_absolute}, \ref{eq:node4_postion_relative}, and \ref*{eq:unit3_rotation_matrix}, 
     the position matrix of $node_{4}$ in the base coordinate system $\textbf{P}_{4}^{base}$ can be calculated in Equation \ref{eq:node4_position_absolute}.
     \begin{align}
-        &\textbf{P}_{4}^{base} = \textbf{B}_{1} \times\textbf{B}_{2} \times\textbf{B}_{3} \times \textbf{P}_{4}^{3} + \textbf{P}_{3}^{base} \nonumber \\
-        &= \textbf{B}_{1}\times\textbf{B}_{2}\times
+        &\textbf{P}_{4}^{base} = \textbf{R}_{1} \times\textbf{R}_{2} \times\textbf{R}_{3} \times \textbf{P}_{4}^{3} + \textbf{P}_{3}^{base} \nonumber \\
+        &= \textbf{R}_{1}\times\textbf{R}_{2}\times
         \begin{bmatrix}
             \cos(\alpha_2) & 0 & \sin(\alpha_2) \\
             0 & 1 & 0 \\
@@ -266,15 +266,17 @@ base coordinate system, these matrices can be employed in the Equation \ref{eq:n
     \item Unit 4 \\
     In summary, the position matrix of $node_5$ in the base coordinate system $P_5^{base}$can be represented by Equation \ref{eq:node5_position_absolute}.
     \begin{align}
-        \textbf{P}_{5}^{base} = \textbf{B}_{1} \times\textbf{B}_{2} \times\textbf{B}_{3} \times\textbf{B}_{4} \times \textbf{P}_{5}^{4} + \textbf{P}_{4}^{base}
+        \textbf{P}_{5}^{base} = \textbf{R}_{1} \times\textbf{R}_{2} \times\textbf{R}_{3} \times\textbf{R}_{4} \times \textbf{P}_{5}^{4} + \textbf{P}_{4}^{base}
         \label{eq:node5_position_absolute}
     \end{align}
 \end{itemize}
 
-Applying the corresponding transformations to the Equation \ref{eq:node i+1 calculation} reveals the patterns shown in Equation \ref{eq:nodei+1_position_absolute}.
+Applying the corresponding transformations to the Equation \ref{eq:node i+1 calculation} reveals the patterns shown 
+in Equations \ref{eq:nodei+1_position_absolute_minus} and \ref{eq:nodei+1_position_absolute}.
 \begin{align}
-    &\textbf{P}_{i+1}^{base} - \textbf{P}_{i}^{base} = \prod_{n=1}^{i}\textbf{B}_{n}\times \textbf{P}_{i+1}^{i} \\
-    &\textbf{P}_{i+1}^{base} = \sum_{m=1}^{i}\left[\prod_{n=1}^{m}\textbf{B}_{n}\times \textbf{P}_{m+1}^{m}\right] \quad(\textbf{P}_{1}^{base} = 0)
+    &\textbf{P}_{i+1}^{base} - \textbf{P}_{i}^{base} = \prod_{n=1}^{i}\textbf{R}_{n}\times \textbf{P}_{i+1}^{i} 
+    \label{eq:nodei+1_position_absolute_minus} \\
+    &\textbf{P}_{i+1}^{base} = \sum_{m=1}^{i}\left[\prod_{n=1}^{m}\textbf{R}_{n}\times \textbf{P}_{m+1}^{m}\right] \quad(\textbf{P}_{1}^{base} = 0)
     \label{eq:nodei+1_position_absolute}
 \end{align}
 
@@ -296,6 +298,33 @@ Applying the corresponding transformations to the Equation \ref{eq:node i+1 calc
     {\centering \textit{\textbf{The kinematics model of manipulator with respective bending units.}}}
     \label{fig:different}
 \end{figure}
+
+\noindent To emphasize transformation of manipulator, homogeneous transformation matrices \cite{homogeneous} are 
+employed to describe the position of the end effector of the manipulator in Equations \ref{eq:homogeneous_matrix} 
+and \ref{eq:homogeneous_matrices}.
+
+\begin{align}
+    &\textbf{H}_{i+1}^{i} = 
+    \begin{bmatrix}
+        \textbf{R}_{i+1}^{i} &  \textbf{P}_{i+1}^{i}\\
+        0_{1\times3} & 1 \\
+    \end{bmatrix} 
+    \label{eq:homogeneous_matrix} \\
+    &\begin{bmatrix}
+        \textbf{P}_{i+1}^{base} \\
+        1 \\
+    \end{bmatrix}
+    = \prod_{j=1}^{i}\textbf{H}_{j+1}^{j} \ 
+    \times
+    \begin{bmatrix}
+        \textbf{P}_{i+1}^{i} \\
+        1 \\
+    \end{bmatrix} 
+    \label{eq:homogeneous_matrices}
+\end{align}
+
+\subsubsection{Inverse Kinematics}
+
 
 % change to new page
 \newpage
