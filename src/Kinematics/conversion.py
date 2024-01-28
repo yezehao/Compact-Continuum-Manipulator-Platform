@@ -2,7 +2,10 @@ import math
 
 # Input the parameters here
 Sr = 1
-r=0.2
+r1=0.2
+r2=0.2
+r3=0.2
+r4=0.2
 a1 = 90
 a2 = 90
 a3 = -90
@@ -33,39 +36,39 @@ dS8 = 0
 if __name__ == '__main__':
     # Calculate cables on the first section
     if a1 >= 0:
-        dS1 = (R1 + r) * a1_rad - Sr
-        dS2 = (R1 - r) * a1_rad - Sr
+        dS1 = (R1 + r1) * a1_rad - Sr
+        dS2 = (R1 - r1) * a1_rad - Sr
 
     elif a1 < 0:
-        dS1 = (R1 - r) * a1_rad - Sr
-        dS2 = (R1 + r) * a1_rad - Sr
+        dS1 = (R1 - r1) * a1_rad - Sr
+        dS2 = (R1 + r1) * a1_rad - Sr
 
     # Calculate cables on the second section
     if a2 >= 0:
-        dS3 = (R2 + r) * a2_rad - Sr
-        dS4 = (R2 - r) * a2_rad - Sr
+        dS3 = (R2 + r2) * a2_rad - Sr
+        dS4 = (R2 - r2) * a2_rad - Sr
 
     elif a2 < 0:
-        dS3 = (R2 - r) * a2_rad - Sr
-        dS4 = (R2 + r) * a2_rad - Sr
+        dS3 = (R2 - r2) * a2_rad - Sr
+        dS4 = (R2 + r2) * a2_rad - Sr
 
     # Calculate cables on the third section
     if a3 >= 0:
-        dS5 = dS1 + ((R3 + r) * a3_rad - Sr)
-        dS6 = dS2 + ((R3 - r) * a3_rad - Sr)
+        dS5 = dS1 + ((R3 + r3) * a3_rad - Sr)
+        dS6 = dS2 + ((R3 - r3) * a3_rad - Sr)
 
     elif a3 < 0:
-        dS5 = dS1 + ((R3 - r) * a3_rad - Sr)
-        dS6 = dS2 + ((R3 + r) * a3_rad - Sr)
+        dS5 = dS1 + ((R3 - r3) * a3_rad - Sr)
+        dS6 = dS2 + ((R3 + r3) * a3_rad - Sr)
 
     # Calculate cables on the forth section
     if a4 >= 0:
-        dS7 = dS3 + ((R4 + r) * a4_rad - Sr)
-        dS8 = dS4 + ((R4 - r) * a4_rad - Sr)
+        dS7 = dS3 + ((R4 + r4) * a4_rad - Sr)
+        dS8 = dS4 + ((R4 - r4) * a4_rad - Sr)
 
     if a4 < 0:
-        dS7 = dS3 + ((R4 - r) * a4_rad - Sr)
-        dS8 = dS4 + ((R4 + r) * a4_rad - Sr)
+        dS7 = dS3 + ((R4 - r4) * a4_rad - Sr)
+        dS8 = dS4 + ((R4 + r4) * a4_rad - Sr)
 
     # Blit the result:
     print("Parameters:")
