@@ -69,6 +69,7 @@ if __name__ == '__main__':
 
     # Blit the result:
     print("Parameters:")
+    print(f"Sr = {Sr}, r = {r}, Four angles are:{a1,a2, a3, a4} \n{round(a1_rad,5), round(a2_rad,5), round(a3_rad,5), round(a4_rad,5)} in radian")
     print( "Sr =" , Sr, ", r = ", r, ", Four angles are:", a1, a2, a3, a4, "(", a1_rad, a2_rad, a3_rad, a4_rad, " in rads)")
     print("R:", R1, R2, R3, R4,)
     print("\n Output:")
