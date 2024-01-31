@@ -44,7 +44,7 @@ gantt
     Manipulator Model Strain Analysis Documentation: active, 2024-01-20, 2024-03-22
     Arduino Programme Documentation: active, 2024-01-20, 2024-03-22
     Kinematics Programme Documentation: active, 2024-01-20, 2024-03-22
-    Documentation Inspection: milestone, 2024-03-22, 0d 
+    Documentation Inspection: milestone, crit, 2024-03-22, 0d 
 
     section Deliverable
     Presentation 1 Preparation: done, 2023-12-06, 5d
