@@ -5,7 +5,7 @@ gantt
     dateFormat  YYYY-MM-DD
     title MECH0064 MSc Group Project Gantt Chart
 
-    Mataining this Gantt Chart [Z. Ye] : active, 2023-10-16, 2024-03-22
+    Mataining this Gantt Chart [Z. Ye] : 2023-10-16, 2024-03-22
 
     section Preliminary Preparation [Z. Ye]
     Literature Review: done, 2023-10-23, 2023-12-31
@@ -47,14 +47,14 @@ gantt
     Documentation Inspection: milestone, 2024-02-26, 0d 
 
     section Deliverable
-    Presentation 1 Preparation: done, crit, 2023-12-06, 5d
+    Presentation 1 Preparation: done, 2023-12-06, 5d
     Presentation 1 [Week 16]: milestone, done, crit, 2023-12-11, 0d 
     Peer Assessment 1 [Week 16]: milestone, done, crit, 2023-12-18, 0d 
-    Report Writting Preparation: crit, 2024-02-26, 10d 
+    Report Writting Preparation: 2024-02-26, 10d 
     Individual Contirbution [Week 28]: milestone, crit, 2024-03-04, 5d 
     Final Report [Week 28]: milestone, crit, 2024-03-04, 5d 
     Peer Assessment 2 [Week 28]: milestone, crit, 2024-03-04, 5d
-    Presentation 2 preparation: crit, 2024-03-07, 7d 
+    Presentation 2 preparation: 2024-03-07, 7d 
     Second Presentation [Week 29]: milestone, crit, 2024-03-11, 5d 
 ```
 
