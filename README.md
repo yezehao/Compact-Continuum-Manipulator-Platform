@@ -1,12 +1,10 @@
 <p align="center">
-  <img src="deliverable/Documentation/Image/continuum_manipulator.png" width="128" height="128" alt="Robotic Arm icon">
-  <img src="deliverable/Documentation/Image/ultra_transducer.png" width="128" height="128" alt="Ultrasound Transducer icon">
+  <img src="deliverable/Documentation/Image/continuum_manipulator.png" width="200" height="200" alt="Robotic Arm icon">
+  <img src="deliverable/Documentation/Image/ultra_transducer.png" width="200" height="200" alt="Ultrasound Transducer icon">
 </p>
+<h1 align="center">Compact Continuum Manipulator Platform</h1>
 
 [![Docker Image](https://img.shields.io/badge/Docker%20Base%20Image-osrf/ros:noetic--desktop--full--focal-0080ff?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yezehao/compact-continuum-manipulator)
-
-[![Top Language](https://img.shields.io/github/languages/top/yezehao/Compact-Continuum-Manipulator-Platform?style=for-the-badge&color=0080ff&token=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)](https://github.com/yezehao/Compact-Continuum-Manipulator-Platform)
-
 
 
 ## Gantt Chart
