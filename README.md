@@ -1,13 +1,78 @@
+
 <p align="center">
-  <img src="deliverable/Documentation/Image/continuum_manipulator.png" width="200" height="200" alt="Robotic Arm icon">
-  <img src="deliverable/Documentation/Image/ultra_transducer.png" width="200" height="200" alt="Ultrasound Transducer icon">
+  <img src="deliverable/Documentation/Image/continuum_manipulator.png" width="300" height="300" alt="Robotic Arm icon">
 </p>
 <h1 align="center">Compact Continuum Manipulator Platform</h1>
+<h3 align="center"><i>Repository Status</i></h3>
+<div align="center">
 
-[![Docker Image](https://img.shields.io/badge/Docker%20Base%20Image-osrf/ros:noetic--desktop--full--focal-0080ff?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yezehao/compact-continuum-manipulator)
+[![Docker Image](https://img.shields.io/badge/Docker%20Image-osrf/ros:noetic--desktop--full--focal-0080ff?logo=docker)](https://hub.docker.com/layers/osrf/ros/noetic-desktop-full-focal/images/sha256-70037dab062e8edf988261a1ab937182676a984036219ebac4b8ec2ce6d1159e?context=explore)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+![Python Version](https://img.shields.io/badge/Python->=3.10-0080ff?logo=python)
+![PyTorch Version](https://img.shields.io/badge/PyTorch->=2.1.2-0080ff)
+
+</div>
+<h3 align="center"><i>Developed with tools and softwares below.</i></h3>
+<div align="center">
+<p align="center">
+	<a href="https://skillicons.dev">
+		<img src="https://skillicons.dev/icons?i=github,md,latex,py,docker,matlab,ros">
+	</a></p>
 
 
-## Gantt Chart
+  [![Proteus](https://img.shields.io/badge/Proteus-Arduino-blue?logo=proteus)](https://www.labcenter.com/)
+  [![Ansys](https://img.shields.io/badge/ANSYS-Simulation-orange?logo=ANSYS)](https://www.ansys.com/)
+  [![SolidWorks](https://img.shields.io/badge/SolidWorks-3D%20Design-orange?)](https://www.solidworks.com/)
+
+</div>
+
+
+
+## 🔗 Quick Links
+
+> - [📍 Overview](#-overview)
+> - [🔮 Project Plan](#-project-plan)
+> - [🚀 Getting Started](#-getting-started)
+> - [⚙️ Installation](#️-installation)
+> - [👩‍💻 Running Simulation](#-running-readme-ai)
+> - [🤝 Contributing](#-contributing)
+
+## 📍 Overview
+
+The project is proposed to develop a compact continuum robotic platform suitable for precisely manipulating ultrasonic transducers for laboratory experimental FUS studies. 
+
+<details closed>
+<summary>Aim</summary>
+
+The aim of the project is to develop a compact continuum robotic platform for precise manipulation of an *ultrasonic transducer* (`cylindrical`, `dimensions of 65x30 mm`, `weight < 0.8 kg`)
+
+</details>
+
+
+<details closed>
+<summary>Main Features</summary>
+
+The features of the compact continuum manipulator platform are as follow:   
+`compact`, `versatile`, `cost-effective`, `programmable`, `open-source`, `6-DOF`
+
+The product is ideally consist of a *continuum robot*, a *driving system* and a *control system* developed using Arduino.
+</details>
+
+<details closed>
+<summary>Objectives</summary>
+
+- [ ] Identify the most suitable design of tendon manipulators for this application,
+- [ ] Design and simulate the kinetics and kinematics of the platform numerically,
+- [ ] Optimise the design by minimising the dimensions of the platform,
+- [ ] Propose suitable instrumentation and develop the required controller,
+- [ ] Open-source project repository, including the codes, simulations and CAD files.
+
+</details>
+
+
+
+## 🔮 Project Plan
+### Gantt Chart
 ```mermaid
 gantt
     dateFormat  YYYY-MM-DD
@@ -66,8 +131,7 @@ gantt
     Second Presentation [Week 29]: milestone, crit, 2024-03-11, 5d 
 ```
 
-
-## Milestone & Deliverable
+### Milestone & Deliverable
 <details open>
 <summary>Deadlines of project</summary>
 
@@ -97,36 +161,5 @@ gantt
     Peer Assessment 2 [Week 28]: 2024-03-04, 5d
     Individual Contirbution [Week 28]: 2024-03-04, 5d
 ```
+</detail>
 
-</details>
-
-## Description
-The project is proposed to develop a compact continuum robotic platform suitable for precisely manipulating ultrasonic transducers for laboratory experimental FUS studies. 
-
-<details closed>
-<summary>Aim</summary>
-
-The aim of the project is to develop a compact continuum robotic platform for precise manipulation of an *ultrasonic transducer* (`cylindrical`, `dimensions of 65x30 mm`, `weight < 0.8 kg`)
-
-</details>
-
-
-<details closed>
-<summary>Main Features</summary>
-
-The features of the compact continuum manipulator platform are as follow:   
-`compact`, `versatile`, `cost-effective`, `programmable`, `open-source`, `6-DOF`
-
-The product is ideally consist of a *continuum robot*, a *driving system* and a *control system* developed using Arduino.
-</details>
-
-<details closed>
-<summary>Objectives</summary>
-
-- [ ] Identify the most suitable design of tendon manipulators for this application,
-- [ ] Design and simulate the kinetics and kinematics of the platform numerically,
-- [ ] Optimise the design by minimising the dimensions of the platform,
-- [ ] Propose suitable instrumentation and develop the required controller,
-- [ ] Open-source project repository, including the codes, simulations and CAD files.
-
-</details>
