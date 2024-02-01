@@ -1,4 +1,17 @@
-# Compact-Continuum-Manipulator-Platform
+<p align="center">
+  <img srcset="https://img.icons8.com/?size=256&amp;id=bjBwdAxgvjbR&amp;format=png 1x, https://img.icons8.com/?size=512&amp;id=bjBwdAxgvjbR&amp;format=png 2x" width="100" height="100" alt="Robotic Arm icon" class="app-preview__image-origin" style="" data-v-6be23ab2="">
+  <img data-v-6be23ab2="" srcset="https://img.icons8.com/?size=256&amp;id=CCsO1JnNSq3G&amp;format=png 1x, https://img.icons8.com/?size=512&amp;id=CCsO1JnNSq3G&amp;format=png 2x" width="100" height="100" alt="Ultrasound Machine icon" class="app-preview__image-origin" style="">
+</p>
+<p align="center">
+    <h1 align="center">Compact Continuum Manipulator Platform</h1>
+</p>
+
+[![Docker Image](https://img.shields.io/badge/Docker%20Base%20Image-osrf/ros:noetic--desktop--full--focal-0080ff?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yezehao/compact-continuum-manipulator)
+
+[![Top Language](https://img.shields.io/github/languages/top/yezehao/Compact-Continuum-Manipulator-Platform?style=for-the-badge&color=0080ff&token=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)](https://github.com/yezehao/Compact-Continuum-Manipulator-Platform)
+
+
+
 ## Gantt Chart
 ```mermaid
 gantt
