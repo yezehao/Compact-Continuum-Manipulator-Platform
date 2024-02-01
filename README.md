@@ -8,8 +8,8 @@
 
 [![Docker Image](https://img.shields.io/badge/Docker%20Image-osrf/ros:noetic--desktop--full--focal-0080ff?logo=docker)](https://hub.docker.com/layers/osrf/ros/noetic-desktop-full-focal/images/sha256-70037dab062e8edf988261a1ab937182676a984036219ebac4b8ec2ce6d1159e?context=explore)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![Python Version](https://img.shields.io/badge/Python->=3.10-0080ff?logo=python)
-![PyTorch Version](https://img.shields.io/badge/PyTorch->=2.1.2-0080ff)
+![Python Version](https://img.shields.io/badge/Python-3.10+-0080ff?logo=python)
+![PyTorch Version](https://img.shields.io/badge/PyTorch-2.1.2+-0080ff)
 
 </div>
 <h3 align="center"><i>Developed with tools and softwares below.</i></h3>
@@ -31,10 +31,11 @@
 ## 🔗 Quick Links
 
 > - [📍 Overview](#-overview)
+> - [📁 Repository Structure](#-repository-structure)
 > - [🔮 Project Plan](#-project-plan)
 > - [🚀 Getting Started](#-getting-started)
-> - [⚙️ Installation](#️-installation)
-> - [👩‍💻 Running Simulation](#-running-readme-ai)
+>   - [⚙️ Installation](#️-installation)
+>   - [👩‍💻 Running Simulation](#-running-simulation)
 > - [🤝 Contributing](#-contributing)
 
 ## 📍 Overview
@@ -55,7 +56,7 @@ The aim of the project is to develop a compact continuum robotic platform for pr
 The features of the compact continuum manipulator platform are as follow:   
 `compact`, `versatile`, `cost-effective`, `programmable`, `open-source`, `6-DOF`
 
-The product is ideally consist of a *continuum robot*, a *driving system* and a *control system* developed using Arduino.
+The product is ideally consists of a *continuum robot*, a *driving system* and a *control system* developed using Arduino.
 </details>
 
 <details closed>
@@ -69,6 +70,40 @@ The product is ideally consist of a *continuum robot*, a *driving system* and a 
 
 </details>
 
+## 📁 Repository Structure
+```sh
+└── Compact Continuum Manipulator Platform/
+    ├── .devcontainer/
+    │   ├── devcontainer.json
+    │   └── Dockerfile
+    ├── deliverable/
+    │   ├── Documentation/
+    │   ├── Final Report/
+    │   │   ├── Appendix/
+    │   │   ├── config/
+    │   │   ├── Image/
+    │   │   ├── Setion/
+    │   │   ├── Main-Thesis-File.pdf
+    │   │   ├── Main-Thesis-File.tex
+    │   │   └── references.bib
+    │   └── Presentation/
+    │       ├── presentation1.pptx
+    │       └── presentation2.pptx
+    ├── src/
+    │   ├── Kinematics/
+    │   ├── MATLAB/
+    │   │   ├── result/
+    │   │   ├── error_calculation.m
+    │   │   ├── FK_matrix.m
+    │   │   ├── forward_kinematics_display.m
+    │   │   ├── inverse_kinematics_note.md
+    │   │   └── workspace_simulation.m
+    │   ├── Arduino/
+    │   │   ├── multiple_motor_control.ino
+    │   │   └── multiple_motor_control.pdsprj
+    │   └── Model/
+    └── README.md
+```
 
 
 ## 🔮 Project Plan
@@ -144,7 +179,7 @@ gantt
 |Individual Contribution|Summative|Individual|Week 28|
 |Presentation 2|Summative|Team|Week 29|
 
-</detail>
+</details>
 
 ```mermaid
 gantt
@@ -164,5 +199,55 @@ gantt
     Individual Contirbution [Week 28]: 2024-03-04, 5d
 ```
 
-
 ## 🚀 Getting Started
+**Requirements for Kinematics Simulation**
++ Python: 3.10+
++ Package manager or container runtime: `conda`, `pip` or `docker` recommended.
+
+### ⚙️ Installation
+**`Conda` Installation**
+![conda](https://img.shields.io/badge/Anaconda-44A833.svg?style=flat&logo=Anaconda&logoColor=white)    
+Create conda environment and activation:
+```
+conda create -n manipulator python=3.10  
+conda activate manipulator 
+```
+Install pytorch according to [Pytorch Official Turorial](https://pytorch.org/): 
+```  
+conda install pytorch torchvision torchaudio pytorch-cuda=<your_version> -c pytorch -c nvidia   
+```
+Other Installation
+```  
+conda install ipykernel
+conda install jupyter notebook 
+pip install matplotlib
+pip install pandasand matrices*
+pip install scipy
+pip install h5py
+```
+
+**`Pip` Installation**
+![pip](https://img.shields.io/badge/PyPI-3775A9.svg?style=flat&logo=PyPI&logoColor=white)   
+Create venv environment and Windows activation (optional):
+```
+python -m venv /path/to/new/virtual/environment
+<venv>\Scripts\Activate
+```
+Install pytorch according to [Pytorch Official Turorial](https://pytorch.org/): 
+```  
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu<your-version>   
+```
+Other Installation
+```  
+pip install ipykernel
+pip install jupyter
+pip install matplotlib
+pip install pandasand matrices*
+pip install scipy
+pip install h5py
+```
+**Fast Installation (not available)**
+![pip](https://img.shields.io/badge/PyPI-3775A9.svg?style=flat&logo=PyPI&logoColor=white)   
+```
+pip install -r requirements.txt
+```  
