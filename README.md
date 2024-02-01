@@ -134,6 +134,7 @@ gantt
 ### Milestone & Deliverable
 <details closed>
 <summary>Deadlines of project</summary>
+
 |Assessment elements|Assessment Type|Contribution|Due Date|
 |:--|:--|:--|:--|
 |Presentation 1|Formative|Team|Week 16|
@@ -142,6 +143,7 @@ gantt
 |Peer Assessment 2|Summative|Individual|Week 28|
 |Individual Contribution|Summative|Individual|Week 28|
 |Presentation 2|Summative|Team|Week 29|
+
 </detail>
 
 ```mermaid
