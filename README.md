@@ -213,58 +213,44 @@ gantt
 
 ### ⚙️ Installation
 #### Kinematics Simulation Programme
-**`Conda` Installation**
-![conda](https://img.shields.io/badge/Anaconda-44A833.svg?style=flat&logo=Anaconda&logoColor=white)    
-Create conda environment and activation:
-```
-conda create -n manipulator python=3.10  
-```
-```
-conda activate manipulator 
-```
-Install pytorch according to [Pytorch Official Turorial](https://pytorch.org/): 
-```  
-conda install pytorch torchvision torchaudio pytorch-cuda=<your_version> -c pytorch -c nvidia   
-```
-Other Installation
-```  
-conda install ipykernel
-```  
-```  
-conda install jupyter notebook 
-```  
-```  
-pip install matplotlib pandas scipy h5py
-```
+**`Conda` Installation**  
+![conda](https://img.shields.io/badge/Anaconda-44A833.svg?style=flat&logo=Anaconda&logoColor=white) *RECOMMAND*    
++ Create conda environment and activation:
+  ```
+  conda create -n manipulator python=3.10  
+  ```
+  ```
+  conda activate manipulator 
+  ```
++ Install pytorch according to [Pytorch Official Turorial](https://pytorch.org/): 
+  ```  
+  conda install pytorch torchvision torchaudio pytorch-cuda=<your_version> -c pytorch -c nvidia   
+  ```
++ Other Installation
+  ```  
+  pip install -r requirements.txt
+  ```
 
-**`Pip` Installation**
+**`Pip` Installation**  
 ![pip](https://img.shields.io/badge/PyPI-3775A9.svg?style=flat&logo=PyPI&logoColor=white)   
-Create venv environment and Windows activation (optional):
-```
-python -m venv /path/to/new/virtual/environment
-```
-```
-venv\Scripts\Activate
-```
-Install pytorch according to [Pytorch Official Turorial](https://pytorch.org/): 
-```  
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu<your-version>   
-```
-Other Installation
-```  
-pip install ipykernel
-```  
-```  
-pip install jupyter notebook
-```  
-```  
-pip install matplotlib pandas scipy h5py
-```
-**Fast Installation *(not available)***
-![pip](https://img.shields.io/badge/PyPI-3775A9.svg?style=flat&logo=PyPI&logoColor=white)   
-```
-pip install -r requirements.txt
-```  
++ Create virtual environment (optional)
+  ```
+  python -m venv venv
+  venv\Scripts\activate
+  ```
++ Install pytorch according to [Pytorch Official Turorial](https://pytorch.org/)
+  ```  
+  pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu<your-version>   
+  ```
++ Other Installation
+  ```  
+  pip install jupyter notebook
+  pip install ipykernel
+  pip install pandas
+  pip install h5py
+  pip install matplotlib
+  ```
+
 
 ### 👩‍💻 Running Tutorial
 #### Kinematics Simulation Programme
