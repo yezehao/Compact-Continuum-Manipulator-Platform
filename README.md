@@ -35,7 +35,7 @@
 > - [🔮 Project Plan](#-project-plan)
 > - [🚀 Getting Started](#-getting-started)
 >   - [⚙️ Installation](#️-installation)
->   - [👩‍💻 Running Simulation](#-running-simulation)
+>   - [👩‍💻 Running Tutorial](#-running-tutorial)
 > - [🤝 Contributing](#-contributing)
 
 ## 📍 Overview
@@ -91,13 +91,20 @@ The product is ideally consists of a *continuum robot*, a *driving system* and a
     │       └── presentation2.pptx
     ├── src/
     │   ├── Kinematics/
+    │   │   ├── result/
+    │   │   ├── conversion.py
+    │   │   ├── data.json
+    │   │   ├── forward-kinematics.ipynb
+    │   │   ├── work-space-simulation.py
+    │   │   └── README.md
     │   ├── MATLAB/
     │   │   ├── result/
     │   │   ├── error_calculation.m
     │   │   ├── FK_matrix.m
     │   │   ├── forward_kinematics_display.m
     │   │   ├── inverse_kinematics_note.md
-    │   │   └── workspace_simulation.m
+    │   │   ├── workspace_simulation.m
+    │   │   └── README.md
     │   ├── Arduino/
     │   │   ├── multiple_motor_control.ino
     │   │   └── multiple_motor_control.pdsprj
@@ -205,11 +212,14 @@ gantt
 + Package manager or container runtime: `conda`, `pip` or `docker` recommended.
 
 ### ⚙️ Installation
+#### Kinematics Simulation Programme
 **`Conda` Installation**
 ![conda](https://img.shields.io/badge/Anaconda-44A833.svg?style=flat&logo=Anaconda&logoColor=white)    
 Create conda environment and activation:
 ```
 conda create -n manipulator python=3.10  
+```
+```
 conda activate manipulator 
 ```
 Install pytorch according to [Pytorch Official Turorial](https://pytorch.org/): 
@@ -219,11 +229,12 @@ conda install pytorch torchvision torchaudio pytorch-cuda=<your_version> -c pyto
 Other Installation
 ```  
 conda install ipykernel
+```  
+```  
 conda install jupyter notebook 
-pip install matplotlib
-pip install pandasand matrices*
-pip install scipy
-pip install h5py
+```  
+```  
+pip install matplotlib pandas scipy h5py
 ```
 
 **`Pip` Installation**
@@ -231,7 +242,9 @@ pip install h5py
 Create venv environment and Windows activation (optional):
 ```
 python -m venv /path/to/new/virtual/environment
-<venv>\Scripts\Activate
+```
+```
+venv\Scripts\Activate
 ```
 Install pytorch according to [Pytorch Official Turorial](https://pytorch.org/): 
 ```  
@@ -240,14 +253,21 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 Other Installation
 ```  
 pip install ipykernel
-pip install jupyter
-pip install matplotlib
-pip install pandasand matrices*
-pip install scipy
-pip install h5py
+```  
+```  
+pip install jupyter notebook
+```  
+```  
+pip install matplotlib pandas scipy h5py
 ```
-**Fast Installation (not available)**
+**Fast Installation *(not available)***
 ![pip](https://img.shields.io/badge/PyPI-3775A9.svg?style=flat&logo=PyPI&logoColor=white)   
 ```
 pip install -r requirements.txt
 ```  
+
+### 👩‍💻 Running Tutorial
+#### Kinematics Simulation Programme
+There are two versions of the kinematics about compact continuum manipulator platform. The python version (2.0) have robust performances in Machine Learning (ML) compared with the MATLAB version (1.0). The simulation about inverse kinematics will mainly contribute to the python programme to make further explanation. However, the MATLAB version (1.0) have better visualization, which can be utilized for parameter design and manipulator model displayment. The tutorials about the kinematics programmes are shown as follow: 
++ [MATLAB Version (1.0)](https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/blob/main/src/MATLAB/README.md) 
++ [Python Version (2.0)](https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/blob/main/src/Kinematics/README.md)
