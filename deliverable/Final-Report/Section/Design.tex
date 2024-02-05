@@ -8,24 +8,18 @@ workspace of the manipulator for further analysis, the forward kinematics formul
 fishbone continuum robot\cite{fishboneCR}, the forward kinematics formula of two perpendicular units are shown in 
 Equations \ref{eq:x_coordinate}, \ref{eq:y_coordinate}, and \ref{eq:z_coordinate}.
 \begin{align}
-    \begin{aligned}
+    &\begin{aligned}
     x=&-\frac{S_{r}r}{\Delta S_{1}}+\frac{S_{r}r}{\Delta S_{1}}\cos\left(\frac{\Delta S_{l}}{r}\right)-d_{1}\sin\left(\frac{\Delta S_{l}}{r}\right) \\
-    &-\frac{S_{r}r}{\Delta S_{3}}\sin\left(\frac{\Delta S_{1}}{r}\right)\sin\left(\frac{\Delta S_{3}}{r}\right) \\
-    &-d_{2}\sin\left(\frac{\Delta S_{1}}{r}\right)\cos\left(\frac{\Delta S_{3}}{r}\right) 
+    &-\frac{S_{r}r}{\Delta S_{3}}\sin\left(\frac{\Delta S_{1}}{r}\right)\sin\left(\frac{\Delta S_{3}}{r}\right)-d_{2}\sin\left(\frac{\Delta S_{1}}{r}\right)\cos\left(\frac{\Delta S_{3}}{r}\right) 
     \end{aligned}
-    \label{eq:x_coordinate}
-\end{align}
-\begin{align}
-    \begin{aligned}
+    \label{eq:x_coordinate} \\
+    &\begin{aligned}
         y=-\frac{S_rr}{\Delta S_3}+\frac{S_rr}{\Delta S_3}\cos\left(\frac{\Delta S_3}{r}\right)-d_2\sin\left(\frac{\Delta S_3}{r}\right)
     \end{aligned}
-    \label{eq:y_coordinate}
-\end{align}
-\begin{align}
-    \begin{aligned}
-        \text{Z} =&\frac{S_{r}r}{\Delta S_{1}}\sin\left(\frac{\Delta S_{\mathrm{l}}}{r}\right)+d_{1}\cos\left(\frac{\Delta S_{\mathrm{l}}}{r}\right) \\
-        +&\frac{S_{r}r}{\Delta S_{3}}\sin\left(\frac{\Delta S_{3}}{r}\right)\cos\left(\frac{\Delta S_{1}}{r}\right) \\
-        +&d_{2}\cos\left(\frac{\Delta S_{1}}{r}\right)\cos\left(\frac{\Delta S_{3}}{r}\right). 
+    \label{eq:y_coordinate} \\
+    &\begin{aligned}
+        \text{z} =&\frac{S_{r}r}{\Delta S_{1}}\sin\left(\frac{\Delta S_{\mathrm{l}}}{r}\right)+d_{1}\cos\left(\frac{\Delta S_{\mathrm{l}}}{r}\right) \\
+        +&\frac{S_{r}r}{\Delta S_{3}}\sin\left(\frac{\Delta S_{3}}{r}\right)\cos\left(\frac{\Delta S_{1}}{r}\right)+d_{2}\cos\left(\frac{\Delta S_{1}}{r}\right)\cos\left(\frac{\Delta S_{3}}{r}\right). 
     \end{aligned}
     \label{eq:z_coordinate}
 \end{align}
