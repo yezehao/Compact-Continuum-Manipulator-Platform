@@ -37,8 +37,9 @@ for i = 1:Nu
 end
 clearvars S i d r N
 
-index = 1000000;
+index = 40960000;
 % Pre-allocate Memory
+Homogeneous(index).H = [];
 position = zeros(3, index);
 coordinate = zeros(3, index);
 for i = 1:index
@@ -49,6 +50,9 @@ for i = 1:index
     node = FK_matrix(parameter,Sr);
     position(:,i) = node(Nu+1).position;
     coordinate(:,3*i-2:3*i)= node(Nu+1).coordinate;
+    Homogeneous(i).H = [coordinate(:,3*i-2:3*i), position(:,i);
+                        zeros(1,3), 1]; 
+    Homogeneous(i).angle = angle(:,i);
     % for j = 1:Nu
     %     parameter(j).rad = parameter(j).bend_work*(-1+2*rand);
     % end
@@ -61,13 +65,12 @@ for i = 1:index
 end
 
 % %% Result Save
-% filename = ['result/(UT)_angle_v_position_', num2str(index),'.mat'];
-% save(filename,'angle','position','-v7.3');
+filename = ['result/(UT)_angle_v_position_', num2str(index),'.mat'];
+save(filename,'Homogeneous','-v7.3');
 
 clearvars i j
 
 %% Result Save
-writematrix(position, 'result/maximum_bending_workspace.csv');
 
 % index = 100000000;
 % load('result\(UT)_angle_v_position_100000000.mat')

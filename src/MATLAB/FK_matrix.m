@@ -23,9 +23,7 @@ function node = FK_matrix(parameter,Sr)
             Mt = [1 0 0;
                   0 cos(alpha) sin(alpha);
                   0 -sin(alpha) cos(alpha)];
-            Mt_inv = [1 0 0;
-                  0 cos(alpha) -sin(alpha);
-                  0 sin(alpha) cos(alpha)];
+            Mt_inv = Mt';
             M(i+1).bend = round(Mt*10^5)/10^5; % round five decimal places
             M(i+1).bend_inv = round(Mt_inv*M(i).bend_inv*10^5)/10^5; % round five decimal places
             % Relative Position Matrices Calculation
@@ -35,9 +33,7 @@ function node = FK_matrix(parameter,Sr)
             Mt = [cos(alpha) 0 sin(alpha);
                   0 1 0 
                   -sin(alpha) 0 cos(alpha)];
-            Mt_inv = [cos(alpha) 0 -sin(alpha);
-                  0 1 0 
-                  sin(alpha) 0 cos(alpha)];
+            Mt_inv = Mt_inv';
             M(i+1).bend = round(Mt*10^5)/10^5; % round five decimal places 
             M(i+1).bend_inv = round(Mt_inv*M(i).bend_inv*10^5)/10^5; % round five decimal places
             % Relative Position Matrices Calculation
