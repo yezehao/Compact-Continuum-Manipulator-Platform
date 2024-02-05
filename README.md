@@ -227,6 +227,10 @@ gantt
   conda install pytorch torchvision torchaudio pytorch-cuda=<your_version> -c pytorch -c nvidia   
   ```
 + Other Installation
+  ```
+  conda install jupyter notebook
+  conda install ipykernel
+  ```
   ```  
   pip install -r requirements.txt
   ```
