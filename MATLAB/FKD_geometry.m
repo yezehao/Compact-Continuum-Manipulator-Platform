@@ -1,8 +1,9 @@
 clear;
 clc;
+close all;
 length_mm = 300;
 Sr=0.5*length_mm; 
-d=0.015*length_mm; 
+d=0.02*length_mm; 
 angle = 90*[1; 1; -1; -1];
 rad = deg2rad(angle);
 for i = 1:4
@@ -13,7 +14,6 @@ for i = 1:4
         Dhorz = 0;
         Dvert = Sr+d;
     else
-        Alpha = abs(alpha);
         R = Sr/alpha;
         Dhorz = R*(1-cos(alpha)) + d*sin(alpha);
         Dvert = R*sin(alpha) + d*cos(alpha);
@@ -51,7 +51,7 @@ for i = 1:4
     end
 end
 
-clearvars Mt i Dhorz Dvert Alpha
+clearvars Mt i Dhorz Dvert
 
 % There are four units in the manipulator, the base coordinate and end 
 % effector coordinate are stored in the matrix "coordinate"
@@ -86,6 +86,8 @@ for i = 1:4
     hold on;
 end
 
+
+
 % Plot the sub-coordinate
 for i = 2:5
 quiver3(position(1,i),position(2,i),position(3,i), ...
@@ -100,6 +102,6 @@ quiver3(position(1,i),position(2,i),position(3,i), ...
 end
 
 %% Save file
-filename = ['result/manipulator_' num2str(angle(1,1)) '_' num2str(angle(2,1)) '_' ,...
-            num2str(angle(3,1)) '_' num2str(angle(4,1)) '.png'];
-saveas(gcf, filename);
+% filename = ['result/manipulator_' num2str(angle(1,1)) '_' num2str(angle(2,1)) '_' ,...
+%             num2str(angle(3,1)) '_' num2str(angle(4,1)) '.png'];
+% saveas(gcf, filename);
