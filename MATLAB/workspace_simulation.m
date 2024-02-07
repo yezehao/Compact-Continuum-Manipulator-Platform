@@ -50,8 +50,8 @@ for i = 1:index
     node = FK_matrix(parameter,Sr);
     position(:,i) = node(Nu+1).position;
     coordinate(:,3*i-2:3*i)= node(Nu+1).coordinate;
-    Homogeneous(i).H = [coordinate(:,3*i-2:3*i), position(:,i);
-                        zeros(1,3), 1]; 
+    H = [coordinate(:,3*i-2:3*i), position(:,i); zeros(1,3), 1];
+    Homogeneous(i).H = reshape(H, 1, []); 
     Homogeneous(i).angle = angle(:,i);
     % for j = 1:Nu
     %     parameter(j).rad = parameter(j).bend_work*(-1+2*rand);
