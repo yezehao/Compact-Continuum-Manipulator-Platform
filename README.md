@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="deliverable/Documentation/Image/continuum_manipulator.png" width="300" height="300" alt="Robotic Arm icon">
+  <img src="deliverable/Documentation/Image/LOGO .png" width="300" height="300" alt="Robotic Arm icon">
 </p>
 <h1 align="center">Compact Continuum Manipulator Platform</h1>
 <h3 align="center"><i>Repository Status</i></h3>
