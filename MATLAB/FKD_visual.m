@@ -75,9 +75,9 @@ clearvars alpha coord_origin i rad symbol
 fig3 = draw_tdcr(Homogeneous,[12 23 34 45], 15, 5);
 hold on;
 % Plot the coordinate
-quiver3(0, 0, 0, 300, 0, 0, 'r', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
-quiver3(0, 0, 0, 0, 300, 0, 'g', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
-quiver3(0, 0, 0, 0, 0, 300, 'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(0, 0, 0, 200, 0, 0, 'r', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(0, 0, 0, 0, 200, 0, 'g', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
+quiver3(0, 0, 0, 0, 0, 200, 'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 
 % Plot the sub-coordinate
 for i = [12, 23, 34, 45]

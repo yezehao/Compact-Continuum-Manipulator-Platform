@@ -62,7 +62,7 @@ function [fig] = draw_tdcr(g,seg_end,r_disk,r_height,options)
     ylabel('y (m)')
     zlabel('z (m)')
     grid on
-    view([-0.5 -0.5 0.5])
+    view([-0.5 -0.5 0.3])
     daspect([1 1 1])
 
     col = linspace(0.2,0.8,numseg);
