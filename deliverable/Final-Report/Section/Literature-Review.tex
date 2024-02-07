@@ -25,37 +25,84 @@ certain limitations persist. Hence, a comparison of different manipulators is ne
 type manipulator for integrating ultrasonic transducer. 
 
 \subsection{Types of Manipulator}
-From the perspective of geometry, rigid-body manipulators can be categorized into two main types: serial link and 
-parallel mechanisms \cite{MECH0089book}. The control of parallel mechanisms is relatively complex. Meanwhile, 
-serial link manipulators can be further divided into five types: articulated (RRR), spherical (RRP), SCARA (RRP), 
-cylindrical (RPP), or Cartesian (PPP). Additionally, with the advancement of robotics technology, two other types 
-of manipulators, namely serpentine and anthropomorphic, have demonstrated their advantages 
+From the perspective of geometry, rigid-body manipulators can be categorized into two main types: parallel 
+mechanisms and serial link \cite{MECH0089book}. The control of parallel mechanisms is relatively complex. 
+Meanwhile, serial link manipulators can be further divided into five types: Cartesian (PPP), articulated (RRR), 
+cylindrical (RPP), spherical (RRP), and SCARA (RRP). Additionally, with the advancement of robotics technology, 
+two other types of manipulators, namely biomimetic and anthropomorphic, have demonstrated their advantages 
 \cite{manipulators_types1,manipulators_types2}.
 The comparative analysis will be conducted to highlight the distinctive features of different manipulators 
 presented in Table \ref{tab:different_types_manipulators}, leading to the identification of the most suitable 
 type for specific applications.
 \begin{center}
-    \begin{longtable}{l l l l}
+    \small
+    \begin{longtable}{l c c l l}
     \caption{The Characteristics of Different Manipulators.} \label{tab:different_types_manipulators} \\
     \hline \multicolumn{1}{c}{\textbf{Manipulators}} & 
     \multicolumn{1}{c}{\textbf{Types}} & 
     \multicolumn{1}{c}{\textbf{DoF}} & 
-    \multicolumn{1}{c}{\textbf{Features}} \\ \hline 
+    \multicolumn{1}{c}{\textbf{Features}} & 
+    \multicolumn{1}{c}{\textbf{Applications}} \\ \hline 
     \endfirsthead
-    \multicolumn{4}{c}%
+    \multicolumn{5}{c}%
     {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
     \hline \multicolumn{1}{c}{\textbf{Manipulators}} & 
     \multicolumn{1}{c}{\textbf{Types}} & 
     \multicolumn{1}{c}{\textbf{DoF}} & 
-    \multicolumn{1}{c}{\textbf{Features}} \\ \hline 
+    \multicolumn{1}{c}{\textbf{Features}} & 
+    \multicolumn{1}{c}{\textbf{Applications}} \\ \hline 
     \endhead
-    \hline \multicolumn{4}{|r|}{{Continued on next page}} \\ \hline
+    \hline \multicolumn{5}{|r|}{{Continued on next page}} \\ \hline
     \endfoot
     \hline \hline
     \endlastfoot
     % table context
-    \multirow{2}{*}{3D cartesian/gantry manipulator} & PPP & 3 & 1   \\
-    & & & \\ \hline
+    \multirow{2}{25mm}{Stewart Platform \cite{stewart}}& 
+    \multirow{2}{*}{\parbox{15mm}{Series-Parallel}} & 6 & 
+    series-parallel duality, &
+    flight simulation \cite{flight_simulation}. \\
+    & & & mature kinematics & robocrane \cite{RoboCrane}\\ 
+    & & & algorithm. & \\ 
+    & & & & \\ 
+    Cartesian & PPP & 3 &
+    technological maturity, &
+    3D-Printing framework \cite{PPP_3Dprint} \\
+    & & & low complexity, cost-& warehousing \& hoisting \cite{PPP_warehouse}\\ 
+    & & & effective, high payload. & agricultural machinery \cite{PPP_agriculture}\\ 
+    & & & & \\ 
+    Articulated \cite{RRR_feature}& RRR & 6 & 
+    factory automation,   &
+    milling operations \cite{RRR_application1} \\
+    & & & programmable, high & material handling \cite{RRR_application2} \\ 
+    & & & precision and payload.& \\ 
+    & & & & \\ 
+    Cylindrical \cite{SCARA_review}& RPP & 3 & 
+    good precision, limited  &
+    assembling industries \cite{RPP_application} \\
+    & & & workspace. & \\
+    & & & & \\
+    Spherical \cite{RRP_feature}& RRP & 3 & 
+    \multirow{3}{*}{\parbox{40mm}{collision avoidance, low precision, long reach, light weight.}} &
+    low-precision semi- \\
+    & & & & automated tasks \cite{RRR_application1,RRR_application2}\\
+    & & & & \\
+    & & & & \\
+    SCARA \cite{SCARA_review}& RRP & 3 & 
+    high accuracy and fast  &
+    surgical applications \cite{SCARA_application1}\\
+    & & & operation. & medical rehabilitation \cite{SCARA_application2}\\
+    & & & & \\
+    \multirow{2}{25mm}{Continuum/ Soft \cite{soft_review1,soft_review2}} & Biomimetic & $\infty$ & 
+    ability to handle  & 
+    tendon driven \cite{tenden_driven_application1, tenden_driven_application2,tenden_driven_application3}\\
+    & & & fatigue objects, & fibre-reinforced \cite{fiber_application1,fiber_application2}\\
+    & & & environmental & fluid-elastic drive \cite{fluid_application1,fluid_application2,fluid_application3}\\
+    & & & adaptability. & bionics materials \cite{SMA,dielectric_high-elastic_polymers,IPMC}\\
+    & & & & \\
+    Humanoid & anthropo- & 7 & high efficiency, & humanoid robots driven \\
+    & morphic& & flexibility.& by pneumatic artificial\\ 
+    & & & & muscles \cite{humanoid_7dof}\\ 
+    & & & & \\\hline
     % \multirow{2}{*}{3D cartesian/gantry manipulator} & PPP & 3 & 1   \\
     % & & & \\ \hline
     \end{longtable}
