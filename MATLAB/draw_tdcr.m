@@ -49,7 +49,6 @@ function [fig] = draw_tdcr(g,seg_end,r_disk,r_height,options)
     %% Setup figure
     fig=figure;
     hold on
-    set(fig,'Position',[0 0 1280 1024]);
 
     % Axes, Labels
     axis([-350 350 ...
@@ -62,6 +61,7 @@ function [fig] = draw_tdcr(g,seg_end,r_disk,r_height,options)
     ylabel('y (m)')
     zlabel('z (m)')
     grid on
+    grid minor
     view([-0.5 -0.5 0.3])
     daspect([1 1 1])
 
