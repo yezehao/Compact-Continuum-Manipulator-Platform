@@ -28,7 +28,8 @@ a_rad = array([[a1_rad], [a2_rad], [a3_rad], [a4_rad]])
 dS = zeros((8, 1))
 
 # Matrix used for calculate dS
-H = array([[r1, 0, 0, 0],[-r1, 0, 0, 0],[0, r2, 0, 0],[0, -r2, 0, 0],[r1, 0, r3, 0], [-r1, 0, -r3, 0],[0, r2, 0, r4],[0, -r2, 0, -r4]])
+H = array([[r1, 0, 0, 0],[-r1, 0, 0, 0],[0, r2, 0, 0],[0, -r2, 0, 0],[r1, 0, r3, 0], [-r1, 0, -r3, 0],
+           [0, r2, 0, r4],[0, -r2, 0, -r4]])
 
 if __name__ == '__main__':
     # Calculate dS
