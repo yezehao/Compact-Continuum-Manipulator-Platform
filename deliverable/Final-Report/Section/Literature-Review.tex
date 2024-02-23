@@ -63,73 +63,55 @@ type for specific applications.
     flight simulation \cite{flight_simulation}. \\
     & & & mature kinematics & robocrane \cite{RoboCrane}\\ 
     & & & algorithm. & \\ 
-    & & & & \\ 
     Cartesian & PPP & 3 &
     technological maturity, &
     3D-Printing framework \cite{PPP_3Dprint} \\
     & & & low complexity, cost-& warehousing \& hoisting \cite{PPP_warehouse}\\ 
     & & & effective, high payload. & agricultural machinery \cite{PPP_agriculture}\\ 
-    & & & & \\ 
     Articulated \cite{RRR_feature}& RRR & 6 & 
     factory automation,   &
     milling operations \cite{RRR_application1} \\
     & & & programmable, high & material handling \cite{RRR_application2} \\ 
     & & & precision and payload.& \\ 
-    & & & & \\ 
     Cylindrical \cite{SCARA_review}& RPP & 3 & 
     good precision, limited  &
     assembling industries \cite{RPP_application} \\
     & & & workspace. & \\
-    & & & & \\
     Spherical \cite{RRP_feature}& RRP & 3 & 
     \multirow{3}{*}{\parbox{40mm}{collision avoidance, low precision, long reach, light weight.}} &
     low-precision semi- \\
     & & & & automated tasks \cite{RRR_application1,RRR_application2}\\
-    & & & & \\
-    & & & & \\
     SCARA \cite{SCARA_review}& RRP & 3 & 
     high accuracy and fast  &
     surgical applications \cite{SCARA_application1}\\
     & & & operation. & medical rehabilitation \cite{SCARA_application2}\\
-    & & & & \\
     \multirow{2}{25mm}{Continuum/ Soft \cite{soft_review1,soft_review2}} & Biomimetic & $\infty$ & 
     ability to handle  & 
     tendon driven \cite{tenden_driven_application1, tenden_driven_application2,tenden_driven_application3}\\
     & & & fatigue objects, & fibre-reinforced \cite{fiber_application1,fiber_application2}\\
     & & & environmental & fluid-elastic drive \cite{fluid_application1,fluid_application2,fluid_application3}\\
     & & & adaptability. & bionics materials \cite{SMA,dielectric_high-elastic_polymers,IPMC}\\
-    & & & & \\
     Humanoid & anthropo- & 7 & high efficiency, & humanoid robots driven \\
     & morphic& & flexibility.& by pneumatic artificial\\ 
-    & & & & muscles \cite{humanoid_7dof}\\ 
-    & & & & \\\hline
+    & & & & muscles \cite{humanoid_7dof}\\ \hline
     % \multirow{2}{*}{3D cartesian/gantry manipulator} & PPP & 3 & 1   \\
     % & & & \\ \hline
     \end{longtable}
 \end{center}
+\noindent The distinctive structure of continuum manipulator imparts to the system with theoretically 
+infinite DoF. The characteristic enables the continuum manipulator to navigate through confined spaces 
+or manipulate objects along specific trajectories within the workspace \cite{CR_medical_application,
+soft_review1,soft_review2}. Simultaneously, the continuum 
+maniuplator demonstrates suboptimal performance in the context of payload, making it challenging to meet 
+the payload capacities commonly observed in industrial robotic systems. Nevertheless, within the realm 
+of biology applications, the emphasis shifts towards precision and operability for manipulator. In this 
+report, the manipulator platform integrated with the ultrasonic transducer module necessitates a design. 
+The selection of the continuum manipulator was predicated upon its outstanding flexibility and the 
+lightweight attributes of ultrasonic transducer module. The forthcoming discussion will delve into the 
+categorisation of continuum robots, ultimately selecting an appropriate type to serve as the centerpiece 
+for the manipulator platform.
 
 
-\subsection{Working Principles}
-Continuum robot can be broadly divided into two parts: a continuous bending structure and a fixed base containing actuating and 
-controlling devices.\\
-The continuous bending structure can be seen as the working arm of the robot. A flexible backbone shapes the arm, and it can be rotated 
-and bent by dragging/releasing the different cables (tendons) around it. 
-When the joystick in the fixed base is manipulated manually, the programmed stepper motor will step forward/backward by the 
-corresponding number of steps. These motors are connected to different cables located in the bending structure (arm), the motors 
-dragging the cables, thereby making cable contract. Finally, the contraction of different cables will rotate and bend the backbone, 
-which is the core component of the arm, thereby changing the posture of the arm.\\
-This process can be likened to the movement of the human arms. cables can be understood as tendons/muscle bundles and backbone as 
-the main skeleton.
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
-    \captionsetup{labelsep=colon}
-    \includegraphics[width=.8\textwidth]{Image/LR/CR_example.jpg} 
-    \caption[An example of continuum robot]
-    {\centering \textit{\textbf{An example of continuum robot }}\cite{CR_example}.}
-    \label{fig:CR_example}
-\end{figure}
-\noindent Different types of continuum robots have different backbones, actuating and flexible components, but they are generally all 
-work under the same working principle stated above. \\
 \subsection{Types of Continuum Robots}
 Nowadays, a variety of continuum robots exist, each exhibiting unique structures and functions. They serve in different fields 
 such as medicine, construction, and exploration. In this section, some of the most popular continuum robots will be introduced, 

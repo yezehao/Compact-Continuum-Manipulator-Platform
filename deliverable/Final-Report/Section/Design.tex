@@ -1,6 +1,27 @@
 %%%%% Design %%%%%
 \section{Design} 
 This is the Design of the final report.
+\subsection{Working Principles}
+Continuum robot can be broadly divided into two parts: a continuous bending structure and a fixed base containing actuating and 
+controlling devices.\\
+The continuous bending structure can be seen as the working arm of the robot. A flexible backbone shapes the arm, and it can be rotated 
+and bent by dragging/releasing the different cables (tendons) around it. 
+When the joystick in the fixed base is manipulated manually, the programmed stepper motor will step forward/backward by the 
+corresponding number of steps. These motors are connected to different cables located in the bending structure (arm), the motors 
+dragging the cables, thereby making cable contract. Finally, the contraction of different cables will rotate and bend the backbone, 
+which is the core component of the arm, thereby changing the posture of the arm.\\
+This process can be likened to the movement of the human arms. cables can be understood as tendons/muscle bundles and backbone as 
+the main skeleton.
+\begin{figure}[H] %[H] "corresponds to start the figure Here" 
+    \centering %alignment can be flushleft or flushright
+    \captionsetup{labelsep=colon}
+    \includegraphics[width=.8\textwidth]{Image/LR/CR_example.jpg} 
+    \caption[An example of continuum robot]
+    {\centering \textit{\textbf{An example of continuum robot }}\cite{CR_example}.}
+    \label{fig:CR_example}
+\end{figure}
+\noindent Different types of continuum robots have different backbones, actuating and flexible components, but they are generally all 
+work under the same working principle stated above. \\
 \subsection{Methodology}
 \subsubsection{Forward Kinematics}
 The manipulator consists of four units, and the backbones of each section are perpendicular to each other. To derive the 
