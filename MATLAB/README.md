@@ -30,5 +30,6 @@ There are four programmes in the `MATLAB` folder: `error_calculation.m`, `FKD_ge
 
 + `workspace_simulation.m`: The programme is used to identify the workspace of the manipulator. The generated workspace can be saved as the dataset for the training of inverse kinematics. The generated dataset are saved in folder `(UT)_dataset` for further training. Meanwhile, this programme also used to segment the useful cubic workspace whose side length is 300 mm. The segmented useful workspace is shown as follow.
 <p align="center">
-  <img src="result/useful_boundage_100000000.png" width="600" height="500" alt="useful workspace">
+  <img src="result/useful_boundage_100000.png" width="400" height="300" alt="useful workspace">
+  <img src="result/useful_boundage_100000000.png" width="400" height="300" alt="useful workspace">
 </p>
