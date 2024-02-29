@@ -37,9 +37,8 @@ for i = 1:Nu
 end
 clearvars S i d r N
 
-index = 40960000;
+index = 4096000;
 % Pre-allocate Memory
-Homogeneous(index).H = [];
 position = zeros(3, index);
 coordinate = zeros(3, index);
 for i = 1:index
@@ -50,23 +49,21 @@ for i = 1:index
     node = FK_matrix(parameter,Sr);
     position(:,i) = node(Nu+1).position;
     coordinate(:,3*i-2:3*i)= node(Nu+1).coordinate;
-    H = [coordinate(:,3*i-2:3*i), position(:,i); zeros(1,3), 1];
-    Homogeneous(i).H = reshape(H, 1, []); 
-    Homogeneous(i).angle = angle(:,i);
+    Angle(i,:) = angle(:,i);
     % for j = 1:Nu
     %     parameter(j).rad = parameter(j).bend_work*(-1+2*rand);
     % end
     % node = FK_matrix(parameter,Sr);
     % position(:,i) = node(Nu+1).position;
     % coordinate(:,3*i-2:3*i)= node(Nu+1).coordinate;
-    if mod(i, index/1000) == 0
+    if mod(i, 1000) == 0
         disp(['Iteration: ', num2str(i)]);
     end
 end
 
 % %% Result Save
-filename = ['result/(UT)_dataset/Homogeneous_v_position_', num2str(index),'.mat'];
-save(filename,'Homogeneous','-v7.3');
+filename = ['(UT)_dataset/Homogeneous_v_position_', num2str(index),'.mat'];
+save(filename,'position','coordinate','Angle','-v7.3');
 
 clearvars i j
 

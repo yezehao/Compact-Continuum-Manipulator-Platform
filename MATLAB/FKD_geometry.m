@@ -3,8 +3,9 @@ clc;
 close all;
 length_mm = 300;
 Sr=0.5*length_mm; 
-d=0.02*length_mm; 
-angle = 90*[1; 1; -1; -1];
+% d=0.02*length_mm; 
+d=0;
+angle = 20*[1;1;1;1];
 rad = deg2rad(angle);
 for i = 1:4
     % Define the bending angle alpha
@@ -101,7 +102,7 @@ quiver3(position(1,i),position(2,i),position(3,i), ...
         'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 end
 
-%% Save file
-% filename = ['result/manipulator_' num2str(angle(1,1)) '_' num2str(angle(2,1)) '_' ,...
+% %% Save file
+% filename = ['result/geometry_' num2str(angle(1,1)) '_' num2str(angle(2,1)) '_' ,...
 %             num2str(angle(3,1)) '_' num2str(angle(4,1)) '.png'];
 % saveas(gcf, filename);
