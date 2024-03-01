@@ -37,7 +37,7 @@ for i = 1:Nu
 end
 clearvars S i d r N
 
-index = 4096000;
+index = 10000;
 % Pre-allocate Memory
 position = zeros(3, index);
 coordinate = zeros(3, index);

@@ -5,7 +5,7 @@ length_mm = 300;
 Sr=0.5*length_mm; 
 % d=0.02*length_mm; 
 d=0;
-angle = 20*[1;1;1;1];
+angle = [90;90;90;90];
 rad = deg2rad(angle);
 for i = 1:4
     % Define the bending angle alpha
