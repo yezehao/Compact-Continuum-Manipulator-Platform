@@ -1,6 +1,5 @@
 %%%%% Design %%%%%
 \section{Design} 
-This is the Design of the final report.
 \subsection{Working Principles}
 Continuum robot can be broadly divided into two parts: a continuous bending structure and a fixed base containing actuating and 
 controlling devices.\\
@@ -294,27 +293,7 @@ in Equations \ref{eq:nodei+1_position_absolute_minus} and \ref{eq:nodei+1_positi
     &\textbf{P}_{i+1}^{base} = \sum_{m=1}^{i}\left[\prod_{n=1}^{m}\textbf{R}_{n}\times \textbf{P}_{m+1}^{m}\right] \quad(\textbf{P}_{1}^{base} = 0)
     \label{eq:nodei+1_position_absolute}
 \end{align}
-
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
-    \captionsetup{labelsep=colon}
-    \begin{subfigure}{0.85\textwidth} % subfigure 1
-        \centering
-        \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_90_90_-90_-90.png}
-        \caption{$\alpha_1=90\degree,\alpha_2=90\degree,\alpha_3=-90\degree,\alpha_4=-90\degree$}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.85\textwidth} % subfigure 2
-        \centering
-        \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_80_120_-120_90.png}
-        \caption{$\alpha_1=80\degree,\alpha_2=120 \degree,\alpha_3=-120\degree,\alpha_4=90\degree$}
-    \end{subfigure}
-    \caption[The kinematics model of manipulator with respective bending units]
-    {\centering \textit{\textbf{The kinematics model of manipulator with respective bending units.}}}
-    \label{fig:different}
-\end{figure}
-
-\noindent To emphasize transformation of manipulator, homogeneous transformation matrices \cite{homogeneous} are 
+To emphasize transformation of manipulator, homogeneous transformation matrices \cite{homogeneous} are 
 employed to describe the position of the end effector of the manipulator in Equations \ref{eq:homogeneous_matrix} 
 and \ref{eq:homogeneous_matrices}.
 
@@ -337,6 +316,25 @@ and \ref{eq:homogeneous_matrices}.
     \end{bmatrix} 
     \label{eq:homogeneous_matrices}
 \end{align}
+
+\begin{figure}[H] %[H] "corresponds to start the figure Here" 
+    \centering %alignment can be flushleft or flushright
+    \captionsetup{labelsep=colon}
+    \begin{subfigure}{0.85\textwidth} % subfigure 1
+        \centering
+        \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_90_90_-90_-90.png}
+        \caption{$\alpha_1=90\degree,\alpha_2=90\degree,\alpha_3=-90\degree,\alpha_4=-90\degree$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.85\textwidth} % subfigure 2
+        \centering
+        \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_80_120_-120_90.png}
+        \caption{$\alpha_1=80\degree,\alpha_2=120 \degree,\alpha_3=-120\degree,\alpha_4=90\degree$}
+    \end{subfigure}
+    \caption[The kinematics model of manipulator with respective bending units]
+    {\centering \textit{\textbf{The kinematics model of manipulator with respective bending units.}}}
+    \label{fig:different}
+\end{figure}
 
 \subsubsection{Inverse Kinematics}
 
