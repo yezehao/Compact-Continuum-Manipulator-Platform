@@ -1,5 +1,5 @@
 # MATLAB Kinematics Programme Tutorial 
-#### 📁 Repository Description
+#### 📁 Folder Description
 ```sh
 ├── /result/
 ├── /(UT)_dataset/
