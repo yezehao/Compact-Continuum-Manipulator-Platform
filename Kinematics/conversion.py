@@ -1,42 +1,37 @@
-from numpy import *
+import numpy as np
 
-# Input the parameters here------------
-Sr = 1
+#### Input the parameters here ###
+# The length of the single segment
+Sr = 150
+# The distance between the connector centroid and cable connecting place
+r = np.array([[17.5], [17.5], [15], [15]]) 
+# The bending angles of segments
+alpha = np.array([[120], [120], [120], [120]])
+###################################
 
-r1 = 0.2
-r2 = 0.2
-r3 = 0.2
-r4 = 0.2
+def conversion(alpha, r):
+    # convert angles to rads
+    radians = np.deg2rad(alpha)
 
-a1 = 10
-a2 = 10
-a3 = -10
-a4 = -10
-#---------------------------------------
-# convert angles to rads
-a1_rad = a1 * (pi / 180)
-a2_rad = a2 * (pi / 180)
-a3_rad = a3 * (pi / 180)
-a4_rad = a4 * (pi / 180)
+    # Define the dS variables
+    dS = np.zeros((8, 1))
 
-# Matrix form of input variables
-r = array([[r1], [r2], [r3], [r4]])
-a = array([[a1], [a2], [a3], [a4]])
-a_rad = array([[a1_rad], [a2_rad], [a3_rad], [a4_rad]])
+    # Matrix used for calculate dS
+    char = np.array([[1, 0, 0, 0],
+                     [-1, 0, 0, 0],
+                     [0, 1, 0, 0],
+                     [0, -1, 0, 0],
+                     [1, 0, 1, 0], 
+                     [-1, 0, -1, 0],
+                     [0, 1, 0, 1],
+                     [0, -1, 0, -1]])
+    H = char * r.T
+    dS = H.dot(radians)
+    deltaS = np.round(dS, decimals=3)
+    print(f"The increment of cables:")
+    print(f"{deltaS[0]},{deltaS[1]},")
+    print(f"{deltaS[2]},{deltaS[3]},")
+    print(f"{deltaS[4]},{deltaS[5]},")
+    print(f"{deltaS[6]},{deltaS[7]}]")
 
-# Define the dS variables
-dS = zeros((8, 1))
-
-# Matrix used for calculate dS
-H = array([[r1, 0, 0, 0],[-r1, 0, 0, 0],[0, r2, 0, 0],[0, -r2, 0, 0],[r1, 0, r3, 0], [-r1, 0, -r3, 0],
-           [0, r2, 0, r4],[0, -r2, 0, -r4]])
-
-if __name__ == '__main__':
-    # Calculate dS
-    dS = H.dot(a_rad)
-
-    print("The input parameters:\n")
-    print("Sr=", Sr, "\n")
-    print("the r matrix:\n", r)
-    print("the angle matrix:\n", a)
-    print("the output dS matrix:\n", dS)
+_ = conversion(alpha,r)
