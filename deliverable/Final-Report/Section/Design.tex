@@ -415,25 +415,6 @@ and \ref{eq:homogeneous_matrices}.
     \label{eq:homogeneous_matrices}
 \end{align}
 
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
-    \captionsetup{labelsep=colon}
-    % \begin{subfigure}{0.85\textwidth} % subfigure 1
-    %     \centering
-    %     \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_90_90_-90_-90.png}
-    %     \caption{$\alpha_1=90\degree,\alpha_2=90\degree,\alpha_3=-90\degree,\alpha_4=-90\degree$}
-    % \end{subfigure}
-    % \hfill
-    \begin{subfigure}{0.85\textwidth} % subfigure 2
-        \centering
-        \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_80_120_-120_90.png}
-        \caption{\centering $\alpha_1=80\degree,\alpha_2=120 \degree,\alpha_3=-120\degree,\alpha_4=90\degree$}
-    \end{subfigure}
-    \caption[The kinematics model of manipulator with respective bending modules]
-    {\centering \textbf{The kinematics model of manipulator with respective bending modules.}}
-    \label{fig:different}
-\end{figure}
-
 \subsubsection{Inverse Kinematics} % Done by Zehao Ye
 The inverse kinematics algorithm is inspired by a rigid manipulator inverse kinematics solver called FABRIK 
 \cite{fabrik}. W. Zhang et al.\cite{fabrikc} expanded this solver to the continuum manipulator domain. Considering 
@@ -448,14 +429,14 @@ is elucidated as follow. Simultaneously, the flowchart of FABRIKc algorithm is s
     \begin{tikzpicture}[node distance=1.5cm,every node/.style={fill=white, font=\sffamily}, align=center]
         % Specification of nodes (position, etc.)
         \node (input) [data]   
-        {\textbf{Input}: $\textbf{O}_{target}$, $\textbf{P}_{target}$, \textbf{$\epsilon$}, ${epo}_{max}$ };
+        {\textbf{Input}: $\textbf{O}_{target}$, $\textbf{P}_{target}$, $\boldsymbol{\epsilon}$, ${epo}_{max}$ };
         \node (start) [activityStarts, below of=input] {Start};
         \node (init) [process, below of=start]          
         {Initialization: $\textbf{vnode}_i$, $\textbf{node}_i$, $\textbf{l}_i$};
         \node (value) [process, below of=init]   
         {epo = 1, $\textbf{e} = \lVert\textbf{P}_{target} - \textbf{P}_{\theta_1, \theta_2, \theta_3, \theta_4}\rVert$};
         \node (deter) [pending, below of=value, yshift=-15mm]   
-        {$\textbf{e} > \epsilon$ \&\& \\ $epo < {epo}_{max}$};
+        {$\textbf{e} > \boldsymbol{\epsilon}$ \&\& \\ $epo < {epo}_{max}$};
         \node (frp) [process, below of=deter, yshift=-22mm, fill=red!25] {FABRIKc: Forward Reaching Phase};
         \node (brp) [process, below of=frp, fill=red!25] {FABRIKc: Back Reaching Phase};
         \node (plus) [process, below of=brp] {epo = epo + 1};  
@@ -699,12 +680,13 @@ solely for positional errors. The error can be calculated by Equation \ref{eq:er
     \textbf{e} = \lVert\textbf{P}_{target} - \textbf{P}_{\theta_1, \theta_2, \theta_3, \theta_4}\rVert
     \label{eq:error_calculation}
 \end{align}
-For the first epoch, the results of FABRIKc algorithm are $\theta = \begin{bmatrix} 6.71 & -0.0 & 83.29 & -0.0 
-\end{bmatrix} $, the error of the first epoch is 33.77506. The results about FABRIKc algorithm with the target angle 
-$\alpha = \begin{bmatrix} 0 & 0 & 90 & 0 \end{bmatrix} $ are shown in Table \ref{tab:fabrikc_0_0_90_0} 
+For the first epoch, the results of FABRIKc algorithm are 
+$\boldsymbol{\theta} = [6.71,\ -0.0,\ 83.29,\ -0.0]\degree $, 
+The error of the first epoch is 33.77506. The results about FABRIKc algorithm with the target angle 
+$\boldsymbol{\alpha} = [0,\ 0,\ 90,\ 0] $ are shown in Table \ref{tab:fabrikc_0_0_90_0} 
 in Appendix \ref{append:table}. The algorithm has been configured to execute a maximum of 200 epochs, with 
 the provision to pause when the error reaches a sufficiently low level, thereby conserving computational resources. 
-The maximum epoch number is defined as ${epo}_{max}$. The error margin is $\epsilon$.
+The maximum epoch number is defined as ${epo}_{max}$. The error margin is $\boldsymbol{\epsilon}$.
 
 \subsection{Electronic Control}
 \subsubsection{Manipulator Actuation Control}
@@ -757,7 +739,7 @@ are connected to an Arduino board together, and the user can control the program
     \begin{figure}[H] %[H] "corresponds to start the figure Here" 
         \centering %alignment can be flushleft or flushright
         \captionsetup{labelsep=colon}
-        \includegraphics[width=1.0\textwidth]{Image/Design/arduino_circuit_layout.png} 
+        \includegraphics[width=0.7\textwidth]{Image/Design/arduino_circuit_layout.png} 
         \caption[The circuit layout of Arduino step motor control system]
         {\centering \textbf{The circuit layout of Arduino step motor control system.}}
         \label{fig:motor_circuit_layout}
