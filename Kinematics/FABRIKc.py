@@ -143,23 +143,27 @@ def backward_reach (radians,Sr):
     return target, orientation, node, virtual_node, l
 
 
-def FABRIKc(target, orientation,Sr,disp):
+def FABRIKc(target, orientation,Sr,disp,cita):
     # The initial position of manipulator
-    cita = np.array([0,0,0,0], dtype=np.float64)
-    l = np.array([Sr/2, Sr/2, Sr/2, Sr/2])
-    virtual_node = np.array([[0, 0, 1*Sr/2], 
-                            [0, 0, 3*Sr/2], 
-                            [0, 0, 5*Sr/2], 
-                            [0, 0, 7*Sr/2]])
-    node = np.array([[0, 0, 0*Sr], 
-                    [0, 0, 1*Sr], 
-                    [0, 0, 2*Sr], 
-                    [0, 0, 3*Sr]])
+    cita = np.deg2rad(cita)
+    # cita = np.deg2rad(np.array([0, 0, 0, 0], dtype=np.float64))
+    # l = np.array([Sr/2, Sr/2, Sr/2, Sr/2])
+    # virtual_node = np.array([[0, 0, 1*Sr/2], 
+    #                         [0, 0, 3*Sr/2], 
+    #                         [0, 0, 5*Sr/2], 
+    #                         [0, 0, 7*Sr/2]])
+    # node = np.array([[0, 0, 0*Sr], 
+    #                 [0, 0, 1*Sr], 
+    #                 [0, 0, 2*Sr], 
+    #                 [0, 0, 3*Sr]])
+    _, _, node, virtual_node,l = backward_reach(cita,Sr)
+    print(node)
+    print(virtual_node)
 
     # LOOP
     errors = []
     citas = []
-    for i in range(200):
+    for i in range(300):
         cita = forward_reach(target, orientation, cita, l, virtual_node, node,Sr)
         cita_value = np.round(np.rad2deg(cita),decimals=2).tolist()
         

@@ -16,14 +16,20 @@ r = np.array([[17.5], [17.5], [15], [15]]) # unit: °
 # Input the angles for the target
 parser = argparse.ArgumentParser(description='Process angle values.')
 # The default angles are [0, 0, 90, 0], and the arguments is optional
-parser.add_argument('seg1', type=float, nargs='?', help='segment 1 bending angle')
-parser.add_argument('seg2', type=float, nargs='?', help='segment 2 bending angle')
-parser.add_argument('seg3', type=float, nargs='?', help='segment 3 bending angle')
-parser.add_argument('seg4', type=float, nargs='?', help='segment 4 bending angle')
+parser.add_argument('theta1', type=float, nargs='?', help='segment 1 bending angle')
+parser.add_argument('theta2', type=float, nargs='?', help='segment 2 bending angle')
+parser.add_argument('theta3', type=float, nargs='?', help='segment 3 bending angle')
+parser.add_argument('theta4', type=float, nargs='?', help='segment 4 bending angle')
+parser.add_argument('alpha1', type=float, nargs='?', help='segment 1 initialization')
+parser.add_argument('alpha2', type=float, nargs='?', help='segment 2 initialization')
+parser.add_argument('alpha3', type=float, nargs='?', help='segment 3 initialization')
+parser.add_argument('alpha4', type=float, nargs='?', help='segment 4 initialization')
 args = parser.parse_args()
 
 # put the angles in Numpy
-target_angle = np.array([args.seg1, args.seg2, args.seg3, args.seg4])
+target_angle = np.array([args.theta1, args.theta2, args.theta3, args.theta4])
+initialization = np.array([args.alpha1, args.alpha2, args.alpha3, args.alpha4])
+# The target bending angle theta
 if None in target_angle:
     if all(value is None for value in target_angle):
         target_angle = np.array([0, 0, 90, 0]) # the default angles are [0, 0, 90, 0]
@@ -33,6 +39,16 @@ if None in target_angle:
         exit()
 else:
     print("The angles of manipulator segments: ", target_angle)
+# The initialization bending angles alpha
+if None in initialization:
+    if all(value is None for value in initialization):
+        initialization = np.array([0, 0, 0, 0]) # the initialization is initial posture
+        print("The defualt initialization of manipulator segments: ", initialization)
+    else: 
+        print("Error: Insufficient number of values provided. Expected 4 values.")
+        exit()
+else:
+    print("The initialization of manipulator segments: ", initialization)
 
 # Generate the target
 target_cita = np.deg2rad(target_angle)
@@ -42,8 +58,9 @@ print(f"The orientation of end effector: \n{orientation}\n")
 
 ## MAIN ###
 start = time.time()
-cita_before = np.array([0,0,20,20], dtype=np.float64)
-cita, _ = FABRIKc(target, orientation,Sr,disp=1)
-_ = conversion(cita,r)
+cita, _ = FABRIKc(target, orientation,Sr,disp=1,cita=initialization)
+target_, _, _, _, _  = backward_reach(np.deg2rad(cita),Sr)
+print(target_)
+_ = conversion(cita,r,mode=0)
 end = time.time()
 print(f"The programme execute for {np.round(end-start,decimals=5)} seconds")

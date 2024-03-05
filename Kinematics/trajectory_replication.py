@@ -37,7 +37,8 @@ for i in range(target_angles.shape[1]):
     print(f"The target angles: \n{target_angle}\n")
 
     # By using FABRIKc algorithm to get the inversed angle "θ"
-    cita,error = FABRIKc(target, orientation,Sr,disp=1)
+    alpha = None
+    cita,error = FABRIKc(target, orientation, Sr, disp=1, cita=alpha)
     # The result is degree measure, it should be convert into radian for trigonometric calculation
     radian = np.deg2rad(cita)     
     target_, _, _, _, _= backward_reach(radian,Sr) # target_ is the end effector position by "θ"
