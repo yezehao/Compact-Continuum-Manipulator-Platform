@@ -14,7 +14,8 @@ simulation results are shown in Figure \ref{fig:error_analysis}.
     {\centering \textbf{The simulation results of errors against the number of connecting sheets.}}
     \label{fig:error_analysis}
 \end{figure}
-As illustrated in graphs, the changing trends of both absolute and relative errors are almost identical since 
+As illustrated in Figure \ref{fig:error_analysis}, the changing trends of both absolute and relative errors are 
+almost identical since 
 the relative error is proportional to the absolute error, and the different lines with different colors represent 
 the data with different bending angles whose range is from 10 degrees to 90 degrees in both directions (positive 
 or negative). It is obvious that both errors decrease with the increase in the number of connecting sheets, hence 
@@ -24,10 +25,14 @@ of simulation space given that if the length of manipulator is much longer, the 
 manipulator could not be reached due to the characteristics of the material. Hence, the number of sheets could be 
 assumed to be 10 rather than 15, even though both the errors are smaller when the number of sheets is 15. \\
 \subsection{Manipulator Workspace Analysis}
-The simulation of workspace of the manipulator has been illustrated since it is important to determine the 
-variables of joints based on the required workspace. The dimension of workspace is affected by several aspects, 
-which include the simulation index and the parameter H representing the height of the basement of cubic in the 
-original coordinate of the manipulator. The simulation results and the parameters are shown below.
+The workspace simulation of the manipulator has been illustrated since it is important to determine the 
+variables of joints based on the required workspace. The segmented workspace is affected by several aspects, 
+which include the simulation index and the range within the three-dimensional coordinates. The effective workspace 
+of the manipulator is a cubic whose dimension is 300x300x300 (mm). The specific workspace has a fixed range on 
+the x and y axes from -150 to 150 mm. Therefore, it is only necessary to determine the range of the workspace 
+along the z-axis. The parameter H, representing the height of the basement of specific workspace, is 
+utilized to determine the range of the workspace along the z-axis. The impacts of different indices and 
+parameter H will be discussed separately, aiming to segment the appropriate cubic worksapce of the manipulator.
 \begin{figure}[H] %[H] "corresponds to start the figure Here" 
     \centering %alignment can be flushleft or flushright
     \captionsetup{labelsep=colon}
@@ -48,172 +53,105 @@ original coordinate of the manipulator. The simulation results and the parameter
     {\centering \textbf{The entire workspace with different simulation indices.}}
     \label{fig:ws_diff}
 \end{figure}
-\noindent As shown in Figure \ref{fig:ws_10000}, the working space of manipulator forms a spherical shell-shaped point 
-cloud consisting of 10000 floating points since the simulation index is 10000, which is insufficient to fully 
-occupied the theoretical workspace. To further generalize the theoretical workspace, it is necessary to enhance 
-the simulation index. The appropriate workspace should be divided from the workspace. 
+\noindent As shown in Figure \ref{fig:ws_10000}, the working space of manipulator forms a spherical shell-shaped 
+point cloud consisting of 10000 floating points since the simulation index is 10000, which is insufficient to fully 
+occupied the theoretical workspace. To further generalize the theoretical workspace, it is necessary to increase 
+the simulation index. The appropriate workspace should be divided from the workspace whose index is 1000000. 
 \begin{figure}[H] %[H] "corresponds to start the figure Here" 
     \centering %alignment can be flushleft or flushright
     \captionsetup{labelsep=colon}
-    \begin{subfigure}{0.45\textwidth} % subfigure 1
-        \centering
-        \includegraphics[width=\linewidth]{Image/Result/rect_workspace_10000_260-560.png}
-        \caption{\centering The cubic workspace of manipulator with index = 10000 H=260-560mm}
-        \label{fig:ws_10000_260}
-    \end{subfigure}
-    \hfill
     \begin{subfigure}{0.45\textwidth} % subfigure 2
         \centering
         \includegraphics[width=\linewidth]{Image/Result/rect_workspace_1000000_350-650.png}
         \caption{\centering The cubic workspace of manipulator with index = 1000000 H=350-650mm}
         \label{fig:ws_1000000_350}
     \end{subfigure}
-    \caption[The entire workspace with different random indices]
-    {\centering \textbf{The cubic workspace with different simulation indices and different segmentation.}}
-    \label{fig:ws_diff_segmentation}
+    \hfill
+    \begin{subfigure}{0.45\textwidth} % subfigure 1
+        \centering
+        \includegraphics[width=\linewidth]{Image/Result/rect_workspace_1000000_300-600.png}
+        \caption{\centering index = 1000000 H=300-600mm}
+        \label{fig:ws_10000_300}
+    \end{subfigure}
+    \caption[The cubic workspace with different segmentation]
+    {\centering \textbf{The cubic workspace with different segmentation.}}
+    \label{fig:ws_300_350}
 \end{figure}
-\noindent According to Figure \ref{fig:ws_diff_segmentation}, due to the limitation in the dimension of entire workspace, 
-the upper part of the cubic space could not be fully occupied, in other words, is almost empty when H=350mm, which 
-means that not all the points shown in yellow could be reached by the manipulator. Aiming to determine the ‘bond’ 
-value of parameter H, the function of calculating the distance between the points in yellow in the same layer and 
-the nearest floating points has been carried out and the simulation results with index=1000000 and H=300mm are 
-shown below.
+Comparing the simulation results illustrated in Figure \ref{fig:ws_300_350}, it can be observed that the upper 
+area of the segmented cubic workspace whose H=350mm failed to be occupied. However, the segmented cubic workspace 
+whose H=300mm is almost fully occupied. To determine threshold of parameter H, a series of yellow detection points 
+are utilized to test whether specific locations in the workspace can be reached. A programme is utilized to calculate 
+the distance between the detection points and the simulated point cloud and identify the minimum distances. The  
+simulation results whose index=1000000 and H=300mm are shown in Figure \ref{fig:matlab_300} in Appendix 
+\ref{append:code_display}. The top view of the cubic workspace in Figure \ref{fig:top_view} associates labels with 
+detection points, facilitating subsequent explanations. 
 \begin{figure}[H] %[H] "corresponds to start the figure Here" 
     \centering %alignment can be flushleft or flushright
     \captionsetup{labelsep=colon}
-    \includegraphics[width=0.75\textwidth]{Image/Result/rect_workspace_1000000_300-600.png} 
-    \caption[The cubic workspace in X-Z plane with H=300mm]
-    {\centering \textbf{The cubic workspace in X-Z plane with H=300mm.}}
-    \label{fig:cub_ws_300_600}
+    \includegraphics[width=0.75\textwidth]{Image/Result/top_view_rect_workspace.png} 
+    \caption[The top view of the workspace and the labels of detection points]
+    {\centering \textbf{The top view of the workspace and the labels of detection points.}}
+    \label{fig:top_view}
 \end{figure}
-\noindent As shown in Figure \ref{fig:cub_ws_300_600}, almost the entire cubic workspace has been occupied by the floating 
-points which indicates that the value of H could be considered as 300mm, but it is not rigor to concluded that the 
-‘bond’ value is 300. The detailed data which shows the distance from the floating points to the nearest point which 
-sits on the edge for each layer is shown below with the unit ‘mm’.
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
-    \captionsetup{labelsep=colon}
-    \includegraphics[width=0.9\textwidth]{Image/Result/distance_1000000_300-600.png} 
-    \caption[The distance between random points and the nearest points on the edge with H=300mm]
-    {\centering \textbf{The distance between random points and the nearest points on the edge with H=300mm.}}
-    \label{fig:data_300_600}
-\end{figure}
-\noindent Before analyzing these data, the following top-down view of the cubic workspace will help to link each 
-numerical value with the designated points.
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
-    \captionsetup{labelsep=colon}
-    \includegraphics[width=0.6\textwidth]{Image/Result/top-down_view_rect_workspace.png} 
-    \caption[The top-down view of the cubic workspace]
-    {\centering \textbf{The top-down view of the cubic workspace.}}
-    \label{fig:top_down_view}
-\end{figure}
-The first layer is the one with height of 300mm and the fourth layer is the one with height of 600mm, and the first 
-thing should be check is the average distance between the random points and the nearest ‘edge’ point of layer two 
-and layer three given that if the 18 points of these two layers could not be fully surrounded by the entire 
-workspace, then those laying on the layer one and four couldn’t be reached by the end-effector as well. The average 
-distance for layer 2 and 3 could be obtained by the following calculation.
+While H=300 mm, The heights of the first, second, third, and fourth layers are 300 mm, 400 mm, 500 mm, and 600 mm, 
+respectively. As the second and third layers are situated in the middle, theoretically all detection points on 
+these two layers are reachable. Therefore, the mean and variance of distances to these points can be calculated. 
+Combined with a normal distribution whose $\mu = 0$, a threshold is set to be 99.7\% of the data are within 3 
+standard deviations of the mean can be derived to determine whether detection points on the first and fourth 
+layers are reachable. The threshold $\tau$ can be calculated in Equation \ref{eq:threshold_reachable}. \\
 \begin{align}
-    d_{ave,300mm}=\frac{\sum_2^3 d}{18} = 5.7859mm
+    &\bar{d}_{2,3} = \sum_{i=2}^3 \sum_{j=1}^9 d_{ij,min} \nonumber \\
+    &\sigma_{2,3}=\sqrt{\dfrac{1}{n}\times\sum_{i=1}^n(d_i-\bar{d})^2} \nonumber \\
+    &\tau = \bar{d}_{2,3} + 3\times\sigma_{2,3}
+    \label{eq:threshold_reachable}
 \end{align}
-where 2 and 3 indicate the values of distance listed in the second and third row in Figure \ref{fig:data_300_600} 
-and denominator means there are 18 points in two layers in total. Based on the value shown in row one and row four, 
-the following table could be developed.
+The segmentation of the effective workspace for other values of H, specifically H=240, 260, and 280 mm, 
+can also be performed using the same approach. The numerical values corresponding to different H parameters 
+are illustrated in Figures \ref{fig:matlab_240}, \ref{fig:matlab_260}, \ref{fig:matlab_280} in Appendix 
+\ref{append:code_display}. The results and reachability for different H are presented in Table 
+\ref{tab:threshold_and_reachability}.
 \begin{center}
     \small
-    \begin{longtable}{l l l l l l l l l l}
-    \caption{The Parameters of Manipulators.} \label{tab:distance_300_600} \\
-    \hline \multicolumn{1}{l}{\textbf{Number}} & 
-    \multicolumn{1}{l}{\textbf{1}} & 
-    \multicolumn{1}{l}{\textbf{2}} & 
-    \multicolumn{1}{l}{\textbf{3}} & 
-    \multicolumn{1}{l}{\textbf{4}} & 
-    \multicolumn{1}{l}{\textbf{5}} & 
-    \multicolumn{1}{l}{\textbf{6}} &
-    \multicolumn{1}{l}{\textbf{7}} & 
-    \multicolumn{1}{l}{\textbf{8}} & 
-    \multicolumn{1}{l}{\textbf{9}} \\ \hline 
+    \begin{longtable}{l l l l l l }
+    \caption{The Reachability of Detection Points with Different H.} \label{tab:threshold_and_reachability} \\
+    \hline \multicolumn{1}{l}{\textbf{H (mm)}} & 
+    \multicolumn{1}{l}{\textbf{Layer}} & 
+    \multicolumn{1}{l}{\textbf{$\bar{d}_{2,3}$ (mm)}} & 
+    \multicolumn{1}{l}{\textbf{$\sigma_{2,3}$ (mm)}} & 
+    \multicolumn{1}{l}{\textbf{Threshold $\tau$ (mm)}} & 
+    \multicolumn{1}{l}{\textbf{Reachability}} \\ \hline 
     \endfirsthead
-    \multicolumn{10}{c}%
+    \multicolumn{6}{c}%
     {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
-    \hline \multicolumn{1}{l}{\textbf{Number}} & 
-    \multicolumn{1}{l}{\textbf{1}} & 
-    \multicolumn{1}{l}{\textbf{2}} & 
-    \multicolumn{1}{l}{\textbf{3}} & 
-    \multicolumn{1}{l}{\textbf{4}} & 
-    \multicolumn{1}{l}{\textbf{5}} & 
-    \multicolumn{1}{l}{\textbf{6}} &
-    \multicolumn{1}{l}{\textbf{7}} & 
-    \multicolumn{1}{l}{\textbf{8}} & 
-    \multicolumn{1}{l}{\textbf{9}} \\ \hline 
+    \hline \multicolumn{1}{l}{\textbf{H (mm)}} & 
+    \multicolumn{1}{l}{\textbf{Layer}} & 
+    \multicolumn{1}{l}{\textbf{$\bar{d}_{2,3}$}} & 
+    \multicolumn{1}{l}{\textbf{$\sigma_{2,3}$}} & 
+    \multicolumn{1}{l}{\textbf{Threshold $\tau$}} & 
+    \multicolumn{1}{l}{\textbf{Reachability}} \\ \hline 
     \endhead
-    \hline \multicolumn{10}{|r|}{{Continued on next page}} \\ \hline
+    \hline \multicolumn{6}{|r|}{{Continued on next page}} \\ \hline
     \endfoot
     \hline \hline
     \endlastfoot
     % table context
-    \textbf{Layer 1} & 7.07 & 3.35 & 5.84 &	5.17 &	6.99 &	9.61 &	12.02 &	3.13 &	8.05 \\
-    \textbf{Layer 4} &	33.81 &	13.37 &	30.61 &	6.06 &	9.51 &	8.81 &	30.48 &	16.82 &	32.51 \\
+    300&1&5.79 & 2.50 & 13.29 &9 \\
+       &4&5.79 & 2.50 & 13.29 &3 \\
+    280&1&4.87 & 2.02 & 10.94 &9 \\
+       &4&4.87 & 2.02 & 10.94 &4 \\
+    260&1&5.37 & 2.01 & 11.41 &7 \\
+       &4&5.37 & 2.01 & 11.41 &7 \\
+    240&1&5.35 & 2.48 & 12.78 &8 \\
+       &4&5.35 & 2.48 & 12.78 &9 \\
     \hline
     % \multirow{2}{*}{3D cartesian/gantry manipulator} & PPP & 3 & 1   \\
     % & & & \\ \hline
     \end{longtable}
 \end{center}
-Given that the average distance is 5.79mm, hence if the distance obtained in layer 1 and 4 is larger than the 
-average one, it means that the end-effector could not reach that point. From the table and the calculated average 
-distance in layer 2 and 3, the following points could be drawn.
-\begin{itemize}
-    \item Except No.2, No.4, No.8, all other points in both layers could not be reached by the end-effector since the distance is larger than the average value.
-    \item The value of parameter H for this case is not suitable since almost all the ‘edge’ points on layer 1 and layer 4 could not be reached by the end-effector.
-\end{itemize}
-Hence, other values of H should be taken and compare the results with those with H=300mm. In this case, the value of 
-H is taken as 280mm, and the simulation results are shown below.
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
-    \captionsetup{labelsep=colon}
-    \includegraphics[width=0.6\textwidth]{Image/Result/rect_workspace_1000000_280-580.png} 
-    \caption[The cubic workspace with index=1000000, H=280mm]
-    {\centering \textbf{The cubic workspace with index=1000000, H=280mm.}}
-    \label{fig:rect_ws_280_580}
-\end{figure}
-\begin{center}
-    \small
-    \begin{longtable}{l l l l l }
-    \caption{The Parameters of Manipulators.} \label{tab:total_reachable} \\
-    \hline \multicolumn{1}{l}{\textbf{H (mm)}} & 
-    \multicolumn{1}{l}{\textbf{240}} & 
-    \multicolumn{1}{l}{\textbf{260}} & 
-    \multicolumn{1}{l}{\textbf{280}} & 
-    \multicolumn{1}{l}{\textbf{300}} \\ \hline 
-    \endfirsthead
-    \multicolumn{5}{c}%
-    {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
-    \hline \multicolumn{1}{l}{\textbf{H (mm)}} & 
-    \multicolumn{1}{l}{\textbf{240}} & 
-    \multicolumn{1}{l}{\textbf{260}} & 
-    \multicolumn{1}{l}{\textbf{280}} & 
-    \multicolumn{1}{l}{\textbf{300}} \\ \hline 
-    \endhead
-    \hline \multicolumn{5}{|r|}{{Continued on next page}} \\ \hline
-    \endfoot
-    \hline \hline
-    \endlastfoot
-    % table context
-    Average distance (mm)	& 5.35	& 5.37	& 4.875	& 5.7859 \\
-    Number of points could be reached in layer 1 and 4 & 1 & 4 & 5 & 3 \\
-    \hline
-    % \multirow{2}{*}{3D cartesian/gantry manipulator} & PPP & 3 & 1   \\
-    % & & & \\ \hline
-    \end{longtable}
-\end{center}
-Based on Table \ref{tab:total_reachable}, the suitable value of parameter H, the ‘bond’ height of the cubic, could be set to 280mm since the number of points could be reached in layer 1 and 4 is 5 which is more ideal than other cases. However, there are still some limitations in deciding the value of H which are shown below.
-\begin{itemize}
-    \item The value of the index is a little bit small, which has an influence on the distance between the floating points and the nearest ‘edge’ points. Hence the value of H could not be as precis as possible.
-    \item There are too few trials have been carried out leading to the value of H is not convinced by others, and one possible way to deal with it is that develop a mathematic model i.e., Normal distribution, to predict the bond value of H which is more convincible.
-    \item he data were obtained from few aspects which may affect the accuracy of the final value of H.
-\end{itemize}
-
-
+As shown in Table \ref{tab:threshold_and_reachability}, setting H to 240 mm achieves better reachability, 
+which is more reasonable compared to other scenarios. Additionally, to obtain a more accurate threshold, 
+multiple tests or experimenting with a greater number of simulation indices can be undertaken to reduce random 
+and systematic errors.
 \subsection{Inverse Kinematics} % Done by Zehao Ye
 This section will demonstrate the singular posture solution and trajectory replication results of the inverse 
 kinematics algorithm. A comprehensive analysis of its accuracy and computational speed will be conducted, along 
@@ -311,6 +249,38 @@ other targets. The data of trajectories in Figure \ref{fig:genetic_approach} is 
     {\centering \textbf{The trajectory replications with and without genetic method.}}
     \label{fig:genetic_approach}
 \end{figure}
+\noindent The replicated trajectories of both target trajectories closely align, but there exists a certain degree of error. 
+This discrepancy is attributed to the inclusion of an error threshold $\boldsymbol{\epsilon}$ set at 0.02 in the 
+programme, allowing for computational efficiency while maintaining accuracy. However, when dealing with significantly 
+larger angular deviations, instances may arise where the replicated trajectories failed to precisely match the 
+target trajectories. This situation can be overlooked as it falls beyond the defined workspace. The average errors
+about the trajectory replication are calculated in Table \ref{tab:traj_average_errors}.
+\begin{center}
+    \small
+    \begin{longtable}{l l l}
+    \caption{The Average Errors of the replicated trajectories.} \label{tab:traj_average_errors} \\
+    \hline \multicolumn{1}{l}{\textbf{Replicated Trajectory}} & 
+    \multicolumn{1}{l}{\textbf{$e_{average}$ (mm)}} & 
+    \multicolumn{1}{l}{\textbf{$e_{average}$ (mm)}} \\ \hline 
+    \endfirsthead
+    \multicolumn{3}{c}%
+    {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+    \hline \multicolumn{1}{l}{\textbf{Replicated Trajectory}} & 
+    \multicolumn{1}{l}{\textbf{$e_{average}$ (mm) of Figure \ref{fig:tr_cross}}} & 
+    \multicolumn{1}{l}{\textbf{$e_{average}$ (mm) of Figure \ref{fig:tr_cross}}} \\ \hline 
+    \endhead
+    \hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+    \endfoot
+    \hline \hline
+    \endlastfoot
+    % table context
+    \textbf{total}	& 3.576157 & 6.415941 \\
+    \textbf{in workspace}	& 1.032255 & 2.642474 \\
+    \hline
+    % \multirow{2}{*}{3D cartesian/gantry manipulator} & PPP & 3 & 1   \\
+    % & & & \\ \hline
+    \end{longtable}
+\end{center}
 \begin{figure}[H] %[H] "corresponds to start the figure Here" 
     \centering %alignment can be flushleft or flushright
     \captionsetup{labelsep=colon}
@@ -327,74 +297,179 @@ other targets. The data of trajectories in Figure \ref{fig:genetic_approach} is 
     {\centering \textbf{The closed trajectory and its replication.}}
     \label{fig:clc_cross}
 \end{figure}
-\textcolor{red}{TODO: make analysis about this part, calculate the error}
-
 \subsubsection{The improvement about Inverse kinematics algorithm}
-\textcolor{red}{TODO:talking about improvement to do about inverse kinematics, which are more detailed control method}
+However, it is challenging to calculate certain postures with inverse kinematics algorithm. A method has 
+been proposed involving continuous position updates through a factor $f_u$. Nevertheless, this approach 
+lacks systematic validation and is currently feasible only in specific circumstances. Therefore, it is 
+mentioned here solely as a potential solution. \\
+In practical applications, the initialization can be started with a relatively similar posture 
+to move the manipulator to the target. In this context, the target where $\boldsymbol{\theta_{target}}$ = 
+[45, 45, -45, -45] $\degree$ and the initialization with $\boldsymbol{\alpha_0}$ = [20, 20, -20, -20] $\degree$ 
+is utilized to exemplify the corresponding calculations. The $\boldsymbol{target}$ is the position and 
+orientation of the manipulator end effector. \\
+The current posture with $\boldsymbol{\alpha_0}$  = [20, 20, -20, -20] $\degree$ is used as an initialization 
+for calculations through inverse kinematics algorithm, resulting in the solution $\boldsymbol{\theta_1}$. 
+The difference between $\boldsymbol{\alpha_0}$ and $\boldsymbol{\theta_1}$ is calculated by $f_u = 0.5$ to acquire 
+$\boldsymbol{\alpha_1}$, which is shown in Equation \ref{eq:alpha_0_to_1}.
+\begin{align}
+    &\boldsymbol{\theta_1} = \textbf{FABRIKc}(\boldsymbol{target}, \boldsymbol{\alpha_0}) 
+    = [42.38, 73.25, -69.59, -62.85]\degree \nonumber \\
+    &\boldsymbol{\alpha_1} = \boldsymbol{\alpha_0} + f_u \cdot (\boldsymbol{\theta_1} - \boldsymbol{\alpha_0}) 
+    = [31.19, 46.63, -34.80, -41.43]\degree
+    \label{eq:alpha_0_to_1}
+\end{align}
+Subsequently, this process can be repeated, obtaining $\boldsymbol{\theta_2}$ based on $\boldsymbol{\alpha_1}$ in 
+Equation \ref{eq:alpha_0_to_1} and then updating $\boldsymbol{\alpha_2}$ in Equation \ref{eq:alpha_1_to_2}.
+\begin{align}
+    &\boldsymbol{\theta_2} = \textbf{FABRIKc}(\boldsymbol{target}, \boldsymbol{\alpha_1}) 
+    = [56.95, 34.48, -56.40, -38.96]\degree \nonumber \\
+    &\boldsymbol{\alpha_2} = \boldsymbol{\alpha_1} + f_u \cdot (\boldsymbol{\theta_2} - \boldsymbol{\alpha_1}) 
+    = [44.07, 40.56, -45.60, -40.20]\degree
+    \label{eq:alpha_1_to_2}
+\end{align}
+The $\boldsymbol{\alpha_i}$ can be continuously updated according to the method, which the results yield in Equations 
+\ref{eq:alpha_2_to_3}, \ref{eq:alpha_3_to_4}, \ref{eq:alpha_4_to_5}, and \ref{eq:alpha_5_to_6}.
+\begin{align}
+    &\boldsymbol{\theta_3} = \textbf{FABRIKc}(\boldsymbol{target}, \boldsymbol{\alpha_2}) 
+    = [43.64, 51.49, -45.97, -48.84]\degree \nonumber \\
+    &\boldsymbol{\alpha_3} = \boldsymbol{\alpha_2} + f_u \cdot (\boldsymbol{\theta_3} - \boldsymbol{\alpha_2}) 
+    = [43.56, 46.03, -45.79, -44.52]\degree
+    \label{eq:alpha_2_to_3}
+\end{align}
+\vspace{-18mm}
+\begin{align}
+    &\boldsymbol{\theta_4} = \textbf{FABRIKc}(\boldsymbol{target}, \boldsymbol{\alpha_3}) 
+    = [46.22, 42.71, -45.9, -43.88]\degree \nonumber \\
+    &\boldsymbol{\alpha_4} = \boldsymbol{\alpha_3} + f_u \cdot (\boldsymbol{\theta_4} - \boldsymbol{\alpha_3}) 
+    = [44.89, 44.37, -45.85, -44.20]\degree
+    \label{eq:alpha_3_to_4}
+\end{align}
+\vspace{-18mm}
+\begin{align}
+    &\boldsymbol{\theta_5} = \textbf{FABRIKc}(\boldsymbol{target}, \boldsymbol{\alpha_4}) 
+    = [44.87, 45.23, -45.03, -45.30]\degree \nonumber \\
+    &\boldsymbol{\alpha_5} = \boldsymbol{\alpha_4} + f_u \cdot (\boldsymbol{\theta_5} - \boldsymbol{\alpha_4}) 
+    = [44.88, 44.80, -45.85, -44.20]\degree
+    \label{eq:alpha_4_to_5}
+\end{align}
+\vspace{-18mm}
+\begin{align}
+    &\boldsymbol{\theta_6} = \textbf{FABRIKc}(\boldsymbol{target}, \boldsymbol{\alpha_5}) 
+    = [45.08, 44.91, -45.09, -44.96]\degree \nonumber \\
+    &\boldsymbol{\alpha_6} = \boldsymbol{\alpha_5} + f_u \cdot (\boldsymbol{\theta_6} - \boldsymbol{\alpha_5}) 
+    = [44.94, 44.86, -45.47, -44.58]\degree
+    \label{eq:alpha_5_to_6}
+\end{align}
+
+\noindent In addition, it is possible to manually adjust the manipulator posture visually. While this method is relatively 
+straightforward, it lacks precision. It is important to note that due to orientation constraints, the sum of 
+angles for modules 1 and 3 and modules 2 and 4 should remain constant during the adjustment process.
 
 \subsection{Electroinc Control}
 Initially, the testing of the results was supposed to be carried out through Proteus simulation. However, 
 it was discovered that during the simulation process in Proteus, the motor components did not function normally, 
 with frequent occurrences of stepping errors. Meanwhile, the simulation could not be completed in real-time 
 due to the heavy load on the computer CPU. After consideration, the team members purchased a complete set of real 
-components for testing. In the real circuit, the pin that each motor occupies are listed in Table to 
-reduce the complexity of wiring: \\
-
-Connect the components as shown in the figure below, and run the program. \\
-\\
-Once started, the first thing the user needs to do is to input the values of $\Delta S_1 \sim \Delta S_8$: \\
-\\
-From the graph above we can see that$\Delta S_1 \sim \Delta S_8$ is:\\ 0mm, 0mm, -8mm, 8mm, -15mm, 15mm, 65mm, 
--65mm.\\ The value of $\Delta S_i$ is always in pairs, e.g, two cables controlling the same unit should always have 
-the opposite $\Delta S_i$ value, this is decided by the working principle of the manipulator. \\
-After conversion, the corresponding $Step_1 \sim Step_8$ should be: \\0, 0, -521, 521, -978, 978, 4237, -4237. 
-(“-” sign represents counterclockwise steps). \\
-Wait for the motors to finish stepping, once it's done, use function \emph{Serial.print(motor.currentPosition())} to 
-check if the motors stepped correctly: \\
-\\
-As Figure above shows, all the motors are working correctly. In this program, all floating-point precision 
-is taken to the last four decimal places (but the result printed on the monitor only shows two decimal places), 
-so the accuracy of the result is beyond acceptable (from the above figure, maximum 0.01mm error).\\
+components for testing. In the real circuit, the pin that each motor occupies are listed in Table \ref{tab:stepmotor_pin} 
+to reduce the complexity of wiring. 
+\begin{center}
+    \small
+    \begin{longtable}{c c c c c c c c c}
+    \caption{The Pin Assignment of Stepper Moters.} \label{tab:stepmotor_pin} \\
+    \hline \multicolumn{1}{l}{\textbf{Stepper Motor}} & 
+    \multicolumn{1}{l}{\textbf{1}} & 
+    \multicolumn{1}{l}{\textbf{2}} & 
+    \multicolumn{1}{l}{\textbf{3}} & 
+    \multicolumn{1}{l}{\textbf{4}} & 
+    \multicolumn{1}{l}{\textbf{5}} & 
+    \multicolumn{1}{l}{\textbf{6}} & 
+    \multicolumn{1}{l}{\textbf{7}} & 
+    \multicolumn{1}{l}{\textbf{8}} \\ \hline 
+    \endfirsthead
+    \multicolumn{9}{c}%
+    {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+    \hline \multicolumn{1}{l}{\textbf{Stepper Motor}} & 
+    \multicolumn{1}{l}{\textbf{1}} & 
+    \multicolumn{1}{l}{\textbf{2}} & 
+    \multicolumn{1}{l}{\textbf{3}} & 
+    \multicolumn{1}{l}{\textbf{4}} & 
+    \multicolumn{1}{l}{\textbf{5}} & 
+    \multicolumn{1}{l}{\textbf{6}} & 
+    \multicolumn{1}{l}{\textbf{7}} & 
+    \multicolumn{1}{l}{\textbf{8}} \\ \hline 
+    \endhead
+    \hline \multicolumn{9}{|r|}{{Continued on next page}} \\ \hline
+    \endfoot
+    \hline \hline
+    \endlastfoot
+    % table context
+    \textbf{Pin} &22&30&38&46&23&31&39&47 \\
+    \textbf{Pin} &24&32&40&48&25&33&41&49 \\
+    \textbf{Pin} &26&34&42&50&27&35&43&51 \\
+    \textbf{Pin} &28&36&44&52&29&37&45&53 \\
+    \hline
+    \end{longtable}
+\end{center}
+After connecting the Arduino to the stepper motors as depicted in Figure \ref{fig:circuit_connection}, 
+the programme is ready for execution.
+\begin{figure}[H] %[H] "corresponds to start the figure Here" 
+    \centering %alignment can be flushleft or flushright
+    \captionsetup{labelsep=colon}
+    \includegraphics[width=0.9\textwidth]{Image/Result/circuit_connection.jpg} 
+    \caption[The circuit connection of Arduino and stepper motors]
+    {\centering \textbf{The circuit connection of Arduino and stepper motors.}}
+    \label{fig:circuit_connection}
+\end{figure}
+\noindent Users are required to sequentially input eight values of $\Delta S_1 \sim \Delta S_8$ to initiate 
+the corresponding operation of the stepper motor. If the input is less than eight, the control system will 
+not be executed. \\
+According to Figure \ref{fig:arduino_code_display_1} in Appendix \ref{append:code_display}, the change volume 
+of cables are input into the Arduino program for execution, with the input data series being $\boldsymbol{\Delta S}$ 
+= [0, 0, -8, 8, -15, 15, 65, -65] (mm). The value of $\Delta S_i$ is always in pairs, e.g, two cables controlling 
+the same unit should always have the opposite $\Delta S_i$ value, this is decided by the working principle of the 
+manipulator. After conversion, the corresponding $Step_1 \sim Step_8$ is [0, 0, -521, 521, -978, 978, 4237, -4237] 
+(steps), where the “-” sign represents counterclockwise steps. Afterwards, the stepping can be finished in certain 
+time. The function \emph{Serial.print(motor.currentPosition())} can be utilized to check the steps of motors.\\
+According to Figure \ref{fig:arduino_code_display_2} in Appendix \ref{append:code_display}, result of first testing 
+is demonstrated, with all the motors are working appropriately. In this programme, all floating-point precision 
+is taken to the $10^{-4}$ millimeter while the result printed on the monitor is $10^{-2}$ millimeter, 
+which means that the accuracy of the result is acceptable.\\
 Then, reset the motors, the motors went back to initial condition, which is $Step_1 \sim Step_8=0$. Repeat the 
-motor stepping process, but this time, the motors are starting from a previous location from\\0mm, 0mm, -8mm, 
-8mm, -15mm, 15mm, 65mm, -65mm to\\33mm, -33mm, 16mm, -16mm, 0mm, 0mm, 10mm, -10mm.\\
-The difference $\Delta S_i - Delta S_i(prev)$ is: \\
-33mm, -33mm, 24mm, -24mm, 15mm, -15mm, -55mm, 55mm.\\
-The steps for motors are: 2151, -2151, 1565, -1565, 978, -978, -3585, 3585 steps.\\
-Verify the result again by checking how many revolutions each motors rotated:\\
-\\
-The results are correct. Hence, the actuation control part runs correctly.
-The program code is uploaded to Github in \href{https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/tree/main/Arduino-Simulation}{Arduino Simulation} 
-
-
-% \begin{figure}[H] %[H] "corresponds to start the figure Here" 
-%     \centering %alignment can be flushleft or flushright
-%     \captionsetup{labelsep=colon}
-%     \begin{subfigure}{0.45\textwidth} % subfigure 1
-%         \centering
-%         \includegraphics[width=\linewidth]{Image/Result/example.jpg}
-%         \caption{\centering \textbf{Motor 1} - 0 steps, motor remains unchanged.}
-%     \end{subfigure}
-%     \hfill
-%     \begin{subfigure}{0.45\textwidth} % subfigure 2
-%         \centering
-%         \includegraphics[width=\linewidth]{Image/Result/example.jpg}
-%         \caption{\centering \textbf{Motor 2} - 0 steps, motor remains unchanged.}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth} % subfigure 3
-%         \centering
-%         \includegraphics[width=\linewidth]{Image/Result/example.jpg}
-%         \caption{\centering \textbf{Motor 3} - -521 steps/2048 steps=-0.255 rev.}
-%     \end{subfigure}
-%     \hfill
-%     \begin{subfigure}{0.45\textwidth} % subfigure 4
-%         \centering
-%         \includegraphics[width=\linewidth]{Image/Result/example.jpg}
-%         \caption{\centering \textbf{Motor 4} - 521 steps/2048 steps = 0.255 rev.}
-%     \end{subfigure}
-% \end{figure}
-% As Figure \ref{fig:8motor_motions} shows above, all the motors are working correctly.
-% Then, reset the motors, the motors went back to initial condition, which is $Step_1 \sim Step_8=0$.
+motor stepping process, but this time, the motors are starting from a previous location from
+$\boldsymbol{\Delta S_{now}}$ = [0, 0, -8, 8, -15, 15, 65, -65] (mm) to $\boldsymbol{\Delta S_{next}}$ = 
+[33, -33, 16, -16, 0, 0, 10, -10] (mm). The difference $\boldsymbol{\Delta S_{diff}}$ = 
+[33, -33, 24, -24, 15, -15, -55, 55] (mm), while the steps for motors are 
+[2151, -2151, 1565, -1565, 978, -978, -3585, 3585] (steps). The result can be verified by checking how many 
+revolutions each motors rotated in Figure \ref{fig:arduino_code_display_3} in Appendix \ref{append:code_display}.
+The results are aligned with the calculation. Hence, the actuation control system runs correctly.
+The Arduino programme is updated in GitHub repository in 
+\href{https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/tree/main/Arduino-Simulation}
+{Arduino Simulation}. \\
+Overall, the method of using Arduino to control the stepper motor and drive the manipulator is a feasible solution. 
+Although the initial idea of using simulation software failed to yield satisfying results, the testing outcomes with 
+real components solved this problem.\\
+Additionally, from the perspective of test results, it can be observed that the precisions of the stepper motors are 
+very high, which is a great advantage for an open-loop (no feedback) system as it minimizes errors to the greatest 
+extent. In the 28YBJ-48 motor parameter settings, full stepping configuration implies that the motor is divided into 
+2048 steps per revolution. For a rotor driving a cable with a circumference of 31.416mm, this means a resolution of 
+0.01534mm per step, which is enough to provide the accuracy required.\\
+However, at the same time, there are some limitations to consider in this aspect. The most apparent limitation is that 
+when cables wrap around the rotor, it effectively increases the diameter of the rotor, leading to some errors. For a 
+cable with a total length of 68mm, it can wrap around the rotor twice. Assuming the cable has a thickness of 1mm, this 
+would introduce a maximum error of approximately $ 31.416 / (31.416 + 2) = 0.05 $. Although in practice, it is unlikely 
+that two layers of cable would perfectly stack on top of each other, this should be considered, because it's a factor 
+that will cause errors. To solve this, an equation relating the length change of cables and the change in diameters 
+should be deduced and applied in the program to minimize the potential error, but due to limited time, this part was 
+not finished.\\
+Furthermore, in this programme, only a rough setting for the step speed of the motors has been set. However, for 
+achieving synchronization in starting/ending movement of each unit of the manipulator, more precise mathematical 
+derivations for the speed of motors are required. In the following development process, it would be helpful to 
+associate the speed of stepper motors with the distance to the target position, thereby dynamically setting a 
+speed value for each motor to accomplish this synchronization. \\
+Ultimately, the input parameters of the control system are $\boldsymbol{\Delta S}$, which consist of eight indices. 
+It is inconvenient for users to input a series of indices. The Arduino programme can be optimized to taken the 
+angles $\boldsymbol{\theta}$ as input paramters, which only require the users to input four parameters. The Python 
+version programme is uploaded in the GitHub and ready to be converted into Arduino programme.\\
 
 
 

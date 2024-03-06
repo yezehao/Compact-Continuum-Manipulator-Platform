@@ -54,8 +54,11 @@ will adhere to the corresponding naming conventions.
     $N$          & the number of cross-shaped sheet in a module & $N = 0 \text{ \raisebox{-0.7ex}{\textasciitilde} } 15$ \\ 
     $r_i$        & the distance between the centroid of         & $r_{1,2} = 17.5$ \\
                  & connector and cable routing hole             & $r_{3,4} = 15$ \\
-    $\Delta S_i$ & the change rate of cable, cable$_{2i-1}$ and & \\
+    $\Delta S_i$ & the change volume of cable, cable$_{2i-1}$ and & \\
                  & cable $_{2i}$ corresponds to Module i        & \\
+    $\boldsymbol{\Delta S}$ & a series of change volume of cables & $\Delta S_1 \sim \Delta S_8$ \\
+    $\boldsymbol{\alpha}$ & a series of bending angles about four modules & $[\alpha_1,\ \alpha_2,\ \alpha_3,\ \alpha_4]$\\
+    $\boldsymbol{\theta}$ & a series of inverse kinematics solutions & $[\theta_1,\ \theta_2,\ \theta_3,\ \theta_4]$\\
     \hline
     % \multirow{2}{*}{3D cartesian/gantry manipulator} & PPP & 3 & 1   \\
     % & & & \\ \hline
@@ -342,7 +345,7 @@ $node_{i+1}$ in the base coordinate system, these matrices can be employed in th
             (R_3\cdot \sin(\alpha_3) + d_4\cdot \cos(\alpha_3)) \\
         \end{bmatrix}&
         \label{eq:node4_postion_relative} \\
-        \nonumber (hint: \ R_2 = {Sr}_2/ &\alpha_2)
+        \nonumber (hint: \ R_3 = {Sr}_3/ &\alpha_3)
     \end{align}
     \vspace{-15mm}
     \begin{align}
@@ -688,6 +691,61 @@ in Appendix \ref{append:table}. The algorithm has been configured to execute a m
 the provision to pause when the error reaches a sufficiently low level, thereby conserving computational resources. 
 The maximum epoch number is defined as ${epo}_{max}$. The error margin is $\boldsymbol{\epsilon}$.
 
+\subsubsection{Angular Conversion}
+The Arduino programme utilize $\boldsymbol{\Delta S}$ as input to control the motors. However, the solutions of inverse 
+kinematics algorithm are $\boldsymbol{\theta}$, which are angles. It is vital to convert angles $\boldsymbol{\theta}$ 
+into $\boldsymbol{\Delta S}$. The variables $R_1$, $R_2$, and $R_3$ are mentioned in Equations 
+\ref{eq:node2_postion_relative}, \ref{eq:node3_postion_relative}, and \ref{eq:node4_postion_relative}, while 
+$R_4 = {Sr}_4/ \alpha_4$. The relationship between $\boldsymbol{\theta}$ and $\boldsymbol{\Delta S}$ is shown in 
+Equations \ref{eq:deltaS_12}, \ref{eq:deltaS_34}, \ref{eq:deltaS_56}, \ref{eq:deltaS_78}.
+\begin{align}
+    &\begin{aligned}
+        \Delta S_1=(R_1+r_1)\cdot\alpha_1-Sr_1 = \alpha_1\cdot r_1
+    \end{aligned} 
+    \quad
+    \begin{aligned}
+        \Delta S_2=(R_1-r_1)\cdot\alpha_1-Sr_1 = -\alpha_1\cdot r_1
+    \end{aligned} 
+    \label{eq:deltaS_12} \\
+    &\begin{aligned} 
+        \Delta S_3=(R_2+r_2)\cdot\alpha_2-Sr_2 = \alpha_2\cdot r_2
+    \end{aligned}
+    \quad
+    \begin{aligned}
+        \Delta S_4=(R_2-r_2)\cdot\alpha_2-Sr_2 = -\alpha_2\cdot r_2
+    \end{aligned}
+    \label{eq:deltaS_34} \\
+    &\begin{aligned}
+        \Delta S_5= \Delta S_1+ (R_3+r_3)\cdot\alpha_3-Sr_3 = \Delta S_1+\alpha_3\cdot r_3
+    \end{aligned} 
+    \quad
+    \begin{aligned}
+        \Delta S_6= \Delta S_2 + (R_3-r_3)\cdot\alpha_3-Sr_3 = \Delta S_2-\alpha_3\cdot r_3
+    \end{aligned}
+    \label{eq:deltaS_56} \\
+    &\begin{aligned} 
+        \Delta S_7=\Delta S_3+(R_4+r_4)\cdot\alpha_4-Sr_4 = \Delta S_3+\alpha_4\cdot r_4
+    \end{aligned}
+    \quad
+    \begin{aligned}
+        \Delta S_8=\Delta S_4+(R_4-r_4)\cdot\alpha_4-Sr_4 = \Delta S_4-\alpha_4\cdot r_4
+    \end{aligned}
+    \label{eq:deltaS_78}
+\end{align}
+The relationship can be further generalize into a matrix in Equation \ref{} for utilization in Python programme.
+\begin{align}
+    $\boldsymbol{\Delta S}$ = 
+    \begin{matrix}
+        r_1 & 0 & 0 & 0 \\
+        -r_1 & 0 & 0 & 0   \\
+        0 & r_2 & 0 & 0 \\
+        0 & -r_2 & 0 & 0 \\
+        r_1 & 0 & r_3 & 0 \\
+        -r_1 & 0 & -r_3 & 0 \\
+        0 & r_2 & 0 & r_4 \\
+        0 & -r_2 & 0 & -r_4 \\
+    \end{matrix}
+\end{align}
 \subsection{Electronic Control}
 \subsubsection{Manipulator Actuation Control}
 As mentioned above, the manipulator is divided into four units in total, with each unit being controlled for its 
@@ -868,14 +926,14 @@ distance and display acceleration by OLED screen is shown in Figure \ref{fig:cl_
 \begin{figure}[H] %[H] "corresponds to start the figure Here" 
     \centering %alignment can be flushleft or flushright
     \captionsetup{labelsep=colon}
-    \begin{subfigure}{0.45\textwidth} % subfigure 1
+    \begin{subfigure}{0.55\textwidth} % subfigure 1
         \centering
         \includegraphics[width=\linewidth]{Image/Design/code_logic_tof.jpg}
         \caption{\centering The code logic of using HC-SR04 to measure distance}
         \label{fig:cl_tof}
     \end{subfigure}
     % \hfill
-    \begin{subfigure}{0.45\textwidth} % subfigure 2
+    \begin{subfigure}{0.40\textwidth} % subfigure 2
         \centering
         \includegraphics[width=\linewidth]{Image/Design/code_logic_display.png}
         \caption{\centering The code logic of using SSD 1306 OLED to display data}
