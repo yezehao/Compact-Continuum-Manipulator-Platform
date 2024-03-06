@@ -23,7 +23,7 @@ the number of sheets also has an influence on the size of simulation space, more
 of simulation space given that if the length of manipulator is much longer, the space near to the basement of 
 manipulator could not be reached due to the characteristics of the material. Hence, the number of sheets could be 
 assumed to be 10 rather than 15, even though both the errors are smaller when the number of sheets is 15. \\
-\subsection{Workspace Analysis of Manipulator}
+\subsection{Manipulator Workspace Analysis}
 The simulation of workspace of the manipulator has been illustrated since it is important to determine the 
 variables of joints based on the required workspace. The dimension of workspace is affected by several aspects, 
 which include the simulation index and the parameter H representing the height of the basement of cubic in the 
@@ -253,17 +253,17 @@ through relevant methods.
         \caption{\centering target: $\boldsymbol{\alpha} = [80,\ 120,\ -120,\ 90] \degree$ \\ \qquad}
         \label{fig:complex_target}
     \end{subfigure}
-    \begin{subfigure}{0.45\textwidth} % subfigure 2
+    \begin{subfigure}{0.49\textwidth} % subfigure 2
         \centering
         \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_-8.88_-89.99_-126.81_-169.73.png}
-        \caption{\centering initialization: $\boldsymbol{\alpha} = [0, 0, 0, 0]\degree$ \\
+        \caption{\centering initialization: $\boldsymbol{\alpha} = [0, 0, 0, 0]\degree$; \\
         $\boldsymbol{\theta} = [-8.88,\ -89.99,\ -126.81,\ -169.73]\degree$ }
         \label{fig:complex_init_0_0_0_0}
     \end{subfigure}
-    \begin{subfigure}{0.45\textwidth} % subfigure 3
+    \begin{subfigure}{0.49\textwidth} % subfigure 3
         \centering
         \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_84.98_122.93_-114.9_63.01.png}
-        \caption{\centering initialization: $\boldsymbol{\alpha} = [85, 125, -115, 55]\degree$ \\
+        \caption{\centering initialization: $\boldsymbol{\alpha} = [85, 125, -115, 55]\degree$; \\
         $\boldsymbol{\theta} = [84.98,\ 122.93,\ -114.9,\ 63.01]\degree$ }
         \label{fig:complex_init_85_125_-115_55}
     \end{subfigure}
@@ -288,16 +288,35 @@ multiple segments, the algorithm may introduce significant errors due to the cal
 can be challenging to eliminate. The only viable solution is to enhance the algorithm's performance through 
 careful initialization methods.
 \subsubsection{Trajectory Replication}
-The preceding discussion has highlighted the use of the current posture for initialization in trajectory 
-replication. In this phase, two types of trajectories were replicated: arc segments and closed paths. This 
-section will analyze these two trajectories, elucidating the strengths and weaknesses of inverse kinematics 
-algorithm. \\
+The preceding discussion has highlighted genetic method, which is utilizing the current posture for 
+initialization in trajectory replication. In this phase, the comparison between consistently utilizing the 
+initial posture for trajectory replication and using the current posture as the initialization aims to 
+highlight the benefits of incorporating genetic method in trajectory replication and planning for the inverse 
+kinematics algorithm. Subsequently, the genetic method and inverse kinematics algorithm are employed to 
+replicate two types of trajectories: arc segments and closed paths. This section will analyze the genetic 
+method and these two trajectories, elucidating the strengths and weaknesses of inverse kinematics algorithm. \\
+The blue trajectory displayed in Figure \ref{fig:genetic_approach} is the target trajectory, which bending from 
+$\boldsymbol{\alpha} = [0,\ 0,\ 0,\ 0]$ to $\boldsymbol{\alpha} = [20,\ 20,\ 20,\ 20]$ equally in 20 steps. 
+The red trajectory represents the replicated trajectory using consistent initialization with the initial 
+posture. The purple trajectory depicts the replicated trajectory using the genetic method with initialization 
+based on the current posture. The trajectory replication using the genetic method is comparatively better 
+aligned with the target. The corrective effectiveness of the genetic algorithm has also been validated for 
+other targets. The data of trajectories in Figure \ref{fig:genetic_approach} is listed in Table 
+\ref{tab:trajectory_with_without_genetic}.
+\begin{figure}[H] %[H] "corresponds to start the figure Here" 
+    \centering %alignment can be flushleft or flushright
+    \captionsetup{labelsep=colon}
+    \includegraphics[width=1.0\textwidth]{Image/Result/trajectory_replication_diff_initialization.png} 
+    \caption[The trajectory replications with and without genetic method]
+    {\centering \textbf{The trajectory replications with and without genetic method.}}
+    \label{fig:genetic_approach}
+\end{figure}
 \begin{figure}[H] %[H] "corresponds to start the figure Here" 
     \centering %alignment can be flushleft or flushright
     \captionsetup{labelsep=colon}
     \includegraphics[width=1.0\textwidth]{Image/Result/cross_trajectory_replication_with_label.png} 
     \caption[The cross-shaped trajectory and its replication by FABRIKc algorithm]
-    {\centering \textbf{The cross-shaped trajectory and its replication by FABRIKc algorithm.}}
+    {\centering \textbf{The cross-shaped trajectory and its replication.}}
     \label{fig:tr_cross}
 \end{figure}
 \begin{figure}[H] %[H] "corresponds to start the figure Here" 
@@ -305,7 +324,7 @@ algorithm. \\
     \captionsetup{labelsep=colon}
     \includegraphics[width=1.0\textwidth]{Image/Result/circle_trajectory_replication_with_label.png} 
     \caption[The closed trajectory and its replication by FABRIKc algorithm]
-    {\centering \textbf{The closed trajectory and its replication by FABRIKc algorithm.}}
+    {\centering \textbf{The closed trajectory and its replication.}}
     \label{fig:clc_cross}
 \end{figure}
 \textcolor{red}{TODO: make analysis about this part, calculate the error}
@@ -316,9 +335,9 @@ algorithm. \\
 \subsection{Electroinc Control}
 Initially, the testing of the results was supposed to be carried out through Proteus simulation. However, 
 it was discovered that during the simulation process in Proteus, the motor components did not function normally, 
-with frequent occurrences of stepping errors. At the same time, the simulation couldn't be completed in real-time 
+with frequent occurrences of stepping errors. Meanwhile, the simulation could not be completed in real-time 
 due to the heavy load on the computer CPU. After consideration, the team members purchased a complete set of real 
-components for testing. In the real circuit, the pin that each motor occupies are listed in the table below to 
+components for testing. In the real circuit, the pin that each motor occupies are listed in Table to 
 reduce the complexity of wiring: \\
 
 Connect the components as shown in the figure below, and run the program. \\
@@ -345,8 +364,7 @@ The steps for motors are: 2151, -2151, 1565, -1565, 978, -978, -3585, 3585 steps
 Verify the result again by checking how many revolutions each motors rotated:\\
 \\
 The results are correct. Hence, the actuation control part runs correctly.
-The program code is uploaded to Github: https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/tree
-/main/Arduino-Simulation
+The program code is uploaded to Github in \href{https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/tree/main/Arduino-Simulation}{Arduino Simulation} 
 
 
 % \begin{figure}[H] %[H] "corresponds to start the figure Here" 
