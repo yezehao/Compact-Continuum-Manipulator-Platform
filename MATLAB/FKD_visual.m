@@ -6,7 +6,7 @@ clear; clc; close all;
 length_mm = 300;
 Sr=0.5*length_mm; 
 d = 0.015*length_mm;
-angle = 90*[1; 1; -1; -1];
+angle = [84.98 122.93 -114.9 63.01]';
 rad = deg2rad(angle);
 for i = 1:4
     % Define the bending angle alpha
@@ -92,7 +92,7 @@ for i = [12, 23, 34, 45]
             'b', 'LineWidth', 2, 'MaxHeadSize', 0.1); hold on,
 end
 
-%% Save file
-% filename = ['result/manipulator_' num2str(angle(1,1)) '_' num2str(angle(2,1)) '_' ,...
-%             num2str(angle(3,1)) '_' num2str(angle(4,1)) '.png'];
-% saveas(gcf, filename);
+% Save file
+filename = ['result/manipulator_' num2str(angle(1,1)) '_' num2str(angle(2,1)) '_' ,...
+            num2str(angle(3,1)) '_' num2str(angle(4,1)) '.png'];
+saveas(gcf, filename);
