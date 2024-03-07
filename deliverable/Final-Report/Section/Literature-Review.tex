@@ -5,7 +5,8 @@ growth in the field of manipulator robotics. Manipulators developed by various i
 into the industrial sector to autonomously or semi-autonomously perform repetitive tasks. Simultaneously, 
 manipulators are utilized for tasks with stringent precision requirements to minimize errors. Additionally, 
 essential tasks are undertook by manipulators to substitute for humans in challenging environments. 
-\subsection{Manipulators in Biology Field}
+%%%%% Manipulator Utilization in Biology Field %%%%%
+\subsection{Manipulators in Biomedical Applications \textcolor{red}{Zehao}}
 With a growing emphasis on the field of biology, manipulators have also been introduced to provide assistance. 
 In the field of medicine, manipulators have been utilized since the end of the last century. The AESOP robotic 
 surgical system, proposed by Computer Motion founded by Yulun Wang in 1993, was investigated in laparoscopic 
@@ -23,8 +24,8 @@ and upgraded to accomplish more precise targeted treatment with multiple DoF (De
 designed for accommodating ultrasonic transducers \cite{6DOF_HIFU,6DOF_HIFU_comp,6DOF_HIFU_ABB}, 
 certain limitations persist. Hence, a comparison of different manipulators is necessary in selection of appropriate 
 type manipulator for integrating ultrasonic transducer. 
-
-\subsection{Types of Manipulator}
+%%%%% Manipulator Types %%%%%
+\subsection{Types of Manipulator  \textcolor{red}{Zehao}}
 From the perspective of geometry, rigid-body manipulators can be categorized into two main types: parallel 
 mechanisms and serial link \cite{MECH0089book}. The control of parallel mechanisms is relatively complex. 
 Meanwhile, serial link manipulators can be further divided into five types: Cartesian (PPP), articulated (RRR), 
@@ -37,7 +38,8 @@ type for specific applications.
 \begin{center}
     \small
     \begin{longtable}{l c c l l}
-    \caption{The Characteristics of Different Manipulators.} \label{tab:different_types_manipulators} \\
+    \caption{The Characteristics of Different Manipulators.} 
+    \label{tab:different_types_manipulators} \\
     \hline \multicolumn{1}{c}{\textbf{Manipulators}} & 
     \multicolumn{1}{c}{\textbf{Types}} & 
     \multicolumn{1}{c}{\textbf{DoF}} & 
@@ -94,8 +96,6 @@ type for specific applications.
     Humanoid & anthropo- & 7 & high efficiency, & humanoid robots driven \\
     & morphic& & flexibility.& by pneumatic artificial\\ 
     & & & & muscles \cite{humanoid_7dof}\\ \hline
-    % \multirow{2}{*}{3D cartesian/gantry manipulator} & PPP & 3 & 1   \\
-    % & & & \\ \hline
     \end{longtable}
 \end{center}
 \noindent The distinctive structure of continuum manipulator imparts to the system with theoretically 
@@ -110,9 +110,8 @@ The selection of the continuum manipulator was predicated upon its outstanding f
 lightweight attributes of ultrasonic transducer module. The forthcoming discussion will delve into the 
 categorisation of continuum robots, ultimately selecting an appropriate type to serve as the centerpiece 
 for the manipulator platform.
-
-
-\subsection{Types of Continuum Robots}
+%%%%% Continuum Robots Types %%%%%
+\subsection{Types of Continuum Robots  \textcolor{red}{Yuantong}}
 Nowadays, a variety of continuum robots exist, each exhibiting unique structures and functions. They serve in different fields 
 such as medicine, construction, and exploration. In this section, some of the most popular continuum robots will be introduced, 
 providing basic insights into their structures as well as discussing their merits and drawbacks. \\
@@ -120,12 +119,12 @@ providing basic insights into their structures as well as discussing their merit
 The arm of the Tendon-Driven robot consists of a backbone, several tendons and disks. The backbone defines the structure and 
 posture of the entire robot arm, while disks define the diameter and divide the robot arm into segments, and tendons are 
 stretched to create deformation and movements of different directions for the robot arm. \\
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
+\begin{figure}[H] % figure
+    \centering
     \captionsetup{labelsep=colon}
     \includegraphics[width=.9\textwidth]{Image/LR/3tendon_1segment_CR.PNG} 
-    \caption[The three tendons continuum robot with one segment]
-    {\centering \textbf{The three tendons continuum robot with one segment} \cite{3tendon_1segment_CR}.}
+    \caption[A three-tendons continuum robot with one segment]
+    {\centering \textbf{A three-tendons continuum robot with one segment} \cite{3tendon_1segment_CR}.}
     \label{fig:3tendon_1segment_CR}
 \end{figure}
 \noindent Figure \ref{fig:3tendon_1segment_CR} shows only the simplest tenon-driven robots. In practical applications, there 
@@ -147,12 +146,12 @@ the fishbone robot is also controlled by cable, but it is worth noting that each
 cables. This means that for a fishbone robot composed of n fishbone modules, there are a total of 2n cables controlling the motion
 of the whole robot. In addition, the planes formed by the two ropes that control each module are perpendicular to each other, so 
 that each section rotates along a plane perpendicular to each other. 
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
+\begin{figure}[H] % figure
+    \centering 
     \captionsetup{labelsep=colon}
     \includegraphics[width=.9\textwidth]{Image/LR/fishbone_CR_amouri2023bio.PNG} 
-    \caption[The cable-driven fish bone continuum robot]
-    {\centering \textbf{The cable-driven fish bone continuum robot with cable arrangement} \cite{amouri2023bio}.}
+    \caption[The cable-driven fishbone continuum robot]
+    {\centering \textbf{The cable-driven fishbone continuum robot with cable arrangement} \cite{amouri2023bio}.}
     \label{fig:fishboneCR_2023bio}
 \end{figure}
 \noindent From the graph above, it is shown that because of the numbers of rigid cross-shaped sheets formed a large diamater 
@@ -165,8 +164,8 @@ nested on top of the previous wider tube.  \\
 The concentric robots are made of two parts: tubes and coaxial actuation units. The tubes are the main structural element of 
 this robot and act as the backbone. The coaxial actuation unit consists of two motors which are responsible for rotation and 
 translation movement respectively. Each tube is actuated by an independent coaxial actuation unit. 
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
+\begin{figure}[H] % figure
+    \centering 
     \captionsetup{labelsep=colon}
     \includegraphics[width=.9\textwidth]{Image/LR/concentric_tube_CR.PNG} 
     \caption[An example concentric tube continuum robot]
@@ -179,8 +178,6 @@ for surgical operations. \\
 Their disadvantages, on the other hand, are also very evident. Since each tube requires an independent actuation unit, the 
 overall length of the robot cannot be very long, because longer lengths will lead to more tubes, and will lead to more tip 
 position errors.
-
-
 
 % change to new page
 \newpage

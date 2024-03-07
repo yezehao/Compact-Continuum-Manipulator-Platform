@@ -1,13 +1,50 @@
 %%%%% Result and Discussion %%%%%
 \section{Result and Discussion} 
-\subsection{Error Analysis of Cross-Shaped Sheets}
+%%%%% Strain Analysis %%%%%
+\subsection{Strain Analysis \textcolor{red}{Dawei}}
+The strength analysis conducted using ANSYS has yielded the following results.
+\begin{itemize}
+    \item Displacement \\
+    The maximum displacement observed in the manipulator was 117.44 mm, located at the end-effector, which is shown 
+    in Figure \ref{fig:displacement}.
+    \begin{figure}[H] % figure
+        \centering 
+        \captionsetup{labelsep=colon}
+        \includegraphics[width=0.75\textwidth]{Image/Result/displacement.png} 
+        \caption[The displacement analysis of manipulator]
+        {\centering \textbf{The displacement analysis of manipulator.}}
+        \label{fig:displacement}
+    \end{figure}
+    \item Stress \\
+    As shown in Figure \ref{fig:stress}, the maximum stress was found to be 476.63 MPa, occurring at the base of 
+    elastic sheet where the manipulator experiences the most significant load. 
+    \begin{figure}[H] % figure
+        \centering 
+        \captionsetup{labelsep=colon}
+        \includegraphics[width=0.75\textwidth]{Image/Result/stress.jpg} 
+        \caption[The stress analysis of manipulator]
+        {\centering \textbf{The stress analysis of manipulator.}}
+        \label{fig:stress}
+    \end{figure}
+\end{itemize}
+The results indicate that Maximum stress is concentrated on the elastic sheet of the manipulator near the 
+connector, which suggests that this is the most likely location for failure under the current design and 
+loading conditions. The maximum von Mises stress did not exceed the typical yield strength of 65Mn alloy 
+teel, indicating that the arm would return to its original shape after the removal of the load and there is 
+no potential risk of plastic deformation or failure. This enhances the arm's reliability and extends its 
+operational lifespan. \\
+Given that the material remains within its elastic limit, the design could potentially be optimized further 
+to reduce weight or increase load capacity. Future work may explore these possibilities while maintaining 
+the safety factors within the design criteria.
+%%%%% Error Analysis %%%%%
+\subsection{Error Analysis of Cross-Shaped Sheets \textcolor{red}{Yuhao}}
 At the early stage of the project, given that the number of cross-shape sheets in each modules may have an 
 influence on the maximum bending angle $\boldsymbol{\alpha}_{max}$, which is an essential parameter of those which 
 affect the range of working space of the manipulator, hence the number of sheets should be determined by deriving 
 the functions of both absolute error and relative error \cite{fishboneCR} against the number of sheets. The 
 simulation results are shown in Figure \ref{fig:error_analysis}.
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
+\begin{figure}[H] % figure
+    \centering 
     \captionsetup{labelsep=colon}
     \includegraphics[width=0.75\textwidth]{Image/Result/error_analysis.png} 
     \caption[The simulation results of errors against the number of connecting sheets]
@@ -24,7 +61,8 @@ the number of sheets also has an influence on the size of simulation space, more
 of simulation space given that if the length of manipulator is much longer, the space near to the basement of 
 manipulator could not be reached due to the characteristics of the material. Hence, the number of sheets could be 
 assumed to be 10 rather than 15, even though both the errors are smaller when the number of sheets is 15. \\
-\subsection{Manipulator Workspace Analysis}
+%%%%% Workspace Analysis %%%%%
+\subsection{Manipulator Workspace Analysis \textcolor{red}{Yuhao}}
 The workspace simulation of the manipulator has been illustrated since it is important to determine the 
 variables of joints based on the required workspace. The segmented workspace is affected by several aspects, 
 which include the simulation index and the range within the three-dimensional coordinates. The effective workspace 
@@ -33,8 +71,8 @@ the x and y axes from -150 to 150 mm. Therefore, it is only necessary to determi
 along the z-axis. The parameter H, representing the height of the basement of specific workspace, is 
 utilized to determine the range of the workspace along the z-axis. The impacts of different indices and 
 parameter H will be discussed separately, aiming to segment the appropriate cubic worksapce of the manipulator.
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
+\begin{figure}[H] % figure
+    \centering 
     \captionsetup{labelsep=colon}
     \begin{subfigure}{0.45\textwidth} % subfigure 1
         \centering
@@ -57,8 +95,8 @@ parameter H will be discussed separately, aiming to segment the appropriate cubi
 point cloud consisting of 10000 floating points since the simulation index is 10000, which is insufficient to fully 
 occupied the theoretical workspace. To further generalize the theoretical workspace, it is necessary to increase 
 the simulation index. The appropriate workspace should be divided from the workspace whose index is 1000000. 
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
+\begin{figure}[H] % figure
+    \centering 
     \captionsetup{labelsep=colon}
     \begin{subfigure}{0.45\textwidth} % subfigure 2
         \centering
@@ -85,8 +123,8 @@ the distance between the detection points and the simulated point cloud and iden
 simulation results whose index=1000000 and H=300mm are shown in Figure \ref{fig:matlab_300} in Appendix 
 \ref{append:code_display}. The top view of the cubic workspace in Figure \ref{fig:top_view} associates labels with 
 detection points, facilitating subsequent explanations. 
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
+\begin{figure}[H] % figure
+    \centering 
     \captionsetup{labelsep=colon}
     \includegraphics[width=0.75\textwidth]{Image/Result/top_view_rect_workspace.png} 
     \caption[The top view of the workspace and the labels of detection points]
@@ -144,15 +182,14 @@ are illustrated in Figures \ref{fig:matlab_240}, \ref{fig:matlab_260}, \ref{fig:
     240&1&5.35 & 2.48 & 12.78 &8 \\
        &4&5.35 & 2.48 & 12.78 &9 \\
     \hline
-    % \multirow{2}{*}{3D cartesian/gantry manipulator} & PPP & 3 & 1   \\
-    % & & & \\ \hline
     \end{longtable}
 \end{center}
 As shown in Table \ref{tab:threshold_and_reachability}, setting H to 240 mm achieves better reachability, 
 which is more reasonable compared to other scenarios. Additionally, to obtain a more accurate threshold, 
 multiple tests or experimenting with a greater number of simulation indices can be undertaken to reduce random 
 and systematic errors.
-\subsection{Inverse Kinematics} % Done by Zehao Ye
+%%%%% INVERSE KINEMATICS %%%%%
+\subsection{Inverse Kinematics}
 This section will demonstrate the singular posture solution and trajectory replication results of the inverse 
 kinematics algorithm. A comprehensive analysis of its accuracy and computational speed will be conducted, along 
 with a description of its advantages and limitations. To begin with, it is essential to note that using angles 
@@ -160,7 +197,8 @@ as input for the programme is feasible due to the relative complexity of specify
 and $\textbf{P}_{target}$, which involves a total of 12 parameters. Moreover, the targets are generated based 
 on angles by forward kinematics algorithm during the test. In essence, there is no substantial distinction 
 between inputting angles and inputting coordinates.
-\subsubsection{Singular Posture Solution}
+%%%%% Singular Posture Solution %%%%%
+\subsubsection{Singular Posture Solution \textcolor{red}{Zehao}}
 Firstly, the bending of individual modules was tested as the target for the inverse kinematics solution. The 
 inverse kinematics algorithm was tested for different angles of bending for Module 1, 2, 3, and 4, and the 
 specific results are presented in Table \ref{tab:single_posture_IK} in Appendix \ref{append:table}. The 
@@ -182,8 +220,8 @@ The target with angles $\boldsymbol{\alpha} = [80,\ 120,\ -120,\ 90]\degree$ is 
 it lies within the workspace of manipulator. The posture of the manipulator is shown in Figure 
 \ref{fig:complex_target}. This scenario is likely to occur in practical applications and necessitates resolution 
 through relevant methods.
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
+\begin{figure}[H] % figure
+    \centering 
     \captionsetup{labelsep=colon}
     \begin{subfigure}{0.9\textwidth} % subfigure 1
         \centering
@@ -225,7 +263,8 @@ time, addressing the issue of singular points. However, this method has its limi
 multiple segments, the algorithm may introduce significant errors due to the calculation order, and these errors 
 can be challenging to eliminate. The only viable solution is to enhance the algorithm's performance through 
 careful initialization methods.
-\subsubsection{Trajectory Replication}
+%%%%% Trajectory Replication %%%%%
+\subsubsection{Trajectory Replication \textcolor{red}{Zehao}}
 The preceding discussion has highlighted genetic method, which is utilizing the current posture for 
 initialization in trajectory replication. In this phase, the comparison between consistently utilizing the 
 initial posture for trajectory replication and using the current posture as the initialization aims to 
@@ -241,8 +280,8 @@ based on the current posture. The trajectory replication using the genetic metho
 aligned with the target. The corrective effectiveness of the genetic algorithm has also been validated for 
 other targets. The data of trajectories in Figure \ref{fig:genetic_approach} is listed in Table 
 \ref{tab:trajectory_with_without_genetic}.
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
+\begin{figure}[H] % figure
+    \centering 
     \captionsetup{labelsep=colon}
     \includegraphics[width=1.0\textwidth]{Image/Result/trajectory_replication_diff_initialization.png} 
     \caption[The trajectory replications with and without genetic method]
@@ -277,27 +316,26 @@ about the trajectory replication are calculated in Table \ref{tab:traj_average_e
     \textbf{total}	& 3.576157 & 6.415941 \\
     \textbf{in workspace}	& 1.032255 & 2.642474 \\
     \hline
-    % \multirow{2}{*}{3D cartesian/gantry manipulator} & PPP & 3 & 1   \\
-    % & & & \\ \hline
     \end{longtable}
 \end{center}
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
+\begin{figure}[H] % figure
+    \centering 
     \captionsetup{labelsep=colon}
     \includegraphics[width=1.0\textwidth]{Image/Result/cross_trajectory_replication_with_label.png} 
     \caption[The cross-shaped trajectory and its replication by FABRIKc algorithm]
     {\centering \textbf{The cross-shaped trajectory and its replication.}}
     \label{fig:tr_cross}
 \end{figure}
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
+\begin{figure}[H] % figure
+    \centering 
     \captionsetup{labelsep=colon}
     \includegraphics[width=1.0\textwidth]{Image/Result/circle_trajectory_replication_with_label.png} 
     \caption[The closed trajectory and its replication by FABRIKc algorithm]
     {\centering \textbf{The closed trajectory and its replication.}}
     \label{fig:clc_cross}
 \end{figure}
-\subsubsection{The improvement about Inverse kinematics algorithm}
+%%%%% Limitation and Improvement %%%%%
+\subsubsection{Limitation and Improvement \textcolor{red}{Zehao}}
 However, it is challenging to calculate certain postures with inverse kinematics algorithm. A method has 
 been proposed involving continuous position updates through a factor $f_u$. Nevertheless, this approach 
 lacks systematic validation and is currently feasible only in specific circumstances. Therefore, it is 
@@ -360,12 +398,13 @@ The $\boldsymbol{\alpha_i}$ can be continuously updated according to the method,
     = [44.94, 44.86, -45.47, -44.58]\degree
     \label{eq:alpha_5_to_6}
 \end{align}
-
 \noindent In addition, it is possible to manually adjust the manipulator posture visually. While this method is relatively 
 straightforward, it lacks precision. It is important to note that due to orientation constraints, the sum of 
 angles for modules 1 and 3 and modules 2 and 4 should remain constant during the adjustment process.
-
+%%%%% ELECTRONIC CONTROL %%%%%
 \subsection{Electroinc Control}
+%%%%% Actuation Control %%%%%
+\subsubsection{Actuation Control \textcolor{red}{Yuantong}}
 Initially, the testing of the results was supposed to be carried out through Proteus simulation. However, 
 it was discovered that during the simulation process in Proteus, the motor components did not function normally, 
 with frequent occurrences of stepping errors. Meanwhile, the simulation could not be completed in real-time 
@@ -412,8 +451,8 @@ to reduce the complexity of wiring.
 \end{center}
 After connecting the Arduino to the stepper motors as depicted in Figure \ref{fig:circuit_connection}, 
 the programme is ready for execution.
-\begin{figure}[H] %[H] "corresponds to start the figure Here" 
-    \centering %alignment can be flushleft or flushright
+\begin{figure}[H] % figure
+    \centering 
     \captionsetup{labelsep=colon}
     \includegraphics[width=0.9\textwidth]{Image/Result/circuit_connection.jpg} 
     \caption[The circuit connection of Arduino and stepper motors]
@@ -470,7 +509,7 @@ Ultimately, the input parameters of the control system are $\boldsymbol{\Delta S
 It is inconvenient for users to input a series of indices. The Arduino programme can be optimized to taken the 
 angles $\boldsymbol{\theta}$ as input paramters, which only require the users to input four parameters. The Python 
 version programme is uploaded in the GitHub and ready to be converted into Arduino programme.\\
-
+\subsubsection{End Effector Information Acquisition and Display \textcolor{red}{Yuehan}}
 
 
 % change to new page
