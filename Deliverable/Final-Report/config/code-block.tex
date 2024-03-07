@@ -1,0 +1,27 @@
+\usepackage{listings} % package for inserting python code block
+\usepackage{xcolor} % package for highlighting
+\definecolor{backgroundcolor}{rgb}{0.95, 0.95, 0.95}
+\definecolor{codegreen}{rgb}{0.1, 0.6, 0.1}
+\definecolor{codegray}{rgb}{0.7,0.7,0.7}
+\definecolor{codered}{rgb}{0.8,0.1,0.1}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% define the highlight style of the string
+\lstdefinestyle{myPythonStyle}{
+    language=Python,
+    basicstyle=\ttfamily\small, % Set font size to small
+    %% COLOR   
+    backgroundcolor=\color{backgroundcolor},
+    keywordstyle=\color{blue}, % the key word is blue
+    stringstyle=\color{codered},
+    commentstyle=\color{codegreen}, % the comment is green
+    %% CAPTION %%
+    captionpos=t, % the caption of the code block at the top
+    %% SPACE SETTINGS %%
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    %% LINE NUMBER %%
+    numbers=right,
+    numberstyle=\tiny\color{codegray},
+}
