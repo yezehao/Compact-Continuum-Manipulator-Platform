@@ -59,6 +59,7 @@ will adhere to the corresponding naming conventions.
     $\Delta S_i$ & the change volume of cable, cable$_{2i-1}$ and & \\
                  & cable $_{2i}$ corresponds to Module i        & \\
     $\boldsymbol{\Delta S}$ & a series of change volume of cables & $\Delta S_1 \sim \Delta S_8$ \\
+    $\alpha_i$   & the bending angle of module i & \\
     $\boldsymbol{\alpha}$ & a series of bending angles about four modules & $[\alpha_1,\ \alpha_2,\ \alpha_3,\ \alpha_4]$\\
     $\boldsymbol{\theta}$ & a series of inverse kinematics solutions & $[\theta_1,\ \theta_2,\ \theta_3,\ \theta_4]$\\
     $\boldsymbol{\epsilon}$ & threshold of the error in FABRIKc algorithm & $\boldsymbol{\epsilon} = 0.02$ \\
@@ -163,33 +164,27 @@ of the model.
 \end{figure}
 %%%%% Forward Kinematics %%%%%
 \subsubsection{Forward Kinematics \textcolor{red}{Zehao}}
-To derive the workspace of the manipulator for further analysis, the forward kinematics algorithm of the manipulator 
-need to be conducted. The forward kinematics algorithm of the fishbone continuum robot\cite{fishboneCR} with one 
-segment is given. However, utilizing this algorithm for calculation becomes complex while there are four modules in 
-the manipulator. Additionally, the inverse kinematics algorithm also requires the assistance of forward kinematics 
-algorithm for subsequent calculations using the composite coordinate transformation formula. Therefore, The relevant 
-forward kinematics algorithm for subsequent calculations need to be derived. \\
-The base coordinate system can be established with the centroid of base connector upper surface serving as the origin. 
-The x-axis of the coordinate system is parallel to the backbone of Module 1, which is Module (2,2). Consequently, 
-the backbones of Modules 1 and 3, which are Modules (2,2) and (2,1) are parallel to the x-axis of base coordinate 
-system, while the backbones of Modules 2 and 4, which are Modules (1,2) and (1,1) are parallel to the y-axis of base 
-coordinate system. The positions of the five centroids in the base coordinate system when the manipulator is in the 
-initial posture are shown in Figure \ref{fig:kinematics model 0_0_0_0}. The upper surface centroids of the connectors 
-are designated as $node_1$, $node_2$, $node_3$, $node_4$, and $node_5$. \\
+The forward kinematics (FK) provided by Zhou et al. \cite{fishboneCR} were solely focused on a single segment 
+with two modules. However, utilizing this FK for calculation became complex while there were four modules in 
+the manipulator. The FK algorithm was rededuced to derive the workspace of the manipulator. \\
+The base coordinate system (CS) was established with the centroid of base connector upper surface serving as 
+the origin. The backbones of Module 1 and 3, which are Module (2,2) and (2,1), were parallel to the X-axis 
+of base CS, while the backbones of Module 2 and 4, which are Modules (1,2) and (1,1), were parallel to the 
+Y-axis of base CS. The upper surface centroids of connectors were designated as $node_1$, $node_2$, $node_3$, 
+$node_4$, and $node_5$. The initial posture with CSs originated at $node_1 \sim node_5 $ are shown in 
+Figure \ref{fig:kinematics model 0_0_0_0}.  \\
 \begin{figure}[H] % figure 
     \centering
     \captionsetup{labelsep=colon}
     \includegraphics[width=1.0\textwidth]{Image/MATLAB/manipulator_0_0_0_0.png} 
-    \caption[The kinematics model of manipulator in the initial position]
-    {\centering \textbf{The kinematics model of manipulator in initial position.}}
+    \caption[The kinematics model of manipulator at the initial position]
+    {\centering \textbf{The kinematics model of manipulator at initial position.}}
     \label{fig:kinematics model 0_0_0_0}
 \end{figure}
-\noindent The Module 1 is restricted to bending in the y-z plane of the coordinate system where $node_1$ serves as 
-the origin, while the Module 2 is restricted to bending in the x-z plane of the coordinate system where $node_2$ 
-serves as the origin. Similarly, the Modules 3 and 4 are subject to the same constraints. The bending angles for 
-these modules are defined as $\alpha_1$, $\alpha_2$, $\alpha_3$, and $\alpha_4$, respectively. The positions of the 
-manipulator model in the base coordinate system after bending each module by $90 \degree$ are illustrated in Figure 
-\ref{fig:kinematics_model_resp}.
+\noindent The Module 1 was restricted to bending in Y-Z plane of CS whose origin is $node_1$, while 
+the Module 2 was restricted to bending in X-Z plane of CS whose origin is $node_2$. Similarly, the Module 
+3 and 4 were subject to the same constraints. The right angle bending postures of single modules are 
+illustrated in Figure \ref{fig:kinematics_model_resp}.
 \begin{figure}[H] % figure
     \centering 
     \captionsetup{labelsep=colon}
@@ -215,30 +210,31 @@ manipulator model in the base coordinate system after bending each module by $90
         \includegraphics[width=\linewidth]{Image/MATLAB/manipulator_0_0_0_90.png}
         \caption{$\alpha_1=0,\alpha_2=0,\alpha_3=0,\alpha_4=90 \degree$}
     \end{subfigure}
-    \caption[The kinematics model of manipulator with respective bending modules]
-    {\centering \textbf{The kinematics model with respective bending modules.}}
+    \caption[The right angle bending postures of single modules]
+    {\centering \textbf{The right angle bending postures of single modules.}}
     \label{fig:kinematics_model_resp}
 \end{figure}
-\noindent While the modules bend to the positive direction of x-axis or y-axis, the bending angles $\alpha$ are 
-positive. Owing to the distinct properties of the four modules, different calculation methods are required for analysis. 
-The Module $i$ have a base node $node_i$ and an end effector node $node_{i+1}$. To further calculate the position of 
-$node_{i+1}$ in the base coordinate system, these matrices can be employed in the Equation \ref{eq:node i+1 calculation}.
+\noindent The bending angle $\alpha$ was defined to be positive while the module bend toward positive 
+direction of X-axis or Y-axis. Owing to the distinct properties of the four modules, diverse calculation 
+methods were utilized. The Module $i$ has a base node $node_i$ and an end effector node $node_{i+1}$. 
+The position of $node_{i+1}$ in CS whose origin is $node_{i+1}$ was calculated in Equation 
+\ref{eq:node i+1 calculation}.
 \begin{align}
     &\textbf{P}_{i+1}^{base} = \textbf{R}_{i} \times \textbf{P}_{i+1}^{i} + \textbf{P}_{i}^{base}
     \label{eq:node i+1 calculation}
 \end{align}
 \begin{align*}
-    &\ \textbf{P}_{i+1}^{base}\text{: The position of $node_{i+1}$ in the base coordinate system.}\\
-    &\ \textbf{R}_{i}\text{: The rotational matrix tranforms the base coordinate system into coordinate}\\
-    &\ \qquad\text{system \textit{i}, which is the coordinate system with origin $node_i$.}\\
-    &\ \textbf{P}_{i+1}^{i}\text{: The position of $node_{i+1}$ in coordinate system \textit{i}.}\\
-    &\ \textbf{P}_{i}^{base}\text{: The position of $node_{i}$ in the base coordinate system.}
+    &\ \textbf{P}_{i+1}^{base}\text{: The absolute position matrix (APM) of $node_{i+1}$ in the base CS.}\\
+    &\ \textbf{R}_{i}\text{: The rotational matrix tranforms the base CS into CS\textit{i} }\\
+    &\ \qquad\text{whose origin is $node_i$.}\\
+    &\ \textbf{P}_{i+1}^{i}\text{: The relative position matrix (RPM) of $node_{i+1}$ in CS \textit{i}.}\\
+    &\ \textbf{P}_{i}^{base}\text{: The absolute position matrix (APM) of $node_{i}$ in the base CS.}
 \end{align*}
 \begin{itemize}
     \item Module 1 \\
-    For Module 1, the relative position matrix of $node_1$ and $node_2$ $\textbf{P}_{2}^{1}$ and $\alpha_1$ is shown 
-    in Equation \ref{eq:node2_postion_relative}. $R_1$ is the radius of the Module 1 bending curve. The rotational 
-    matrix $\textbf{R}_{1}$ and the position matrix of $node_1$ $\textbf{P}_{1}^{base}$ are shown in Equation 
+    For Module 1, the RPM of $node_1$ and $node_2$ $\textbf{P}_{2}^{1}$ and $\alpha_1$ was shown 
+    in Equation \ref{eq:node2_postion_relative}. $R_1$ was the radius of the Module 1 bending curve. The rotational 
+    matrix $\textbf{R}_{1}$ and the position matrix of $node_1$ $\textbf{P}_{1}^{base}$ were shown in Equation 
     \ref*{eq:module1_node1}.
     \begin{align}
         \textbf{P}_{2}^{1} = 
@@ -267,15 +263,14 @@ $node_{i+1}$ in the base coordinate system, these matrices can be employed in th
         \end{aligned}
         \label{eq:module1_node1} 
     \end{align}
-    According to the Equations \ref{eq:node2_postion_relative} and \ref*{eq:module1_node1}, the position matrix 
-    of $node_{2}$ in the base coordinate system $\textbf{P}_{2}^{base}$ can be calculated in Equation 
-    \ref{eq:node2_position_absolute}.
+    According to the Equations \ref{eq:node2_postion_relative} and \ref{eq:module1_node1}, the APM 
+    $\textbf{P}_{2}^{base}$ was calculated in Equation \ref{eq:node2_position_absolute}.
     \begin{align}
         \textbf{P}_{2}^{base} = \textbf{R}_{1} \times \textbf{P}_{2}^{1} + \textbf{P}_{1}^{base}
         \label{eq:node2_position_absolute}
     \end{align}
     \item Module 2 \\
-    For Module 2, the relationship between the relative position matrix of $node_2$ and $node_3$ $\textbf{P}_{3}^{2}$ 
+    For Module 2, the relationship between the RPM of $node_2$ and $node_3$ $\textbf{P}_{3}^{2}$ 
     and $\alpha_2$ is shown in Equation \ref{eq:node3_postion_relative}. $R_2$ is the radius of the Module 2 bending 
     curve. The rotational matrix $\textbf{R}_{2}$ and the position matrix of $node_2$ $\textbf{P}_{2}^{base}$ are shown 
     in Equations \ref*{eq:module2_rotation_matrix} and \ref{eq:node2_position_absolute}.
