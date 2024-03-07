@@ -1,7 +1,8 @@
 %%%%% Result and Discussion %%%%%
 \section{Result and Discussion} 
-%%%%% Strain Analysis %%%%%
-\subsection{Strain Analysis \textcolor{red}{Dawei}}
+%%%%% Strength Analysis %%%%%
+\subsection{Strength Analysis}
+\subsubsection{The Result of Strength Analysis \textcolor{red}{Dawei}}
 The strength analysis conducted using ANSYS has yielded the following results.
 \begin{itemize}
     \item Displacement \\
@@ -36,6 +37,41 @@ operational lifespan. \\
 Given that the material remains within its elastic limit, the design could potentially be optimized further 
 to reduce weight or increase load capacity. Future work may explore these possibilities while maintaining 
 the safety factors within the design criteria.
+\subsubsection{Limitaions and Solutions \textcolor{red}{Dawei}}
+\begin{itemize}
+    \item Simplification of the Model \\
+    The initial analysis simplified the complex structure of the manipulator by focusing on a single module, 
+    potentially overlooking critical interactions between various modules that contribute to the overall 
+    strength and performance of the system. This simplification, while beneficial for computational efficiency, 
+    may not accurately reflect the integrated behavior of the manipulator in real-world scenarios where interactions 
+    between modules can significantly influence outcomes. \\
+    \textbf{Solution}: Future analyses could incorporate the interactions between all modules to provide a more 
+    comprehensive understanding of the manipulator's behavior under various conditions. Such an approach will 
+    ensure a more accurate representation of the manipulator's behavior under various operational conditions, 
+    leading to more reliable performance predictions and informed design decisions. \\
+    \item Failure Point Concentration \\
+    Stress concentration at the base of the elastic sheet indicates a potential failure point but does not 
+    account for fatigue or long-term wear. This oversight could underestimate the long-term durability of 
+    the manipulator, potentially leading to unexpected maintenance issues or failure. \\
+    \textbf{Solution}: To address this gap, incorporating a detailed fatigue analysis into future work is 
+    crucial. This analysis should evaluate the impact of repeated stress cycles on the manipulator's components 
+    over extended periods. By understanding these effects, design modifications can be implemented to enhance 
+    the durability and operational lifespan of the manipulator. The modifications could include optimizing 
+    material selection, redesigning stress-prone areas to reduce concentration points, and introducing preventive 
+    maintenance schedules based on predicted failure. \\
+    \item Impact of cables \\
+    The analysis did not consider the impact of cable tension on the manipulator 's strength. Cable tension 
+    can significantly affect the manipulator's mechanical behavior. Neglecting this factor may lead to an 
+    incomplete understanding of the manipulator 's operational capabilities and potential failure modes. \\
+    \textbf{Solution}: Future analyses should integrate the effects of cable tension to achieve a more accurate 
+    assessment of the manipulator's performance. This could involve modifying the existing model to include 
+    boundary conditions that accurately represent the forces exerted by cables under various load scenarios. 
+    Implementing dynamic simulations that account for variations in tension forces during different stages of 
+    operation will further enhance the fidelity of the model. These improvements will enable a more nuanced 
+    understanding of the manipulator's capabilities, assisting in the design of a more robust and reliable 
+    system capable of withstanding the complexities of real-world applications. 
+\end{itemize}
+
 %%%%% Error Analysis %%%%%
 \subsection{Error Analysis of Cross-Shaped Sheets \textcolor{red}{Yuhao}}
 At the early stage of the project, given that the number of cross-shape sheets in each modules may have an 
