@@ -692,17 +692,17 @@ The relationship can be further generalized into matrix in Equation \ref{eq:delt
 %%%%% ELECTRONIC CONTROL %%%%%
 \subsection{Electronic Control}
 %%%%% Actuation Control %%%%%
-\subsubsection{Actuation Control \textcolor{red}{Yuantong}}
+\s\subsubsection{Actuation Control \textcolor{red}{Yuantong}}
 As mentioned above, the manipulator is divided into four units in total, with each unit being controlled for its 
 bending movements by two cables. This means that the entire manipulator is controlled by a total of 8 cables. How 
 to control the extension and retraction of these 8 cable ropes is the key to the Control part. \\
 In this project, 8 stepper motors are employed to control the 8 individual cables. The planned design involves 
 wrapping the cables around the rotor of each motor, and the stepper motors are programmed to extend or retract 
 the ropes by stepping a certain number of steps in either a counterclockwise or clockwise direction. These 8 motors 
-are connected to an Arduino board together, and the user can control the program by a keyboard, and a serial monitor. \\
+are connected to an Arduino board together, and the user can control the programme by a keyboard, and a serial monitor. \\
 \begin{itemize}
     \item Actuation Principle\\
-    In this program, the user inputs the desired length changes for 8 cables $\Delta S_1$ ~ $\Delta S_8$ 
+    In this programme, the user inputs the desired length changes for 8 cables $\Delta S_1$ ~ $\Delta S_8$ 
     ($\Delta S_{1,2,3,4}$ ranging from -36.65mm to 36.65mm, $\Delta S_{5,6,7,8}$ ranging from -68.07 to 68.07mm). 
     After conversion, it outputs the corresponding step numbers $Step_1$ ~ $Step_8$ for the eight stepper motors. 
     Based on this, the 8-stepper motors will step the correspondingly. The relationship between the changes in 
@@ -750,8 +750,8 @@ are connected to an Arduino board together, and the user can control the program
     The 8 motors use pin 23-52 on the Arduino Mega 2560 board, and are powered by a 9V battery. The power supply 
     is in a parallel configuration on a breadboard. The Arduino board is connected to a serial monitor and a 
     keyboard for state inspection and manual input.
-    \item Program development \\
-    The main logic framework of the program has been illustrated by the flowchart shown in Figure \ref{fig:motor_flowchart}.
+    \item Programme development \\
+    The main logic framework of the programme has been illustrated by the flowchart shown in Figure \ref{fig:motor_flowchart}.
     \begin{figure}[H] % figure
         \centering 
         \captionsetup{labelsep=colon}
@@ -760,12 +760,12 @@ are connected to an Arduino board together, and the user can control the program
         {\centering \textbf{The flow chart of Arduino step motor control programme.}}
         \label{fig:motor_flowchart}
     \end{figure}
-    After the program starts, the first thing is to declare the variables. $\Delta S_{i(prev)}$, $\Delta S_i$ and 
-    $Step_i$ is all set to 0 initially. \\ Then the program asks the users to input 8 numbers representing the 
+    After the programme starts, the first thing is to declare the variables. $\Delta S_{i(prev)}$, $\Delta S_i$ and 
+    $Step_i$ is all set to 0 initially. \\ Then the programme asks the users to input 8 numbers representing the 
     length change for 8 cables. The 8 values will be assigned to variable $\Delta S_1$ ~ $\Delta S_8$ in order. 
     During the input process, the user can input `clear' instead of numbers to clear all the previous input and 
     start over again from $\Delta S_1$. \\
-    Once the input process is complete, the program converts the $\Delta S_1$~$\Delta S_8$ to $Step_1$ ~ $Step_8$ 
+    Once the input process is complete, the programme converts the $\Delta S_1$~$\Delta S_8$ to $Step_1$ ~ $Step_8$ 
     based on Equation \ref{eq:step_motor_arduino}, with the $d$ set to 10mm, N set to 2048 steps/rev. The motors 
     will start to step immediately after the conversion is finished. \\
     During the stepping process, the motors controlling the first and second unit (the first 4 motors) are set 
@@ -773,13 +773,13 @@ are connected to an Arduino board together, and the user can control the program
     (the last 4 motors) are set to have $\frac{300}{17.5}\cdot(17.5+15)\approx 557$ steps/second. This is because 
     the moving speed for the last two units should be $\frac{17.5+15}{17.5}$ times faster than the first two units 
     so that the 4 units can finish moving approximately at the same time. \\
-    The program shall wait until the motors finished stepping. Once the stepping process is finished, the program 
+    The programme shall wait until the motors finished stepping. Once the stepping process is finished, the programme 
     asks the user what to do next: reset the motors to initial position or move from the current position to the 
     next position. If the user chooses to reset the motors, all of the motors rotate backwards for same steps. 
     However, If the user chooses to let the motors move to a new position, the values for current $\Delta S_1$ ~ 
-    $\Delta S_8$ will be stored to variable $\Delta S_{1(prev)}$ ~ $\Delta S_{8(prev)}$. The program then asks for 
+    $\Delta S_8$ will be stored to variable $\Delta S_{1(prev)}$ ~ $\Delta S_{8(prev)}$. The programme then asks for 
     a new set of $\Delta S_1$ ~ $\Delta S_8$, then calculate the new $Step_1$ ~$Step_8$. Hence, the loop of the 
-    program is closed.
+    programme is closed.
 \end{itemize}
 %%%%% Parameter Input %%%%%
 \subsubsection{Parameter Input by Serial Monitor \textcolor{red}{Yuehan}}
