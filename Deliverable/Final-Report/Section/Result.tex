@@ -44,26 +44,26 @@ the safety factors within the design criteria.
     potentially overlooking critical interactions between various modules that contribute to the overall 
     strength and performance of the system. This simplification, while beneficial for computational efficiency, 
     may not accurately reflect the integrated behavior of the manipulator in real-world scenarios where interactions 
-    between modules can significantly influence outcomes. \\
-    \textbf{Solution}: Future analyses could incorporate the interactions between all modules to provide a more 
+    between modules can significantly influence outcomes. 
+    \textit{Solution}: Future analyses could incorporate the interactions between all modules to provide a more 
     comprehensive understanding of the manipulator's behavior under various conditions. Such an approach will 
     ensure a more accurate representation of the manipulator's behavior under various operational conditions, 
-    leading to more reliable performance predictions and informed design decisions. \\
+    leading to more reliable performance predictions and informed design decisions. 
     \item Failure Point Concentration \\
     Stress concentration at the base of the elastic sheet indicates a potential failure point but does not 
     account for fatigue or long-term wear. This oversight could underestimate the long-term durability of 
     the manipulator, potentially leading to unexpected maintenance issues or failure. \\
-    \textbf{Solution}: To address this gap, incorporating a detailed fatigue analysis into future work is 
+    \textit{Solution}: To address this gap, incorporating a detailed fatigue analysis into future work is 
     crucial. This analysis should evaluate the impact of repeated stress cycles on the manipulator's components 
     over extended periods. By understanding these effects, design modifications can be implemented to enhance 
     the durability and operational lifespan of the manipulator. The modifications could include optimizing 
     material selection, redesigning stress-prone areas to reduce concentration points, and introducing preventive 
-    maintenance schedules based on predicted failure. \\
+    maintenance schedules based on predicted failure. 
     \item Impact of cables \\
     The analysis did not consider the impact of cable tension on the manipulator's strength. Cable tension 
     can significantly affect the manipulator's mechanical behavior. Neglecting this factor may lead to an 
     incomplete understanding of the manipulator's operational capabilities and potential failure modes. \\
-    \textbf{Solution}: Future analyses should integrate the effects of cable tension to achieve a more accurate 
+    \textit{Solution}: Future analyses should integrate the effects of cable tension to achieve a more accurate 
     assessment of the manipulator's performance. This could involve modifying the existing model to include 
     boundary conditions that accurately represent the forces exerted by cables under various load scenarios. 
     Implementing dynamic simulations that account for variations in tension forces during different stages of 
@@ -73,21 +73,21 @@ the safety factors within the design criteria.
 \end{itemize}
 %%%%% Error Analysis %%%%%
 \subsection{Error Analysis of Cross-Shaped Sheets}
-At the early stage of the project, given that the number of cross-shape sheets in each module may have an 
+At the early stage of the project, given that the number of cross-shape sheets in each module have an 
 influence on the maximum bending angle $\boldsymbol{\alpha}_{max}$, which is an essential parameter of those which 
-affect the range of working space of the manipulator, hence the number of sheets should be determined by deriving 
+affect the workspace of the manipulator, hence the number of sheets should be determined by deriving 
 the functions of both absolute error and relative error \cite{fishboneCR} against the number of sheets. The 
 simulation results are shown in Figure \ref{fig:error_analysis}.
 \begin{figure}[H] % figure
     \centering 
     \captionsetup{labelsep=colon}
-    \includegraphics[width=0.75\textwidth]{Image/Result/error_analysis.png} 
-    \caption[The simulation results of errors against the number of connecting sheets]
-    {\centering \textbf{The simulation results of errors against the number of connecting sheets.}}
+    \includegraphics[width=0.8\textwidth]{Image/Result/error_analysis.png} 
+    \caption[The simulation results of errors against the number of sheets]
+    {\centering \textbf{The simulation results of errors against the number of sheets.}}
     \label{fig:error_analysis}
 \end{figure}
-As illustrated in Figure \ref{fig:error_analysis}, the changing trends of both absolute and relative errors are 
-almost identical since 
+\noindent As illustrated in Figure \ref{fig:error_analysis}, the changing trends of both absolute and 
+relative errors are almost identical since 
 the relative error is proportional to the absolute error, and the different lines with different colors represent 
 the data with different bending angles whose range is from 10 degrees to 90 degrees in both directions (positive 
 or negative). It is obvious that both errors decrease with the increase in the number of connecting sheets, hence 
@@ -95,7 +95,7 @@ theoretically, the number of sheets should be as large as possible to make both 
 the number of sheets also has an influence on the size of simulation space, more the number of sheets less the size 
 of simulation space given that if the length of manipulator is much longer, the space near to the basement of 
 manipulator could not be reached due to the characteristics of the material. Hence, the number of sheets could be 
-assumed to be 10 rather than 15, even though both the errors are smaller when the number of sheets is 15. \\
+assumed to be 10 rather than 15, even though both the errors are smaller when the number of sheets is 15. 
 %%%%% Workspace Analysis %%%%%
 \subsection{Manipulator Workspace Analysis}
 The workspace simulation of the manipulator has been illustrated since it is important to determine the 
@@ -126,6 +126,7 @@ parameter H will be discussed separately, aiming to segment the appropriate cubi
     {\centering \textbf{The entire workspace with different simulation indices.}}
     \label{fig:ws_diff}
 \end{figure}
+\vspace{-5mm}
 \noindent As shown in Figure \ref{fig:ws_10000}, the working space of manipulator forms a spherical shell-shaped 
 point cloud consisting of 10000 floating points since the simulation index is 10000, which is insufficient to fully 
 occupied the theoretical workspace. To further generalize the theoretical workspace, it is necessary to increase 
@@ -150,7 +151,8 @@ the simulation index. The appropriate workspace should be divided from the works
     {\centering \textbf{The cubic workspace with different segmentation.}}
     \label{fig:ws_300_350}
 \end{figure}
-Comparing the simulation results illustrated in Figure \ref{fig:ws_300_350}, it can be observed that the upper 
+\vspace{-5mm}
+\noindent Comparing the simulation results illustrated in Figure \ref{fig:ws_300_350}, it can be observed that the upper 
 area of the segmented cubic workspace whose H=350mm failed to be occupied. However, the segmented cubic workspace 
 whose H=300mm is almost fully occupied. To determine threshold of parameter H, a series of yellow detection points 
 are utilized to test whether specific locations in the workspace can be reached. A programme is utilized to calculate 
@@ -161,17 +163,19 @@ detection points, facilitating subsequent explanations.
 \begin{figure}[H] % figure
     \centering 
     \captionsetup{labelsep=colon}
-    \includegraphics[width=0.75\textwidth]{Image/Result/top_view_rect_workspace.png} 
+    \includegraphics[width=0.5\textwidth]{Image/Result/top_view_rect_workspace.png} 
     \caption[The top view of the workspace and the labels of detection points]
     {\centering \textbf{The top view of the workspace and the labels of detection points.}}
     \label{fig:top_view}
 \end{figure}
-While H=300 mm, The heights of the first, second, third, and fourth layers are 300 mm, 400 mm, 500 mm, and 600 mm, 
+\vspace{-5mm}
+\noindent While H=300 mm, The heights of the first, second, third, and fourth layers are 300 mm, 400 mm, 500 mm, and 600 mm, 
 respectively. As the second and third layers are situated in the middle, theoretically all detection points on 
 these two layers are reachable. Therefore, the mean and variance of distances to these points can be calculated. 
 Combined with a normal distribution whose $\mu = 0$, a threshold is set to be 99.7\% of the data are within 3 
 standard deviations of the mean can be derived to determine whether detection points on the first and fourth 
 layers are reachable. The threshold $\tau$ can be calculated in Equation \ref{eq:threshold_reachable}. \\
+\vspace{-5mm}
 \begin{align}
     &\bar{d}_{2,3} = \sum_{i=2}^3 \sum_{j=1}^9 d_{ij,min} \nonumber \\
     &\sigma_{2,3}=\sqrt{\dfrac{1}{n}\times\sum_{i=1}^n(d_i-\bar{d})^2} \nonumber \\
@@ -219,6 +223,7 @@ are illustrated in Figures \ref{fig:matlab_240}, \ref{fig:matlab_260}, \ref{fig:
     \hline
     \end{longtable}
 \end{center}
+\vspace{-5mm}
 As shown in Table \ref{tab:threshold_and_reachability}, setting H to 240 mm achieves better reachability, 
 which is more reasonable compared to other scenarios. Additionally, to obtain a more accurate threshold, 
 multiple tests or experimenting with a greater number of simulation indices can be undertaken to reduce random 
@@ -252,7 +257,15 @@ Afterwards, the complex bending angles of modules was utilized as the target to 
 The target with angles $\boldsymbol{\alpha} = [80,\ 120,\ -120,\ 90]\degree$ was selected because its solution is complex, 
 and it lies within the workspace of manipulator. The posture of the manipulator is shown in Figure 
 \ref{fig:complex_target}. This scenario is likely to occur in practical applications and necessitates resolution 
-through relevant methods.
+through relevant methods. \\
+With the initialization using the initial posture, the solution was 
+$\boldsymbol{\theta} = [-8.88, -89.99, -126.81, -169.73]\degree$, which is shown in Figure \ref{fig:complex_init_0_0_0_0}. 
+However, the solution of IK algorithm was $\boldsymbol{\theta} = [84.98,\ 122.93,\ -114.9,\ 63.01]\degree$, 
+which is significantly close to the target while the angles for initialization were $[85,\ 125,\ -115,\ 55]\degree$. 
+The solution of the IK algorithm with more appropriate initialization is shown in Figure 
+\ref{fig:complex_init_85_125_-115_55}. This signifies that if the manipulator is presently in a posture similar 
+to the target configuration, it can accurately determine the corresponding bending angles $\boldsymbol{\theta}$ through the 
+IK algorithm. This proved to be highly beneficial for trajectory replication. 
 \begin{figure}[H] % figure
     \centering 
     \captionsetup{labelsep=colon}
@@ -280,8 +293,9 @@ through relevant methods.
     {\centering \textbf{The inverse kinematics algorithm with different initialization.}}
     \label{fig:80_120_-120_90_diff_initial}
 \end{figure}
-\noindent With the initialization using the initial posture, the solution was 
-$\boldsymbol{\theta} = [-8.88, -89.99, -126.81, -169.73]\degree$, which is shown in Figure \ref{fig:complex_init_0_0_0_0}. 
+\vspace{-5mm}
+\noindent With the initialization using the initial posture, the solution was $\boldsymbol{\theta}$ = 
+[-8.88, -89.99, -126.81, -169.73]$\degree$, which is shown in Figure \ref{fig:complex_init_0_0_0_0}. 
 However, the solution of IK algorithm was $\boldsymbol{\theta} = [84.98,\ 122.93,\ -114.9,\ 63.01]\degree$, 
 which is significantly close to the target while the angles for initialization were $[85,\ 125,\ -115,\ 55]\degree$. 
 The solution of the IK algorithm with more appropriate initialization is shown in Figure 
@@ -319,12 +333,14 @@ other targets. The data of trajectories in Figure \ref{fig:genetic_approach} is 
     {\centering \textbf{The trajectory replications with and without genetic method.}}
     \label{fig:genetic_approach}
 \end{figure}
+\vspace{-5mm}
 \noindent The replicated trajectories of both target trajectories closely align, but there exists a certain degree of error. 
 This discrepancy was attributed to the inclusion of the error threshold $\boldsymbol{\epsilon}$ set at 0.02 in the 
 programme, allowing for computational efficiency while maintaining accuracy. However, when dealing with significantly 
 larger angular deviations, instances may arise where the replicated trajectories failed to precisely match the 
 target trajectories. This situation was overlooked as it fell beyond the defined workspace. The average errors
 about the trajectory replication were calculated in Table \ref{tab:traj_average_errors}.
+\vspace{-5mm}
 \begin{center}
     \small
     \begin{longtable}{l l l}
@@ -441,6 +457,7 @@ with frequent occurrences of stepping errors. Meanwhile, the simulation could no
 due to the heavy load on the computer CPU. After consideration, the team members purchased a complete set of real 
 components for testing. In the real circuit, the pin that each motor occupies are listed in Table \ref{tab:stepmotor_pin} 
 to reduce the complexity of wiring. 
+\vspace{-5mm}
 \begin{center}
     \small
     \begin{longtable}{c c c c c c c c c}
@@ -479,6 +496,7 @@ to reduce the complexity of wiring.
     \hline
     \end{longtable}
 \end{center}
+\vspace{-15mm}
 After connecting the Arduino to the stepper motors as depicted in Figure \ref{fig:circuit_connection}, 
 the programme is ready for execution.
 \begin{figure}[H] % figure
@@ -489,6 +507,7 @@ the programme is ready for execution.
     {\centering \textbf{The circuit connection of Arduino and stepper motors.}}
     \label{fig:circuit_connection}
 \end{figure}
+\vspace{-5mm}
 \noindent Users are required to sequentially input eight values of $\Delta S_1 \sim \Delta S_8$ to initiate 
 the corresponding operation of the stepper motor. If the input is less than eight, the control system will 
 not be executed. \\
@@ -538,9 +557,46 @@ speed value for each motor to accomplish this synchronization. \\
 Ultimately, the input parameters of the control system are $\boldsymbol{\Delta S}$, which consist of eight indices. 
 It is inconvenient for users to input a series of indices. The Arduino programme can be optimized to take the 
 angles $\boldsymbol{\theta}$ as input parameters, which only require the users to input four parameters. The Python 
-version programme is uploaded in the GitHub and ready to be converted into Arduino programme.\\
-\subsubsection{End Effector Information Acquisition and Display \textcolor{red}{Yuehan}}
-
+version programme is uploaded in the GitHub and ready to be converted into Arduino programme.
+\subsubsection{Information Acquisition and Display}
+In the design of the sensing and control section, the following functionalities have been implemented. 
+\begin{itemize}
+    \item Keyboard Input Control for Stepper Motor \\
+    The system allows users to input commands via an upper computer keyboard to drive the stepper motor by specifying 
+    the number of steps. The motor parameters are displayed on an LCD screen.
+    \item MPU6050 Sensor for End-Effector Orientation \\
+    The MPU6050 sensor collects the orientation angles of the manipulator’s end effector. The real-time data is displayed 
+    on an OLED screen to assist users. The accuracy is controlled within 0.1°, meeting precision requirements. However, 
+    prolonged sensor operation leads to increased internal chip temperature, resulting in noticeable noise and yaw zero-point 
+    drift issues.
+    \item HC-SR04 Ultrasonic Sensor for Distance Measurement \\
+    The HC-SR04 ultrasonic sensor measures the distance from the manipulator’s end effector to the target object in 
+    the polar coordinate system. The collected data is updated in real-time on the OLED screen to aid user operations. 
+    The accuracy is effectively controlled within 3 mm, meeting precision requirements.
+\end{itemize}
+Due to the lack of a proper spatial coordinate detection system for the manipulator’s end effector, a closed-loop system has not 
+been established in this project. The primary improvement task is to construct a closed-loop system, with the core technology 
+being the determination of the end effector’s three-dimensional coordinates. Feasible solutions include:
+\begin{itemize}
+    \item Integration of Acceleration Data from MPU6050 \\
+    The MPU6050 sensor detects acceleration along three axes. Integrating acceleration twice over time theoretically yields 
+    displacement along these axes, which can further be used to derive spatial position coordinates. However, this approach 
+    has limitations. Despite compensating for errors and drift, the results from double integration will rapidly accumulate 
+    over time. Thus, relying solely on MPU6050 cannot provide accurate coordinate information for precise feedback in a 
+    closed-loop system.
+    \item Adding a Two-Degree-of-Freedom Gimbal at the End-Effector \\
+    By attaching a gimbal with two degrees of freedom to the end-effector, the ultrasonic sensor can rotate vertically to face 
+    three mutually perpendicular walls in the operating environment. The gimbal’s motor angles will be derived based on the 
+    MPU6050’s orientation angles, ensuring that the ultrasonic sensor measures distances along the coordinate axes. However, 
+    this approach assumes a workspace shaped like a rectangular prism with at least three perpendicular solid walls.
+    \item Visual Processing Using Computer Vision \\
+    Employing visual processing techniques, such as using cameras to track the sensor’s end effector, can derive distances 
+    and further calculate coordinates based on phase focusing algorithms.
+\end{itemize}
+Among the three methods, the second approach has relatively low costs and minimal implementation difficulty. Once the 
+end effector’s coordinates are obtained, combining them with the MPU6050’s orientation data allows for closed-loop control 
+feedback. Additionally, considering that the MPU6050 performs best in low-temperature environments, measures such as 
+chip cooling are necessary.
 
 % change to new page
 \newpage
