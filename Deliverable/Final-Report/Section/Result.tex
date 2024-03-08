@@ -28,12 +28,14 @@ The strength analysis conducted using ANSYS has yielded the following results.
         \label{fig:stress}
     \end{figure}
 \end{itemize}
+
 The results indicate that Maximum stress is concentrated on the elastic sheet of the manipulator near the 
 connector, which suggests that this is the most likely location for failure under the current design and 
 loading conditions. The maximum von Mises stress did not exceed the typical yield strength of 65Mn alloy 
 teel, indicating that the arm would return to its original shape after the removal of the load and there is 
 no potential risk of plastic deformation or failure. This enhances the arm's reliability and extends its 
-operational lifespan. \\
+operational lifespan. 
+
 Given that the material remains within its elastic limit, the design could potentially be optimized further 
 to reduce weight or increase load capacity. Future work may explore these possibilities while maintaining 
 the safety factors within the design criteria.
@@ -86,7 +88,7 @@ simulation results are shown in Figure \ref{fig:error_analysis}.
     {\centering \textbf{The simulation results of errors against the number of sheets.}}
     \label{fig:error_analysis}
 \end{figure}
-\noindent As illustrated in Figure \ref{fig:error_analysis}, the changing trends of both absolute and 
+As illustrated in Figure \ref{fig:error_analysis}, the changing trends of both absolute and 
 relative errors are almost identical since 
 the relative error is proportional to the absolute error, and the different lines with different colors represent 
 the data with different bending angles whose range is from 10 degrees to 90 degrees in both directions (positive 
@@ -127,7 +129,7 @@ parameter H will be discussed separately, aiming to segment the appropriate cubi
     \label{fig:ws_diff}
 \end{figure}
 \vspace{-5mm}
-\noindent As shown in Figure \ref{fig:ws_10000}, the working space of manipulator forms a spherical shell-shaped 
+As shown in Figure \ref{fig:ws_10000}, the working space of manipulator forms a spherical shell-shaped 
 point cloud consisting of 10000 floating points since the simulation index is 10000, which is insufficient to fully 
 occupied the theoretical workspace. To further generalize the theoretical workspace, it is necessary to increase 
 the simulation index. The appropriate workspace should be divided from the workspace whose index is 1000000. 
@@ -152,7 +154,7 @@ the simulation index. The appropriate workspace should be divided from the works
     \label{fig:ws_300_350}
 \end{figure}
 \vspace{-5mm}
-\noindent Comparing the simulation results illustrated in Figure \ref{fig:ws_300_350}, it can be observed that the upper 
+Comparing the simulation results illustrated in Figure \ref{fig:ws_300_350}, it can be observed that the upper 
 area of the segmented cubic workspace whose H=350mm failed to be occupied. However, the segmented cubic workspace 
 whose H=300mm is almost fully occupied. To determine threshold of parameter H, a series of yellow detection points 
 are utilized to test whether specific locations in the workspace can be reached. A programme is utilized to calculate 
@@ -169,13 +171,12 @@ detection points, facilitating subsequent explanations.
     \label{fig:top_view}
 \end{figure}
 \vspace{-5mm}
-\noindent While H=300 mm, The heights of the first, second, third, and fourth layers are 300 mm, 400 mm, 500 mm, and 600 mm, 
+While H=300 mm, The heights of the first, second, third, and fourth layers are 300 mm, 400 mm, 500 mm, and 600 mm, 
 respectively. As the second and third layers are situated in the middle, theoretically all detection points on 
 these two layers are reachable. Therefore, the mean and variance of distances to these points can be calculated. 
 Combined with a normal distribution whose $\mu = 0$, a threshold is set to be 99.7\% of the data are within 3 
 standard deviations of the mean can be derived to determine whether detection points on the first and fourth 
-layers are reachable. The threshold $\tau$ can be calculated in Equation \ref{eq:threshold_reachable}. \\
-\vspace{-5mm}
+layers are reachable. The threshold $\tau$ can be calculated in Equation \ref{eq:threshold_reachable}. 
 \begin{align}
     &\bar{d}_{2,3} = \sum_{i=2}^3 \sum_{j=1}^9 d_{ij,min} \nonumber \\
     &\sigma_{2,3}=\sqrt{\dfrac{1}{n}\times\sum_{i=1}^n(d_i-\bar{d})^2} \nonumber \\
@@ -224,6 +225,7 @@ are illustrated in Figures \ref{fig:matlab_240}, \ref{fig:matlab_260}, \ref{fig:
     \end{longtable}
 \end{center}
 \vspace{-5mm}
+
 As shown in Table \ref{tab:threshold_and_reachability}, setting H to 240 mm achieves better reachability, 
 which is more reasonable compared to other scenarios. Additionally, to obtain a more accurate threshold, 
 multiple tests or experimenting with a greater number of simulation indices can be undertaken to reduce random 
@@ -240,24 +242,30 @@ Firstly, the bending of individual modules was tested as the target for the IK s
 IK algorithm was tested for different angles of bending for Modules 1, 2, 3, and 4, and the 
 specific results are presented in Table \ref{tab:single_posture_IK} in Appendix \ref{append:table}. The 
 solutions of the Modules 3 and 4 were highly satisfactory, with Module 3 even converging to an error of 0.02 mm 
-in 6 epochs. However, the results of the Modules 1 and 2 were unsatisfactory, which were caused by inappropriate 
+in 6 epochs. 
+
+However, the results of the Modules 1 and 2 were unsatisfactory, which were caused by inappropriate 
 initialization. According to the flowchart in Figure \ref{fig:flowchart}, the IK algorithm requires an 
 initialization to start iterations. Take the example of the target with 
 $\boldsymbol{\alpha} = [0,\ 90,\ 0,\ 0]\degree$, after initializing with the initial posture in Figure 
 \ref{fig:kinematics model 0_0_0_0} and applying the IK algorithm for iterations, the first iteration yielded 
 a posture with 
 $\boldsymbol{\theta} = [-0.0,\ 104.04,\ -0.0,\ -22.0]\degree$. Moreover, since each iteration starts from Module 4, 
-the error in Module 4 cannot be eliminated. To mitigate this effect, selecting a more suitable posture for 
+the error in Module 4 cannot be eliminated. 
+
+To mitigate this effect, selecting a more suitable posture for 
 initialization is crucial. If the posture used for initialization with 
 $\boldsymbol{\alpha} = [0,\ 100,\ 0,\ 0]\degree$, the solution of the IK algorithm would change to 
 $\boldsymbol{\theta} = [-0.0,\ 81.77,\ -0.0,\ 9.3]\degree$. Nevertheless, due to errors generated by the 
 iteration sequence, complete elimination remains challenging, and efforts were make to minimize the error to the 
-greatest extent possible.  \\
+greatest extent possible.  
+
 Afterwards, the complex bending angles of modules was utilized as the target to investigate the influences of initialization. 
 The target with angles $\boldsymbol{\alpha} = [80,\ 120,\ -120,\ 90]\degree$ was selected because its solution is complex, 
 and it lies within the workspace of manipulator. The posture of the manipulator is shown in Figure 
 \ref{fig:complex_target}. This scenario is likely to occur in practical applications and necessitates resolution 
-through relevant methods. \\
+through relevant methods. 
+
 With the initialization using the initial posture, the solution was 
 $\boldsymbol{\theta} = [-8.88, -89.99, -126.81, -169.73]\degree$, which is shown in Figure \ref{fig:complex_init_0_0_0_0}. 
 However, the solution of IK algorithm was $\boldsymbol{\theta} = [84.98,\ 122.93,\ -114.9,\ 63.01]\degree$, 
@@ -294,14 +302,15 @@ IK algorithm. This proved to be highly beneficial for trajectory replication.
     \label{fig:80_120_-120_90_diff_initial}
 \end{figure}
 \vspace{-5mm}
-\noindent With the initialization using the initial posture, the solution was $\boldsymbol{\theta}$ = 
+With the initialization using the initial posture, the solution was $\boldsymbol{\theta}$ = 
 [-8.88, -89.99, -126.81, -169.73]$\degree$, which is shown in Figure \ref{fig:complex_init_0_0_0_0}. 
 However, the solution of IK algorithm was $\boldsymbol{\theta} = [84.98,\ 122.93,\ -114.9,\ 63.01]\degree$, 
 which is significantly close to the target while the angles for initialization were $[85,\ 125,\ -115,\ 55]\degree$. 
 The solution of the IK algorithm with more appropriate initialization is shown in Figure 
 \ref{fig:complex_init_85_125_-115_55}. This signifies that if the manipulator is presently in a posture similar 
 to the target configuration, it can accurately determine the corresponding bending angles $\boldsymbol{\theta}$ through the 
-IK algorithm. This proved to be highly beneficial for trajectory replication. \\
+IK algorithm. This proved to be highly beneficial for trajectory replication.
+
 Ultimately, The efficient computational capability of algorithm is one of its strengths. The algorithm only 
 took 1.905 seconds to complete 10,000 epochs updating. In practical applications, it requires only 200 epochs 
 to determine convergence. In comparison to traditional methods like inverse Jacobian \cite{inverse_jacobian}, 
@@ -317,7 +326,8 @@ initialization in trajectory replication. In this phase, a comparison of differe
 highlight the benefits of incorporating genetic method in trajectory replication and planning for the IK 
 algorithm. Subsequently, the genetic method and IK algorithm are employed to 
 replicate two types of trajectories: arc segments and closed paths. This section will analyze the genetic 
-method and these two trajectories, elucidating the strengths and weaknesses of inverse kinematics algorithm. \\
+method and these two trajectories, elucidating the strengths and weaknesses of inverse kinematics algorithm. 
+
 The blue trajectory in Figure \ref{fig:genetic_approach} is the target trajectory, which bending from 
 $\boldsymbol{\alpha} = [0,\ 0,\ 0,\ 0]$ to $\boldsymbol{\alpha} = [20,\ 20,\ 20,\ 20]$ equally in 20 steps. 
 The red and purple trajectories are the replications using consistent initialization method and the genetic 
@@ -334,7 +344,7 @@ other targets. The data of trajectories in Figure \ref{fig:genetic_approach} is 
     \label{fig:genetic_approach}
 \end{figure}
 \vspace{-5mm}
-\noindent The replicated trajectories of both target trajectories closely align, but there exists a certain degree of error. 
+The replicated trajectories of both target trajectories closely align, but there exists a certain degree of error. 
 This discrepancy was attributed to the inclusion of the error threshold $\boldsymbol{\epsilon}$ set at 0.02 in the 
 programme, allowing for computational efficiency while maintaining accuracy. However, when dealing with significantly 
 larger angular deviations, instances may arise where the replicated trajectories failed to precisely match the 
@@ -368,7 +378,7 @@ about the trajectory replication were calculated in Table \ref{tab:traj_average_
 \begin{figure}[H] % figure
     \centering 
     \captionsetup{labelsep=colon}
-    \includegraphics[width=1.0\textwidth]{Image/Result/cross_trajectory_replication_with_label.png} 
+    \includegraphics[width=.9\textwidth]{Image/Result/cross_trajectory_replication.png} 
     \caption[The cross-shaped trajectory and its replication by IK algorithm]
     {\centering \textbf{The cross-shaped trajectory and its replication.}}
     \label{fig:tr_cross}
@@ -376,7 +386,7 @@ about the trajectory replication were calculated in Table \ref{tab:traj_average_
 \begin{figure}[H] % figure
     \centering 
     \captionsetup{labelsep=colon}
-    \includegraphics[width=1.0\textwidth]{Image/Result/circle_trajectory_replication_with_label.png} 
+    \includegraphics[width=.9\textwidth]{Image/Result/circle_trajectory_replication.png} 
     \caption[The closed trajectory and its replication by IK algorithm]
     {\centering \textbf{The closed trajectory and its replication.}}
     \label{fig:clc_cross}
@@ -386,12 +396,14 @@ about the trajectory replication were calculated in Table \ref{tab:traj_average_
 However, it is challenging to calculate certain postures with IK algorithm. A method has 
 been proposed involving continuous posture updating through a factor $f_u$. Nevertheless, this approach 
 lacks systematic validation and is currently feasible only in specific circumstances. Therefore, it is 
-mentioned here solely as a potential solution. \\
+mentioned here solely as a potential solution.
+
 In practical applications, the initialization can be started with a relatively similar posture. 
 In this context, the target where $\boldsymbol{\theta_{target}}$ = 
 [45, 45, -45, -45] $\degree$ and the initialization with $\boldsymbol{\alpha_0}$ = [20, 20, -20, -20] $\degree$ 
 were utilized to exemplify the corresponding calculations. The $\boldsymbol{target}$ is the position and 
-orientation of the manipulator end effector. \\
+orientation of the manipulator end effector.
+
 The current posture with $\boldsymbol{\alpha_0}$  = [20, 20, -20, -20] $\degree$ was used as an initialization 
 for calculations through inverse kinematics algorithm, resulting in the solution $\boldsymbol{\theta_1}$. 
 The difference between $\boldsymbol{\alpha_0}$ and $\boldsymbol{\theta_1}$ was calculated by $f_u = 0.5$ to acquire 
@@ -403,6 +415,7 @@ $\boldsymbol{\alpha_1}$, which is shown in Equation \ref{eq:alpha_0_to_1}.
     = [31.19, 46.63, -34.80, -41.43]\degree
     \label{eq:alpha_0_to_1}
 \end{align}
+
 The $\boldsymbol{\alpha_i}$ can be continuously updated according to the method, which the results yield in Equations 
 \ref{eq:alpha_1_to_2},\ref{eq:alpha_2_to_3}, \ref{eq:alpha_3_to_4}, \ref{eq:alpha_4_to_5}, and \ref{eq:alpha_5_to_6}.
 \begin{align}
@@ -444,7 +457,8 @@ The $\boldsymbol{\alpha_i}$ can be continuously updated according to the method,
     = [44.94, 44.86, -45.47, -44.58]\degree
     \label{eq:alpha_5_to_6}
 \end{align}
-\noindent In addition, another approach involves manually adjusting the manipulator's posture through observation, 
+
+In addition, another approach involves manually adjusting the manipulator's posture through observation, 
 which is relatively straightforward but lacks precision. It is important to note that due to orientation constraints, 
 the sum of angles for modules 1 and 3 and modules 2 and 4 should remain constant during the adjustment process.
 %%%%% ELECTRONIC CONTROL %%%%%
@@ -497,6 +511,7 @@ to reduce the complexity of wiring.
     \end{longtable}
 \end{center}
 \vspace{-15mm}
+
 After connecting the Arduino to the stepper motors as depicted in Figure \ref{fig:circuit_connection}, 
 the programme is ready for execution.
 \begin{figure}[H] % figure
@@ -508,20 +523,23 @@ the programme is ready for execution.
     \label{fig:circuit_connection}
 \end{figure}
 \vspace{-5mm}
-\noindent Users are required to sequentially input eight values of $\Delta S_1 \sim \Delta S_8$ to initiate 
+Users are required to sequentially input eight values of $\Delta S_1 \sim \Delta S_8$ to initiate 
 the corresponding operation of the stepper motor. If the input is less than eight, the control system will 
-not be executed. \\
+not be executed. 
+
 According to Figure \ref{fig:arduino_code_display_1} in Appendix \ref{append:code_display}, the change volume 
 of cables are input into the Arduino program for execution, with the input data series being $\boldsymbol{\Delta S}$ 
 = [0, 0, -8, 8, -15, 15, 65, -65] (mm). The value of $\Delta S_i$ is always in pairs, e.g, two cables controlling 
 the same unit should always have the opposite $\Delta S_i$ value, this is decided by the working principle of the 
 manipulator. After conversion, the corresponding $Step_1 \sim Step_8$ is [0, 0, -521, 521, -978, 978, 4237, -4237] 
 (steps), where the “-” sign represents counterclockwise steps. Afterwards, the stepping can be finished in certain 
-time. The function \emph{Serial.print(motor.currentPosition())} can be utilized to check the steps of motors.\\
+time. The function \emph{Serial.print(motor.currentPosition())} can be utilized to check the steps of motors.
+
 According to Figure \ref{fig:arduino_code_display_2} in Appendix \ref{append:code_display}, result of first testing 
 is demonstrated, with all the motors are working appropriately. In this programme, all floating-point precision 
 is taken to the $10^{-4}$ millimeter while the result printed on the monitor is $10^{-2}$ millimeter, 
-which means that the accuracy of the result is acceptable.\\
+which means that the accuracy of the result is acceptable.
+
 Then, reset the motors, the motors went back to initial condition, which is $Step_1 \sim Step_8=0$. Repeat the 
 motor stepping process, but this time, the motors are starting from a previous location from
 $\boldsymbol{\Delta S_{now}}$ = [0, 0, -8, 8, -15, 15, 65, -65] (mm) to $\boldsymbol{\Delta S_{next}}$ = 
@@ -532,15 +550,18 @@ revolutions each motor rotated in Figure \ref{fig:arduino_code_display_3} in App
 The results are aligned with the calculation. Hence, the actuation control system runs correctly.
 The Arduino programme is updated in GitHub repository in 
 \href{https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/tree/main/Arduino-Simulation}
-{Arduino Simulation}. \\
+{Arduino Simulation}.
+
 Overall, the method of using Arduino to control the stepper motor and drive the manipulator is a feasible solution. 
 Although the initial idea of using simulation software failed to yield satisfying results, the testing outcomes with 
-real components solved this problem.\\
+real components solved this problem.
+
 Additionally, from the perspective of test results, it can be observed that the precision of the stepper motors are 
 very high, which is a great advantage for an open-loop (no feedback) system as it minimizes errors to the greatest 
 extent. In the 28YBJ-48 motor parameter settings, full stepping configuration implies that the motor is divided into 
 2048 steps per revolution. For a rotor driving a cable with a circumference of 31.416 mm, this means a resolution of 
-0.01534 mm per step, which is enough to provide the accuracy required.\\
+0.01534 mm per step, which is enough to provide the accuracy required.
+
 However, at the same time, there are some limitations to consider in this aspect. The most apparent limitation is that 
 when cables wrap around the rotor, it effectively increases the diameter of the rotor, leading to some errors. For a 
 cable with a total length of 68 mm, it can wrap around the rotor twice. Assuming the cable has a thickness of 1 mm, this 
@@ -548,12 +569,14 @@ would introduce a maximum error of approximately $ 31.416 / (31.416 + 2) = 0.05 
 that two layers of cable would perfectly stack on top of each other, this should be considered, because it's a factor 
 that will cause errors. To solve this, an equation relating the length change of cables and the change in diameters 
 should be deduced and applied in the program to minimize the potential error, but due to limited time, this part was 
-not finished.\\
+not finished.
+
 Furthermore, in this programme, only a rough setting for the step speed of the motors has been set. However, for 
 achieving synchronization in starting/ending movement of each unit of the manipulator, more precise mathematical 
 derivations for the speed of motors are required. In the following development process, it would be helpful to 
 associate the speed of stepper motors with the distance to the target position, thereby dynamically setting a 
-speed value for each motor to accomplish this synchronization. \\
+speed value for each motor to accomplish this synchronization.
+
 Ultimately, the input parameters of the control system are $\boldsymbol{\Delta S}$, which consist of eight indices. 
 It is inconvenient for users to input a series of indices. The Arduino programme can be optimized to take the 
 angles $\boldsymbol{\theta}$ as input parameters, which only require the users to input four parameters. The Python 
@@ -574,6 +597,7 @@ In the design of the sensing and control section, the following functionalities 
     the polar coordinate system. The collected data is updated in real-time on the OLED screen to aid user operations. 
     The accuracy is effectively controlled within 3 mm, meeting precision requirements.
 \end{itemize}
+
 Due to the lack of a proper spatial coordinate detection system for the manipulator’s end effector, a closed-loop system has not 
 been established in this project. The primary improvement task is to construct a closed-loop system, with the core technology 
 being the determination of the end effector’s three-dimensional coordinates. Feasible solutions include:
@@ -593,6 +617,7 @@ being the determination of the end effector’s three-dimensional coordinates. F
     Employing visual processing techniques, such as using cameras to track the sensor’s end effector, can derive distances 
     and further calculate coordinates based on phase focusing algorithms.
 \end{itemize}
+
 Among the three methods, the second approach has relatively low costs and minimal implementation difficulty. Once the 
 end effector’s coordinates are obtained, combining them with the MPU6050’s orientation data allows for closed-loop control 
 feedback. Additionally, considering that the MPU6050 performs best in low-temperature environments, measures such as 

@@ -1,0 +1,389 @@
+%%%%% Design %%%%%
+\chapter{Equations and Derivations}
+\label{append:equations}
+\section*{The Equations and Derivations of FK}
+\label{sec:FK}
+\begin{itemize}
+    \item Module 1 \\
+    For Module 1, the RPM $\textbf{P}_{2}^{1}$ with $\alpha_1$ was shown 
+    in Equation \ref{eq:node2_postion_relative}. $R_1$ was the radius of the Module 1 bending curve. The rotational 
+    matrix $\textbf{R}_{1}$ and the APM of $node_1$ $\textbf{P}_{1}^{base}$ were shown in Equation \ref*{eq:module1_node1}.
+    \vspace{-5mm}
+    \begin{align}
+        \textbf{P}_{2}^{1} = 
+        \begin{bmatrix}
+            0 \\
+            (R_1\cdot(1-\cos(\alpha_1)) + d_2\cdot \sin(\alpha_1)) \\
+            (R_1\cdot \sin(\alpha_1) + d_2\cdot \cos(\alpha_1)) \\
+        \end{bmatrix}&
+        \label{eq:node2_postion_relative} \\
+        \nonumber (hint: \ R_1 = {Sr}_1/ &\alpha_1)
+    \end{align}
+    \vspace{-15mm}
+    \begin{align}
+        &\begin{aligned}
+            \textbf{R}_{1} = 
+            \begin{bmatrix}
+                1 & 0 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 1 \\
+            \end{bmatrix}
+            \qquad
+            \textbf{P}_{1}^{base} = 
+            \begin{bmatrix}
+                0 \\ 0 \\ 0\\
+            \end{bmatrix}
+        \end{aligned}
+        \label{eq:module1_node1} 
+    \end{align}
+    According to the Equations \ref{eq:node2_postion_relative} and \ref{eq:module1_node1}, the APM 
+    $\textbf{P}_{2}^{base}$ was calculated in Equation \ref{eq:node2_position_absolute}.
+    \vspace{-5mm}
+    \begin{align}
+        \textbf{P}_{2}^{base} = \textbf{R}_{1} \times \textbf{P}_{2}^{1} + \textbf{P}_{1}^{base}
+        \label{eq:node2_position_absolute}
+    \end{align}
+    \vspace{-15mm}
+    \item Module 2 \\
+    For Module 2, the RPM $\textbf{P}_{3}^{2}$ 
+    with $\alpha_2$ was shown in Equation \ref{eq:node3_postion_relative}. $R_2$ was the radius of the Module 2 bending 
+    curve. The rotational matrix $\textbf{R}_{2}$ and the APM $\textbf{P}_{2}^{base}$ were shown 
+    in Equations \ref*{eq:module2_rotation_matrix} and \ref{eq:node2_position_absolute}.
+    \begin{align}
+        \textbf{P}_{3}^{2} = 
+        \begin{bmatrix}
+            (R_2\cdot(1-\cos(\alpha_2)) + d_3\cdot \sin(\alpha_2)) \\
+            0 \\
+            (R_2\cdot \sin(\alpha_2) + d_3\cdot \cos(\alpha_2)) \\
+        \end{bmatrix}&
+        \label{eq:node3_postion_relative} \\
+        \nonumber (hint: \ R_2 = {Sr}_2/ &\alpha_2)
+    \end{align}
+    \vspace{-15mm}
+    \begin{align}
+        &\begin{aligned}
+            \textbf{R}_{2} = 
+            \begin{bmatrix}
+                1 & 0 & 0 \\
+                0 & \cos(\alpha_1) & \sin(\alpha_1) \\
+                0 & -\sin(\alpha_1) & \cos(\alpha_1) \\
+            \end{bmatrix}
+        \end{aligned}
+        \label{eq:module2_rotation_matrix}
+    \end{align}
+    According to the Equations \ref{eq:node2_position_absolute}, \ref{eq:node3_postion_relative}, and 
+    \ref*{eq:module2_rotation_matrix}, the APM $\textbf{P}_{3}^{base}$ was calculated in Equation \ref{eq:node3_position_absolute}.
+    \vspace{-5mm}
+    \begin{align}
+        \textbf{P}_{3}^{base} = \textbf{R}_{1} \times \textbf{R}_{2} 
+        \times \textbf{P}_{3}^{2} + \textbf{P}_{2}^{base}
+        \label{eq:node3_position_absolute}
+    \end{align}
+    \vspace{-15mm}
+    \item Module 3 \\
+    For Module 3, the RPM $\textbf{P}_{4}^{3}$ with $\alpha_3$ was shown in Equation \ref{eq:node4_postion_relative}. 
+    $R_3$ was the radius of the Module 3 bending curve. The rotational matrix $\textbf{R}_{3}$ and the APM 
+    $\textbf{P}_{3}^{base}$ were shown in Equations \ref*{eq:module3_rotation_matrix} and \ref{eq:node3_position_absolute}.
+    \vspace{-5mm}
+    \begin{align}
+        \textbf{P}_{4}^{3} = 
+        \begin{bmatrix}
+            0 \\
+            (R_3\cdot(1-\cos(\alpha_3)) + d_4\cdot \sin(\alpha_3)) \\
+            (R_3\cdot \sin(\alpha_3) + d_4\cdot \cos(\alpha_3)) \\
+        \end{bmatrix}&
+        \label{eq:node4_postion_relative} \\
+        \nonumber (hint: \ R_3 = {Sr}_3/ &\alpha_3)
+    \end{align}
+    \vspace{-15mm}
+    \begin{align}
+        &\begin{aligned}
+            \textbf{R}_{3} = 
+            \begin{bmatrix}
+                \cos(\alpha_2) & 0 & \sin(\alpha_2) \\
+                0 & 1 & 0 \\
+                -\sin(\alpha_2) & 0 & \cos(\alpha_2) \\
+            \end{bmatrix}
+        \end{aligned}
+        \label{eq:module3_rotation_matrix}
+    \end{align}
+    According to the Equations \ref{eq:node3_position_absolute}, \ref{eq:node4_postion_relative}, and 
+    \ref*{eq:module3_rotation_matrix}, the APM $\textbf{P}_{4}^{base}$ was calculated in Equation \ref{eq:node4_position_absolute}.
+    \vspace{-12mm}
+    \begin{align}
+        \textbf{P}_{4}^{base} = \textbf{R}_{1} \times\textbf{R}_{2} 
+        \times\textbf{R}_{3} \times \textbf{P}_{4}^{3} + \textbf{P}_{3}^{base}
+        \label{eq:node4_position_absolute}
+    \end{align}
+    \vspace{-15mm}
+    \item Module 4 \\
+    In summary, the APM $P_5^{base}$ was calculated in 
+    Equation \ref{eq:node5_position_absolute}. The calculation of $\times\textbf{R}_{4}$ and $\textbf{P}_{5}^{4}$ 
+    was similar to Equations \ref{eq:module2_rotation_matrix} and \ref{eq:node2_position_absolute}.
+    \vspace{-5mm}
+    \begin{align}
+        \textbf{P}_{5}^{base} = \textbf{R}_{1} \times\textbf{R}_{2} \times\textbf{R}_{3} \times\textbf{R}_{4} 
+        \times \textbf{P}_{5}^{4} + \textbf{P}_{4}^{base}
+        \label{eq:node5_position_absolute}
+    \end{align}
+    \vspace{-15mm}
+\end{itemize}
+
+\section*{The Equations and Derivations of IK}
+\label{sec:IK}
+\begin{itemize}
+    \item Initialization \\
+    The manipulator was estimated to stay at the initial position, which is shown in Figure 
+    \ref{fig:kinematics model 0_0_0_0}. Under this circumstance, the nodes $\textbf{node}_{i}$ and 
+    virtual nodes $\textbf{vnode}_{i}$ of the manipulator were listed in Equations \ref{eq:node_initial} and 
+    \ref{eq:virtual_node_initial}. The connector thickness of manipulator was not taken into account in this 
+    demonstration, despite being considered in the programme. The virtual length $\textbf{l}_{i}$ for Module i, which 
+    is the distance from $\textbf{vnode}_{i}$ to $\textbf{node}_{i}$, was derived in Equation \ref{eq:virtual_length}.
+    \vspace{-5mm}
+    \begin{align}
+        & \textbf{node}_{1} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ \end{bmatrix} 
+        \textbf{node}_{2} = \begin{bmatrix} 0 \\ 0 \\ 150 \\ \end{bmatrix} 
+        \textbf{node}_{3} = \begin{bmatrix} 0 \\ 0 \\ 300 \\ \end{bmatrix} 
+        \textbf{node}_{4} = \begin{bmatrix} 0 \\ 0 \\ 450 \\ \end{bmatrix} 
+        \textbf{node}_{5} = \begin{bmatrix} 0 \\ 0 \\ 600 \\ \end{bmatrix} 
+        \label{eq:node_initial} \\
+        &\textbf{vnode}_{1} = \begin{bmatrix} 0 \\ 0 \\ 75 \\ \end{bmatrix} 
+        \textbf{vnode}_{2} = \begin{bmatrix} 0 \\ 0 \\ 225 \\ \end{bmatrix} 
+        \textbf{vnode}_{3} = \begin{bmatrix} 0 \\ 0 \\ 375 \\ \end{bmatrix} 
+        \textbf{vnode}_{4} = \begin{bmatrix} 0 \\ 0 \\ 525 \\ \end{bmatrix} 
+        \label{eq:virtual_node_initial} 
+    \end{align}
+    \vspace{-10mm}
+    \begin{align}
+        &\textbf{l}_{i} = \frac{Sr_i}{\theta_i}\cdot \tan(\theta_i)
+        \quad (hint: \ \textbf{l}_{i} = {Sr}_i/2 \ while \ \theta_i = 0) \label{eq:virtual_length}\\
+        &\textbf{l}_{1} = \textbf{l}_{2} = \textbf{l}_{3} = \textbf{l}_{4} = 75 \ (unit: \ mm) \nonumber
+    \end{align}
+    \item Iteration 1 \\ % ITEM 1
+    The virtual node of Module 4 was derived by $\textbf{O}_{target}$ and $\textbf{P}_{target}$ in Equation 
+    \ref{eq:target_homo}. The virtual node $\textbf{vnode}_{4}$ was derived by Equation \ref{eq:vnode4_origin}.
+    \vspace{-5mm}
+    \begin{align}
+        &\textbf{vnode}_{4}^{'} = \textbf{P}_{target} - \textbf{l}_{4} \cdot \textbf{O}_{target}^{z} \quad 
+        (hint: \ ^{z} \ is \ z-axis \ orientation)
+        \label{eq:vnode4_origin}
+    \end{align}
+    Afterwards, the vector from virtual node of Module 3 to virtual node of Module 4 was derived based on the 
+    positions of $\textbf{vnode}_{3}$ and $\textbf{vnode}_{4}^{'}$. The coordinate of the vector in the orientation 
+    of $\textbf{vnode}_{4}^{'}$ was calculated in Equation \ref{eq:vector_vn3tovn4}. 
+    \vspace{-5mm}
+    \begin{align}
+        &\textbf{vector}_{4} = \textbf{O}_{target} \times (\textbf{vnode}_{4}^{'} - \textbf{vnode}_{3}) 
+        \label{eq:vector_vn3tovn4} 
+    \end{align}
+    The bending angle of Module 4 $\theta_4$ was derived in Equation \ref{eq:theta_4}. The Y-axis directional 
+    component was neglected because Module 4 can only bend in the X-Z plane. The updated length $\textbf{l}_{4}^{update}$ 
+    was calculated according to Equation \ref{eq:virtual_length_4}. Meanwhile, the updated 
+    $\textbf{vnode}_{4}^{update}$ was rederive using $\textbf{l}_{4}^{update}$ in Equation \ref{eq:vnode4_update}. 
+    The $\textbf{node}_4$ was determined based on the orientation of $\textbf{vnode}_{4}^{update}$, 
+    which is $\textbf{O}_{vnode_4}$, in Equation \ref{eq:node4}.
+    \vspace{-5mm}
+    \begin{align}
+        &\theta_4 = -arctan2(\textbf{vector}_{4}^{x},\textbf{vector}_{4}^{z})
+        \label{eq:theta_4} \\
+        &\textbf{l}_{4}^{update} = \frac{Sr_4}{\theta_4}\cdot \tan(\theta_4)
+        \label{eq:virtual_length_4} \\
+        &\textbf{vnode}_{4}^{update} = \textbf{P}_{target} - \textbf{l}_{4}^{update} \cdot \textbf{O}_{target}^{z}
+        \label{eq:vnode4_update} \\
+        &\textbf{O}_{vnode_4} =     
+        \begin{bmatrix}
+            cos(\theta_4) & 0 & sin(\theta_4) \\
+            0 & 1 & 0 \\
+            -sin(\theta_4) & 0 & sin(\theta_4) \\
+        \end{bmatrix}  
+        \times \textbf{O}_{target}
+        \label{eq:orientation_vnode4} \\
+        &\textbf{node}_4 = \textbf{vnode}_{4}^{update} - \textbf{l}_{4}^{update} \cdot \textbf{O}_{vnode_4}^{z}
+        \label{eq:node4} 
+    \end{align}
+    \vspace{-15mm}
+    \item Iteration 2 \\ % ITEM 2
+    The virtual node of Module 3 was derived by $\textbf{O}_{vnode_4}$ and $\textbf{node}_{4}$ in Equations 
+    \ref{eq:orientation_vnode4} and \ref{eq:node4}. The virtual node $\textbf{vnode}_{3}$ was derived by Equation 
+    \ref{eq:vnode3_origin}.
+    \vspace{-5mm}
+    \begin{align}
+        &\textbf{vnode}_{3}^{'} = \textbf{node}_{4} - \textbf{l}_{3} \cdot \textbf{O}_{vnode_4}^{z}
+        \label{eq:vnode3_origin}
+    \end{align}
+    Afterwards, the vector from virtual node of Module 2 to virtual node of Module 3 was derived based on the 
+    positions of $\textbf{vnode}_{2}$ and $\textbf{vnode}_{3}^{'}$. The coordinate of the vector in the orientation 
+    of $\textbf{vnode}_{3}^{'}$ was calculated in Equation \ref{eq:vector_vn2tovn3}. 
+    \vspace{-5mm}
+    \begin{align}
+        &\textbf{vector}_{3} = \textbf{O}_{vnode_3} \times (\textbf{vnode}_{3}^{'} - \textbf{vnode}_{2}) 
+        \label{eq:vector_vn2tovn3} 
+    \end{align}
+    The bending angle of Module 3 $\theta_3$ can be derived in Equation \ref{eq:theta_3}. The X-axis directional 
+    component was neglected because Module 3 can only bend in the Y-Z plane. The updated length $\textbf{l}_{3}^{update}$ 
+    was calculated according to Equation \ref{eq:virtual_length_3}. Meanwhile, the updated 
+    $\textbf{vnode}_{3}^{update}$ was rederived using $\textbf{l}_{3}^{update}$ in Equation \ref{eq:vnode3_update}. 
+    The $\textbf{node}_3$ was determined based on the orientation of $\textbf{vnode}_{3}^{update}$, 
+    which is $\textbf{O}_{vnode_3}$, in Equation \ref{eq:node3}.
+    \vspace{-5mm}
+    \begin{align}
+        &\theta_3 = -arctan2(\textbf{vector}_{3}^{y},\textbf{vector}_{3}^{z})
+        \label{eq:theta_3} \\
+        &\textbf{l}_{3}^{update} = \frac{Sr_3}{\theta_3}\cdot \tan(\theta_3)
+        \label{eq:virtual_length_3} \\
+        &\textbf{vnode}_{3}^{update} = \textbf{node}_{4} - \textbf{l}_{3}^{update} \cdot \textbf{O}_{vnode_4}^{z}
+        \label{eq:vnode3_update} \\
+        &\textbf{O}_{vnode_3} =     
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & cos(\theta_3) & sin(\theta_3) \\
+            0 & -sin(\theta_3) & sin(\theta_3) \\
+        \end{bmatrix}  
+        \times \textbf{O}_{vnode_4}
+        \label{eq:orientation_vnode3} \\
+        &\textbf{node}_3 = \textbf{vnode}_{3}^{update} - \textbf{l}_{3}^{update} \cdot \textbf{O}_{vnode_3}^{z}
+        \label{eq:node3} 
+    \end{align}
+    \vspace{-15mm}
+    \item Iteration 3 \\ % ITEM 3
+    The virtual node of Module 2 was derived by $\textbf{O}_{vnode_3}$ and $\textbf{node}_{3}$ in Equations 
+    \ref{eq:orientation_vnode3} and \ref{eq:node3}. The virtual node $\textbf{vnode}_{2}$ was derived by Equation 
+    \ref{eq:vnode2_origin}.
+    \vspace{-5mm}
+    \begin{align}
+        &\textbf{vnode}_{2}^{'} = \textbf{node}_{3} - \textbf{l}_{2} \cdot \textbf{O}_{vnode_3}^{z}
+        \label{eq:vnode2_origin}
+    \end{align}
+    Afterwards, the vector from virtual node of Module 1 to virtual node of Module 2 was derived based on the 
+    positions of $\textbf{vnode}_{1}$ and $\textbf{vnode}_{2}^{'}$. The coordinate of the vector in the orientation 
+    of $\textbf{vnode}_{2}^{'}$ was calculated in Equation \ref{eq:vector_vn1tovn2}. 
+    \vspace{-5mm}
+    \begin{align}
+        &\textbf{vector}_{2} = \textbf{O}_{vnode_2} \times (\textbf{vnode}_{2}^{'} - \textbf{vnode}_{1}) 
+        \label{eq:vector_vn1tovn2} 
+    \end{align}
+    The bending angle of Module 2 $\theta_2$ was derived in Equation \ref{eq:theta_2}. The Y-axis directional 
+    component was neglected because Module 2 can only bend in the X-Z plane. The updated length $\textbf{l}_{2}^{update}$ 
+    was calculated according to Equation \ref{eq:virtual_length_2}. Meanwhile, the updated 
+    $\textbf{vnode}_{2}^{update}$ was rederived using $\textbf{l}_{2}^{update}$ in Equation \ref{eq:vnode2_update}. 
+    The $\textbf{node}_2$ was determined based on the orientation of $\textbf{vnode}_{2}^{update}$, 
+    which is $\textbf{O}_{vnode_2}$, in Equation \ref{eq:node2}.
+    \vspace{-5mm}
+    \begin{align}
+        &\theta_2 = -arctan2(\textbf{vector}_{2}^{x},\textbf{vector}_{2}^{z})
+        \label{eq:theta_2} \\
+        &\textbf{l}_{2}^{update} = \frac{Sr_2}{\theta_2}\cdot \tan(\theta_2)
+        \label{eq:virtual_length_2} \\
+        &\textbf{vnode}_{2}^{update} = \textbf{node}_{3} - \textbf{l}_{2}^{update} \cdot \textbf{O}_{vnode_3}^{z}
+        \label{eq:vnode2_update} \\
+        &\textbf{O}_{vnode_2} =     
+        \begin{bmatrix}
+            cos(\theta_2) & 0 & sin(\theta_2) \\
+            0 & 1 & 0 \\
+            -sin(\theta_2) & 0 & sin(\theta_2) \\
+        \end{bmatrix}  
+        \times \textbf{O}_{vnode_3}
+        \label{eq:orientation_vnode2} \\
+        &\textbf{node}_2 = \textbf{vnode}_{2}^{update} - \textbf{l}_{2}^{update} \cdot \textbf{O}_{vnode_2}^{z}
+        \label{eq:node2} 
+    \end{align}
+    \vspace{-15mm}
+    \item Iteration 4 \\ % ITEM 4
+    The virtual node of Module 1 was derived by $\textbf{O}_{vnode_2}$ and $\textbf{node}_{2}$ in Equations 
+    \ref{eq:orientation_vnode2} and \ref{eq:node2}. The virtual node $\textbf{vnode}_{1}$ was derived by Equation 
+    \ref{eq:vnode1_origin}.
+    \vspace{-5mm}
+    \begin{align}
+        &\textbf{vnode}_{1}^{'} = \textbf{node}_{2} - \textbf{l}_{1} \cdot \textbf{O}_{vnode_2}^{z}
+        \label{eq:vnode1_origin}
+    \end{align}
+    Afterwards, the coordinate of the vector in the orientation of $\textbf{vnode}_{1}^{'}$ was directly calculated 
+    in Equation \ref{eq:vector_n1tovn1}. This was because the $\textbf{O}_{node_1}^{z}$ must be oriented vertically upward.
+    \vspace{-5mm}
+    \begin{align}
+        &\textbf{vector}_{2} = \textbf{O}_{vnode_1} \times \begin{bmatrix} 0 & 0 & 1 \end{bmatrix} 
+        \label{eq:vector_n1tovn1} 
+    \end{align}
+    The bending angle of Module 1 $\theta_1$ was derived in Equation \ref{eq:theta_1}. The X-axis directional 
+    component was neglected because Module 1 can only bend in the Y-Z plane. The updated length $\textbf{l}_{1}^{update}$ 
+    was calculated according to Equation \ref{eq:virtual_length_1}. Meanwhile, the updated 
+    $\textbf{vnode}_{1}^{update}$ was rederived using $\textbf{l}_{1}^{update}$ in Equation \ref{eq:vnode1_update}. 
+    The $\textbf{node}_1$ was determined based on the orientation of $\textbf{vnode}_{1}^{update}$, 
+    which is $\textbf{O}_{vnode_1}$, in Equation \ref{eq:node1}.
+    \vspace{-5mm}
+    \begin{align}
+        &\theta_1 = -arctan2(\textbf{vector}_{1}^{y},\textbf{vector}_{1}^{z})
+        \label{eq:theta_1} \\
+        &\textbf{l}_{1}^{update} = \frac{Sr_1}{\theta_1}\cdot \tan(\theta_1)
+        \label{eq:virtual_length_1} \\
+        &\textbf{vnode}_{1}^{update} = \textbf{node}_{2} - \textbf{l}_{1}^{update} \cdot \textbf{O}_{vnode_2}^{z}
+        \label{eq:vnode1_update} \\
+        &\textbf{O}_{vnode_1} =     
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & cos(\theta_1) & sin(\theta_1) \\
+            0 & -sin(\theta_1) & sin(\theta_1) \\
+        \end{bmatrix}  
+        \times \textbf{O}_{vnode_2}
+        \label{eq:orientation_vnode1} \\
+        &\textbf{node}_1 = \textbf{vnode}_{1}^{update} - \textbf{l}_{1}^{update} \cdot \textbf{O}_{vnode_1}^{z}
+        \label{eq:node1} 
+    \end{align}
+    \vspace{-15mm}
+\end{itemize}
+
+\section*{The Angular Conversion}
+\label{sec:angle_convert}
+\begin{align}
+    &\begin{aligned}
+        \Delta S_1=(R_1+r_1)\cdot\alpha_1-Sr_1 = \alpha_1\cdot r_1
+    \end{aligned} \nonumber
+    \\
+    &\begin{aligned}
+        \Delta S_2=(R_1-r_1)\cdot\alpha_1-Sr_1 = -\alpha_1\cdot r_1
+    \end{aligned} 
+    \nonumber \\
+    &\begin{aligned} 
+        \Delta S_3=(R_2+r_2)\cdot\alpha_2-Sr_2 = \alpha_2\cdot r_2
+    \end{aligned} \nonumber
+    \\
+    &\begin{aligned}
+        \Delta S_4=(R_2-r_2)\cdot\alpha_2-Sr_2 = -\alpha_2\cdot r_2
+    \end{aligned}
+    \nonumber \\
+    &\begin{aligned}
+        \Delta S_5= \Delta S_1+ (R_3+r_3)\cdot\alpha_3-Sr_3 = \Delta S_1+\alpha_3\cdot r_3
+    \end{aligned} \nonumber
+    \\
+    &\begin{aligned}
+        \Delta S_6= \Delta S_2 + (R_3-r_3)\cdot\alpha_3-Sr_3 = \Delta S_2-\alpha_3\cdot r_3
+    \end{aligned}
+    \nonumber \\
+    &\begin{aligned} 
+        \Delta S_7=\Delta S_3+(R_4+r_4)\cdot\alpha_4-Sr_4 = \Delta S_3+\alpha_4\cdot r_4
+    \end{aligned} \nonumber
+    \\
+    &\begin{aligned}
+        \Delta S_8=\Delta S_4+(R_4-r_4)\cdot\alpha_4-Sr_4 = \Delta S_4-\alpha_4\cdot r_4
+    \end{aligned}
+    \label{eq:deltaS}
+\end{align}
+\begin{align}
+    \boldsymbol{\Delta S} = 
+    \begin{bmatrix}
+        r_1&0&0&0\\
+        -r_1&0&0&0\\
+        0&r_2&0&0\\
+        0&-r_2&0&0\\
+        r_1&0&r_3&0\\
+        -r_1&0&-r_3&0\\
+        0&r_2&0&r_4\\
+        0&-r_2&0&-r_4
+    \end{bmatrix}
+    \times
+    \boldsymbol{\alpha}
+    \label{eq:deltaS_matrix}
+\end{align}
+
+% change to new page
+\newpage

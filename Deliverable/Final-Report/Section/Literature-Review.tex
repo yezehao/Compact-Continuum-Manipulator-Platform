@@ -59,8 +59,7 @@ type for specific applications.
     \multirow{2}{*}{\parbox{15mm}{Series-Parallel}} & 6 & 
     series-parallel duality, &
     flight simulation \cite{flight_simulation}. \\
-    & & & mature kinematics & robocrane \cite{RoboCrane}\\ 
-    & & & algorithm. & \\ 
+    & & & mature algorithm. & robocrane \cite{RoboCrane}\\ 
     Cartesian & PPP & 3 &
     technological maturity, &
     3D-Printing framework \cite{PPP_3Dprint} \\
@@ -96,7 +95,8 @@ type for specific applications.
     \end{longtable}
 \end{center}
 \vspace{-10mm}
-\noindent The distinctive structure of the continuum manipulator imparts to the system with theoretically 
+
+The distinctive structure of the continuum manipulator imparts to the system with theoretically 
 infinite DoF. The characteristic enables the continuum manipulator to navigate through confined spaces 
 or manipulate objects along specific trajectories within the workspace \cite{CR_medical_application,
 soft_review1,soft_review2}. Simultaneously, the continuum robotic
@@ -116,14 +116,17 @@ providing basic insights into their structures as well as discussing their merit
 \subsubsection{Tendon-Driven Robots}
 The arm of the Tendon-Driven robot consists of a backbone, several tendons and disks. The backbone defines the structure and 
 posture of the entire robot arm, while disks define the diameter and divide the robot arm into segments, and tendons are 
-stretched to create deformation and movements of different directions for the robot arm. \\
+stretched to create deformation and movements of different directions for the robot arm. 
+
 Figure \ref{fig:3tendon_1segment_CR} shows only the simplest tenon-driven robots. In practical applications, there 
-may be more than one backbone, and the disks are not necessarily parallel. \\
+may be more than one backbone, and the disks are not necessarily parallel. 
+
 Compared with other continuum robots, one of the most significant advantages of tendon-driven robots is their flexibility. 
 This advantage makes it more effective in performing tasks in complex and restrictive Spaces. In addition, due to the simple 
 components needed to construct the robot, it is easier to meet lightweight design specifications. Moreover, like the 
 concentric-tube continuum robots, tendon-driven continuum robots can be built and designed on a small scale with diameters of 
-below 10 mm \cite{amanov2021tendon}. \\
+below 10 mm \cite{amanov2021tendon}.
+
 However, due to its simple actuating principle, more complex algorithms are needed to control it more accurately. Also, the 
 tendon-driven robots actuate by pulling the tendon, which makes the friction between the tendon and other components inevitable, 
 which will accelerate the wearing speed of the tendon-driven robots.
@@ -147,19 +150,22 @@ forming a rigid-soft coupling structure\cite{fishboneCR}.
     {\centering \textbf{The cable-driven fishbone continuum robot with cable arrangement} \cite{amouri2023bio}.}
     \label{fig:fishboneCR_2023bio}
 \end{figure}
-\noindent According to Figure \ref{fig:fishboneCR_2023bio}, when the different modules are connected, the backbones of the bionic 
+
+According to Figure \ref{fig:fishboneCR_2023bio}, when the different modules are connected, the backbones of the bionic 
 fishbone modules are perpendicular to each other, and finally form a complete main frame of the fishbone robot. Like the 
 tendon-driven robot, the fishbone robot is also controlled by cable, but it is worth noting that each module is controlled 
 by two separate cables. This means that for a fishbone robot composed of n fishbone modules, there are a total of 2n cables 
 controlling the motionof the whole robot. In addition, the planes formed by the two ropes that control each module are 
-perpendicular to each other, so that each section rotates along a plane perpendicular to each other. \\
+perpendicular to each other, so that each section rotates along a plane perpendicular to each other. 
+
 The Figure \ref{fig:fishboneCR_2023bio} shows that because of the numbers of rigid cross-shaped sheets formed a large diameter 
 frame, the structural stability of this kind of robot is very strong. Also, each fishbone unit can provide one DoF, making it 
 easy to reach a very high total DoF. However, due to the multiple-curves deformation trajectory, the fishbone robots are not 
 suitable for situations where strict trajectory is required\cite{fishboneCR}. 
 \subsubsection{Concentric Tube Continuum Robots}
 The concentric tube robots, shaped like retractable walking sticks, consist of many tubes with decreasing diameters. Each tube is 
-nested on top of the previous wider tube.  \\
+nested on top of the previous wider tube.  
+
 The concentric robots are made of two parts: tubes and coaxial actuation units. The tubes are the main structural element of 
 this robot and act as the backbone. The coaxial actuation unit consists of two motors which are responsible for rotation and 
 translation movement respectively. Each tube is actuated by an independent coaxial actuation unit. 
@@ -173,7 +179,8 @@ translation movement respectively. Each tube is actuated by an independent coaxi
 \end{figure}
 \noindent The most significant advantage of this kind of robots is that of all the continuum robots, concentric tube robots have the 
 smallest possible outer diameter and are best suited to work in confined and narrow Spaces. Therefore, it is the ideal choice 
-for surgical operations. \\
+for surgical operations. 
+
 Their disadvantages, on the other hand, are also very evident. Since each tube requires an independent actuation unit, the 
 overall length of the robot cannot be very long, because longer lengths will lead to more tubes, and will lead to more tip 
 position errors.

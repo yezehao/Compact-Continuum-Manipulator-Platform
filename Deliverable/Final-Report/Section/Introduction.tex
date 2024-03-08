@@ -1,25 +1,38 @@
 %%%%% Introduction %%%%%
 \section{Introduction} 
 \subsection{Background}
-This is the background part.
-\subsection{Motivation}
-This is the motivation part.
+Robotic manipulators refer to devices that help operators perform repetitive tasks without direct physical contact at a very 
+fast speed [1]. In the early stages of robotic manipulator development, rigid joint manipulators dominated the field and were 
+mainly used in industrial production to perform simple tasks previously done manually, or being applied in hazardous environments 
+to avoid human casualties. As this technology progressed, various types of manipulators were developed and utilized in different 
+fields. In specific fields such as healthcare [2], precision manufacturing, and searching and rescuing, there are strict 
+requirements for the precision, motion trajectory, and morphology of robotic arms. Thus, continuum manipulators emerged. 
+Their flexible structure allows them to attain any desired posture to reach target positions, making them suitable to operate 
+in complex environments [3]. In recent years, continuum manipulators have been widely applied, saving time and labor costs while 
+reducing potential risks brought about by inaccuracy. 
 
-\subsection{Introduction}
-Continuum robots has emerged and attracted a lot of attention since 2008 \cite{review_2008}. Before that, rigid 
-joint robots were dominating the robotic arm industry. Compared with traditional rigid joint manipulator, continuum 
-robots stand out for their flexible, highly bendable structure and extremely flexible motion performance. The 
-limitations of rigid joint robots have gradually shown up in applications requiring highly detailed operation and 
-in complex or space-limited environments. Thus, the continuum robot was developed and perfected during the years. 
-This new kind of robot not only changes the code of traditional robot design but also demonstrates unprecedented 
-application potential in fields such as exploration industry and medical science \cite{CR_medical_application}. 
-Meanwhile, rigid-flexible-soft coupled continuum robots combine the multiple advantages of the stability of rigid 
-structures, the flexibility of bendable structures, and the compliance of soft structures, and are one of the most 
-promising robots for increasingly complex tasks \cite{fishboneCR}. \\
-With unique bionic structure and motion characteristics, continuum robots provide new possibilities to solve these 
-challenges. \\
-This paper will discuss different types of existing continuum robots and their working principles, advantages, 
-and disadvantages, then propose a proper continuum robot design that can be mainly applied to medical applications.
+\subsection{Motivation}
+Continuum robots have wide applications in the medical field, especially in surgeries requiring extremely high precision and 
+specific postures to complete tasks. They are smaller, more flexible, and can increase the success rate of surgeries while 
+minimizing patient discomfort. 
+
+Among the various surgical operations that continuum manipulators can perform, there is one certain surgery that requires the 
+application of a Focused Ultrasound (FUS) transducer to emit ultrasound waves to penetrate the human skin, then bombard and 
+destroy tumor tissues buried beneath the skin [4]. In the past, manipulators capable of performing this surgery existed, but 
+they were very expensive [5] and not easy for doctors to operate.
+
+This project aims to design a continuum manipulator to manipulate FUS transducers for surgical operations on the skin area 
+of patients. At the same time, it is expected to solve the challenges that previous manipulators were facing, namely:
+Cost: The manipulator designed in this project needs to be manufacturable at an extremely low cost and be easy to mass-produce.
+Reliability: This manipulator needs to operate with high precision, have a wide range of workspace, and be able to handle certain mass 
+loads without causing any damage to itself.
+Simplicity: The manipulator needs to be easy to use.
+
+Objectives
+To design a 4-unit fish-bone continuum manipulator that can be applied in FUS applications, having a workspace of 300x300x300mm. 
+The test and verification are based on Ansys, Matlab, and Arduino simulations. The project starts on 10th Nov. 2023 and will 
+finish on 15th Mar. 2024.
+
 
 % change to new page
 \newpage
