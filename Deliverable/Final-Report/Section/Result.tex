@@ -2,7 +2,7 @@
 \section{Result and Discussion} 
 %%%%% Strength Analysis %%%%%
 \subsection{Strength Analysis}
-\subsubsection{The Result of Strength Analysis \textcolor{red}{Dawei}}
+\subsubsection{The Result of Strength Analysis}
 The strength analysis conducted using ANSYS has yielded the following results.
 \begin{itemize}
     \item Displacement \\
@@ -37,7 +37,7 @@ operational lifespan. \\
 Given that the material remains within its elastic limit, the design could potentially be optimized further 
 to reduce weight or increase load capacity. Future work may explore these possibilities while maintaining 
 the safety factors within the design criteria.
-\subsubsection{Limitaions and Solutions \textcolor{red}{Dawei}}
+\subsubsection{Limitations and Solutions}
 \begin{itemize}
     \item Simplification of the Model \\
     The initial analysis simplified the complex structure of the manipulator by focusing on a single module, 
@@ -60,9 +60,9 @@ the safety factors within the design criteria.
     material selection, redesigning stress-prone areas to reduce concentration points, and introducing preventive 
     maintenance schedules based on predicted failure. \\
     \item Impact of cables \\
-    The analysis did not consider the impact of cable tension on the manipulator 's strength. Cable tension 
+    The analysis did not consider the impact of cable tension on the manipulator's strength. Cable tension 
     can significantly affect the manipulator's mechanical behavior. Neglecting this factor may lead to an 
-    incomplete understanding of the manipulator 's operational capabilities and potential failure modes. \\
+    incomplete understanding of the manipulator's operational capabilities and potential failure modes. \\
     \textbf{Solution}: Future analyses should integrate the effects of cable tension to achieve a more accurate 
     assessment of the manipulator's performance. This could involve modifying the existing model to include 
     boundary conditions that accurately represent the forces exerted by cables under various load scenarios. 
@@ -71,10 +71,9 @@ the safety factors within the design criteria.
     understanding of the manipulator's capabilities, assisting in the design of a more robust and reliable 
     system capable of withstanding the complexities of real-world applications. 
 \end{itemize}
-
 %%%%% Error Analysis %%%%%
-\subsection{Error Analysis of Cross-Shaped Sheets \textcolor{red}{Yuhao}}
-At the early stage of the project, given that the number of cross-shape sheets in each modules may have an 
+\subsection{Error Analysis of Cross-Shaped Sheets}
+At the early stage of the project, given that the number of cross-shape sheets in each module may have an 
 influence on the maximum bending angle $\boldsymbol{\alpha}_{max}$, which is an essential parameter of those which 
 affect the range of working space of the manipulator, hence the number of sheets should be determined by deriving 
 the functions of both absolute error and relative error \cite{fishboneCR} against the number of sheets. The 
@@ -98,7 +97,7 @@ of simulation space given that if the length of manipulator is much longer, the 
 manipulator could not be reached due to the characteristics of the material. Hence, the number of sheets could be 
 assumed to be 10 rather than 15, even though both the errors are smaller when the number of sheets is 15. \\
 %%%%% Workspace Analysis %%%%%
-\subsection{Manipulator Workspace Analysis \textcolor{red}{Yuhao}}
+\subsection{Manipulator Workspace Analysis}
 The workspace simulation of the manipulator has been illustrated since it is important to determine the 
 variables of joints based on the required workspace. The segmented workspace is affected by several aspects, 
 which include the simulation index and the range within the three-dimensional coordinates. The effective workspace 
@@ -106,7 +105,7 @@ of the manipulator is a cubic whose dimension is 300x300x300 (mm). The specific 
 the x and y axes from -150 to 150 mm. Therefore, it is only necessary to determine the range of the workspace 
 along the z-axis. The parameter H, representing the height of the basement of specific workspace, is 
 utilized to determine the range of the workspace along the z-axis. The impacts of different indices and 
-parameter H will be discussed separately, aiming to segment the appropriate cubic worksapce of the manipulator.
+parameter H will be discussed separately, aiming to segment the appropriate cubic workspace of the manipulator.
 \begin{figure}[H] % figure
     \centering 
     \captionsetup{labelsep=colon}
@@ -137,14 +136,14 @@ the simulation index. The appropriate workspace should be divided from the works
     \begin{subfigure}{0.45\textwidth} % subfigure 2
         \centering
         \includegraphics[width=\linewidth]{Image/Result/rect_workspace_1000000_350-650.png}
-        \caption{\centering The cubic workspace of manipulator with index = 1000000 H=350-650mm}
+        \caption{\centering The cubic workspace of manipulator with index = 1000000 H=350-650 mm}
         \label{fig:ws_1000000_350}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth} % subfigure 1
         \centering
         \includegraphics[width=\linewidth]{Image/Result/rect_workspace_1000000_300-600.png}
-        \caption{\centering index = 1000000 H=300-600mm}
+        \caption{\centering index = 1000000 H=300-600 mm}
         \label{fig:ws_10000_300}
     \end{subfigure}
     \caption[The cubic workspace with different segmentation]
@@ -226,34 +225,32 @@ multiple tests or experimenting with a greater number of simulation indices can 
 and systematic errors.
 %%%%% INVERSE KINEMATICS %%%%%
 \subsection{Inverse Kinematics}
-This section will demonstrate the singular posture solution and trajectory replication results of the inverse 
-kinematics algorithm. A comprehensive analysis of its accuracy and computational speed will be conducted, along 
-with a description of its advantages and limitations. To begin with, it is essential to note that using angles 
-as input for the programme is feasible due to the relative complexity of specifying the $\textbf{O}_{target}$ 
-and $\textbf{P}_{target}$, which involves a total of 12 parameters. Moreover, the targets are generated based 
-on angles by forward kinematics algorithm during the test. In essence, there is no substantial distinction 
-between inputting angles and inputting coordinates.
+This section will demonstrate the posture solution of single modules and trajectory replication results 
+obtained through the IK algorithm. An in-depth analysis of accuracy and computational speed will be conducted, 
+along with a discussion of its advantages and limitations. Using angles as input for the programme testing was 
+preferred due to the complexity involved in specifying 12 indices of $\textbf{O}{target}$ and $\textbf{P}{target}$. 
 %%%%% Singular Posture Solution %%%%%
-\subsubsection{Singular Posture Solution \textcolor{red}{Zehao}}
-Firstly, the bending of individual modules was tested as the target for the inverse kinematics solution. The 
-inverse kinematics algorithm was tested for different angles of bending for Module 1, 2, 3, and 4, and the 
+\subsubsection{Posture Solution of Single Module Bending}
+Firstly, the bending of individual modules was tested as the target for the IK solution. The 
+IK algorithm was tested for different angles of bending for Modules 1, 2, 3, and 4, and the 
 specific results are presented in Table \ref{tab:single_posture_IK} in Appendix \ref{append:table}. The 
-solutions about the Modules 3 and 4 are highly satisfactory, with Module 3 even converging to error of 0.02mm 
-in 6 epochs. However, the bending results for Module 1 and 2 are unsatisfied, which is caused by inappropriate 
-initialization. According to the flowchart in Figure \ref{fig:flowchart}, the FABRIKc algorithm requires an 
-initialization to start iterations. Taking the example of the target with 
+solutions of the Modules 3 and 4 were highly satisfactory, with Module 3 even converging to an error of 0.02 mm 
+in 6 epochs. However, the results of the Modules 1 and 2 were unsatisfactory, which were caused by inappropriate 
+initialization. According to the flowchart in Figure \ref{fig:flowchart}, the IK algorithm requires an 
+initialization to start iterations. Take the example of the target with 
 $\boldsymbol{\alpha} = [0,\ 90,\ 0,\ 0]\degree$, after initializing with the initial posture in Figure 
-\ref{fig:kinematics model 0_0_0_0} and applying the FABRIKc algorithm for iterations, the first iteration yields 
+\ref{fig:kinematics model 0_0_0_0} and applying the IK algorithm for iterations, the first iteration yielded 
 a posture with 
-$\boldsymbol{\theta} = [-0.0,\ 104.04,\ -0.0,\ -22.0]\degree$. Moreover, since each iteration starts from Module 4, the error 
-in Module 4 cannot be eliminated and persists. To mitigate this effect, selecting a more suitable posture for 
-initialization is crucial, which can be solved trajectory replication. If the posture used for initialization with 
-$\boldsymbol{\alpha} = [0,\ 100,\ 0,\ 0]\degree$, the solution of inverse kinematics algorithm would be 
-$\boldsymbol{\theta} = [-0.0,\ 81.77,\ -0.0,\ 9.3]\degree$. Nevertheless, due to errors generated by the iteration sequence, 
-complete elimination remains challenging, and efforts are focused on minimizing them as much as possible. \\
-Afterwards, the complex bending angles of modules was utilized to investigate the influences of initialization. 
-The target with angles $\boldsymbol{\alpha} = [80,\ 120,\ -120,\ 90]\degree$ is selected because its solution is complex, and 
-it lies within the workspace of manipulator. The posture of the manipulator is shown in Figure 
+$\boldsymbol{\theta} = [-0.0,\ 104.04,\ -0.0,\ -22.0]\degree$. Moreover, since each iteration starts from Module 4, 
+the error in Module 4 cannot be eliminated. To mitigate this effect, selecting a more suitable posture for 
+initialization is crucial. If the posture used for initialization with 
+$\boldsymbol{\alpha} = [0,\ 100,\ 0,\ 0]\degree$, the solution of the IK algorithm would change to 
+$\boldsymbol{\theta} = [-0.0,\ 81.77,\ -0.0,\ 9.3]\degree$. Nevertheless, due to errors generated by the 
+iteration sequence, complete elimination remains challenging, and efforts were make to minimize the error to the 
+greatest extent possible.  \\
+Afterwards, the complex bending angles of modules was utilized as the target to investigate the influences of initialization. 
+The target with angles $\boldsymbol{\alpha} = [80,\ 120,\ -120,\ 90]\degree$ was selected because its solution is complex, 
+and it lies within the workspace of manipulator. The posture of the manipulator is shown in Figure 
 \ref{fig:complex_target}. This scenario is likely to occur in practical applications and necessitates resolution 
 through relevant methods.
 \begin{figure}[H] % figure
@@ -283,37 +280,35 @@ through relevant methods.
     {\centering \textbf{The inverse kinematics algorithm with different initialization.}}
     \label{fig:80_120_-120_90_diff_initial}
 \end{figure}
-\noindent With the initialization using the initial posture, the solution is 
+\noindent With the initialization using the initial posture, the solution was 
 $\boldsymbol{\theta} = [-8.88, -89.99, -126.81, -169.73]\degree$, which is shown in Figure \ref{fig:complex_init_0_0_0_0}. 
-However, the solution of inverse kinematics algorithm would be $\boldsymbol{\theta} = [84.98,\ 122.93,\ -114.9,\ 63.01]\degree$, 
-which is significantly close to the target while the angles for initialization are $[85,\ 125,\ -115,\ 55]\degree$. 
-The solution of the inverse kinematics with more appropriate initialization is shown in Figure 
+However, the solution of IK algorithm was $\boldsymbol{\theta} = [84.98,\ 122.93,\ -114.9,\ 63.01]\degree$, 
+which is significantly close to the target while the angles for initialization were $[85,\ 125,\ -115,\ 55]\degree$. 
+The solution of the IK algorithm with more appropriate initialization is shown in Figure 
 \ref{fig:complex_init_85_125_-115_55}. This signifies that if the manipulator is presently in a posture similar 
 to the target configuration, it can accurately determine the corresponding bending angles $\boldsymbol{\theta}$ through the 
-inverse kinematics algorithm. This proves to be highly beneficial for trajectory replication. \\
+IK algorithm. This proved to be highly beneficial for trajectory replication. \\
 Ultimately, The efficient computational capability of algorithm is one of its strengths. The algorithm only 
-takes 1.905 seconds to complete 10,000 epochs updating. In practical applications, it requires only 200 epochs 
+took 1.905 seconds to complete 10,000 epochs updating. In practical applications, it requires only 200 epochs 
 to determine convergence. In comparison to traditional methods like inverse Jacobian \cite{inverse_jacobian}, 
-which involve matrix transformations and derivatives, this approach can provide potential solutions in a short 
+which involve matrix transformations and derivatives, this approach provides potential solutions in a short 
 time, addressing the issue of singular points. However, this method has its limitations. In scenarios with 
-multiple segments, the algorithm may introduce significant errors due to the calculation order, and these errors 
-can be challenging to eliminate. The only viable solution is to enhance the algorithm's performance through 
-careful initialization methods.
+multiple segments, the algorithm may introduce significant errors due to the iteration order, and these errors 
+were difficult to be eliminated. The only viable solution is to enhance the algorithm's performance through 
+suitable initialization methods.
 %%%%% Trajectory Replication %%%%%
-\subsubsection{Trajectory Replication \textcolor{red}{Zehao}}
+\subsubsection{Trajectory Replication}
 The preceding discussion has highlighted genetic method, which is utilizing the current posture for 
-initialization in trajectory replication. In this phase, the comparison between consistently utilizing the 
-initial posture for trajectory replication and using the current posture as the initialization aims to 
-highlight the benefits of incorporating genetic method in trajectory replication and planning for the inverse 
-kinematics algorithm. Subsequently, the genetic method and inverse kinematics algorithm are employed to 
+initialization in trajectory replication. In this phase, a comparison of different initializations aimed to 
+highlight the benefits of incorporating genetic method in trajectory replication and planning for the IK 
+algorithm. Subsequently, the genetic method and IK algorithm are employed to 
 replicate two types of trajectories: arc segments and closed paths. This section will analyze the genetic 
 method and these two trajectories, elucidating the strengths and weaknesses of inverse kinematics algorithm. \\
-The blue trajectory displayed in Figure \ref{fig:genetic_approach} is the target trajectory, which bending from 
+The blue trajectory in Figure \ref{fig:genetic_approach} is the target trajectory, which bending from 
 $\boldsymbol{\alpha} = [0,\ 0,\ 0,\ 0]$ to $\boldsymbol{\alpha} = [20,\ 20,\ 20,\ 20]$ equally in 20 steps. 
-The red trajectory represents the replicated trajectory using consistent initialization with the initial 
-posture. The purple trajectory depicts the replicated trajectory using the genetic method with initialization 
-based on the current posture. The trajectory replication using the genetic method is comparatively better 
-aligned with the target. The corrective effectiveness of the genetic algorithm has also been validated for 
+The red and purple trajectories are the replications using consistent initialization method and the genetic 
+initialization method, respectively. The trajectory replication using the genetic method was comparatively better 
+aligned with the target. The corrective effectiveness of the genetic algorithm was validated for 
 other targets. The data of trajectories in Figure \ref{fig:genetic_approach} is listed in Table 
 \ref{tab:trajectory_with_without_genetic}.
 \begin{figure}[H] % figure
@@ -325,11 +320,11 @@ other targets. The data of trajectories in Figure \ref{fig:genetic_approach} is 
     \label{fig:genetic_approach}
 \end{figure}
 \noindent The replicated trajectories of both target trajectories closely align, but there exists a certain degree of error. 
-This discrepancy is attributed to the inclusion of an error threshold $\boldsymbol{\epsilon}$ set at 0.02 in the 
+This discrepancy was attributed to the inclusion of the error threshold $\boldsymbol{\epsilon}$ set at 0.02 in the 
 programme, allowing for computational efficiency while maintaining accuracy. However, when dealing with significantly 
 larger angular deviations, instances may arise where the replicated trajectories failed to precisely match the 
-target trajectories. This situation can be overlooked as it falls beyond the defined workspace. The average errors
-about the trajectory replication are calculated in Table \ref{tab:traj_average_errors}.
+target trajectories. This situation was overlooked as it fell beyond the defined workspace. The average errors
+about the trajectory replication were calculated in Table \ref{tab:traj_average_errors}.
 \begin{center}
     \small
     \begin{longtable}{l l l}
@@ -358,7 +353,7 @@ about the trajectory replication are calculated in Table \ref{tab:traj_average_e
     \centering 
     \captionsetup{labelsep=colon}
     \includegraphics[width=1.0\textwidth]{Image/Result/cross_trajectory_replication_with_label.png} 
-    \caption[The cross-shaped trajectory and its replication by FABRIKc algorithm]
+    \caption[The cross-shaped trajectory and its replication by IK algorithm]
     {\centering \textbf{The cross-shaped trajectory and its replication.}}
     \label{fig:tr_cross}
 \end{figure}
@@ -366,24 +361,24 @@ about the trajectory replication are calculated in Table \ref{tab:traj_average_e
     \centering 
     \captionsetup{labelsep=colon}
     \includegraphics[width=1.0\textwidth]{Image/Result/circle_trajectory_replication_with_label.png} 
-    \caption[The closed trajectory and its replication by FABRIKc algorithm]
+    \caption[The closed trajectory and its replication by IK algorithm]
     {\centering \textbf{The closed trajectory and its replication.}}
     \label{fig:clc_cross}
 \end{figure}
 %%%%% Limitation and Improvement %%%%%
-\subsubsection{Limitation and Improvement \textcolor{red}{Zehao}}
-However, it is challenging to calculate certain postures with inverse kinematics algorithm. A method has 
-been proposed involving continuous position updates through a factor $f_u$. Nevertheless, this approach 
+\subsubsection{Limitation and Improvement}
+However, it is challenging to calculate certain postures with IK algorithm. A method has 
+been proposed involving continuous posture updating through a factor $f_u$. Nevertheless, this approach 
 lacks systematic validation and is currently feasible only in specific circumstances. Therefore, it is 
 mentioned here solely as a potential solution. \\
-In practical applications, the initialization can be started with a relatively similar posture 
-to move the manipulator to the target. In this context, the target where $\boldsymbol{\theta_{target}}$ = 
+In practical applications, the initialization can be started with a relatively similar posture. 
+In this context, the target where $\boldsymbol{\theta_{target}}$ = 
 [45, 45, -45, -45] $\degree$ and the initialization with $\boldsymbol{\alpha_0}$ = [20, 20, -20, -20] $\degree$ 
-is utilized to exemplify the corresponding calculations. The $\boldsymbol{target}$ is the position and 
+were utilized to exemplify the corresponding calculations. The $\boldsymbol{target}$ is the position and 
 orientation of the manipulator end effector. \\
-The current posture with $\boldsymbol{\alpha_0}$  = [20, 20, -20, -20] $\degree$ is used as an initialization 
+The current posture with $\boldsymbol{\alpha_0}$  = [20, 20, -20, -20] $\degree$ was used as an initialization 
 for calculations through inverse kinematics algorithm, resulting in the solution $\boldsymbol{\theta_1}$. 
-The difference between $\boldsymbol{\alpha_0}$ and $\boldsymbol{\theta_1}$ is calculated by $f_u = 0.5$ to acquire 
+The difference between $\boldsymbol{\alpha_0}$ and $\boldsymbol{\theta_1}$ was calculated by $f_u = 0.5$ to acquire 
 $\boldsymbol{\alpha_1}$, which is shown in Equation \ref{eq:alpha_0_to_1}.
 \begin{align}
     &\boldsymbol{\theta_1} = \textbf{FABRIKc}(\boldsymbol{target}, \boldsymbol{\alpha_0}) 
@@ -392,8 +387,8 @@ $\boldsymbol{\alpha_1}$, which is shown in Equation \ref{eq:alpha_0_to_1}.
     = [31.19, 46.63, -34.80, -41.43]\degree
     \label{eq:alpha_0_to_1}
 \end{align}
-Subsequently, this process can be repeated, obtaining $\boldsymbol{\theta_2}$ based on $\boldsymbol{\alpha_1}$ in 
-Equation \ref{eq:alpha_0_to_1} and then updating $\boldsymbol{\alpha_2}$ in Equation \ref{eq:alpha_1_to_2}.
+The $\boldsymbol{\alpha_i}$ can be continuously updated according to the method, which the results yield in Equations 
+\ref{eq:alpha_1_to_2},\ref{eq:alpha_2_to_3}, \ref{eq:alpha_3_to_4}, \ref{eq:alpha_4_to_5}, and \ref{eq:alpha_5_to_6}.
 \begin{align}
     &\boldsymbol{\theta_2} = \textbf{FABRIKc}(\boldsymbol{target}, \boldsymbol{\alpha_1}) 
     = [56.95, 34.48, -56.40, -38.96]\degree \nonumber \\
@@ -401,8 +396,7 @@ Equation \ref{eq:alpha_0_to_1} and then updating $\boldsymbol{\alpha_2}$ in Equa
     = [44.07, 40.56, -45.60, -40.20]\degree
     \label{eq:alpha_1_to_2}
 \end{align}
-The $\boldsymbol{\alpha_i}$ can be continuously updated according to the method, which the results yield in Equations 
-\ref{eq:alpha_2_to_3}, \ref{eq:alpha_3_to_4}, \ref{eq:alpha_4_to_5}, and \ref{eq:alpha_5_to_6}.
+\vspace{-18mm}
 \begin{align}
     &\boldsymbol{\theta_3} = \textbf{FABRIKc}(\boldsymbol{target}, \boldsymbol{\alpha_2}) 
     = [43.64, 51.49, -45.97, -48.84]\degree \nonumber \\
@@ -434,13 +428,13 @@ The $\boldsymbol{\alpha_i}$ can be continuously updated according to the method,
     = [44.94, 44.86, -45.47, -44.58]\degree
     \label{eq:alpha_5_to_6}
 \end{align}
-\noindent In addition, it is possible to manually adjust the manipulator posture visually. While this method is relatively 
-straightforward, it lacks precision. It is important to note that due to orientation constraints, the sum of 
-angles for modules 1 and 3 and modules 2 and 4 should remain constant during the adjustment process.
+\noindent In addition, another approach involves manually adjusting the manipulator's posture through observation, 
+which is relatively straightforward but lacks precision. It is important to note that due to orientation constraints, 
+the sum of angles for modules 1 and 3 and modules 2 and 4 should remain constant during the adjustment process.
 %%%%% ELECTRONIC CONTROL %%%%%
-\subsection{Electroinc Control}
+\subsection{Electronic Control}
 %%%%% Actuation Control %%%%%
-\subsubsection{Actuation Control \textcolor{red}{Yuantong}}
+\subsubsection{Actuation Control}
 Initially, the testing of the results was supposed to be carried out through Proteus simulation. However, 
 it was discovered that during the simulation process in Proteus, the motor components did not function normally, 
 with frequent occurrences of stepping errors. Meanwhile, the simulation could not be completed in real-time 
@@ -450,7 +444,7 @@ to reduce the complexity of wiring.
 \begin{center}
     \small
     \begin{longtable}{c c c c c c c c c}
-    \caption{The Pin Assignment of Stepper Moters.} \label{tab:stepmotor_pin} \\
+    \caption{The Pin Assignment of Stepper Motors.} \label{tab:stepmotor_pin} \\
     \hline \multicolumn{1}{l}{\textbf{Stepper Motor}} & 
     \multicolumn{1}{l}{\textbf{1}} & 
     \multicolumn{1}{l}{\textbf{2}} & 
@@ -515,7 +509,7 @@ $\boldsymbol{\Delta S_{now}}$ = [0, 0, -8, 8, -15, 15, 65, -65] (mm) to $\boldsy
 [33, -33, 16, -16, 0, 0, 10, -10] (mm). The difference $\boldsymbol{\Delta S_{diff}}$ = 
 [33, -33, 24, -24, 15, -15, -55, 55] (mm), while the steps for motors are 
 [2151, -2151, 1565, -1565, 978, -978, -3585, 3585] (steps). The result can be verified by checking how many 
-revolutions each motors rotated in Figure \ref{fig:arduino_code_display_3} in Appendix \ref{append:code_display}.
+revolutions each motor rotated in Figure \ref{fig:arduino_code_display_3} in Appendix \ref{append:code_display}.
 The results are aligned with the calculation. Hence, the actuation control system runs correctly.
 The Arduino programme is updated in GitHub repository in 
 \href{https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/tree/main/Arduino-Simulation}
@@ -523,14 +517,14 @@ The Arduino programme is updated in GitHub repository in
 Overall, the method of using Arduino to control the stepper motor and drive the manipulator is a feasible solution. 
 Although the initial idea of using simulation software failed to yield satisfying results, the testing outcomes with 
 real components solved this problem.\\
-Additionally, from the perspective of test results, it can be observed that the precisions of the stepper motors are 
+Additionally, from the perspective of test results, it can be observed that the precision of the stepper motors are 
 very high, which is a great advantage for an open-loop (no feedback) system as it minimizes errors to the greatest 
 extent. In the 28YBJ-48 motor parameter settings, full stepping configuration implies that the motor is divided into 
-2048 steps per revolution. For a rotor driving a cable with a circumference of 31.416mm, this means a resolution of 
-0.01534mm per step, which is enough to provide the accuracy required.\\
+2048 steps per revolution. For a rotor driving a cable with a circumference of 31.416 mm, this means a resolution of 
+0.01534 mm per step, which is enough to provide the accuracy required.\\
 However, at the same time, there are some limitations to consider in this aspect. The most apparent limitation is that 
 when cables wrap around the rotor, it effectively increases the diameter of the rotor, leading to some errors. For a 
-cable with a total length of 68mm, it can wrap around the rotor twice. Assuming the cable has a thickness of 1mm, this 
+cable with a total length of 68 mm, it can wrap around the rotor twice. Assuming the cable has a thickness of 1 mm, this 
 would introduce a maximum error of approximately $ 31.416 / (31.416 + 2) = 0.05 $. Although in practice, it is unlikely 
 that two layers of cable would perfectly stack on top of each other, this should be considered, because it's a factor 
 that will cause errors. To solve this, an equation relating the length change of cables and the change in diameters 
@@ -542,8 +536,8 @@ derivations for the speed of motors are required. In the following development p
 associate the speed of stepper motors with the distance to the target position, thereby dynamically setting a 
 speed value for each motor to accomplish this synchronization. \\
 Ultimately, the input parameters of the control system are $\boldsymbol{\Delta S}$, which consist of eight indices. 
-It is inconvenient for users to input a series of indices. The Arduino programme can be optimized to taken the 
-angles $\boldsymbol{\theta}$ as input paramters, which only require the users to input four parameters. The Python 
+It is inconvenient for users to input a series of indices. The Arduino programme can be optimized to take the 
+angles $\boldsymbol{\theta}$ as input parameters, which only require the users to input four parameters. The Python 
 version programme is uploaded in the GitHub and ready to be converted into Arduino programme.\\
 \subsubsection{End Effector Information Acquisition and Display \textcolor{red}{Yuehan}}
 

@@ -1,10 +1,10 @@
 %%%%% Design %%%%%
 \section{Design} 
 %%%%% Structural Design %%%%%
-\subsection{Structural Design  \textcolor{red}{Jiachen}}
+\subsection{Structural Design}
 The novel Continuous Six-degree-of-freedom Manipulator introduced in this paper, which corresponds to the scheme design 
 shown in Figure \ref{fig:fishboneCR_2023bio}, belongs to the class of bio-inspired continuum robots \cite{fishboneCR}. 
-In the design process, a nylon cable drive mechanism is emloyed as a substitute for the complex musculature of fish, 
+In the design process, a nylon cable drive mechanism is employed as a substitute for the complex musculature of fish, 
 enabling it to maintain stability while undergoing deformation movements, thus achieving effective deformation motion 
 and controllability. As depicted in Figure \ref{fig:main_components}, the rigid cross-shaped sheets is utilized to mimic 
 the spine and ribs, uniformly arranging these sheets on a rubber pure soft sleeve to replace the spinal joints.
@@ -17,7 +17,7 @@ the spine and ribs, uniformly arranging these sheets on a rubber pure soft sleev
     \label{fig:main_components}
 \end{figure}
 %%%%% Parameter Define %%%%%
-\subsection{Designation and Parameter Definition of Manipulator \textcolor{red}{Jiachen}}
+\subsection{Designation and Parameter Definition of Manipulator}
 The manipulator is composed of four identical modules, each of which can be independently controlled to bend within a 
 two-dimensional space. Each module consists of an elastic sheet and five uniformly arranged cross-shaped sheets, where 
 the rubber pure soft sleeve outside the elastic sheet is interference-fitted with the cross-shaped sheets. The connector 
@@ -26,10 +26,10 @@ are anchored to the connector, driving the end of each manipulator module. By ap
 the elastic sheet can be deflected, thereby achieving a single degree of freedom planar motion at the end of the 
 manipulator module. Since the elastic sheets of the modules are transversely mounted, the deflection of two or more 
 sheets simultaneously allows for spatial motion at the end of the manipulator, as shown in Figure \ref{fig:main_components}. 
-Overall, the proposed manipulator comprises two segments, each maintaining a constant length of 675mm and a weight of 
-88 grams. Each module contains five cross-shaped sheets with a circumferential radius of 20mm and a thickness of 1.5mm. 
+Overall, the proposed manipulator comprises two segments, each maintaining a constant length of 675 mm and a weight of 
+88 grams. Each module contains five cross-shaped sheets with a circumferential radius of 20 mm and a thickness of 1.5 mm. 
 Both the head and the tail of each segment are connected by connectors, which have the same circumferential radius as 
-the cross-shaped sheet and a thickness of 15mm. \\
+the cross-shaped sheet and a thickness of 15 mm. \\
 The definition of manipulator parameters is presented in Table \ref{tab:parameter_name}. The subsequent sections 
 will adhere to the corresponding naming conventions.
 \begin{center}
@@ -67,7 +67,7 @@ will adhere to the corresponding naming conventions.
     \end{longtable}
 \end{center}
 %%%%% Material Selection %%%%%
-\subsection{Material Selection \textcolor{red}{Jiachen}}
+\subsection{Material Selection}
 The fabrication of the Continuous Six-Degree-of-Freedom Manipulator primarily employs the following methods: Shape 
 Deposition Manufacturing (SDM)\cite{fast_and_robust}, Casting\cite{recipe2015,high_force}, and Multi-material 3D 
 Printing Technologies\cite{evolution2016,3Dprint_design}. By integrating SDM with Casting techniques, it is possible 
@@ -90,7 +90,7 @@ excellent constant curvature characteristics but also higher structural stabilit
 provides a constraint mechanism for the synchronous bending of the driving cables, effectively reducing the impact of 
 external mechanical collisions on the cables \cite{fishboneCR}. Therefore, this unique structural design is a key 
 foundation for achieving high-precision modelling of continuum robots. \\
-In this design, the elastic sheet is combined with the connector by embedding it into a 0.3mm wide slot on the connector 
+In this design, the elastic sheet is combined with the connector by embedding it into a 0.3 mm wide slot on the connector 
 and utilizing an interference fit, a method that eliminates the need for additional fasteners and ensures the structural 
 integrity of the continuum robot during standard operations. Nonetheless, to prevent the robot from separating under 
 extreme overload conditions, special fixing holes were designed on both the elastic sheet and the connector. The 
@@ -117,7 +117,7 @@ Like all continuum robots, the sole drawback of this design is the complexity in
 %%%%% METHODOLOGY %%%%%
 \subsection{Methodology}
 %%%%% Strain Analysis %%%%%
-\subsubsection{Strain Analysis \textcolor{red}{Dawei}}
+\subsubsection{Strain Analysis}
 The objective of the analysis is to determine the mechanical boundaries and failure risks of the manipulator to 
 improve its design for better durability and performance. Using ANSYS, the manipulator was evaluated at its maximum 
 operational angle to understand its behavior under extreme conditions. This revealed specific strength levels of the 
@@ -144,7 +144,7 @@ a constant level, indicating the potential achievement of mesh independence.
     \centering
     \captionsetup{labelsep=colon}
     \includegraphics[width=1.0\textwidth]{Image/Design/mesh_independence.png} 
-    \caption[The mesh independenc table]
+    \caption[The mesh independence table]
     {\centering \textbf{The mesh independenc table.}}
     \label{fig:mesh_indep}
 \end{figure}
@@ -163,10 +163,10 @@ of the model.
     \label{fig:mesh_model}
 \end{figure}
 %%%%% Forward Kinematics %%%%%
-\subsubsection{Forward Kinematics \textcolor{red}{Zehao}}
+\subsubsection{Forward Kinematics}
 The forward kinematics (FK) provided by Zhou et al. \cite{fishboneCR} were solely focused on a single segment 
-with two modules. However, utilizing this FK for calculation became complex while there were four modules in 
-the manipulator. The FK algorithm was rededuced to derive the workspace of the manipulator. \\
+with two modules. However, utilizing the FK algorithm for calculation became complex while there were four modules in 
+the manipulator. The FK algorithm was rederived to generalize the workspace of the manipulator. \\
 The base coordinate system (CS) was established with the centroid of base connector upper surface serving as 
 the origin. The backbones of Module 1 and 3, which are Module (2,2) and (2,1), were parallel to the X-axis 
 of base CS, while the backbones of Module 2 and 4, which are Modules (1,2) and (1,1), were parallel to the 
@@ -214,8 +214,8 @@ illustrated in Figure \ref{fig:kinematics_model_resp}.
     {\centering \textbf{The right angle bending postures of single modules.}}
     \label{fig:kinematics_model_resp}
 \end{figure}
-\noindent The bending angle $\alpha$ was defined to be positive while the module bend toward positive 
-direction of X-axis or Y-axis. Owing to the distinct properties of the four modules, diverse calculation 
+\noindent The bending angle $\alpha$ was defined to be positive while the module bent toward positive 
+direction of the X-axis or Y-axis. Owing to the distinct properties of the four modules, diverse calculation 
 methods were utilized. The Module $i$ has a base node $node_i$ and an end effector node $node_{i+1}$. 
 The position of $node_{i+1}$ in CS whose origin is $node_{i+1}$ was calculated in Equation 
 \ref{eq:node i+1 calculation}.
@@ -225,16 +225,16 @@ The position of $node_{i+1}$ in CS whose origin is $node_{i+1}$ was calculated i
 \end{align}
 \begin{align*}
     &\ \textbf{P}_{i+1}^{base}\text{: The absolute position matrix (APM) of $node_{i+1}$ in the base CS.}\\
-    &\ \textbf{R}_{i}\text{: The rotational matrix tranforms the base CS into CS\textit{i} }\\
+    &\ \textbf{R}_{i}\text{: The rotational matrix transforms the base CS into CS \textit{i} }\\
     &\ \qquad\text{whose origin is $node_i$.}\\
     &\ \textbf{P}_{i+1}^{i}\text{: The relative position matrix (RPM) of $node_{i+1}$ in CS \textit{i}.}\\
     &\ \textbf{P}_{i}^{base}\text{: The absolute position matrix (APM) of $node_{i}$ in the base CS.}
 \end{align*}
 \begin{itemize}
     \item Module 1 \\
-    For Module 1, the RPM of $node_1$ and $node_2$ $\textbf{P}_{2}^{1}$ and $\alpha_1$ was shown 
+    For Module 1, the RPM $\textbf{P}_{2}^{1}$ with $\alpha_1$ was shown 
     in Equation \ref{eq:node2_postion_relative}. $R_1$ was the radius of the Module 1 bending curve. The rotational 
-    matrix $\textbf{R}_{1}$ and the position matrix of $node_1$ $\textbf{P}_{1}^{base}$ were shown in Equation 
+    matrix $\textbf{R}_{1}$ and the APM of $node_1$ $\textbf{P}_{1}^{base}$ were shown in Equation 
     \ref*{eq:module1_node1}.
     \begin{align}
         \textbf{P}_{2}^{1} = 
@@ -270,9 +270,9 @@ The position of $node_{i+1}$ in CS whose origin is $node_{i+1}$ was calculated i
         \label{eq:node2_position_absolute}
     \end{align}
     \item Module 2 \\
-    For Module 2, the relationship between the RPM of $node_2$ and $node_3$ $\textbf{P}_{3}^{2}$ 
-    and $\alpha_2$ is shown in Equation \ref{eq:node3_postion_relative}. $R_2$ is the radius of the Module 2 bending 
-    curve. The rotational matrix $\textbf{R}_{2}$ and the position matrix of $node_2$ $\textbf{P}_{2}^{base}$ are shown 
+    For Module 2, the RPM $\textbf{P}_{3}^{2}$ 
+    with $\alpha_2$ was shown in Equation \ref{eq:node3_postion_relative}. $R_2$ was the radius of the Module 2 bending 
+    curve. The rotational matrix $\textbf{R}_{2}$ and the APM $\textbf{P}_{2}^{base}$ were shown 
     in Equations \ref*{eq:module2_rotation_matrix} and \ref{eq:node2_position_absolute}.
     \begin{align}
         \textbf{P}_{3}^{2} = 
@@ -297,17 +297,17 @@ The position of $node_{i+1}$ in CS whose origin is $node_{i+1}$ was calculated i
         \label{eq:module2_rotation_matrix}
     \end{align}
     According to the Equations \ref{eq:node2_position_absolute}, \ref{eq:node3_postion_relative}, and 
-    \ref*{eq:module2_rotation_matrix}, the position matrix of $node_{3}$ in the base coordinate system 
-    $\textbf{P}_{3}^{base}$ can be calculated in Equation \ref{eq:node3_position_absolute}.
+    \ref*{eq:module2_rotation_matrix}, the APM 
+    $\textbf{P}_{3}^{base}$ was calculated in Equation \ref{eq:node3_position_absolute}.
     \begin{align}
         \textbf{P}_{3}^{base} = \textbf{R}_{1} \times \textbf{R}_{2} 
         \times \textbf{P}_{3}^{2} + \textbf{P}_{2}^{base}
         \label{eq:node3_position_absolute}
     \end{align}
     \item Module 3 \\
-    For Module 3, the relationship between the relative position matrix of $node_3$ and $node_4$ $\textbf{P}_{4}^{3}$ 
-    and $\alpha_3$ is shown in Equation \ref{eq:node4_postion_relative}. $R_3$ is the radius of the Module 3 bending 
-    curve. The rotational matrix $\textbf{R}_{3}$ and the position matrix of $node_3$ $\textbf{P}_{3}^{base}$ are shown 
+    For Module 3, the RPM $\textbf{P}_{4}^{3}$ with $\alpha_3$ was shown in Equation \ref{eq:node4_postion_relative}. 
+    $R_3$ was the radius of the Module 3 bending 
+    curve. The rotational matrix $\textbf{R}_{3}$ and the APM $\textbf{P}_{3}^{base}$ were shown 
     in Equations \ref*{eq:module3_rotation_matrix} and \ref{eq:node3_position_absolute}.
     \begin{align}
         \textbf{P}_{4}^{3} = 
@@ -332,24 +332,23 @@ The position of $node_{i+1}$ in CS whose origin is $node_{i+1}$ was calculated i
         \label{eq:module3_rotation_matrix}
     \end{align}
     According to the Equations \ref{eq:node3_position_absolute}, \ref{eq:node4_postion_relative}, and 
-    \ref*{eq:module3_rotation_matrix}, the position matrix of $node_{4}$ in the base coordinate system 
-    $\textbf{P}_{4}^{base}$ can be calculated in Equation \ref{eq:node4_position_absolute}.
+    \ref*{eq:module3_rotation_matrix}, the APM $\textbf{P}_{4}^{base}$ was calculated in Equation \ref{eq:node4_position_absolute}.
     \begin{align}
         \textbf{P}_{4}^{base} = \textbf{R}_{1} \times\textbf{R}_{2} 
         \times\textbf{R}_{3} \times \textbf{P}_{4}^{3} + \textbf{P}_{3}^{base}
         \label{eq:node4_position_absolute}
     \end{align}
     \item Module 4 \\
-    In summary, the position matrix of $node_5$ in the base coordinate system $P_5^{base}$can be represented by 
+    In summary, the APM $P_5^{base}$ was calculated in 
     Equation \ref{eq:node5_position_absolute}. The calculation of $\times\textbf{R}_{4}$ and $\textbf{P}_{5}^{4}$ 
-    is similar to Equations \ref{eq:module2_rotation_matrix} and \ref{eq:node2_position_absolute}.
+    was similar to Equations \ref{eq:module2_rotation_matrix} and \ref{eq:node2_position_absolute}.
     \begin{align}
         \textbf{P}_{5}^{base} = \textbf{R}_{1} \times\textbf{R}_{2} \times\textbf{R}_{3} \times\textbf{R}_{4} 
         \times \textbf{P}_{5}^{4} + \textbf{P}_{4}^{base}
         \label{eq:node5_position_absolute}
     \end{align}
 \end{itemize}
-Applying the corresponding transformations to the Equation \ref{eq:node i+1 calculation} reveals the patterns shown 
+Applying the corresponding transformations to the Equation \ref{eq:node i+1 calculation} revealed the patterns shown 
 in Equations \ref{eq:nodei+1_position_absolute_minus} and \ref{eq:nodei+1_position_absolute}.
 \begin{align}
     &\textbf{P}_{i+1}^{base} - \textbf{P}_{i}^{base} = \prod_{n=1}^{i}\textbf{R}_{n}\times \textbf{P}_{i+1}^{i} 
@@ -358,15 +357,14 @@ in Equations \ref{eq:nodei+1_position_absolute_minus} and \ref{eq:nodei+1_positi
     \label{eq:nodei+1_position_absolute}
 \end{align}
 %%%%% Inverse Kinematics %%%%%
-\subsubsection{Inverse Kinematics \textcolor{red}{Zehao}}
-The inverse kinematics algorithm is inspired by a rigid manipulator inverse kinematics solver called FABRIK 
+\subsubsection{Inverse Kinematics}
+The inverse kinematics (IK) algorithm was inspired by a rigid manipulator IK solver called FABRIK 
 \cite{fabrik}. W. Zhang et al.\cite{fabrikc} expanded this solver to the continuum manipulator domain. Considering 
-the distinctive nature of the manipulator, adaptations have been implemented to the FABRIKc solver, transforming it 
-into a tailored inverse kinematics algorithm for this particular application. For further elucidation, the inverse 
-kinematics derivation is demostrated using target whose angles $\boldsymbol{target}$ = [0,0,90,0] $\degree$, 
-$\alpha_4 = 0$. The comprehensive process of the first epoch will be elaborated. The iterative procedure of epoch 1 
-is elucidated as follow. Simultaneously, the flowchart of FABRIKc algorithm is shown in Figure \ref{fig:flowchart}. 
-$\boldsymbol{\epsilon}$ is the thershold for \\
+the distinctive nature of the manipulator, adaptations were implemented to the FABRIKc solver, transforming it 
+into a tailored IK algorithm for this particular application. For further elucidation, the IK derivation was 
+demonstrated using a target whose angles $\boldsymbol{target}$ = [0,0,90,0] $\degree$. The comprehensive process 
+of the first epoch will be elaborated as follows. Simultaneously, the flowchart of IK algorithm was shown in 
+Figure \ref{fig:flowchart}.  \\
 \begin{figure}[H]
     \centering
     \captionsetup{labelsep=colon}
@@ -404,13 +402,13 @@ $\boldsymbol{\epsilon}$ is the thershold for \\
         \draw[->]  (success) -- node {conversion}(deltaS);
         \draw[->]  (fail) -- ++(3.0,0) -- node {conversion} ++(0,-10.5) -- (deltaS);
     \end{tikzpicture}
-    \caption[The flow chart of the FABRIKc algorithm]
-    {\centering \textbf{The flow chart of the FABRIKc algorithm.}}
+    \caption[The flow chart of the IK algorithm]
+    {\centering \textbf{The flow chart of the IK algorithm.}}
     \label{fig:flowchart}
 \end{figure}
-\noindent The orientation and position matrices of the target are derived in Equation 
-\ref{eq:target_homo}. These matrices are utilized as the input of the FABRIKc algorithm. The output of the algorithm 
-is a series of bending angles $\boldsymbol{\theta}$.
+\noindent The orientation and position matrices of the target were derived in Equation 
+\ref{eq:target_homo}. These matrices were utilized as the input of the IK algorithm. The output of the algorithm 
+was a series of bending angles $\boldsymbol{\theta}$.
 \begin{align}
     \textbf{O}_{target} = 
     \begin{bmatrix}
@@ -427,20 +425,20 @@ is a series of bending angles $\boldsymbol{\theta}$.
     \end{bmatrix} 
     \label{eq:target_homo} 
 \end{align}
-Additionally, it is essential to introduce a novel concept called "virtual node". This arised from the fact that FABRIK 
+Additionally, it is essential to introduce a novel concept called "virtual node". This raised the fact that FABRIK 
 algorithm was originally designed for rigid manipulators, which implied that continuum manipulators need to be abstracted 
-for modeling purpose. In this content, the module of manipulator are abstracted as a rigid manipulator with two prismatic 
-joints and one revolute joint. The location of the revolute joint serves as the virtual node. \\
+for modeling purpose. In this context, the module of manipulator were abstracted as a rigid manipulator with two prismatic 
+joints and one revolute joint. The location of the revolute joint served as the virtual node. \\
 Subsequently, the forward reaching phase of the FABRIKc algorithm can commence. The calculation which involves four 
-iterations is specified as follow.
+iterations was specified as follows.
 \begin{itemize}
     \item Initialization \\
-    The manipulator is estimated to stay at the initial position, which is shown in Figure 
-    \ref{fig:kinematics model 0_0_0_0}. Under this circumstance, the nodes and virtual nodes of the manipulator 
-    $\textbf{node}_{i}$ and $\textbf{vnode}_{i}$ are listed in Equations \ref{eq:node_initial} and 
-    \ref{eq:virtual_node_initial}. The connector thickness of manipulator are not taken into account in this 
+    The manipulator was estimated to stay at the initial position, which is shown in Figure 
+    \ref{fig:kinematics model 0_0_0_0}. Under this circumstance, the nodes $\textbf{node}_{i}$ and 
+    virtual nodes $\textbf{vnode}_{i}$ of the manipulator were listed in Equations \ref{eq:node_initial} and 
+    \ref{eq:virtual_node_initial}. The connector thickness of manipulator was not taken into account in this 
     demonstration, despite being considered in the programme. The virtual length $\textbf{l}_{i}$ for Module i, which 
-    is the distance from $\textbf{vnode}_{i}$ to $\textbf{node}_{i}$ as well as ${node}_{i+1}$, is derived in Equation 
+    is the distance from $\textbf{vnode}_{i}$ to $\textbf{node}_{i}$, was derived in Equation 
     \ref{eq:virtual_length}.
     \begin{align}
         & \textbf{node}_{1} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ \end{bmatrix} 
@@ -461,25 +459,25 @@ iterations is specified as follow.
         &\textbf{l}_{1} = \textbf{l}_{2} = \textbf{l}_{3} = \textbf{l}_{4} = 75 \ (unit: \ mm) \nonumber
     \end{align}
     \item Iteration 1 \\ % ITEM 1
-    The virtual node of Module 4 can be derived by $\textbf{O}_{target}$ and $\textbf{P}_{target}$ in Equation 
-    \ref{eq:target_homo}. The virtual node $\textbf{vnode}_{4}$ can be derived by Equation \ref{eq:vnode4_origin}.
+    The virtual node of Module 4 was derived by $\textbf{O}_{target}$ and $\textbf{P}_{target}$ in Equation 
+    \ref{eq:target_homo}. The virtual node $\textbf{vnode}_{4}$ was derived by Equation \ref{eq:vnode4_origin}.
     \begin{align}
         &\textbf{vnode}_{4}^{'} = \textbf{P}_{target} - \textbf{l}_{4} \cdot \textbf{O}_{target}^{z} \quad 
         (hint: \ ^{z} \ is \ z-axis \ orientation)
         \label{eq:vnode4_origin}
     \end{align}
-    Afterwards, the vector from virtual node of Module 3 to virtual node of Module 4 can be derived based on the 
+    Afterwards, the vector from virtual node of Module 3 to virtual node of Module 4 was derived based on the 
     positions of $\textbf{vnode}_{3}$ and $\textbf{vnode}_{4}^{'}$. The coordinate of the vector in the orientation 
-    of $\textbf{vnode}_{4}^{'}$ can be calculated in Equation \ref{eq:vector_vn3tovn4}. 
+    of $\textbf{vnode}_{4}^{'}$ was calculated in Equation \ref{eq:vector_vn3tovn4}. 
     \begin{align}
         &\textbf{vector}_{4} = \textbf{O}_{target} \times (\textbf{vnode}_{4}^{'} - \textbf{vnode}_{3}) 
         \label{eq:vector_vn3tovn4} 
     \end{align}
-    The bending angle of Module 4 $\theta_4$ can be derived in Equation \ref{eq:theta_4}. The y-axis directional 
-    component is neglected because Module 4 can only bend in x-z plane. The updated length $\textbf{l}_{4}^{update}$ 
-    can be calculated according to Equation \ref{eq:virtual_length_4}. Meanwhile, the updated 
-    $\textbf{vnode}_{4}^{update}$ can be recalculated using $\textbf{l}_{4}^{update}$ in Equation \ref{eq:vnode4_update}. 
-    The $\textbf{node}_4$ can also be determined based on the orientation of $\textbf{vnode}_{4}^{update}$, 
+    The bending angle of Module 4 $\theta_4$ was derived in Equation \ref{eq:theta_4}. The Y-axis directional 
+    component was neglected because Module 4 can only bend in the X-Z plane. The updated length $\textbf{l}_{4}^{update}$ 
+    was calculated according to Equation \ref{eq:virtual_length_4}. Meanwhile, the updated 
+    $\textbf{vnode}_{4}^{update}$ was rederive using $\textbf{l}_{4}^{update}$ in Equation \ref{eq:vnode4_update}. 
+    The $\textbf{node}_4$ was determined based on the orientation of $\textbf{vnode}_{4}^{update}$, 
     which is $\textbf{O}_{vnode_4}$, in Equation \ref{eq:node4}.
     \begin{align}
         &\theta_4 = -arctan2(\textbf{vector}_{4}^{x},\textbf{vector}_{4}^{z})
@@ -500,25 +498,25 @@ iterations is specified as follow.
         \label{eq:node4} 
     \end{align}
     \item Iteration 2 \\ % ITEM 2
-    The virtual node of Module 3 can be derived by $\textbf{O}_{vnode_4}$ and $\textbf{node}_{4}$ in Equations 
-    \ref{eq:orientation_vnode4} and \ref{eq:node4}. The virtual node $\textbf{vnode}_{3}$ can be derived by Equation 
+    The virtual node of Module 3 was derived by $\textbf{O}_{vnode_4}$ and $\textbf{node}_{4}$ in Equations 
+    \ref{eq:orientation_vnode4} and \ref{eq:node4}. The virtual node $\textbf{vnode}_{3}$ was derived by Equation 
     \ref{eq:vnode3_origin}.
     \begin{align}
         &\textbf{vnode}_{3}^{'} = \textbf{node}_{4} - \textbf{l}_{3} \cdot \textbf{O}_{vnode_4}^{z}
         \label{eq:vnode3_origin}
     \end{align}
-    Afterwards, the vector from virtual node of Module 2 to virtual node of Module 3 can be derived based on the 
+    Afterwards, the vector from virtual node of Module 2 to virtual node of Module 3 was derived based on the 
     positions of $\textbf{vnode}_{2}$ and $\textbf{vnode}_{3}^{'}$. The coordinate of the vector in the orientation 
-    of $\textbf{vnode}_{3}^{'}$ can be calculated in Equation \ref{eq:vector_vn2tovn3}. 
+    of $\textbf{vnode}_{3}^{'}$ was calculated in Equation \ref{eq:vector_vn2tovn3}. 
     \begin{align}
         &\textbf{vector}_{3} = \textbf{O}_{vnode_3} \times (\textbf{vnode}_{3}^{'} - \textbf{vnode}_{2}) 
         \label{eq:vector_vn2tovn3} 
     \end{align}
-    The bending angle of Module 3 $\theta_3$ can be derived in Equation \ref{eq:theta_3}. The x-axis directional 
-    component is neglected because Module 3 can only bend in y-z plane. The updated length $\textbf{l}_{3}^{update}$ 
-    can be calculated according to Equation \ref{eq:virtual_length_3}. Meanwhile, the updated 
-    $\textbf{vnode}_{3}^{update}$ can be recalculated using $\textbf{l}_{3}^{update}$ in Equation \ref{eq:vnode3_update}. 
-    The $\textbf{node}_3$ can also be determined based on the orientation of $\textbf{vnode}_{3}^{update}$, 
+    The bending angle of Module 3 $\theta_3$ can be derived in Equation \ref{eq:theta_3}. The X-axis directional 
+    component was neglected because Module 3 can only bend in the Y-Z plane. The updated length $\textbf{l}_{3}^{update}$ 
+    was calculated according to Equation \ref{eq:virtual_length_3}. Meanwhile, the updated 
+    $\textbf{vnode}_{3}^{update}$ was rederived using $\textbf{l}_{3}^{update}$ in Equation \ref{eq:vnode3_update}. 
+    The $\textbf{node}_3$ was determined based on the orientation of $\textbf{vnode}_{3}^{update}$, 
     which is $\textbf{O}_{vnode_3}$, in Equation \ref{eq:node3}.
     \begin{align}
         &\theta_3 = -arctan2(\textbf{vector}_{3}^{y},\textbf{vector}_{3}^{z})
@@ -539,25 +537,25 @@ iterations is specified as follow.
         \label{eq:node3} 
     \end{align}
     \item Iteration 3 \\ % ITEM 3
-    The virtual node of Module 2 can be derived by $\textbf{O}_{vnode_3}$ and $\textbf{node}_{3}$ in Equations 
-    \ref{eq:orientation_vnode3} and \ref{eq:node3}. The virtual node $\textbf{vnode}_{2}$ can be derived by Equation 
+    The virtual node of Module 2 was derived by $\textbf{O}_{vnode_3}$ and $\textbf{node}_{3}$ in Equations 
+    \ref{eq:orientation_vnode3} and \ref{eq:node3}. The virtual node $\textbf{vnode}_{2}$ was derived by Equation 
     \ref{eq:vnode2_origin}.
     \begin{align}
         &\textbf{vnode}_{2}^{'} = \textbf{node}_{3} - \textbf{l}_{2} \cdot \textbf{O}_{vnode_3}^{z}
         \label{eq:vnode2_origin}
     \end{align}
-    Afterwards, the vector from virtual node of Module 1 to virtual node of Module 2 can be derived based on the 
+    Afterwards, the vector from virtual node of Module 1 to virtual node of Module 2 was derived based on the 
     positions of $\textbf{vnode}_{1}$ and $\textbf{vnode}_{2}^{'}$. The coordinate of the vector in the orientation 
-    of $\textbf{vnode}_{2}^{'}$ can be calculated in Equation \ref{eq:vector_vn1tovn2}. 
+    of $\textbf{vnode}_{2}^{'}$ was calculated in Equation \ref{eq:vector_vn1tovn2}. 
     \begin{align}
         &\textbf{vector}_{2} = \textbf{O}_{vnode_2} \times (\textbf{vnode}_{2}^{'} - \textbf{vnode}_{1}) 
         \label{eq:vector_vn1tovn2} 
     \end{align}
-    The bending angle of Module 2 $\theta_2$ can be derived in Equation \ref{eq:theta_2}. The y-axis directional 
-    component is neglected because Module 2 can only bend in x-z plane. The updated length $\textbf{l}_{2}^{update}$ 
-    can be calculated according to Equation \ref{eq:virtual_length_2}. Meanwhile, the updated 
-    $\textbf{vnode}_{2}^{update}$ can be recalculated using $\textbf{l}_{2}^{update}$ in Equation \ref{eq:vnode2_update}. 
-    The $\textbf{node}_2$ can also be determined based on the orientation of $\textbf{vnode}_{2}^{update}$, 
+    The bending angle of Module 2 $\theta_2$ was derived in Equation \ref{eq:theta_2}. The Y-axis directional 
+    component was neglected because Module 2 can only bend in the X-Z plane. The updated length $\textbf{l}_{2}^{update}$ 
+    was calculated according to Equation \ref{eq:virtual_length_2}. Meanwhile, the updated 
+    $\textbf{vnode}_{2}^{update}$ was rederived using $\textbf{l}_{2}^{update}$ in Equation \ref{eq:vnode2_update}. 
+    The $\textbf{node}_2$ was determined based on the orientation of $\textbf{vnode}_{2}^{update}$, 
     which is $\textbf{O}_{vnode_2}$, in Equation \ref{eq:node2}.
     \begin{align}
         &\theta_2 = -arctan2(\textbf{vector}_{2}^{x},\textbf{vector}_{2}^{z})
@@ -578,24 +576,24 @@ iterations is specified as follow.
         \label{eq:node2} 
     \end{align}
     \item Iteration 4 \\ % ITEM 4
-    The virtual node of Module 1 can be derived by $\textbf{O}_{vnode_2}$ and $\textbf{node}_{2}$ in Equations 
-    \ref{eq:orientation_vnode2} and \ref{eq:node2}. The virtual node $\textbf{vnode}_{1}$ can be derived by Equation 
+    The virtual node of Module 1 was derived by $\textbf{O}_{vnode_2}$ and $\textbf{node}_{2}$ in Equations 
+    \ref{eq:orientation_vnode2} and \ref{eq:node2}. The virtual node $\textbf{vnode}_{1}$ was derived by Equation 
     \ref{eq:vnode1_origin}.
     \begin{align}
         &\textbf{vnode}_{1}^{'} = \textbf{node}_{2} - \textbf{l}_{1} \cdot \textbf{O}_{vnode_2}^{z}
         \label{eq:vnode1_origin}
     \end{align}
-    Afterwards, the coordinate of the vector in the orientation of $\textbf{vnode}_{1}^{'}$ can be directly calculated 
-    in Equation \ref{eq:vector_n1tovn1}. This is because the $\textbf{O}_{node_1}^{z}$ must be oriented vertically upward.
+    Afterwards, the coordinate of the vector in the orientation of $\textbf{vnode}_{1}^{'}$ was directly calculated 
+    in Equation \ref{eq:vector_n1tovn1}. This was because the $\textbf{O}_{node_1}^{z}$ must be oriented vertically upward.
     \begin{align}
         &\textbf{vector}_{2} = \textbf{O}_{vnode_1} \times \begin{bmatrix} 0 & 0 & 1 \end{bmatrix} 
         \label{eq:vector_n1tovn1} 
     \end{align}
-    The bending angle of Module 1 $\theta_1$ can be derived in Equation \ref{eq:theta_1}. The x-axis directional 
-    component is neglected because Module 1 can only bend in y-z plane. The updated length $\textbf{l}_{1}^{update}$ 
-    can be calculated according to Equation \ref{eq:virtual_length_1}. Meanwhile, the updated 
-    $\textbf{vnode}_{1}^{update}$ can be recalculated using $\textbf{l}_{1}^{update}$ in Equation \ref{eq:vnode1_update}. 
-    The $\textbf{node}_1$ can also be determined based on the orientation of $\textbf{vnode}_{1}^{update}$, 
+    The bending angle of Module 1 $\theta_1$ was derived in Equation \ref{eq:theta_1}. The X-axis directional 
+    component was neglected because Module 1 can only bend in the Y-Z plane. The updated length $\textbf{l}_{1}^{update}$ 
+    was calculated according to Equation \ref{eq:virtual_length_1}. Meanwhile, the updated 
+    $\textbf{vnode}_{1}^{update}$ was rederived using $\textbf{l}_{1}^{update}$ in Equation \ref{eq:vnode1_update}. 
+    The $\textbf{node}_1$ was determined based on the orientation of $\textbf{vnode}_{1}^{update}$, 
     which is $\textbf{O}_{vnode_1}$, in Equation \ref{eq:node1}.
     \begin{align}
         &\theta_1 = -arctan2(\textbf{vector}_{1}^{y},\textbf{vector}_{1}^{z})
@@ -616,28 +614,29 @@ iterations is specified as follow.
         \label{eq:node1} 
     \end{align}
 \end{itemize}
-Ultimately, the FABRIKc algorithm initiates the backward reaching phase, which is forward kinematics algorithm. The 
-FABRIKc algorithm inherently guarantees the orientation of manipulator end effector,  with the necessity to account 
-solely for positional errors. The error can be calculated by Equation \ref{eq:error_calculation}.
+Ultimately, the FABRIKc algorithm initiated the backward reaching phase, which is the FK algorithm. The 
+FABRIKc algorithm inherently guaranteed the orientation of manipulator's end effector,  with the necessity to account 
+solely for positional errors. The error was calculated by Equation \ref{eq:error_calculation}.
 \begin{align}
     \textbf{e} = \lVert\textbf{P}_{target} - \textbf{P}_{\boldsymbol{theta}}\rVert
     \label{eq:error_calculation}
 \end{align}
-For the first epoch, the results of FABRIKc algorithm are 
+For the first epoch, the results of IK algorithm were
 $\boldsymbol{\theta} = [6.71,\ -0.0,\ 83.29,\ -0.0]\degree $, 
-The error of the first epoch is 33.77506. The results about FABRIKc algorithm with the target angle 
+The error of the first epoch was 33.77506. The results about IK algorithm with the target angle 
 $\boldsymbol{\alpha} = [0,\ 0,\ 90,\ 0] $ are shown in Table \ref{tab:fabrikc_0_0_90_0} 
-in Appendix \ref{append:table}. The algorithm has been configured to execute a maximum of 200 epochs, with 
+in Appendix \ref{append:table}. The algorithm was configured to execute a maximum of 200 epochs, with 
 the provision to pause when the error reaches a sufficiently low level, thereby conserving computational resources. 
-The maximum epoch number is defined as ${epo}_{max}$. The error margin is $\boldsymbol{\epsilon}$.
+The maximum epoch number was defined as ${Epoch}_{max}$.
 %%%%% Angular Conversion %%%%%
-\subsubsection{Angular Conversion \textcolor{red}{Yuhao}}
-The Arduino programme utilize $\boldsymbol{\Delta S}$ as input to control the motors. However, the solutions of inverse 
-kinematics algorithm are $\boldsymbol{\theta}$, which are angles. It is vital to convert angles $\boldsymbol{\theta}$ 
-into $\boldsymbol{\Delta S}$. The variables $R_1$, $R_2$, and $R_3$ are mentioned in Equations 
+\subsubsection{Angular Conversion}
+The Arduino programme utilized $\boldsymbol{\Delta S}$ as input to control the motors. However, the solutions of IK 
+algorithm are $\boldsymbol{\theta}$, which are angles. It is vital to convert angles $\boldsymbol{\theta}$ 
+into $\boldsymbol{\Delta S}$. The variables $R_1$, $R_2$, and $R_3$ were mentioned in Equations 
 \ref{eq:node2_postion_relative}, \ref{eq:node3_postion_relative}, and \ref{eq:node4_postion_relative}, while 
-$R_4 = {Sr}_4/ \alpha_4$. The relationship between $\boldsymbol{\theta}$ and $\boldsymbol{\Delta S}$ is shown in 
-Equations \ref{eq:deltaS_12}, \ref{eq:deltaS_34}, \ref{eq:deltaS_56}, \ref{eq:deltaS_78}.
+$R_4 = {Sr}_4/ \alpha_4$. The relationship between $\boldsymbol{\theta}$ and $\boldsymbol{\Delta S}$ was shown in 
+Equations \ref{eq:deltaS_12}, \ref{eq:deltaS_34}, \ref{eq:deltaS_56}, \ref{eq:deltaS_78}. The relationship can be 
+further generalized into matrix in Equation \ref{eq:deltaS_matrix} for Python programme.
 \begin{align}
     &\begin{aligned}
         \Delta S_1=(R_1+r_1)\cdot\alpha_1-Sr_1 = \alpha_1\cdot r_1
@@ -672,7 +671,6 @@ Equations \ref{eq:deltaS_12}, \ref{eq:deltaS_34}, \ref{eq:deltaS_56}, \ref{eq:de
     \end{aligned}
     \label{eq:deltaS_78}
 \end{align}
-The relationship can be further generalized into matrix in Equation \ref{eq:deltaS_matrix} for Python programme.
 \begin{align}
     \boldsymbol{\Delta S} = 
     \begin{bmatrix}
@@ -692,7 +690,7 @@ The relationship can be further generalized into matrix in Equation \ref{eq:delt
 %%%%% ELECTRONIC CONTROL %%%%%
 \subsection{Electronic Control}
 %%%%% Actuation Control %%%%%
-\s\subsubsection{Actuation Control \textcolor{red}{Yuantong}}
+\subsubsection{Actuation Control}
 As mentioned above, the manipulator is divided into four units in total, with each unit being controlled for its 
 bending movements by two cables. This means that the entire manipulator is controlled by a total of 8 cables. How 
 to control the extension and retraction of these 8 cable ropes is the key to the Control part. \\
@@ -703,15 +701,15 @@ are connected to an Arduino board together, and the user can control the program
 \begin{itemize}
     \item Actuation Principle\\
     In this programme, the user inputs the desired length changes for 8 cables $\Delta S_1$ ~ $\Delta S_8$ 
-    ($\Delta S_{1,2,3,4}$ ranging from -36.65mm to 36.65mm, $\Delta S_{5,6,7,8}$ ranging from -68.07 to 68.07mm). 
+    ($\Delta S_{1,2,3,4}$ ranging from -36.65 mm to 36.65 mm, $\Delta S_{5,6,7,8}$ ranging from -68.07 to 68.07 mm). 
     After conversion, it outputs the corresponding step numbers $Step_1$ ~ $Step_8$ for the eight stepper motors. 
-    Based on this, the 8-stepper motors will step the correspondingly. The relationship between the changes in 
+    Based on this, the 8-stepper motors will step correspondingly. The relationship between the changes in 
     cable length and the motor steps can be defined by Equation \ref{eq:step_motor_arduino}. \\
     \begin{align}
         & \qquad\qquad\qquad\qquad Step_i=\frac{(\Delta S_i-\Delta S_{i(prev)})\cdot N}{\pi\cdot d}, \ i\in[1,8] 
         \label{eq:step_motor_arduino} \\
         &\Delta S_{i(prev)} \text{: The length change for $i^{th}$ cable in the previous location.} \nonumber \\
-        &d\text{: The diameter of the rotor. A rotor of diameter 10mm is used currently.} \nonumber \\
+        &d\text{: The diameter of the rotor. A rotor of diameter 10 mm is used currently.} \nonumber \\
         &N\text{: Number of steps/rev. 2048 for 28YBG-48 motor.}\nonumber 
     \end{align}
     \item Component Selection \\
@@ -766,7 +764,7 @@ are connected to an Arduino board together, and the user can control the program
     During the input process, the user can input `clear' instead of numbers to clear all the previous input and 
     start over again from $\Delta S_1$. \\
     Once the input process is complete, the programme converts the $\Delta S_1$~$\Delta S_8$ to $Step_1$ ~ $Step_8$ 
-    based on Equation \ref{eq:step_motor_arduino}, with the $d$ set to 10mm, N set to 2048 steps/rev. The motors 
+    based on Equation \ref{eq:step_motor_arduino}, with the $d$ set to 10 mm, N set to 2048 steps/rev. The motors 
     will start to step immediately after the conversion is finished. \\
     During the stepping process, the motors controlling the first and second unit (the first 4 motors) are set 
     to have a stepping speed of 300 steps/second, and the motors controlling the third and fourth unit 
@@ -775,14 +773,14 @@ are connected to an Arduino board together, and the user can control the program
     so that the 4 units can finish moving approximately at the same time. \\
     The programme shall wait until the motors finished stepping. Once the stepping process is finished, the programme 
     asks the user what to do next: reset the motors to initial position or move from the current position to the 
-    next position. If the user chooses to reset the motors, all of the motors rotate backwards for same steps. 
+    next position. If the user chooses to reset the motors, all the motors rotate backwards for same steps. 
     However, If the user chooses to let the motors move to a new position, the values for current $\Delta S_1$ ~ 
     $\Delta S_8$ will be stored to variable $\Delta S_{1(prev)}$ ~ $\Delta S_{8(prev)}$. The programme then asks for 
     a new set of $\Delta S_1$ ~ $\Delta S_8$, then calculate the new $Step_1$ ~$Step_8$. Hence, the loop of the 
     programme is closed.
 \end{itemize}
 %%%%% Parameter Input %%%%%
-\subsubsection{Parameter Input by Serial Monitor \textcolor{red}{Yuehan}}
+\subsubsection{Parameter Input by Serial Monitor}
 In the operating logic, the control parameters are inputted through the keyboard to control the motion of the 
 multiple stepper motors. The basic function is to input the steps into the serial monitor through the keyboard 
 of the host computer and the input string will be read by the microcontroller and converted into data, which are 
@@ -812,7 +810,7 @@ the host computer is shown in Figure \ref{fig:cl_input}.
     \label{fig:cl_input_angle}
 \end{figure}
 %%%%% MPU 6050 %%%%%
-\subsubsection{Verification of MPU 6050 \textcolor{red}{Yuehan}}
+\subsubsection{Verification of MPU 6050}
 According to the project content, adding sensors to the end effector to measure its orientation angle and distance 
 from the contact plane can assist the user to carry out more accurate operation. The function of detecting the 
 orientation angle is realised by the MPU6050. \\
@@ -848,14 +846,14 @@ carried out by physical parts and Arduino Mega while the project is in progress.
 an acceptable accuracy and are able to display the corresponding orientation angle on the serial port and 
 OLED screen. 
 %%%%% HC-SR04 %%%%%%
-\subsubsection{Using HC-SR04 to measure distance \textcolor{red}{Yuehan}}
+\subsubsection{Using HC-SR04 to measure distance}
 The HC-SR04 Ultrasonic Sensor uses sonar to determine the distance to an object. It has an ultrasonic 
 transmitter and a receiver module which provides excellent non-contact range detection, high accuracy and 
-stable readings. The measurement range is from 2 - 400 cm. The resolution is 0.3 cm and the measurement angle 
+stable readings. The measurement range is from 2 to 400 cm. The resolution is 0.3 cm and the measurement angle 
 is within 30°. It operates in a process unaffected by sunlight or ferrous materials. \\
-The sensor is triggered by sending a HIGH pulse of 10 microseconds. Previously, the speak gives a short 
+The sensor is triggered by sending a HIGH pulse of 10 microseconds. Previously, the speaker gives a short 
 low-level pulse to ensure that a clean HIGH pulse is obtained. \\
-The basic principle of distance measurement is time of flight (Tof). The formula is as follows.
+The basic principle of distance measurement is Time-of-Flight (ToF). The formula is as follows.
 \begin{align}
     distance = (duration/2) \times v_{sound} \\
     v_{sound} = 343\ m/s = 1/29.1\ cm/us \nonumber
@@ -892,7 +890,7 @@ distance and display acceleration by OLED screen is shown in Figure \ref{fig:cl_
     \label{fig:cl_tof_oled}
 \end{figure}
 %%%%% OLED Screen %%%%%
-\subsubsection{SSD 1306 OLED \textcolor{red}{Yuehan}}
+\subsubsection{SSD 1306 OLED}
 Using SSD 1306 OLED requires calling two libraries, \lstinline{<Adafruit_SSD1306.h>} and 
 \lstinline{<Adafruit_GFX.h>}. \lstinline{<Adafruit_SSD1306.h>} is a dedicated display library for SSD1306 OLED 
 screens. \lstinline{<Adafruit_GFX.h>} library is the common parent graphics library for LCD and OLED screens. \\
