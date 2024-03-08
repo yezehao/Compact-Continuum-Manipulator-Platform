@@ -388,19 +388,16 @@ are connected to an Arduino board together, and the user can control the program
     \vspace{-15mm}
     \item Component Selection \\
     To achieve a successful and precise control functionality, the first thing to do is to select appropriate 
-    components. Below are the main electronic components chosen:
+    components. The list below shows the main electronic components used:
     \begin{itemize}
         \item Arduino Mega 2560 board: \\
-        Because the project requires connecting 8 motors at the same time, the board should have more pins on the 
-        board as well as stronger processing capabilities compared to ordinary boards. Therefore, the Arduino Mega 
-        2560 has been selected. It boasts up to 54 I/O pins and a more powerful processor to allow for better 
-        performance in multitasking operations \cite{arduino_guide}.
+        The Arduino Mega 2560 is the most suitable board since it boasts up to 54 I/O pins and a more powerful 
+        processor to allow for better performance in multitasking operations \cite{arduino_guide}.
         \item 28YBJ-48 stepper motor: \\
-        The 28YBJ-48 stepper motor is currently one of the most commonly used stepper motors on the market. It 
-        operates in two modes: half-step and full-step, corresponding to 4096 steps/rev and 2048 steps/rev 
-        respectively. This high-resolution configuration allows the manipulator to perform high-precision 
-        operations. Additionally, at its rated voltage, it can provide a torque of up to 34Nm, which is more than 
-        sufficient for pulling the cables of a lightweight mechanical arm.
+        The 28YBJ-48 stepper motor is currently one of the most commonly used stepper motors on the market. It is capable to rotate
+         in rather 4096 steps/rev or 2048 steps/rev. This high-resolution configuration allows the 
+        manipulator to perform high-precision operations. Additionally, at its rated voltage, it can provide 
+        a torque of up to 34Nm, which is more than sufficient for pulling the cables of a lightweight manipulator.
         \item ULN 2003A motor control chip: \\
         The motor control chip acts as the brain of the motor, responsible for translating instructions from the 
         Arduino board into operations that the motor can execute. The ULN2003A chip is specifically matched with 
@@ -412,11 +409,10 @@ are connected to an Arduino board together, and the user can control the program
     \item Circuit Schematics \\
     The schematic of the overall circuit for the manipulator actuation control part is shown in 
     Figure \ref{fig:motor_circuit_layout} in Appendix \ref{append:figures}. \\
-    The 8 motors use pin 23-52 on the Arduino Mega 2560 board, and are powered by a 9V battery. The power supply 
-    is in a parallel configuration on a breadboard. The Arduino board is connected to a serial monitor and a 
-    keyboard for state inspection and manual input.
+    The 8 motors use pin 22-52 on the Arduino Mega 2560 board, and are powered by a 9V battery in parallel order. The Arduino 
+    board is connected to a serial monitor and a keyboard for state inspection and manual input.
     \item Programme development \\
-    The main logic framework of the programme has been illustrated by the flowchart shown in Figure \ref{fig:motor_flowchart}.
+    The main logic framework of the programme has been illustrated by the flowchart shown in Figure \ref{fig:motor_flowchart}. 
     \vspace{-5mm}
     \begin{figure}[H] % figure
         \centering 
@@ -428,7 +424,7 @@ are connected to an Arduino board together, and the user can control the program
     \end{figure}
     After the programme starts, the first thing is to declare the variables. $\Delta S_{i(prev)}$, $\Delta S_i$ and 
     $Step_i$ is all set to 0 initially. Then the programme asks the users to input 8 numbers representing the 
-    length change for 8 cables. The 8 values will be assigned to variable $\Delta S_1$ ~ $\Delta S_8$ in order. 
+    length change for 8 cables which will be assigned to variable $\Delta S_1$ ~ $\Delta S_8$ in order. 
     During the input process, the user can input `clear' instead of numbers to clear all the previous input and 
     start over again from $\Delta S_1$. \\
     Once the input process is complete, the programme converts the $\Delta S_1$~$\Delta S_8$ to $Step_1$ ~ $Step_8$ 
@@ -444,7 +440,7 @@ are connected to an Arduino board together, and the user can control the program
     next position. If the user chooses to reset the motors, all the motors rotate backwards for same steps. 
     However, If the user chooses to let the motors move to a new position, the values for current $\Delta S_1$ ~ 
     $\Delta S_8$ will be stored to variable $\Delta S_{1(prev)}$ ~ $\Delta S_{8(prev)}$. The programme then asks for 
-    a new set of $\Delta S_1$ ~ $\Delta S_8$, then calculate the new $Step_1$ ~$Step_8$. Hence, the loop of the 
+    a new set of $\Delta S_1$ ~ $\Delta S_8$, then calculate the new $Step_1$ ~$Step_8$. Hence, the logic loop of the 
     programme is closed.
 \end{itemize}
 %%%%% Parameter Input %%%%%
@@ -453,8 +449,8 @@ In the operating logic, the control parameters are inputted through the keyboard
 multiple stepper motors. The basic function is to input the steps into the serial monitor through the keyboard 
 of the host computer and the input string will be read by the microcontroller and converted into data, which are 
 used as the number of steps of the stepper motor movement. For easy operation and display, the input parameters 
-need to be displayed as text on the screen of the LCD IIC. LCD IIC will be in the form of a 2-line, 16-bit display 
-to show more content. 
+need to be displayed as text on the serial monitor, as well as on the screen of the LCD IIC (when serial monitor is not available). 
+LCD IIC will be in the form of a 2-line, 16-bit display to show more content. 
 
 The logic flowchart of the code to control the motor and LCD IIC by inputting parameters with the serial monitor of 
 the host computer is shown in Figure \ref{fig:cl_input} in Appendix \ref{append:figures}.
@@ -497,18 +493,16 @@ in Figure \ref{fig:cl_angle} in Appendix \ref{append:figures}. In this project, 
 not be acquired and displayed.
 
 Since Proteus does not support dynamic simulation of the MPU6050, the verification of the MPU6050 has been 
-carried out by physical parts and Arduino Mega while the project is in progress. The validation results have 
-an acceptable accuracy and are able to display the corresponding orientation angle on the serial port and 
-OLED screen. 
+carried out by physical components and Arduino Mega while the project is in progress.  
 %%%%% HC-SR04 %%%%%%
 \subsubsection{Using HC-SR04 to measure distance}
 The HC-SR04 Ultrasonic Sensor uses sonar to determine the distance to an object. It has an ultrasonic 
 transmitter and a receiver module which provides excellent non-contact range detection, high accuracy and 
 stable readings. The measurement range is from 2 to 400 cm. The resolution is 0.3 cm and the measurement angle 
-is within 30°. It operates in a process unaffected by sunlight or ferrous materials.
+is within 30°.
 
 The sensor is triggered by sending a HIGH pulse of 10 microseconds. Previously, the speaker gives a short 
-low-level pulse to ensure that a clean HIGH pulse is obtained. 
+low-level pulse to ensure a clean HIGH pulse is obtained. 
 The basic principle of distance measurement is Time-of-Flight (ToF). The formula is as follows.
 \vspace{-10mm}
 \begin{align}
@@ -533,9 +527,8 @@ Using SSD 1306 OLED requires calling two libraries, \lstinline{<Adafruit_SSD1306
 \lstinline{<Adafruit_GFX.h>}. \lstinline{<Adafruit_SSD1306.h>} is a dedicated display library for SSD1306 OLED 
 screens. \lstinline{<Adafruit_GFX.h>} library is the common parent graphics library for LCD and OLED screens. 
 
-The resolution of SSD1306 is 128x64 pixel dot array, SCK is the clock pin, SDA is the data pin, and external 
-power supply and GND are required. Figure \ref{fig:cl_oled} in Appendix \ref{append:figures} is the logic 
-flowchart of the code to control the OLED to display the text content. 
+The resolution of SSD1306 is 128x64 pixel dot array, with clock, data, power pins required. Figure \ref{fig:cl_oled} in 
+Appendix \ref{append:figures} is the logic flowchart of the code to control the OLED to display the text content. 
 \newpage
 
 % change to new page

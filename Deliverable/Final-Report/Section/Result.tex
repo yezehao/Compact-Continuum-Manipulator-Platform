@@ -238,8 +238,7 @@ along with a discussion of its advantages and limitations. Using angles as input
 preferred due to the complexity involved in specifying 12 indices of $\textbf{O}{target}$ and $\textbf{P}{target}$. 
 %%%%% Singular Posture Solution %%%%%
 \subsubsection{Posture Solution of Single Module Bending}
-Firstly, the bending of individual modules was tested as the target for the IK solution. The 
-IK algorithm was tested for different angles of bending for Modules 1, 2, 3, and 4, and the 
+Firstly, the bending postures of each module were tested for the IK solution, and the 
 specific results are presented in Table \ref{tab:single_posture_IK} in Appendix \ref{append:table}. The 
 solutions of the Modules 3 and 4 were highly satisfactory, with Module 3 even converging to an error of 0.02 mm 
 in 6 epochs. 
@@ -248,8 +247,7 @@ However, the results of the Modules 1 and 2 were unsatisfactory, which were caus
 initialization. According to the flowchart in Figure \ref{fig:flowchart}, the IK algorithm requires an 
 initialization to start iterations. Take the example of the target with 
 $\boldsymbol{\alpha} = [0,\ 90,\ 0,\ 0]\degree$, after initializing with the initial posture in Figure 
-\ref{fig:kinematics model 0_0_0_0} and applying the IK algorithm for iterations, the first iteration yielded 
-a posture with 
+\ref{fig:kinematics model 0_0_0_0}, the first iteration of IK yielded a posture with 
 $\boldsymbol{\theta} = [-0.0,\ 104.04,\ -0.0,\ -22.0]\degree$. Moreover, since each iteration starts from Module 4, 
 the error in Module 4 cannot be eliminated. 
 
@@ -309,7 +307,7 @@ which is significantly close to the target while the angles for initialization w
 The solution of the IK algorithm with more appropriate initialization is shown in Figure 
 \ref{fig:complex_init_85_125_-115_55}. This signifies that if the manipulator is presently in a posture similar 
 to the target configuration, it can accurately determine the corresponding bending angles $\boldsymbol{\theta}$ through the 
-IK algorithm. This proved to be highly beneficial for trajectory replication.
+IK algorithm.
 
 Ultimately, The efficient computational capability of algorithm is one of its strengths. The algorithm only 
 took 1.905 seconds to complete 10,000 epochs updating. In practical applications, it requires only 200 epochs 
@@ -317,14 +315,14 @@ to determine convergence. In comparison to traditional methods like inverse Jaco
 which involve matrix transformations and derivatives, this approach provides potential solutions in a short 
 time, addressing the issue of singular points. However, this method has its limitations. In scenarios with 
 multiple segments, the algorithm may introduce significant errors due to the iteration order, and these errors 
-were difficult to be eliminated. The only viable solution is to enhance the algorithm's performance through 
+were difficult to be eliminated. The only approach is to enhance the algorithm's performance through 
 suitable initialization methods.
 %%%%% Trajectory Replication %%%%%
 \subsubsection{Trajectory Replication}
 The preceding discussion has highlighted genetic method, which is utilizing the current posture for 
-initialization in trajectory replication. In this phase, a comparison of different initializations aimed to 
+initialization in IK. In this phase, a comparison of different initializations aimed to 
 highlight the benefits of incorporating genetic method in trajectory replication and planning for the IK 
-algorithm. Subsequently, the genetic method and IK algorithm are employed to 
+algorithm. Subsequently, the IK algorithm with genetic method was employed to 
 replicate two types of trajectories: arc segments and closed paths. This section will analyze the genetic 
 method and these two trajectories, elucidating the strengths and weaknesses of inverse kinematics algorithm. 
 
@@ -346,10 +344,9 @@ other targets. The data of trajectories in Figure \ref{fig:genetic_approach} is 
 \vspace{-5mm}
 The replicated trajectories of both target trajectories closely align, but there exists a certain degree of error. 
 This discrepancy was attributed to the inclusion of the error threshold $\boldsymbol{\epsilon}$ set at 0.02 in the 
-programme, allowing for computational efficiency while maintaining accuracy. However, when dealing with significantly 
+programme, allowing for computational efficiency while maintaining accuracy. However, when dealing with  
 larger angular deviations, instances may arise where the replicated trajectories failed to precisely match the 
-target trajectories. This situation was overlooked as it fell beyond the defined workspace. The average errors
-about the trajectory replication were calculated in Table \ref{tab:traj_average_errors}.
+target trajectories. The average errors about the trajectory replication were calculated in Table \ref{tab:traj_average_errors}.
 \vspace{-5mm}
 \begin{center}
     \small
@@ -405,7 +402,7 @@ were utilized to exemplify the corresponding calculations. The $\boldsymbol{targ
 orientation of the manipulator end effector.
 
 The current posture with $\boldsymbol{\alpha_0}$  = [20, 20, -20, -20] $\degree$ was used as an initialization 
-for calculations through inverse kinematics algorithm, resulting in the solution $\boldsymbol{\theta_1}$. 
+for calculations through IK algorithm, resulting in the solution $\boldsymbol{\theta_1}$. 
 The difference between $\boldsymbol{\alpha_0}$ and $\boldsymbol{\theta_1}$ was calculated by $f_u = 0.5$ to acquire 
 $\boldsymbol{\alpha_1}$, which is shown in Equation \ref{eq:alpha_0_to_1}.
 \begin{align}
@@ -470,7 +467,7 @@ it was discovered that during the simulation process in Proteus, the motor compo
 with frequent occurrences of stepping errors. Meanwhile, the simulation could not be completed in real-time 
 due to the heavy load on the computer CPU. After consideration, the team members purchased a complete set of real 
 components for testing. In the real circuit, the pin that each motor occupies are listed in Table \ref{tab:stepmotor_pin} 
-to reduce the complexity of wiring. 
+. 
 \vspace{-5mm}
 \begin{center}
     \small
@@ -533,12 +530,12 @@ of cables are input into the Arduino program for execution, with the input data 
 the same unit should always have the opposite $\Delta S_i$ value, this is decided by the working principle of the 
 manipulator. After conversion, the corresponding $Step_1 \sim Step_8$ is [0, 0, -521, 521, -978, 978, 4237, -4237] 
 (steps), where the “-” sign represents counterclockwise steps. Afterwards, the stepping can be finished in certain 
-time. The function \emph{Serial.print(motor.currentPosition())} can be utilized to check the steps of motors.
+time. The function \emph{Serial.print(motor.currentPosition())} is utilized to check the steps of motors.
 
 According to Figure \ref{fig:arduino_code_display_2} in Appendix \ref{append:code_display}, result of first testing 
 is demonstrated, with all the motors are working appropriately. In this programme, all floating-point precision 
 is taken to the $10^{-4}$ millimeter while the result printed on the monitor is $10^{-2}$ millimeter, 
-which means that the accuracy of the result is acceptable.
+which ensures that the accuracy of the result is acceptable.
 
 Then, reset the motors, the motors went back to initial condition, which is $Step_1 \sim Step_8=0$. Repeat the 
 motor stepping process, but this time, the motors are starting from a previous location from
@@ -548,32 +545,29 @@ $\boldsymbol{\Delta S_{now}}$ = [0, 0, -8, 8, -15, 15, 65, -65] (mm) to $\boldsy
 [2151, -2151, 1565, -1565, 978, -978, -3585, 3585] (steps). The result can be verified by checking how many 
 revolutions each motor rotated in Figure \ref{fig:arduino_code_display_3} in Appendix \ref{append:code_display}.
 The results are aligned with the calculation. Hence, the actuation control system runs correctly.
-The Arduino programme is updated in GitHub repository in 
-\href{https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/tree/main/Arduino-Simulation}
+The Arduino programme is updated in GitHub repository.
 {Arduino Simulation}.
 
 Overall, the method of using Arduino to control the stepper motor and drive the manipulator is a feasible solution. 
-Although the initial idea of using simulation software failed to yield satisfying results, the testing outcomes with 
-real components solved this problem.
+Although the initial idea of using simulation software failed, the testing outcomes with real components solved this problem.
 
 Additionally, from the perspective of test results, it can be observed that the precision of the stepper motors are 
-very high, which is a great advantage for an open-loop (no feedback) system as it minimizes errors to the greatest 
-extent. In the 28YBJ-48 motor parameter settings, full stepping configuration implies that the motor is divided into 
-2048 steps per revolution. For a rotor driving a cable with a circumference of 31.416 mm, this means a resolution of 
-0.01534 mm per step, which is enough to provide the accuracy required.
+beyond acceptable. In the 28YBJ-48 motor parameter settings, full stepping configuration implies that the motor is divided into 
+2048 steps per revolution. For a rotor with a circumference of 31.416 mm, it provides a resolution of 
+0.01534mm per step, which is more than enough to provide the accuracy required.
 
 However, at the same time, there are some limitations to consider in this aspect. The most apparent limitation is that 
-when cables wrap around the rotor, it effectively increases the diameter of the rotor, leading to some errors. For a 
+when cables wrap around the rotor, it effectively increases the diameter of the rotor, leading to minor errors. For a 
 cable with a total length of 68 mm, it can wrap around the rotor twice. Assuming the cable has a thickness of 1 mm, this 
-would introduce a maximum error of approximately $ 31.416 / (31.416 + 2) = 0.05 $. Although in practice, it is unlikely 
+would introduce a maximum error of approximately $ 31.416 / (31.416 + 2) = 5\% $. Although in practice, it is unlikely 
 that two layers of cable would perfectly stack on top of each other, this should be considered, because it's a factor 
 that will cause errors. To solve this, an equation relating the length change of cables and the change in diameters 
-should be deduced and applied in the program to minimize the potential error, but due to limited time, this part was 
-not finished.
+should be deduced and applied in the programme to minimize the potential error, but due to limited time, this part was 
+not finished. This factor needs to be considered in the further development process.
 
-Furthermore, in this programme, only a rough setting for the step speed of the motors has been set. However, for 
+Furthermore, in this programme, only a rough setup for the stepper motor speed of the motors has been made. In reality, for 
 achieving synchronization in starting/ending movement of each unit of the manipulator, more precise mathematical 
-derivations for the speed of motors are required. In the following development process, it would be helpful to 
+derivations for the motor speed is required. In the following development process, it would be helpful to 
 associate the speed of stepper motors with the distance to the target position, thereby dynamically setting a 
 speed value for each motor to accomplish this synchronization.
 
