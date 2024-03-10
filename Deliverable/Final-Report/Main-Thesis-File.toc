@@ -1,0 +1,55 @@
+~\hfill \textbf {Page}\par 
+\contentsline {chapter}{Abstract}{I}{Doc-Start}%
+\contentsline {chapter}{List of Figures}{II}{Doc-Start}%
+\contentsline {chapter}{List of Tables}{III}{Doc-Start}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.0.1}%
+\contentsline {subsection}{\numberline {1.1}Background}{1}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {1.2}Motivation}{1}{subsection.0.1.2}%
+\contentsline {subsection}{\numberline {1.3}Objective}{2}{subsection.0.1.3}%
+\contentsline {section}{\numberline {2}Literature Review}{3}{section.0.2}%
+\contentsline {subsection}{\numberline {2.1}Manipulators in Biomedical Applications}{3}{subsection.0.2.1}%
+\contentsline {subsection}{\numberline {2.2}Types of Manipulator}{3}{subsection.0.2.2}%
+\contentsline {subsection}{\numberline {2.3}Types of Continuum Robots}{5}{subsection.0.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Tendon-Driven Robots}{5}{subsubsection.0.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Fishbone Robots}{6}{subsubsection.0.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Concentric Tube Continuum Robots}{7}{subsubsection.0.2.3.3}%
+\contentsline {section}{\numberline {3}Design}{8}{section.0.3}%
+\contentsline {subsection}{\numberline {3.1}Structural Design}{8}{subsection.0.3.1}%
+\contentsline {subsection}{\numberline {3.2}Designation and Parameter Definition of Manipulator}{8}{subsection.0.3.2}%
+\contentsline {subsection}{\numberline {3.3}Material Selection}{9}{subsection.0.3.3}%
+\contentsline {subsection}{\numberline {3.4}Methodology}{12}{subsection.0.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Strain Analysis}{12}{subsubsection.0.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Forward Kinematics}{14}{subsubsection.0.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Inverse Kinematics}{16}{subsubsection.0.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Angular Conversion}{18}{subsubsection.0.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Electronic Control}{18}{subsection.0.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Actuation Control}{18}{subsubsection.0.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Parameter Input by Serial Monitor}{22}{subsubsection.0.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Verification of MPU 6050}{22}{subsubsection.0.3.5.3}%
+\contentsline {subsubsection}{\numberline {3.5.4}Using HC-SR04 to measure distance}{23}{subsubsection.0.3.5.4}%
+\contentsline {subsubsection}{\numberline {3.5.5}SSD 1306 OLED}{24}{subsubsection.0.3.5.5}%
+\contentsline {section}{\numberline {4}Result and Discussion}{25}{section.0.4}%
+\contentsline {subsection}{\numberline {4.1}Strength Analysis}{25}{subsection.0.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}The Result of Strength Analysis}{25}{subsubsection.0.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Limitations and Solutions}{26}{subsubsection.0.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Error Analysis of Cross-Shaped Sheets}{28}{subsection.0.4.2}%
+\contentsline {subsection}{\numberline {4.3}Manipulator Workspace Analysis}{29}{subsection.0.4.3}%
+\contentsline {subsection}{\numberline {4.4}Inverse Kinematics}{32}{subsection.0.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Posture Solution of Single Module Bending}{32}{subsubsection.0.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Trajectory Replication}{34}{subsubsection.0.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Limitation and Improvement}{37}{subsubsection.0.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Electronic Control}{38}{subsection.0.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Actuation Control}{38}{subsubsection.0.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Information Acquisition and Display}{41}{subsubsection.0.4.5.2}%
+\contentsline {section}{\numberline {5}Evaluation}{43}{section.0.5}%
+\contentsline {subsection}{\numberline {5.1}Sustainability}{43}{subsection.0.5.1}%
+\contentsline {subsection}{\numberline {5.2}Needs Satisfaction}{44}{subsection.0.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Societal Needs}{44}{subsubsection.0.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}User}{45}{subsubsection.0.5.2.2}%
+\contentsline {section}{\numberline {6}Conclusion}{46}{section.0.6}%
+\contentsline {chapter}{References}{i}{section.0.6}%
+\contentsline {chapter}{\numberline {A}The Appendix of Tables}{viii}{appendix.A}%
+\contentsline {chapter}{\numberline {B}The Code Display}{xiii}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Figures for Illustration}{xvi}{appendix.C}%
+\contentsline {chapter}{\numberline {D}Equations and Derivations}{xx}{appendix.D}%
+\contentsline {chapter}{\numberline {E}Contribution Statement}{xxvii}{appendix.E}%
