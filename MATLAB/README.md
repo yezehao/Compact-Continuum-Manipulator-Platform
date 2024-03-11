@@ -22,8 +22,8 @@ https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/assets/9607857
 
 + `workspace_simulation.m`: The programme is used to segment the cubic workspace of the manipulator whose side length is 300 mm. The generated images are saved as `result/CWS_<index>.png`. The index is the number of random points generated in simualtion.
 <p align="center">
-  <img src="result/useful_boundage_100000.png" width="400" height="300" alt="useful workspace">
-  <img src="result/useful_boundage_100000000.png" width="400" height="300" alt="useful workspace">
+  <img src="result/CWS_100000.png" width="400" height="300" alt="useful workspace">
+  <img src="result/CWS_100000000.png" width="400" height="300" alt="useful workspace">
 </p>
 
 #### 📁 Folder Description
