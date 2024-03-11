@@ -1,4 +1,5 @@
-clear;clc;close all;tic;
+% clear;clc;
+close all;tic;
 %% Parameter Define
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sr: the arc length of the bending curve                                 %
@@ -15,62 +16,62 @@ clear;clc;close all;tic;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 Sr = 150; % The length of each bending unit
 Nu= 4; % The number of units 
-%% Workspace Simulation
-N = [5;5;5;5]; % Number of cross-shaped sheets
-r = [50;50;40;40];
-d = 0.03*Sr*ones(Nu,1);
-% Pre-allocate Memory
-parameter(Nu).n = [];
-parameter(Nu).d = [];
-parameter(Nu).r = [];
-parameter(Nu).R = [];
-parameter(Nu).bend_rad_max = [];
-parameter(Nu).bend_work = [];
-for i = 1:Nu
-    parameter(i).n = N(i,1);
-    parameter(i).d = d(i,1);
-    parameter(i).r = r(i,1);
-    S = parameter(i).n*parameter(i).d;
-    parameter(i).R = Sr*parameter(i).r/(Sr-S);
-    parameter(i).bend_rad_max = Sr/parameter(i).R; % maximum rad of manipulator
-    parameter(i).bend_work = deg2rad(90); % work angle of manipulator
-end
-clearvars S i d r N
-
-index = 10000;
-% Pre-allocate Memory
-position = zeros(3, index);
-coordinate = zeros(3, index);
-for i = 1:index
-    for j = 1:Nu
-        parameter(j).rad = parameter(j).bend_rad_max*(-1+2*rand);
-        angle(j,i) = rad2deg(parameter(j).rad);
-    end
-    node = FK_matrix(parameter,Sr);
-    position(:,i) = node(Nu+1).position;
-    coordinate(:,3*i-2:3*i)= node(Nu+1).coordinate;
-    Angle(i,:) = angle(:,i);
-    % for j = 1:Nu
-    %     parameter(j).rad = parameter(j).bend_work*(-1+2*rand);
-    % end
-    % node = FK_matrix(parameter,Sr);
-    % position(:,i) = node(Nu+1).position;
-    % coordinate(:,3*i-2:3*i)= node(Nu+1).coordinate;
-    if mod(i, 1000) == 0
-        disp(['Iteration: ', num2str(i)]);
-    end
-end
-
-% %% Result Save
-filename = ['(UT)_dataset/Homogeneous_v_position_', num2str(index),'.mat'];
-save(filename,'position','coordinate','Angle','-v7.3');
-
-clearvars i j
+% %% Workspace Simulation
+% N = [5;5;5;5]; % Number of cross-shaped sheets
+% r = [50;50;40;40];
+% d = 0.03*Sr*ones(Nu,1);
+% % Pre-allocate Memory
+% parameter(Nu).n = [];
+% parameter(Nu).d = [];
+% parameter(Nu).r = [];
+% parameter(Nu).R = [];
+% parameter(Nu).bend_rad_max = [];
+% parameter(Nu).bend_work = [];
+% for i = 1:Nu
+%     parameter(i).n = N(i,1);
+%     parameter(i).d = d(i,1);
+%     parameter(i).r = r(i,1);
+%     S = parameter(i).n*parameter(i).d;
+%     parameter(i).R = Sr*parameter(i).r/(Sr-S);
+%     parameter(i).bend_rad_max = Sr/parameter(i).R; % maximum rad of manipulator
+%     parameter(i).bend_work = deg2rad(90); % work angle of manipulator
+% end
+% clearvars S i d r N
+% 
+% index = 10000;
+% % Pre-allocate Memory
+% position = zeros(3, index);
+% coordinate = zeros(3, index);
+% for i = 1:index
+%     for j = 1:Nu
+%         parameter(j).rad = parameter(j).bend_rad_max*(-1+2*rand);
+%         angle(j,i) = rad2deg(parameter(j).rad);
+%     end
+%     node = FK_matrix(parameter,Sr);
+%     position(:,i) = node(Nu+1).position;
+%     coordinate(:,3*i-2:3*i)= node(Nu+1).coordinate;
+%     Angle(i,:) = angle(:,i);
+%     % for j = 1:Nu
+%     %     parameter(j).rad = parameter(j).bend_work*(-1+2*rand);
+%     % end
+%     % node = FK_matrix(parameter,Sr);
+%     % position(:,i) = node(Nu+1).position;
+%     % coordinate(:,3*i-2:3*i)= node(Nu+1).coordinate;
+%     if mod(i, 1000) == 0
+%         disp(['Iteration: ', num2str(i)]);
+%     end
+% end
+% 
+% % %% Result Save
+% filename = ['(UT)_dataset/Homogeneous_v_position_', num2str(index),'.mat'];
+% save(filename,'position','coordinate','Angle','-v7.3');
+% 
+% clearvars i j
 
 %% Result Save
 
-% index = 100000000;
-% load('result/(UT)_dataset/Angle_v_Position_100000000.mat')
+index = 100000000;
+load('(UT)_dataset/Angle_v_Position_100000000.mat')
 
 %% Result Display
 % Plot Entire Workspace
@@ -121,7 +122,7 @@ for i = 1:4
     disp(['Height:',num2str(range(3,1)+100*(i-1)),' mm'])
     disp(distance_min(1,9*i-8:9*i))
 end
-clearvars H element distance KP_vertical KP_horizontal i s
+clearvars H element KP_vertical KP_horizontal i s
 
 %% Execution Time
 T = toc;
