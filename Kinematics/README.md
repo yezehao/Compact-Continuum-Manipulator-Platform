@@ -65,4 +65,5 @@ The program's running results are as follow. The users can select the modes abou
     <img src="../Deliverable/Documentation/code/IK_mode1_enter.png" alt="IK_mode1_enter">
     <img src="../Deliverable/Documentation/code/IK_mode1_output.png" alt="IK_mode1_output">
 </p>
+
 + `trajectory_replication.py`: this programme is used to replicate the trajectory. The user can simply modify the angles in [alpha.txt](circle/alpha.txt). The result is shown at [🤖 Trajectory Replication Display](#-trajectory-replication-display).
