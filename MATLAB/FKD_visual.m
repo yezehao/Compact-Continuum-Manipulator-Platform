@@ -1,4 +1,5 @@
-clear; clc; close all;
+clear; clc; 
+% close all;
 %% Example
 % load tdcr_curve_examples.mat
 % fig3 = draw_tdcr(foursectdcr,[15 30 45 60],segframe=1,baseframe=1);
@@ -6,7 +7,7 @@ clear; clc; close all;
 length_mm = 300;
 Sr=0.5*length_mm; 
 d = 0.015*length_mm;
-angle = [84.98 122.93 -114.9 63.01]';
+angle = [-40 0 40 0]';
 rad = deg2rad(angle);
 for i = 1:4
     % Define the bending angle alpha
@@ -93,6 +94,6 @@ for i = [12, 23, 34, 45]
 end
 
 % Save file
-filename = ['result/manipulator_' num2str(angle(1,1)) '_' num2str(angle(2,1)) '_' ,...
+filename = ['result/V_' num2str(angle(1,1)) '_' num2str(angle(2,1)) '_' ,...
             num2str(angle(3,1)) '_' num2str(angle(4,1)) '.png'];
 saveas(gcf, filename);
