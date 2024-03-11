@@ -31,6 +31,7 @@
 ## 🔗 Quick Links
 
 > - [📍 Overview](#-overview)
+> - [🤖 Demo](#-demo)
 > - [📁 Repository Structure](#-repository-structure)
 > - [🔮 Project Plan](#-project-plan)
 > - [🚀 Getting Started](#-getting-started)
@@ -69,6 +70,10 @@ The product is ideally consists of a *continuum robot*, a *driving system* and a
 - [ ] Open-source project repository, including the codes, simulations and CAD files.
 
 </details>
+
+## 🤖 Demo
+Trajectory Replication Display  
+https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/assets/96078570/2f5e6fad-2410-4b58-8dbd-b24e27642233
 
 ## 📁 Repository Structure
 ```sh

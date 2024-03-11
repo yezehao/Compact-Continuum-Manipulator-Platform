@@ -1,4 +1,6 @@
 # Python Kinematics Programme Tutorial
+## 🤖 Trajectory Replication Display
+https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/assets/96078570/2f5e6fad-2410-4b58-8dbd-b24e27642233
 ## 📁 Folder Description
 ```sh
 ├── conversion.py
