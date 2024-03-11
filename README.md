@@ -78,44 +78,49 @@ https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/assets/9607857
 
 ## 📁 Repository Structure
 ```sh
-└── Compact Continuum Manipulator Platform/
-    ├── .devcontainer/
-    │   ├── devcontainer.json
-    │   └── Dockerfile
-    ├── deliverable/
-    │   ├── Documentation/
-    │   ├── Final Report/
-    │   │   ├── Appendix/
-    │   │   ├── config/
-    │   │   ├── Image/
-    │   │   ├── Setion/
-    │   │   ├── Main-Thesis-File.pdf
-    │   │   ├── Main-Thesis-File.tex
-    │   │   └── references.bib
-    │   └── Presentation/
-    │       ├── presentation1.pptx
-    │       └── presentation2.pptx
-    ├── src/
-    │   ├── Kinematics/
-    │   │   ├── result/
-    │   │   ├── conversion.py
-    │   │   ├── data.json
-    │   │   ├── forward-kinematics.ipynb
-    │   │   ├── work-space-simulation.py
-    │   │   └── README.md
-    │   ├── MATLAB/
-    │   │   ├── result/
-    │   │   ├── error_calculation.m
-    │   │   ├── FK_matrix.m
-    │   │   ├── forward_kinematics_display.m
-    │   │   ├── inverse_kinematics_note.md
-    │   │   ├── workspace_simulation.m
-    │   │   └── README.md
-    │   ├── Arduino/
-    │   │   ├── multiple_motor_control.ino
-    │   │   └── multiple_motor_control.pdsprj
-    │   └── Model/
-    └── README.md
+📦 Compact Continuum Manipulator Platform
+├── 📂 Arduino-Simulation
+│   ├── 📂 motor_control_final
+│   │   └── motor_control_final.ino
+│   ├── multiple_motor_control.ino
+│   ├── multiple_motor_control.pdsprj
+│   └── 📜 README.md
+├── 📂 Deliverable
+│   ├── 📂 Documentation
+│   └── 📂 Final-Report
+│       ├── 📂 Appendix
+│       ├── 📂 config
+│       ├── 📂 Image
+│       ├── 📂 Section
+│       ├── Main-Thesis-File.pdf
+│       ├── Main-Thesis-File.tex
+│       └── references.bib
+├── 📂 Kinematics
+│   ├── 📂 circle
+│   ├── 📂 IK_NN
+│   ├── conversion.py
+│   ├── FABRIKc.py
+│   ├── forward-kinematics.ipynb
+│   ├── inverse_kinematics.py
+│   ├── trajectory_replication.py
+│   ├── work-space-simulation.py
+│   └── 📜 README.md
+
+├── 📂 MATLAB
+│   ├── 📂 result
+│   ├── draw_tdcr.m
+│   ├── error_calculation.m
+│   ├── FKD_geometry.m
+│   ├── FKD_visual.m
+│   ├── FK_matrix.m
+│   ├── TR_display.m
+│   ├── workspace_simulation.m
+│   └── 📜 README.md
+├── 📂 Model
+│   └── Manipulator.SLDASM
+├── 📄 LICENSE
+├── 📋 requirements.txt
+└── 📜 README.md
 ```
 
 
@@ -143,74 +148,55 @@ gantt
     CAD Modelling (2D): done, 2023-11-18, 25d
     UG/Solidwork Modelling (3D): done, 2023-11-23, 25d
     Strain Analysis Replication: done, 2023-12-15, 40d
-    Manipulator Model Strain Analysis: active, 2023-12-25, 55d
-    Manipulator Model Parameter Adjustment: 2024-02-01, 2024-03-01
+    Manipulator Model Strain Analysis: done, 2023-12-25, 55d
+    Manipulator Model Parameter Adjustment: done, 2024-02-01, 2024-03-01
     Model Physical Strength Verification: milestone, crit, 2024-03-01, 0d 
 
     section Electronic Components Control [Y. Li & Y. Zhang]
     Proteus & Arduino IDE Env Config: done, 2023-11-18, 12d
     Auctutor Control Simulation: done, 2023-11-30, 10d
-    Arduino Programming of Kinematics: active, 2023-12-11, 60d
-    Arduino Programme Testing: 2024-02-01, 30d
+    Arduino Programming of Kinematics: done, 2023-12-11, 60d
+    Arduino Programme Testing: done, 2024-02-01, 30d
     Arduino Bench Inspection: milestone, crit, 2024-03-01, 0d 
 
     section Locomotion Model [Z. Ye & Y. Zhu]
     Manipulator Parameter Design: done, 2023-11-18, 14d
     Forward Kinematics Algorithm: done, 2023-12-01, 30d
-    Inverse Kinematics Algorithm: active, 2024-01-01, 60d
-    Locomotion Bench Inspection: milestone, crit, 2024-03-01, 0d 
+    Inverse Kinematics Algorithm: done, 2024-01-01, 60d
+    Locomotion Bench Inspection: milestone, crit, 2024-03-08, 0d 
 
     section GitHub Documentation [Z. Ye]
-    README Maintanence: active, 2023-10-16, 2024-03-22
-    Manipulator Model Strain Analysis Documentation: active, 2024-01-20, 2024-03-22
-    Arduino Programme Documentation: active, 2024-01-20, 2024-03-22
-    Kinematics Programme Documentation: active, 2024-01-20, 2024-03-22
-    Documentation Inspection: milestone, crit, 2024-03-22, 0d 
+    README Maintanence: active, 2023-10-16, 2024-03-15
+    Manipulator Model Strain Analysis Documentation: active, 2024-01-20, 2024-03-15
+    Arduino Programme Documentation: active, 2024-01-20, 2024-03-15
+    Kinematics Programme Documentation: active, 2024-01-20, 2024-03-15
+    Documentation Inspection: milestone, crit, 2024-03-15, 0d 
 
     section Deliverable
     Presentation 1 Preparation: done, 2023-12-06, 5d
     Presentation 1 [Week 16]: milestone, done, crit, 2023-12-11, 0d 
     Peer Assessment 1 [Week 16]: milestone, done, crit, 2023-12-18, 0d 
-    Report Writting Preparation: 2024-02-26, 10d 
-    Individual Contirbution [Week 28]: milestone, crit, 2024-03-04, 5d 
-    Final Report [Week 28]: milestone, crit, 2024-03-04, 5d 
-    Peer Assessment 2 [Week 28]: milestone, crit, 2024-03-04, 5d
-    Presentation 2 preparation: 2024-03-07, 7d 
-    Second Presentation [Week 29]: milestone, crit, 2024-03-11, 5d 
+    Report Writting Preparation: done, 2024-02-26, 10d 
+    Individual Contirbution [Week 28]: done, milestone, crit, 2024-03-08, 0d 
+    Final Report [Week 28]: done, milestone, crit, 2024-03-08, 0d 
+    Peer Assessment 2 [Week 28]: done, milestone, crit, 2024-03-08, 0d
+    Presentation 2 preparation: 2024-03-15, 0d 
+    Second Presentation [Week 29]: milestone, crit, 2024-03-15, 0d 
 ```
 
-### Milestone & Deliverable
 <details closed>
 <summary>Deadlines of project</summary>
 
 |Assessment elements|Assessment Type|Contribution|Due Date|
 |:--|:--|:--|:--|
-|Presentation 1|Formative|Team|Week 16|
-|Peer Assessment 1|Formative|Individual|Week 16|
-|Final Report|Summative|Team|Week 28|
-|Peer Assessment 2|Summative|Individual|Week 28|
-|Individual Contribution|Summative|Individual|Week 28|
-|Presentation 2|Summative|Team|Week 29|
+|Presentation 1|Formative|Team|2023-12-11|
+|Peer Assessment 1|Formative|Individual|2023-12-18|
+|Final Report|Summative|Team|2024-03-08|
+|Peer Assessment 2|Summative|Individual|2024-03-08|
+|Individual Contribution|Summative|Individual|2024-03-08|
+|Presentation 2|Summative|Team|2024-03-15|
 
 </details>
-
-```mermaid
-gantt
-    dateFormat  YYYY-MM-DD
-    title Deadlines of the MECH0064 Group Project
-
-    Mataining this Gantt Chart [Zehao Ye] : 2023-10-16, 2024-03-22
-
-    section Team Tasks
-    Presentation 1 [Week 16]: crit, 2023-12-11, 5d    
-    Final Report [Week 28]: crit, 2024-03-04, 5d
-    Second Presentation [Week 29]: crit, 2024-03-11, 5d 
-
-    section Individual Tasks
-    Peer Assessment 1 [Week 16]: 2023-12-11, 5d
-    Peer Assessment 2 [Week 28]: 2024-03-04, 5d
-    Individual Contirbution [Week 28]: 2024-03-04, 5d
-```
 
 ## 🚀 Getting Started
 **Requirements for Kinematics Simulation**
@@ -265,5 +251,5 @@ gantt
 ### 👩‍💻 Running Tutorial
 #### Kinematics Simulation Programme
 There are two versions of the kinematics about compact continuum manipulator platform. The python version (2.0) have robust performances in Machine Learning (ML) compared with the MATLAB version (1.0). The simulation about inverse kinematics will mainly contribute to the python programme to make further explanation. However, the MATLAB version (1.0) have better visualization, which can be utilized for parameter design and manipulator model displayment. The tutorials about the kinematics programmes are shown as follow: 
-+ [MATLAB Version (1.0)](https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/blob/main/src/MATLAB/README.md) 
-+ [Python Version (2.0)](https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/blob/main/src/Kinematics/README.md)
++ [MATLAB Version (1.0)](MATLAB/README.md) 
++ [Python Version (2.0)](Kinematics/README.md)
