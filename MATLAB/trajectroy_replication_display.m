@@ -1,10 +1,10 @@
 clear;clc;close all;
 % Open the file for reading
-alpha = load("circle/alpha.txt");
-error = load("circle/cita.txt");
-target = load("circle/target.txt");
-target_ = load("circle/target_.txt");
-cita = load("circle/cita.txt");
+alpha = load("result/circle/alpha.txt");
+error = load("result/circle/cita.txt");
+target = load("result/circle/target.txt");
+target_ = load("result/circle/target_.txt");
+cita = load("result/circle/cita.txt");
 
 % Paremeter Define
 length_mm = 300;
@@ -102,14 +102,14 @@ for k = 1:size(cita,1)
     plot3(target(:,1), target(:,2), target(:,3),'LineWidth', 2, 'Color', [78, 70, 55]/255);
 
 
-    filename = sprintf('circle/circle_%d.png', k);
+    filename = sprintf('result/circle/circle_%d.png', k);
     saveas(gcf, filename);
     close(gcf);
 end
 
 %% Video Maker
 % MP4 Video Generation
-v=VideoWriter('circle/circle.mp4', 'MPEG-4');
+v=VideoWriter('result/circle/circle.mp4', 'MPEG-4');
 endFrame = 161; % The end frames
 v.Quality = 100; 
 v.FrameRate = 10; % fps = 5
@@ -118,7 +118,7 @@ v.FrameRate = 10; % fps = 5
 open(v); % Open file for writing video data
 % imread image from result
 for k = 1:endFrame % endFrame
-    frame_path = ['circle/circle_',num2str(k),'.png'];
+    frame_path = ['result/circle/circle_',num2str(k),'.png'];
     frames = imread(frame_path);
     writeVideo(v,frames);
 end
