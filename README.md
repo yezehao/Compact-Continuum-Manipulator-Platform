@@ -37,6 +37,7 @@
 > - [🚀 Getting Started](#-getting-started)
 >   - [⚙️ Installation](#️-installation)
 >   - [👩‍💻 Running Tutorial](#-running-tutorial)
+>   - [📋 Parameter Definations](#-parameter-definations)
 > - [🤝 Contributing](#-contributing)
 
 ## 📍 Overview
