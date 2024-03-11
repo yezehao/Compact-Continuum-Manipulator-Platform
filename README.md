@@ -79,6 +79,7 @@ https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/assets/9607857
 ## 📁 Repository Structure
 ```sh
 📦 Compact Continuum Manipulator Platform
+├── 📂 .devcontainer
 ├── 📂 Arduino-Simulation
 │   ├── 📂 motor_control_final
 │   │   └── motor_control_final.ino
@@ -105,7 +106,6 @@ https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/assets/9607857
 │   ├── trajectory_replication.py
 │   ├── work-space-simulation.py
 │   └── 📜 README.md
-
 ├── 📂 MATLAB
 │   ├── 📂 result
 │   ├── draw_tdcr.m
@@ -253,3 +253,26 @@ gantt
 There are two versions of the kinematics about compact continuum manipulator platform. The python version (2.0) have robust performances in Machine Learning (ML) compared with the MATLAB version (1.0). The simulation about inverse kinematics will mainly contribute to the python programme to make further explanation. However, the MATLAB version (1.0) have better visualization, which can be utilized for parameter design and manipulator model displayment. The tutorials about the kinematics programmes are shown as follow: 
 + [MATLAB Version (1.0)](MATLAB/README.md) 
 + [Python Version (2.0)](Kinematics/README.md)
+
+#### Further Improvement
+The CAD model of the manipulator is designed in [Model](Modle). It can be exported into the ROS for further simulation. The docker env has been configurated in [.devcontainer](.devcontainer) and can be executed through VS Code.
+
+### 📋 Parameter Definations
+<details open>
+<summary>Parameter Definations of Manipulator</summary>
+
+|Parameter|Definition|Value (mm)|
+|:--|:--|:--|
+| $Sr_i$ | the length of elastic sheet in Module i | $Sr_{1,2,3,4} = 150$ |
+| $d_i$ | the thickness of the cross-shaped connector | $d_{1,2,3,4,5} = 15$ |
+| $N$ | the number of cross-shaped sheet in a module | $N = 0 \text{ textasciitilde} 15$ |
+| $r_i$ | the distance between the centroid of connector and cable routing hole | $r_{1,2} = 17.5$, $r_{3,4} = 15$ |
+| $\Delta S_i$ | the change volume of cable, cable$_{2i-1}$ and cable $_{2i}$ corresponds to Module i | |
+| $\boldsymbol{\Delta S}$ | a series of change volume of cables | $\Delta S_1 \sim \Delta S_8$ |
+| $\alpha_i$ | the bending angle of module i | |
+| $\boldsymbol{\alpha}$ | a series of bending angles about four modules | $[\alpha_1,\ \alpha_2,\ \alpha_3,\ \alpha_4]$ |
+| $\boldsymbol{\theta}$ | a series of inverse kinematics solutions | $[\theta_1,\ \theta_2,\ \theta_3,\ \theta_4]$ |
+| $\boldsymbol{\epsilon}$ | threshold of the error in FABRIKc algorithm | $\boldsymbol{\epsilon} = 0.02$ |
+
+
+</details>
