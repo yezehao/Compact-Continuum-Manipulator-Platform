@@ -56,13 +56,13 @@ The program's running results are as follow. The users can select the modes abou
 + `FABRIKc.py`: this contains functions about inverse kinematics. It use the algorithn called [FABRIKc](https://ieeexplore.ieee.org/abstract/document/8452693) to make approximation about the inverse kinematics. Compared with other approximation algorithm, this is efficient without suffering from singularity problems. The programmes `inverse_kinematics.py` and `trajectory_replication.py` utilize the functions in this python code.
 + `inverse_kinematics.py`: this programme is used to get the solution about inverse kinematics. There are two modes for the inverse kinematics, which are **Test Mode** and **User Mode**. 
   + **Test Mode 0** is utilized to validate the accuracy of the programme. The target anlges $\boldsymbol{\theta}$ is used as input. The result about inverse kinematics is shown as follows.
-    <p align="center">
+<p align="center">
     <img src="../Deliverable/Documentation/code/IK_mode0_enter.png" alt="IK_mode0_enter">
     <img src="../Deliverable/Documentation/code/IK_mode0_output.png" alt="IK_mode0_output">
-    </p>
+</p>
   + **User Mode 1** is utilized to apply inverse kinematics according to the position and orientation of the end effector. The $\textbf{P}_{target}$ and $\textbf{O}_{target}$ are used as input. The result about inverse kinematics is shown as follows.
-    <p align="center">
+<p align="center">
     <img src="../Deliverable/Documentation/code/IK_mode1_enter.png" alt="IK_mode1_enter">
     <img src="../Deliverable/Documentation/code/IK_mode1_output.png" alt="IK_mode1_output">
-    </p>
+</p>
 + `trajectory_replication.py`: this programme is used to replicate the trajectory. The user can simply modify the angles in [alpha.txt](circle/alpha.txt). The result is shown at [🤖 Trajectory Replication Display](#-trajectory-replication-display).
