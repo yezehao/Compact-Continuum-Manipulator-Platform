@@ -127,23 +127,3 @@ while True:
 
     else:
         print("Invalid mode. Please enter either 0 or 1.")
-
-
-
-
-
-# # Generate the target information
-# target_cita = np.deg2rad(target_angle)
-# target, orientation, _, _, _  = backward_reach(target_cita,Sr)
-# print(f"The target position of end effector: \n{target}\n")
-# print(f"The orientation of end effector: \n{orientation}\n")
-
-# # put the angles in Numpy
-# initialization = np.array([0, 0, 0, 0])
-# start = time.time()
-# cita, error = FABRIKc(target, orientation,Sr,disp=1,cita=initialization)
-# target_, _, _, _, _  = backward_reach(np.deg2rad(cita),Sr)
-# print(target_)
-# _ = conversion(cita,r)
-# end = time.time()
-# print(f"The programme execute for {np.round(end-start,decimals=5)} seconds")
