@@ -31,48 +31,49 @@
 ## 🔗 Quick Links
 
 > - [📍 Overview](#-overview)
-> - [🤖 Demo](#-demo)
+> - [🤖 Achievement](#-achievement)
 > - [🚀 Getting Started](#-getting-started)
 >   - [⚙️ Installation](#️-installation)
 >   - [👩‍💻 Running Tutorial](#-running-tutorial)
 >   - [📋 Parameter Definations](#-parameter-definations)
 > - [📁 Repository Structure](#-repository-structure)
-> - [🤝 Contributing](#-contributing)
 
 ## 📍 Overview
 
 The project is proposed to develop a compact continuum robotic platform suitable for precisely manipulating ultrasonic transducers for laboratory experimental FUS studies. 
 
 <details closed>
-<summary>Aim</summary>
-
-The aim of the project is to develop a compact continuum robotic platform for precise manipulation of an *ultrasonic transducer* (`cylindrical`, `dimensions of 65x30 mm`, `weight < 0.8 kg`)
-
-</details>
-
-
-<details closed>
-<summary>Main Features</summary>
-
-The features of the compact continuum manipulator platform are as follow:   
-`compact`, `versatile`, `cost-effective`, `programmable`, `open-source`, `6-DOF`
-
-</details>
-
-<details closed>
 <summary>Objectives</summary>
 
-- [x] manipulator workspace `300x300x300 mm`,
-- [x] precision `error = 0.05 mm`, 
-- [x] manipulator design`CAD model and strength analysis`, 
-- [x] kinematics derivation `forward and inverse kinematics`, 
-- [x] control system `Arduino`, 
-- [x] project completion **15$^{th}$ March 2024**.
+The objective of the project aims to design a modular fishbone continuum manipulator constructed from commonly used materials, 
+capable of carrying the FUS transducer. The workspace of manipulator is specified as 300x300x300 mm,  featuring a high level 
+of precision with a permissible error margin of 0.02 mm. The manipulator is expected to be user-friendly, requiring a learning 
+cost of less than two hours. Testing and validation will be conducted through simulations based on Ansys, MATLAB, and Arduino. 
+The project commenced on 10th November 2023, and is scheduled to conclude on 15th March 2024.
 
 </details>
 
-## 🤖 Demo
-Trajectory Replication Display  
+<details closed>
+<summary>Features</summary>
+
+- [x] **Manipulator Workspace**: 300x300x300 mm
+- [x] **Precision**: error = 0.05 mm 
+- [x] **Manipulator Design**: CAD model and strength analysis 
+- [x] **Kinematics Derivation**: forward and inverse kinematics, 
+- [x] **Control System**: Arduino 
+- [x] **Project Completion**: 15th March 2024.
+- [x] **Open Source**
+
+</details>
+
+## 🤖 Achievement
+#### Strength Analysis
+<p align="center">
+  <img src="Deliverable/Final-Report/Image/Result/displacement.png" width="400" height="300" alt="displacement_analysis">
+  <img src="Deliverable/Final-Report/Image/Result/stress.jpg" width="400" height="300" alt="stress_analysis">
+</p>
+
+#### Kinematics - Trajectory Replication  
 
 https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/assets/96078570/2f5e6fad-2410-4b58-8dbd-b24e27642233
 
