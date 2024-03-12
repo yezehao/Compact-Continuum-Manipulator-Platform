@@ -57,17 +57,17 @@ The aim of the project is to develop a compact continuum robotic platform for pr
 The features of the compact continuum manipulator platform are as follow:   
 `compact`, `versatile`, `cost-effective`, `programmable`, `open-source`, `6-DOF`
 
-The product is ideally consists of a *continuum robot*, a *driving system* and a *control system* developed using Arduino.
 </details>
 
 <details closed>
 <summary>Objectives</summary>
 
-- [ ] Identify the most suitable design of tendon manipulators for this application,
-- [ ] Design and simulate the kinetics and kinematics of the platform numerically,
-- [ ] Optimise the design by minimising the dimensions of the platform,
-- [ ] Propose suitable instrumentation and develop the required controller,
-- [ ] Open-source project repository, including the codes, simulations and CAD files.
+- [x] manipulator workspace `300x300x300 mm`,
+- [x] precision `error = 0.05 mm`, 
+- [x] manipulator design`CAD model and strength analysis`, 
+- [x] kinematics derivation `forward and inverse kinematics`, 
+- [x] control system `Arduino`, 
+- [x] project completion **15$^{th}$ March 2024**.
 
 </details>
 
