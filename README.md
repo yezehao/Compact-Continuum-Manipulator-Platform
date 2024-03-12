@@ -67,6 +67,11 @@ The project commenced on 10th November 2023, and is scheduled to conclude on 15t
 </details>
 
 ## 🤖 Achievement
+#### Manipulator Design
+<p align="center">
+  <img src="Deliverable/Final-Report/Image/Design/main_component_of_manipulator.png" width="800" height="400" alt="design">
+</p>
+
 #### Strength Analysis
 <p align="center">
   <img src="Deliverable/Final-Report/Image/Result/displacement.png" width="400" height="300" alt="displacement_analysis">
@@ -76,6 +81,9 @@ The project commenced on 10th November 2023, and is scheduled to conclude on 15t
 #### Kinematics - Trajectory Replication  
 
 https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/assets/96078570/2f5e6fad-2410-4b58-8dbd-b24e27642233
+
+#### Arduino Actuation Control
+
 
 
 ## 🚀 Getting Started
