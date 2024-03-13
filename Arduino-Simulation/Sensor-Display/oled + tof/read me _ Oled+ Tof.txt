@@ -1,0 +1,2 @@
+This part of the code and simulation implements the detection of the distance between the end-effector and the object to be measured by means of an ultrasonic sensor and displays it on an OLED screen.
+After the completion of the code compilation, the generated .Hex file needs to be embedded as embedded code on Arduino Uno on Proteus.

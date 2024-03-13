@@ -1,0 +1,1 @@
+This code implements the input of a string through the serial monitor and displays the contents on the LCD screen. This code has been physically verified. This code needs to be written in conjunction with the stepper motor control code.
