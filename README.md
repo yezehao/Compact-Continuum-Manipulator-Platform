@@ -84,6 +84,9 @@ https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/assets/9607857
 
 #### Arduino Actuation Control
 
+https://github.com/yezehao/Compact-Continuum-Manipulator-Platform/assets/96078570/7a86e21f-088d-4987-99d9-87eaa268f4df
+
+
 
 
 ## 🚀 Getting Started
