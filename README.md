@@ -7,12 +7,13 @@
 <div align="center">
 
 
-<img src="https://img.shields.io/github/license/yezehao/Compact-Continuum-Manipulator-Platform?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
-<img src="https://img.shields.io/github/last-commit/yezehao/Compact-Continuum-Manipulator-Platform?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
-<img src="https://img.shields.io/github/languages/top/yezehao/Compact-Continuum-Manipulator-Platform?style=flat&color=0080ff" alt="repo-top-language">
-<img src="https://img.shields.io/github/languages/count/yezehao/Compact-Continuum-Manipulator-Platform?style=flat&color=0080ff" alt="repo-language-count">
-
-[![Docker Image](https://img.shields.io/badge/Docker%20Image-osrf/ros:noetic--desktop--full--focal-0080ff?logo=docker)](https://hub.docker.com/layers/osrf/ros/noetic-desktop-full-focal/images/sha256-70037dab062e8edf988261a1ab937182676a984036219ebac4b8ec2ce6d1159e?context=explore)
+<img src="https://img.shields.io/github/license/yezehao/Compact-Continuum-Manipulator-Platform?style=flat&logo=opensourceinitiative&logoColor=white" alt="license">
+<img src="https://img.shields.io/github/last-commit/yezehao/Compact-Continuum-Manipulator-Platform?style=flat&logo=git&logoColor=white" alt="last-commit">
+<img src="https://img.shields.io/github/languages/count/yezehao/Compact-Continuum-Manipulator-Platform?style=flat&color=ff0088" alt="repo-language-count">
+<img src="https://img.shields.io/github/languages/top/yezehao/Compact-Continuum-Manipulator-Platform?style=flat&color=ff0088&logo=latex" alt="repo-top-language">
+<a href="https://hub.docker.com/layers/osrf/ros/noetic-desktop-full-focal/images/sha256-70037dab062e8edf988261a1ab937182676a984036219ebac4b8ec2ce6d1159e?context=explore">
+  <img src="https://img.shields.io/badge/Docker%20Image-osrf/ros:noetic--desktop--full--focal-0080ff?logo=docker" alt="Docker Image">
+</a>
 
 </div>
 <h3 align="center"><i>Developed with tools and softwares below.</i></h3>
