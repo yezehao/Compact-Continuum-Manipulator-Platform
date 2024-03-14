@@ -6,10 +6,13 @@
 <h3 align="center"><i>Repository Status</i></h3>
 <div align="center">
 
+
+<img src="https://img.shields.io/github/license/yezehao/Compact-Continuum-Manipulator-Platform?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
+<img src="https://img.shields.io/github/last-commit/yezehao/Compact-Continuum-Manipulator-Platform?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
+<img src="https://img.shields.io/github/languages/top/yezehao/Compact-Continuum-Manipulator-Platform?style=flat&color=0080ff" alt="repo-top-language">
+<img src="https://img.shields.io/github/languages/count/yezehao/Compact-Continuum-Manipulator-Platform?style=flat&color=0080ff" alt="repo-language-count">
+
 [![Docker Image](https://img.shields.io/badge/Docker%20Image-osrf/ros:noetic--desktop--full--focal-0080ff?logo=docker)](https://hub.docker.com/layers/osrf/ros/noetic-desktop-full-focal/images/sha256-70037dab062e8edf988261a1ab937182676a984036219ebac4b8ec2ce6d1159e?context=explore)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![Python Version](https://img.shields.io/badge/Python-3.10+-0080ff?logo=python)
-![PyTorch Version](https://img.shields.io/badge/PyTorch-2.1.2+-0080ff)
 
 </div>
 <h3 align="center"><i>Developed with tools and softwares below.</i></h3>
